@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beat Runner - Alon Iter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="project-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Alon Iter</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Projects</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Projects</a>
+            <h1 class="project-hero-title">Beat Runner</h1>
+            <p class="project-hero-subtitle">Neon Rhythm Experience</p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Game Designer • Developer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">4 weeks</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Platform</span>
+                    <span class="meta-value">Web (Three.js)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Type</span>
+                    <span class="meta-value">3D Rhythm Runner</span>
+                </div>
+            </div>
+            
+            <div class="project-cta">
+                <a href="https://aloniter.github.io/BeatsRunner/" target="_blank" class="btn btn-primary">Play Live Demo</a>
+                <a href="https://github.com/aloniter/BeatsRunner" target="_blank" class="btn btn-secondary">View Code</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <!-- The Challenge -->
+            <div class="content-section">
+                <h2 class="content-title">The Challenge</h2>
+                <p class="content-text">
+                    Design a rhythm game that feels great to play, works with any music, and includes full progression 
+                    and monetization systems—all while being technically feasible as a web-based 3D experience.
+                </p>
+                <p class="content-text">
+                    Most rhythm games rely on pre-charted content, which limits music selection and requires significant 
+                    manual work. I wanted to create something that could <strong>adapt to any song automatically</strong> 
+                    while maintaining tight, satisfying gameplay.
+                </p>
+            </div>
+
+            <!-- My Role & Design Approach -->
+            <div class="content-section">
+                <h2 class="content-title">My Role & Design Approach</h2>
+                <p class="content-text">
+                    As the sole designer and developer, I handled everything from initial concept to final implementation:
+                </p>
+                <ul class="content-list">
+                    <li><strong>Core Loop Design:</strong> Defined lane-based movement, rhythm timing windows, and obstacle variety</li>
+                    <li><strong>Progression System:</strong> Created 30-level structure with difficulty curve and star-based unlocks</li>
+                    <li><strong>Economy Design:</strong> Designed Orbs (soft currency) earning rate and cosmetic pricing</li>
+                    <li><strong>Technical Implementation:</strong> Built the game in Three.js with BPM detection and sync</li>
+                    <li><strong>UI/UX:</strong> Designed clean, game-feel focused interface with neon aesthetic</li>
+                </ul>
+            </div>
+
+            <!-- Key Design Decisions -->
+            <div class="content-section">
+                <h2 class="content-title">Key Design Decisions</h2>
+                
+                <div class="design-decision">
+                    <h3 class="decision-title">1. Three Lanes, Not Five</h3>
+                    <p class="content-text">
+                        <strong>Initial Design:</strong> Started with 5 lanes to maximize variety and challenge.
+                    </p>
+                    <p class="content-text">
+                        <strong>Problem Discovered:</strong> Playtesters struggled with peripheral vision and made frequent 
+                        input errors. The game felt chaotic rather than challenging.
+                    </p>
+                    <p class="content-text">
+                        <strong>Solution:</strong> Reduced to 3 lanes. This simplified visual tracking while still allowing 
+                        for interesting obstacle patterns. Added vertical variation (obstacles at different heights) to 
+                        maintain complexity without overwhelming players.
+                    </p>
+                    <p class="content-text">
+                        <strong>Result:</strong> Much better player feedback. The game felt "tight" and responsive rather than unfair.
+                    </p>
+                </div>
+
+                <div class="design-decision">
+                    <h3 class="decision-title">2. Visual Beat Indicators</h3>
+                    <p class="content-text">
+                        <strong>Problem:</strong> Players without strong rhythm sense struggled to time their movements, 
+                        especially when learning new songs.
+                    </p>
+                    <p class="content-text">
+                        <strong>Solution:</strong> Added pulsing lane highlights that flash on the beat. This gives players 
+                        a visual cue to sync with the music without dictating exact actions.
+                    </p>
+                    <p class="content-text">
+                        <strong>Design Principle:</strong> Help players succeed without removing the challenge. The indicators 
+                        show <em>when</em> to act, but players still choose <em>what</em> to do.
+                    </p>
+                </div>
+
+                <div class="design-decision">
+                    <h3 class="decision-title">3. Two Game Modes for Different Player Mindsets</h3>
+                    <p class="content-text">
+                        <strong>Stage Mode:</strong> 30 handcrafted levels with specific difficulty curves, star ratings, 
+                        and unlock progression. Appeals to achievement-oriented players who want clear goals.
+                    </p>
+                    <p class="content-text">
+                        <strong>Free Run Mode:</strong> Upload any song and play infinitely. Appeals to players who want 
+                        to zone out with their own music. No pressure, pure flow state.
+                    </p>
+                    <p class="content-text">
+                        <strong>Why Both Matter:</strong> Different sessions call for different experiences. After a stressful 
+                        day, players want Free Run. When they want to improve, they pick Stage Mode.
+                    </p>
+                </div>
+
+                <div class="design-decision">
+                    <h3 class="decision-title">4. Orbs as Engagement, Not Monetization Blocker</h3>
+                    <p class="content-text">
+                        <strong>Economy Design:</strong> Orbs (soft currency) are earned generously through gameplay. 
+                        Players collect them by hitting obstacles perfectly.
+                    </p>
+                    <p class="content-text">
+                        <strong>Cosmetic Shop:</strong> Two ball skins available (Disco Ball, Fire Ball). Prices are 
+                        achievable within 3-5 runs, ensuring players can unlock content through play.
+                    </p>
+                    <p class="content-text">
+                        <strong>Design Philosophy:</strong> The shop exists to give players goals and variety, not to 
+                        frustrate them. In a real F2P implementation, I'd add premium currency for faster unlocks, 
+                        but the core experience remains free.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Features Breakdown -->
+            <div class="content-section">
+                <h2 class="content-title">Features Breakdown</h2>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3 class="feature-title">🎵 Dynamic BPM Detection</h3>
+                        <p class="feature-description">
+                            Automatically analyzes uploaded songs to detect tempo and sync obstacle spawning to the beat. 
+                            Works with songs from 60-180 BPM.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3 class="feature-title">⭐ Star-Based Progression</h3>
+                        <p class="feature-description">
+                            Earn 1-3 stars per level based on performance. Stars unlock later stages, creating a natural 
+                            difficulty curve and encouraging replays.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3 class="feature-title">🎨 Cosmetic Unlocks</h3>
+                        <p class="feature-description">
+                            Two ball skins with unique visual effects. Players work toward tangible goals while maintaining 
+                            fair gameplay (no pay-to-win).
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3 class="feature-title">📊 Performance Tracking</h3>
+                        <p class="feature-description">
+                            Real-time display of Distance, Orbs collected, and obstacle Hits. Gives immediate feedback 
+                            on player improvement.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Highlights -->
+            <div class="content-section">
+                <h2 class="content-title">Technical Highlights</h2>
+                <ul class="content-list">
+                    <li><strong>Three.js 3D Rendering:</strong> Smooth 60fps gameplay with particle effects and neon glow shaders</li>
+                    <li><strong>Audio Analysis:</strong> Web Audio API for real-time BPM detection and beat tracking</li>
+                    <li><strong>Procedural Generation:</strong> Dynamic obstacle spawning based on music tempo and difficulty level</li>
+                    <li><strong>Responsive Controls:</strong> Arrow keys + touch support for mobile (tested on iOS Safari)</li>
+                    <li><strong>State Management:</strong> Clean save/load system for progression, unlocks, and player settings</li>
+                </ul>
+            </div>
+
+            <!-- What I Learned -->
+            <div class="content-section">
+                <h2 class="content-title">What I Learned</h2>
+                
+                <div class="learning-item">
+                    <h3 class="learning-title">Player Fantasy > Feature Count</h3>
+                    <p class="content-text">
+                        Initially planned 10+ power-ups and complex combo systems. After testing, realized the core 
+                        fantasy is "moving to music." Removed distractions and focused on making the basic loop feel amazing.
+                    </p>
+                </div>
+                
+                <div class="learning-item">
+                    <h3 class="learning-title">Difficulty Curves Are Critical</h3>
+                    <p class="content-text">
+                        Early levels were too hard. Players quit before experiencing the "flow state" that makes rhythm 
+                        games addictive. Adjusted the first 5 levels to be significantly easier—retention improved dramatically.
+                    </p>
+                </div>
+                
+                <div class="learning-item">
+                    <h3 class="learning-title">Visual Feedback Sells Game Feel</h3>
+                    <p class="content-text">
+                        Added screen shake, particle bursts, and sound effects when hitting obstacles. These "juice" elements 
+                        transformed the game from functional to fun. Small polish details have outsized impact on perception.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Metrics & Results -->
+            <div class="content-section">
+                <h2 class="content-title">Results & Impact</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">30</div>
+                        <div class="metric-label">Handcrafted Levels</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">2</div>
+                        <div class="metric-label">Game Modes</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">∞</div>
+                        <div class="metric-label">Song Compatibility</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Built Solo</div>
+                    </div>
+                </div>
+                <p class="content-text" style="margin-top: var(--spacing-lg);">
+                    Beat Runner demonstrates my ability to take a project from concept to polished execution. It shows 
+                    systems thinking (progression, economy), player-focused iteration (simplifying lanes, adding visual cues), 
+                    and technical execution (actually shipping a working game).
+                </p>
+            </div>
+
+            <!-- What's Next -->
+            <div class="content-section">
+                <h2 class="content-title">What's Next for Beat Runner</h2>
+                <ul class="content-list">
+                    <li><strong>Mobile Optimization:</strong> Better touch controls and performance tuning for iOS/Android</li>
+                    <li><strong>Leaderboards:</strong> Weekly challenges with global rankings to drive social competition</li>
+                    <li><strong>More Cosmetics:</strong> Trails, particle effects, and lane themes for deeper customization</li>
+                    <li><strong>Multiplayer Mode:</strong> Async races where players compete on the same generated track</li>
+                </ul>
+            </div>
+
+            <!-- CTA -->
+            <div class="content-cta">
+                <h2 class="cta-title">Try It Yourself</h2>
+                <p class="cta-text">Experience the full game with all features unlocked.</p>
+                <a href="https://aloniter.github.io/BeatsRunner/" target="_blank" class="btn btn-primary">Play Beat Runner</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Alon Iter. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
