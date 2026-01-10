@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Lab - Alon Iter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="project-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Specific overrides for gallery */
+        .screens-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .screens-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .screens-gallery img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .screens-gallery img:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Alon Iter</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Projects</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Projects</a>
+            <h1 class="project-hero-title">Merge Lab</h1>
+            <p class="project-hero-subtitle">Data-Driven Puzzle Experiment</p>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Solo Developer & Designer</span>
+                </div>
+                <!-- TODO: Confirm Timeline if needed -->
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">3 weeks</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Platform</span>
+                    <span class="meta-value">Mobile Web</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Type</span>
+                    <span class="meta-value">Puzzle / Analytics Tool</span>
+                </div>
+            </div>
+
+            <div class="project-cta">
+                <a href="https://merge-lab.vercel.app/" target="_blank" class="btn btn-primary">Play Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+
+            <!-- Overview -->
+            <div class="content-section">
+                <h2 class="content-title">Overview</h2>
+                <p class="content-text">
+                    Merge Lab is a mobile-first merge puzzle game built to test iteration loops based on player data.
+                    It features a custom-built Level Editor and an on-device Insights dashboard, allowing for rapid
+                    balance tuning without external tools.
+                </p>
+            </div>
+
+            <!-- Key Features -->
+            <div class="content-section">
+                <h2 class="content-title">Key Features</h2>
+                <ul class="content-list">
+                    <li><strong>Order-Based Objectives:</strong> Tiered goals per level with strict move limits.</li>
+                    <li><strong>Level Editor:</strong> In-app tool to adjust move limits and orders instantly.</li>
+                    <li><strong>Insights Dashboard:</strong> Tracks attempts, win rates, and level difficulty in
+                        real-time.</li>
+                    <li><strong>Analytics Export:</strong> CSV export for deeper analysis.</li>
+                    <li><strong>Configurable Settings:</strong> Dark mode, sound toggles, and data reset.</li>
+                </ul>
+            </div>
+
+            <!-- Data, Insights, Iteration -->
+            <div class="content-section">
+                <h2 class="content-title">Data, Insights, Iteration</h2>
+                <p class="content-text">
+                    The core goal of this project was to practice data-driven balancing.
+                </p>
+
+                <h3 class="decision-title">Hard Facts & Metrics</h3>
+                <ul class="content-list">
+                    <li><strong>Total Attempts:</strong> 2,607</li>
+                    <li><strong>Overall Win Rate:</strong> 69.6%</li>
+                    <li><strong>Most Played Level:</strong> Level 3 (126 attempts)</li>
+                    <li><strong>Hardest Level:</strong> Level 30 (34.1% win rate)</li>
+                </ul>
+                <p class="content-text" style="font-size: 0.9em; opacity: 0.8; margin-top: 0.5rem;">
+                    <em>Per-level examples: L1 95.5%, L2 91.5%, L3 84.9%, L4 90.5%, L5 87.9%, L6 86.3%, L7 83.8%</em>
+                </p>
+
+                <br>
+                <h3 class="decision-title">Iteration Loop</h3>
+                <ul class="content-list">
+                    <li><strong>What the data showed:</strong> Early levels (L1-L2) had >90% win rates, validating the
+                        onboarding. L3 dropped to 84.9%, marking the first challenge point.</li>
+                    <li><strong>Decisions made:</strong> Used the win-rate drop at L30 (34.1%) to identify a difficulty
+                        spike, then used the Level Editor to adjust move limits.</li>
+                    <li><strong>Tooling impact:</strong> Building the Level Editor reduced the "tweak-to-test" cycle
+                        from minutes (code deploy) to seconds (in-app edit).</li>
+                </ul>
+            </div>
+
+            <!-- Screens -->
+            <div class="content-section">
+                <h2 class="content-title">Screens</h2>
+                <div class="screens-gallery">
+                    <img src="assets/merge-lab/demo.gif" alt="Merge Lab Gameplay Demo">
+                    <img src="assets/merge-lab/main.png" alt="Merge Lab Home Screen">
+                    <img src="assets/merge-lab/inside-game.png" alt="Gameplay Level 13">
+                    <img src="assets/merge-lab/settings.png" alt="Settings Screen">
+                    <img src="assets/merge-lab/level-editor.png" alt="Level Editor">
+                    <img src="assets/merge-lab/insights.png" alt="Insights Overview">
+                    <img src="assets/merge-lab/insights-dropdown.png" alt="Win Rates List">
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="content-section">
+                <h2 class="content-title">Tech Stack</h2>
+                <p class="content-text">
+                    Vanilla Web (HTML/CSS/JS).
+                    <!-- TODO: Verify if using any libraries once source is available -->
+                </p>
+            </div>
+
+            <!-- What I Learned -->
+            <div class="content-section">
+                <h2 class="content-title">What I Learned</h2>
+                <ul class="content-list">
+                    <li><strong>Balancing via Metrics:</strong> Learned to look at the "Hardest Level" (34.1%) not just
+                        as a number, but as a friction point requiring action.</li>
+                    <li><strong>Instrumentation Mindset:</strong> Built lightweight analytics first, not last. Exporting
+                        to CSV allowed for sanity checks outside the app.</li>
+                    <li><strong>Tooling Speed:</strong> The Level Editor proved that investing time in internal tools
+                        pays off by drastically shortening iteration cycles.</li>
+                    <li><strong>Mobile UX:</strong> refined navigation consistency between Editor, Game, and Insights
+                        views to ensure smooth "developer experience" even on a phone.</li>
+                </ul>
+            </div>
+
+            <!-- Next Improvements -->
+            <div class="content-section">
+                <h2 class="content-title">Next Improvements</h2>
+                <ul class="content-list">
+                    <li>Add A/B testing support to serve different move limits to different user segments.</li>
+                    <li>Visualize the "drop-off funnel" directly in the Insights dashboard.</li>
+                    <li>Cloud save support for cross-device testing.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Alon Iter. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

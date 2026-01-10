@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="nav">
@@ -26,18 +28,47 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <p class="hero-subtitle">Product Manager • Game Designer • LiveOps Leader</p>
+                <p class="hero-subtitle">Game Product & Systems Designer</p>
                 <h1 class="hero-title">
-                    I turn <span class="highlight">player insights</span> into <span class="highlight">high-impact features</span> that drive retention and revenue
+                    I design, balance, and scale<br>
+                    <span class="accent">F2P Economies</span> and LiveOps Systems
                 </h1>
                 <p class="hero-description">
-                    Currently Technical Operations Manager at SuperPlay (Dice Dreams). I combine product strategy,
-                    behavioral design, and hands-on execution to ship features that balance player love with
-                    business outcomes. I don't just design games—I own outcomes.
+                    Senior Game Designer & Technical Operator specializing in retention loops, monetization strategy,
+                    and data-driven feature tuning for casual mobile games.
                 </p>
+                <div class="chips">
+                    <span class="chip">Economy Design</span>
+                    <span class="chip">LiveOps Strategy</span>
+                    <span class="chip">Rapid Prototyping</span>
+                </div>
                 <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#projects" class="btn btn-primary">View Portfolio</a>
                     <a href="about.html" class="btn btn-secondary">About Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Matrix -->
+    <section class="skills-matrix">
+        <div class="container">
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <span class="skill-icon">📊</span>
+                    <span class="skill-name">Economy Design</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🔄</span>
+                    <span class="skill-name">LiveOps Strategy</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">📈</span>
+                    <span class="skill-name">Retention KPIs</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🧪</span>
+                    <span class="skill-name">A/B Testing</span>
                 </div>
             </div>
         </div>
@@ -47,77 +78,109 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
-            
+
             <div class="projects-grid">
                 <!-- Beat Runner -->
-                <div class="project-card featured">
+                <div class="project-card">
                     <div class="project-image">
                         <img src="images/beatrunner-hero.png" alt="Beat Runner gameplay">
                         <div class="project-badge">Playable Now</div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Beat Runner</h3>
-                        <p class="project-type">3D Rhythm Runner • Full Game Loop</p>
+                        <h3 class="project-title">3D Rhythm Runner</h3>
+                        <p class="project-type">Economy & Systems Design</p>
                         <p class="project-description">
-                            A neon-styled rhythm game that syncs to any song's BPM. Features full progression system, 
-                            15 handcrafted stages, cosmetic shop, and multiple game modes.
+                            Prototypes a complete F2P loop to test core progression pacing. Designed the soft currency
+                            economy, difficulty curve, and shop system to validate the "grind vs. reward" balance for
+                            retention.
                         </p>
                         <div class="project-tags">
-                            <span class="tag">Core Loop Design</span>
-                            <span class="tag">Progression Systems</span>
-                            <span class="tag">Three.js</span>
-                            <span class="tag">F2P Economy</span>
+                            <span class="tag">Economy Design</span>
+                            <span class="tag">Systems Design</span>
+                            <span class="tag">Progression</span>
+                            <span class="tag">Prototyping</span>
                         </div>
                         <div class="project-links">
                             <a href="beat-runner.html" class="link-primary">View Case Study →</a>
-                            <a href="https://aloniter.github.io/BeatsRunner/" target="_blank" class="link-secondary">Play Live Demo</a>
+                            <a href="https://aloniter.github.io/BeatsRunner/" target="_blank"
+                                class="link-secondary">Play Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Merge Lab -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/merge-lab/demo.gif" alt="Merge Lab gameplay demo">
+                        <div class="project-badge">Mobile Prototype</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Merge Lab</h3>
+                        <p class="project-type">Mobile Puzzle • Game Economy</p>
+                        <p class="project-description">
+                            Mobile-first merge puzzle with an integrated Level Editor and real-time win-rate analytics.
+                            Designed to test rapid iteration loops based on player data.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Mobile UI</span>
+                            <span class="tag">Puzzle</span>
+                            <span class="tag">Analytics</span>
+                            <span class="tag">Level Editor</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="merge-lab.html" class="link-primary">View Case Study →</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Lucky Tower -->
-                <div class="project-card">
+                <div class="project-card featured">
                     <div class="project-image">
-                        <img src="images/lucky-tower/hero-gameplay.png" alt="Lucky Tower gameplay showing high-stakes decision moment">
+                        <img src="images/lucky-tower/hero-gameplay.png"
+                            alt="Lucky Tower gameplay showing high-stakes decision moment">
                         <div class="project-badge">LiveOps Design</div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Lucky Tower</h3>
-                        <p class="project-type">LiveOps Event • D3-D7 Retention Feature</p>
+                        <p class="project-type">Retention LiveOps Event • Product Design</p>
                         <p class="project-description">
-                            A 7-day LiveOps retention event that leverages risk-vs-reward psychology and F2P economy design
-                            to drive D3-D7 engagement. Features behavioral design, monetization balance, and progression systems.
+                            Designed a high-stakes "push-your-luck" event to lift D7 retention. Created the full feature
+                            spec, probability models, and reward pacing to maximize session depth and currency sinks.
                         </p>
                         <div class="project-tags">
-                            <span class="tag">Player Psychology</span>
-                            <span class="tag">F2P Economy</span>
-                            <span class="tag">Behavioral Design</span>
-                            <span class="tag">Retention</span>
+                            <span class="tag">LiveOps Strategy</span>
+                            <span class="tag">Retention KPI</span>
+                            <span class="tag">Economy Balancing</span>
+                            <span class="tag">Feature Spec</span>
                         </div>
                         <div class="project-links">
                             <a href="lucky-tower.html" class="link-primary">View Case Study →</a>
-                            <a href="https://aloniter.github.io/lucky_tower/" target="_blank" class="link-secondary">Play Live Demo</a>
+                            <a href="https://aloniter.github.io/lucky_tower/" target="_blank"
+                                class="link-secondary">Play Live Demo</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- House Party VR (Hidden) -->
                 <!-- House Party VR -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="images/house party vr/main photo.png" alt="House Party VR gameplay">
-                        <div class="project-badge">VR/MR</div>
+                        <div class="project-badge">Unity Prototype</div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">House Party VR</h3>
-                        <p class="project-type">Mixed Reality Experience • Meta Quest</p>
+                        <p class="project-type">Mixed Reality Experience • Technical Design</p>
                         <p class="project-description">
-                            A social VR party experience where friends gather in shared virtual spaces.
-                            Features interactive environments, music integration, and social gameplay mechanics.
+                            Rapidly prototyped a mixed reality social experience on Meta Quest 3 using Unity. Built
+                            complex interaction systems and audio-reactive environments to test new engagement
+                            mechanics.
                         </p>
                         <div class="project-tags">
-                            <span class="tag">VR/MR Design</span>
-                            <span class="tag">Social Features</span>
-                            <span class="tag">Unity Development</span>
+                            <span class="tag">Technical Design</span>
+                            <span class="tag">Rapid Prototyping</span>
+                            <span class="tag">Unity/C#</span>
+                            <span class="tag">User Experience</span>
                         </div>
                         <div class="project-links">
                             <a href="house-party-vr.html" class="link-primary">View Case Study →</a>
@@ -128,22 +191,24 @@
                 <!-- ICE Analytics -->
                 <div class="project-card">
                     <div class="project-image">
-                        <div class="project-placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="project-placeholder"
+                            style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
                             <span class="placeholder-icon">📊</span>
                         </div>
                         <div class="project-badge">Product Tool</div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">ICE Analytics</h3>
-                        <p class="project-type">Internal KPI Dashboard</p>
+                        <p class="project-type">Product Intelligence Tool • Product Manager</p>
                         <p class="project-description">
-                            A data dashboard built to track team performance and content metrics. 
-                            Shows strong systems thinking and data-driven design approach.
+                            Built a centralized dashboard to track ARPDAU, LTV, and retention cohorts. Standardized KPI
+                            definitions across teams to enable faster, data-driven decisions on feature performance.
                         </p>
                         <div class="project-tags">
-                            <span class="tag">Data Visualization</span>
-                            <span class="tag">Product Design</span>
-                            <span class="tag">UX</span>
+                            <span class="tag">Product Management</span>
+                            <span class="tag">Data Analysis</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">KPI Tracking</span>
                         </div>
                         <div class="project-links">
                             <a href="ice-analytics.html" class="link-primary">View Project →</a>
@@ -151,24 +216,28 @@
                     </div>
                 </div>
 
+                <!-- Inspector Pro (Hidden) -->
                 <!-- Inspector Pro -->
                 <div class="project-card">
                     <div class="project-image">
-                        <div class="project-placeholder" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <div class="project-placeholder"
+                            style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
                             <span class="placeholder-icon">📱</span>
                         </div>
                         <div class="project-badge">iOS App</div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Inspector Pro</h3>
-                        <p class="project-type">Building Inspection App • iOS</p>
+                        <p class="project-type">B2B iOS App • Product Owner</p>
                         <p class="project-description">
-                            iPhone app for on-site inspections with photo capture, annotations, and automated 
-                            report generation. Reduces report time from 2 hours to 20 minutes.
+                            Owned the full product lifecycle from concept to launch. Conducted user research to identify
+                            workflow friction, designed the UI/UX, and managed the roadmap to solve real-world
+                            efficiency problems.
                         </p>
                         <div class="project-tags">
-                            <span class="tag">User-Centered Design</span>
-                            <span class="tag">Workflow Optimization</span>
+                            <span class="tag">Product Ownership</span>
+                            <span class="tag">UX Research</span>
+                            <span class="tag">Roadmap Management</span>
                             <span class="tag">iOS</span>
                         </div>
                         <div class="project-links">
@@ -182,11 +251,13 @@
                     <div class="project-content">
                         <h3 class="project-title">More Projects</h3>
                         <p class="project-description">
-                            15+ additional game prototypes and LiveOps feature designs including Train Your Pet, 
-                            Higher or Lower, Cup Chase, and interactive web games.
+                            More prototypes and feature specs, including LiveOps events, progression experiments, and
+                            small interactive web games. Most projects are documented with a short writeup and a demo
+                            when relevant.
                         </p>
                         <div class="project-links">
-                            <a href="https://github.com/aloniter" target="_blank" class="link-primary">View on GitHub →</a>
+                            <a href="https://github.com/aloniter" target="_blank" class="link-primary">View on GitHub
+                                →</a>
                         </div>
                     </div>
                 </div>
@@ -199,7 +270,8 @@
         <div class="container">
             <h2 class="section-title">Let's Work Together</h2>
             <p class="contact-subtitle">
-                Looking for a game designer who combines LiveOps experience, technical execution, and systems thinking?
+                I am looking for a Game Design, Monetization, or Product role where I can drive KPIs through systematic
+                design and execution.
             </p>
             <div class="contact-links">
                 <a href="mailto:aloniter99@gmail.com" class="contact-link">
@@ -225,4 +297,5 @@
         </div>
     </footer>
 </body>
+
 </html>

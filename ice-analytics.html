@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICE Analytics - Alon Iter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="project-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Alon Iter</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Projects</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Projects</a>
+            <h1 class="project-hero-title">ICE Analytics</h1>
+            <p class="project-hero-subtitle">Unified Product Intelligence Dashboard</p>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Product Manager • Data Analyst</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">Ongoing Tooling</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Stack</span>
+                    <span class="meta-value">SQL, Python, Visualization</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Focus</span>
+                    <span class="meta-value">KPI Tracking, A/B Test Analysis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <!-- Impact Section -->
+            <div class="content-section highlight-section">
+                <h2 class="content-title">Business Impact</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Data Visibility</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">2x</div>
+                        <div class="metric-label">Faster Decision Cycles</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">Auto</div>
+                        <div class="metric-label">A/B Test Significance</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Problem -->
+            <div class="content-section">
+                <h2 class="content-title">The Challenge</h2>
+                <p class="content-text">
+                    As we scaled features, data became fragmented across ad networks, IAP stores, and gameplay event
+                    logs.
+                    Product managers couldn't answer simple questions like "Did the new shop layout increase ARPDAU?"
+                    without asking an engineer to pull raw logs.
+                </p>
+                <p class="content-text">
+                    <strong>Goal:</strong> Build a self-serve dashboard that democratizes data access and standardizes
+                    how we measure success.
+                </p>
+            </div>
+
+            <!-- The Solution -->
+            <div class="content-section">
+                <h2 class="content-title">The Solution</h2>
+                <p class="content-text">
+                    ICE Analytics is a centralized dashboard (Internal/Concept) that aggregates data into three core
+                    views:
+                </p>
+                <div class="design-decision">
+                    <h3 class="decision-title">1. Executive Health Check</h3>
+                    <p class="content-text">
+                        High-level DAU/MAU, Retention (D1, D7, D30), and Revenue pulses. Used for daily standups.
+                    </p>
+                </div>
+                <div class="design-decision">
+                    <h3 class="decision-title">2. Economy Sink/Source Balance</h3>
+                    <p class="content-text">
+                        Visualizes currency flow. Detects inflation early by comparing "Earn per User" vs "Spend per
+                        User" per level.
+                    </p>
+                </div>
+                <div class="design-decision">
+                    <h3 class="decision-title">3. Feature Funnels</h3>
+                    <p class="content-text">
+                        Step-by-step conversion tracking for specific features (e.g., Tutorial Completion, Shop Purchase
+                        Flow).
+                    </p>
+                </div>
+            </div>
+
+            <!-- KPI Definitions -->
+            <div class="content-section">
+                <h2 class="content-title">Key Metrics Tracked</h2>
+                <ul class="content-list">
+                    <li><strong>ARPDAU (Average Revenue Per Daily Active User):</strong> The north star for monetization
+                        health.</li>
+                    <li><strong>LTV (Lifetime Value):</strong> Projected value based on D7/D30 cohorts.</li>
+                    <li><strong>Stickiness (DAU/MAU):</strong> Measuring habit formation.</li>
+                    <li><strong>Conversion Rate:</strong> % of users who make a first purchase.</li>
+                </ul>
+            </div>
+
+            <!-- Learnings -->
+            <div class="content-section">
+                <h2 class="content-title">Product Learnings</h2>
+                <p class="content-text">
+                    Building this tool taught me that <strong>data without context is noise</strong>. The initial
+                    version had too many charts;
+                    the V2 focused only on actionable metrics (Red/Green indicators) which increased adoption by the
+                    design team significantly.
+                </p>
+            </div>
+
+            <!-- Footer -->
+            <div class="content-cta">
+                <a href="index.html" class="btn btn-secondary">← Back to Portfolio</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Alon Iter. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

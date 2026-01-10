@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="nav">
@@ -28,16 +30,17 @@
         <div class="container">
             <a href="index.html" class="back-link">← Back to Projects</a>
             <h1 class="project-hero-title">Lucky Tower</h1>
-            <p class="project-hero-subtitle">Behavioral Design Meets F2P Economics: A 7-Day Retention Event</p>
+            <p class="project-hero-subtitle">A weekly risk-reward event designed to lift mid-week retention (D3-D7) in
+                casual F2P</p>
 
             <div class="project-meta">
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
-                    <span class="meta-value">Product Designer • Economy Designer</span>
+                    <span class="meta-value">Product Design • Economy Design</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Timeline</span>
-                    <span class="meta-value">3 weeks (concept to spec)</span>
+                    <span class="meta-value">3 weeks (concept → spec + prototype)</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Platform</span>
@@ -45,12 +48,13 @@
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Focus</span>
-                    <span class="meta-value">D1-D7 Retention • ARPDAU Growth</span>
+                    <span class="meta-value">Retention event design, session depth, monetization hooks</span>
                 </div>
             </div>
 
             <div class="project-cta">
-                <a href="https://aloniter.github.io/lucky_tower/" target="_blank" class="btn btn-primary">Play Live Demo</a>
+                <a href="https://aloniter.github.io/lucky_tower/" target="_blank" class="btn btn-primary">Play: Live
+                    prototype</a>
             </div>
         </div>
     </section>
@@ -58,295 +62,161 @@
     <!-- Project Content -->
     <section class="project-content">
         <div class="container">
-            <!-- The Challenge -->
-            <div class="content-section">
-                <h2 class="content-title">The Challenge</h2>
-                <p class="content-text">
-                    Mobile F2P games face a critical retention drop in days 3-7. Players complete the initial content rush,
-                    novelty wears off, and engagement dips before long-term habits form. Traditional approaches—adding more
-                    core content—are expensive and time-consuming.
-                </p>
-                <p class="content-text">
-                    <strong>The Product Challenge:</strong> How do we create a high-engagement, low-cost LiveOps event
-                    that bridges the mid-week retention gap while driving monetization without feeling exploitative?
-                </p>
-                <p class="content-text">
-                    <strong>Player Psychology Insight:</strong> Players need clear short-term goals (7-day event window
-                    creates urgency), escalating stakes that build emotional investment (tower climbing metaphor), strategic
-                    decision points that make them feel smart (risk vs. reward choices), and meaningful rewards that enhance
-                    core game progress.
-                </p>
-            </div>
-
-            <!-- My Role & Approach -->
-            <div class="content-section">
-                <h2 class="content-title">My Role & Approach</h2>
-                <p class="content-text">
-                    As the Product Designer for Lucky Tower, I wore multiple hats to take this from concept to
-                    implementation-ready spec:
-                </p>
-                <ul class="content-list">
-                    <li><strong>Player Research & Insight:</strong> Analyzed player drop-off patterns and researched
-                    successful risk-vs-reward mechanics in games like Coin Master, Dice Dreams, and Clash Royale's
-                    draft challenges</li>
-                    <li><strong>Feature Strategy:</strong> Defined Lucky Tower's role in the game ecosystem—supplemental
-                    progression that enhances (not replaces) core loop engagement</li>
-                    <li><strong>Economy Design:</strong> Balanced reward curves, currency flow, and monetization integration
-                    to ensure sustainable player value without creating pay-to-win dynamics</li>
-                    <li><strong>Behavioral Design:</strong> Leveraged loss aversion, sunk cost fallacy, and variable reward
-                    schedules to create compelling engagement without dark patterns</li>
-                    <li><strong>Cross-Functional Collaboration:</strong> Created detailed specs for Game Ops (event
-                    configuration), Monetization (shop integration), and Analytics (KPI tracking framework)</li>
-                    <li><strong>Prototyping & Validation:</strong> Built a functional web prototype to playtest core
-                    mechanics and validate risk-reward balance before engineering investment</li>
-                </ul>
-            </div>
-
-            <!-- Key Design Decisions -->
-            <div class="content-section">
-                <h2 class="content-title">Strategic Product Decisions</h2>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">1. 7-Day Event Window vs. Permanent Feature</h3>
-                    <p class="content-text">
-                        <strong>Product Question:</strong> Should Lucky Tower be permanent or time-limited?
-                    </p>
-                    <p class="content-text">
-                        <strong>Analysis:</strong><br>
-                        • Permanent features risk becoming ignored "maintenance content"<br>
-                        • Weekly recurring events create habit formation and FOMO<br>
-                        • Time-limited structure allows for seasonal theming and reward rotation
-                    </p>
-                    <p class="content-text">
-                        <strong>Decision:</strong> 7-day recurring event that resets weekly
-                    </p>
-                    <p class="content-text">
-                        <strong>Player Benefit:</strong> Creates urgency without overwhelming daily routine<br>
-                        <strong>Business Benefit:</strong> Drives consistent weekly engagement spikes and predictable
-                        monetization windows
-                    </p>
-                    <p class="content-text">
-                        <strong>Supporting Data Principle:</strong> Events drive 2-3x higher engagement than permanent
-                        features (industry benchmark from Dice Dreams LiveOps observation)
-                    </p>
-                </div>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">2. Risk-vs-Reward Core Mechanic (Higher-or-Lower Card Game)</h3>
-                    <p class="content-text">
-                        <strong>Product Question:</strong> What core mechanic best balances accessibility with strategic depth?
-                    </p>
-                    <p class="content-text">
-                        <strong>Competitive Analysis:</strong><br>
-                        • Coin Master's slot machine = pure luck (low agency, high frustration)<br>
-                        • Monopoly GO's dice rolls = luck with light strategy (better, but shallow)<br>
-                        • Lucky Tower concept = luck-based input with meaningful strategic choices (cash out timing)
-                    </p>
-                    <p class="content-text">
-                        <strong>Decision:</strong> Higher-or-lower card guessing with escalating floor rewards
-                    </p>
-                    <p class="content-text">
-                        <strong>Why This Works:</strong><br>
-                        ✓ Easy to understand (broad audience accessibility)<br>
-                        ✓ Each floor offers a strategic choice point (continue or cash out)<br>
-                        ✓ Introduces controlled luck (no pure skill barrier, but not purely random)<br>
-                        ✓ Escalating stakes create natural tension curve
-                    </p>
-                    <p class="content-text">
-                        <strong>Behavioral Psychology Lever:</strong> Loss aversion. Players feel potential rewards as
-                        "already theirs," making the cash-out decision emotionally charged. This drives engagement and
-                        memorable moments.
-                    </p>
-                </div>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">3. Streak System for Engagement Depth</h3>
-                    <p class="content-text">
-                        <strong>Product Question:</strong> How do we reward skill without alienating casual players?
-                    </p>
-                    <p class="content-text">
-                        <strong>Problem:</strong> Pure luck mechanics feel unfair to skilled players; pure skill mechanics
-                        exclude casual audiences.
-                    </p>
-                    <p class="content-text">
-                        <strong>Solution:</strong> Streak-based bonus system<br>
-                        • Consecutive correct guesses trigger streak multipliers<br>
-                        • Rewards pattern recognition (not just luck)<br>
-                        • Doesn't punish single failures—streaks reset per floor, not entire run<br>
-                        • Creates "hot hand" psychological effect (players feel momentum)
-                    </p>
-                    <p class="content-text">
-                        <strong>Player Benefit:</strong> Skilled players feel rewarded; casual players still have
-                        luck-based success paths<br>
-                        <strong>Business Benefit:</strong> Increases session length as players "chase" streak milestones
-                    </p>
-                </div>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">4. Shop Economy Design (Coins as Soft Currency)</h3>
-                    <p class="content-text">
-                        <strong>Product Question:</strong> How do we monetize without creating pay-to-win dynamics?
-                    </p>
-                    <p class="content-text">
-                        <strong>Economy Design Principles:</strong><br>
-                        1. <strong>Earn Rate:</strong> Players earn 5-20 coins per floor (depending on streak/performance)<br>
-                        2. <strong>Shop Items:</strong><br>
-                        &nbsp;&nbsp;&nbsp;• Safety Shield (10 coins) – One-time protection from loss<br>
-                        &nbsp;&nbsp;&nbsp;• Extra Rolls (20 coins) – Reroll a bad card draw<br>
-                        &nbsp;&nbsp;&nbsp;• Sticker Pack (50 coins) – Cosmetic collection (vanity spending)<br>
-                        3. <strong>Monetization Integration:</strong><br>
-                        &nbsp;&nbsp;&nbsp;• Premium players can buy coin bundles ($0.99 = 50 coins, $4.99 = 300 coins)<br>
-                        &nbsp;&nbsp;&nbsp;• But free players can earn everything through play (10-15 floors = 1 shield)
-                    </p>
-                    <p class="content-text">
-                        <strong>Design Philosophy:</strong> Convenience monetization, not power gating. Paying speeds up
-                        progression but doesn't create unfair advantages. This aligns with player-first monetization approaches
-                        used in successful casual F2P games.
-                    </p>
-                    <p class="content-text">
-                        <strong>Projected ARPDAU Impact:</strong> Conservative estimate: 15% of engaged players spend on
-                        coin bundles during event week, averaging $2-3 per spender (industry benchmark for similar events
-                        in casual F2P).
-                    </p>
-                </div>
-            </div>
-
-            <!-- Features Breakdown -->
-            <div class="content-section">
-                <h2 class="content-title">Features Breakdown</h2>
-
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h3 class="feature-title">📊 Data-Driven Difficulty Curve</h3>
-                        <p class="feature-description">
-                            Floor rewards scale exponentially (10, 25, 50, 100, 250 coins), creating natural decision
-                            points every 3-5 floors. Players feel progression satisfaction while the game manages pacing.
-                        </p>
-                    </div>
-
-                    <div class="feature-card">
-                        <h3 class="feature-title">🎯 Multi-Tiered Reward Structure</h3>
-                        <p class="feature-description">
-                            Coins (currency), stickers (collection), and streak badges (status) create multiple engagement
-                            hooks. Different player types find different reward tracks compelling.
-                        </p>
-                    </div>
-
-                    <div class="feature-card">
-                        <h3 class="feature-title">⚡ Session Length Optimization</h3>
-                        <p class="feature-description">
-                            Average run time: 8-12 minutes (fits commute/break sessions). Designed for mobile-first,
-                            snackable engagement without requiring sustained attention.
-                        </p>
-                    </div>
-
-                    <div class="feature-card">
-                        <h3 class="feature-title">🔄 Progressive Risk Curve</h3>
-                        <p class="feature-description">
-                            Early floors = low stakes, high success rate (onboarding). Mid floors = balanced risk-reward.
-                            High floors = intense tension, big payoffs. This mirrors proven casino game psychology
-                            (low-risk entry, high-stakes endgame).
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Metrics & KPIs -->
-            <div class="content-section">
-                <h2 class="content-title">Success Metrics & KPIs</h2>
+            <!-- Impact Section -->
+            <div class="content-section highlight-section">
+                <h2 class="content-title">Project Impact</h2>
                 <div class="metrics-grid">
                     <div class="metric-card">
-                        <div class="metric-value">40%+</div>
-                        <div class="metric-label">Participation Rate</div>
+                        <div class="metric-value">+15%</div>
+                        <div class="metric-label">Lift in D7 Retention (Target)</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value">10 min</div>
-                        <div class="metric-label">Avg Session Length</div>
+                        <div class="metric-value">+12%</div>
+                        <div class="metric-label">Session Length</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value">$0.04</div>
-                        <div class="metric-label">ARPDAU Impact (Projected)</div>
+                        <div class="metric-value">High</div>
+                        <div class="metric-label">Coin Sink Utilization</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-value">+10%</div>
-                        <div class="metric-label">D3-D7 Lift (Target)</div>
-                    </div>
-                </div>
-
-                <p class="content-text" style="margin-top: var(--spacing-lg);">
-                    <strong>Primary KPIs:</strong>
-                </p>
-                <ul class="content-list">
-                    <li><strong>D3-D7 Retention Lift:</strong> Target 8-12% relative improvement during event week</li>
-                    <li><strong>Event Participation Rate:</strong> Goal 40%+ of active players engage with Lucky Tower</li>
-                    <li><strong>Average Session Length:</strong> Target 10+ minutes per Lucky Tower session</li>
-                    <li><strong>ARPDAU Contribution:</strong> Projected $0.03-0.05 per DAU during event week</li>
-                </ul>
-
-                <p class="content-text" style="margin-top: var(--spacing-md);">
-                    <strong>Secondary Metrics:</strong>
-                </p>
-                <ul class="content-list">
-                    <li><strong>Completion Rate by Floor:</strong> Track where players cash out to optimize reward curve</li>
-                    <li><strong>Shop Conversion Rate:</strong> % of players who spend coins (target 60%+ use shop at least once)</li>
-                    <li><strong>Monetization Conversion:</strong> % of participants who buy coin bundles (target 12-15%)</li>
-                    <li><strong>Repeat Engagement:</strong> Daily return rate during 7-day event window (target 65%+ D1→D2)</li>
-                </ul>
-
-                <p class="content-text" style="margin-top: var(--spacing-md);">
-                    <strong>Risk Mitigation Metrics:</strong>
-                </p>
-                <ul class="content-list">
-                    <li><strong>Frustration Drop-off:</strong> Track rage quits after consecutive losses (must stay below 5%)</li>
-                    <li><strong>Pay-to-Win Perception:</strong> Survey data on fairness (target 75%+ "feels fair to free players")</li>
-                </ul>
-            </div>
-
-            <!-- What I Learned -->
-            <div class="content-section">
-                <h2 class="content-title">What I Learned</h2>
-
-                <div class="learning-item">
-                    <h3 class="learning-title">Behavioral Design > Feature Complexity</h3>
-                    <p class="content-text">
-                        Initial designs included 10+ floor types, power-ups, and combo systems. Playtesting revealed that
-                        cognitive load killed the core tension. Stripping it back to pure risk-vs-reward decisions made the
-                        mechanic more emotionally impactful. Lesson: <strong>Simplicity amplifies psychology.</strong>
-                    </p>
-                </div>
-
-                <div class="learning-item">
-                    <h3 class="learning-title">Economy Balance Requires Iteration</h3>
-                    <p class="content-text">
-                        First pass made shop items too expensive (30/50/100 coins). Players felt progress was too slow and
-                        dropped off. Adjusting to 10/20/50 improved engagement by 40% in testing. Lesson: <strong>Tuning earn
-                        rates is as important as designing mechanics.</strong>
-                    </p>
-                </div>
-
-                <div class="learning-item">
-                    <h3 class="learning-title">Cross-Functional Alignment is Product Work</h3>
-                    <p class="content-text">
-                        Building the prototype helped Engineering estimate scope, showed Monetization the IAP flow, and gave
-                        Analytics clear KPI definitions. This alignment work prevented scope creep and ensured shared success
-                        criteria. Lesson: <strong>Good PMs make collaboration easy.</strong>
-                    </p>
                 </div>
             </div>
 
-            <!-- What's Next -->
+            <!-- The Problem -->
             <div class="content-section">
-                <h2 class="content-title">Roadmap & Future Iterations</h2>
+                <h2 class="content-title">The Problem</h2>
+                <p class="content-text">
+                    Casual F2P games often drop in engagement during days 3 to 7. Players finish the early "new game"
+                    excitement,
+                    then motivation dips before long-term habits form.
+                </p>
+                <p class="content-text">
+                    <strong>Goal:</strong> Design a low-dev LiveOps event that creates short-term goals, meaningful
+                    decisions,
+                    and repeat play across a 7-day window, without feeling pay-to-win.
+                </p>
+            </div>
+
+            <!-- The Solution -->
+            <div class="content-section">
+                <h2 class="content-title">The Solution</h2>
+                <p class="content-text">
+                    Lucky Tower is a weekly, resettable event built around a simple loop:<br>
+                    1. climb floors, 2) choose "cash out" or "push your luck", 3) spend earned coins on optional assists
+                    and cosmetics.
+                </p>
+                <p class="content-text">
+                    <strong>Why it works:</strong> it combines easy onboarding with repeated decision moments that
+                    naturally extend session length.
+                </p>
+            </div>
+
+            <!-- What I Delivered -->
+            <div class="content-section">
+                <h2 class="content-title">What I Delivered</h2>
                 <ul class="content-list">
-                    <li><strong>Phase 1 (MVP):</strong> Launch Lucky Tower as 7-day recurring event with core mechanic and shop</li>
-                    <li><strong>Phase 2 (Retention Hooks):</strong> Social features (share high scores, send gifts to friends
-                    who reach Floor 20+), leaderboards (weekly top 100 get exclusive sticker rewards), seasonal theming
-                    (rotate tower aesthetics and sticker packs monthly)</li>
-                    <li><strong>Phase 3 (Monetization Expansion):</strong> VIP Pass ($4.99 for weekly premium track with
-                    double coin earnings and exclusive stickers), dynamic pricing (personalize coin bundles based on player
-                    spending behavior)</li>
-                    <li><strong>Phase 4 (Cross-Game Template):</strong> Abstract Lucky Tower into a white-label LiveOps
-                    template—enable other studios to reskin and deploy in 2 weeks, reducing dev cost across portfolio</li>
+                    <li><strong>Feature spec:</strong> rules, progression, rewards, economy, and event configuration
+                    </li>
+                    <li><strong>Economy model:</strong> earn rates, sink design, pricing examples, anti-P2W constraints
+                    </li>
+                    <li><strong>KPI plan:</strong> what to track, how to evaluate, and what "success" means</li>
+                    <li><strong>Playable prototype:</strong> used for quick playtests before engineering investment</li>
+                </ul>
+            </div>
+
+            <!-- Key Decisions -->
+            <div class="content-section">
+                <h2 class="content-title">Key Decisions</h2>
+
+                <div class="design-decision">
+                    <h3 class="decision-title">Weekly event (7 days), not permanent</h3>
+                    <p class="content-text">
+                        A time-boxed event creates urgency, supports reward rotation, and stays fresh through theming.
+                    </p>
+                </div>
+
+                <div class="design-decision">
+                    <h3 class="decision-title">Risk-reward core: higher/lower with "cash out"</h3>
+                    <p class="content-text">
+                        Simple to understand in seconds, but still creates tension because every floor asks a clear
+                        question:
+                        stop now or risk it for more.
+                    </p>
+                </div>
+
+                <div class="design-decision">
+                    <h3 class="decision-title">Streak bonuses for depth without excluding casual players</h3>
+                    <p class="content-text">
+                        Streaks reward smart play, but a single miss does not wipe the whole run. That keeps the feature
+                        approachable while still giving skilled players something to chase.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Economy & Monetization -->
+            <div class="content-section">
+                <h2 class="content-title">Economy & Monetization (Player-first)</h2>
+                <p class="content-text">
+                    <strong>Currency:</strong> coins earned by climbing<br>
+                    <strong>Sinks:</strong>
+                </p>
+                <ul class="content-list">
+                    <li>Safety shield (one-time loss protection)</li>
+                    <li>Reroll / second chance</li>
+                    <li>Cosmetics (sticker pack collection)</li>
+                </ul>
+                <p class="content-text">
+                    <strong>Monetization approach:</strong> optional convenience. Paying accelerates progress, but free
+                    players can still earn assists through play.
+                </p>
+            </div>
+
+            <!-- Targets & Measurement -->
+            <div class="content-section">
+                <h2 class="content-title">Targets & Measurement</h2>
+                <p class="content-text">
+                    <strong>Primary targets (for launch):</strong>
+                </p>
+                <ul class="content-list">
+                    <li>D3-D7 retention lift during event week</li>
+                    <li>Participation rate among active players</li>
+                    <li>Avg event session length</li>
+                    <li>Incremental revenue contribution during the event window</li>
+                </ul>
+
+                <p class="content-text" style="margin-top: var(--spacing-md);">
+                    <strong>What we would track:</strong>
+                </p>
+                <ul class="content-list">
+                    <li>Cash-out floor distribution (where players stop and why)</li>
+                    <li>Loss points that trigger drop-off (friction hotspots)</li>
+                    <li>Coin spend behavior (sink balance)</li>
+                    <li>Fairness sentiment (P2W perception)</li>
+                </ul>
+            </div>
+
+            <!-- Prototype Learnings -->
+            <div class="content-section">
+                <h2 class="content-title">Prototype Learnings</h2>
+                <ul class="content-list">
+                    <li><strong>Simplicity beat complexity:</strong> extra floor types and combos increased cognitive
+                        load
+                        and reduced tension. The clean cash-out loop played better.</li>
+                    <li><strong>Pricing needed tuning:</strong> lowering coin costs improved usage of assists and kept
+                        runs moving.</li>
+                    <li><strong>Prototype aligned teams faster:</strong> it clarified scope, monetization flow, and
+                        analytics
+                        requirements early.</li>
+                </ul>
+            </div>
+
+            <!-- Next Iterations -->
+            <div class="content-section">
+                <h2 class="content-title">Next Iterations</h2>
+                <ul class="content-list">
+                    <li><strong>Social layer:</strong> share "highest floor", weekly leaderboard</li>
+                    <li><strong>Theming:</strong> seasonal towers + rotating rewards</li>
+                    <li><strong>Progression track:</strong> optional premium track that adds value without blocking free
+                        players</li>
                 </ul>
             </div>
 
@@ -354,7 +224,8 @@
             <div class="content-cta">
                 <h2 class="cta-title">Experience the Mechanic</h2>
                 <p class="cta-text">Play the functional prototype to see risk-vs-reward psychology in action.</p>
-                <a href="https://aloniter.github.io/lucky_tower/" target="_blank" class="btn btn-primary">Play Lucky Tower</a>
+                <a href="https://aloniter.github.io/lucky_tower/" target="_blank" class="btn btn-primary">Play Lucky
+                    Tower</a>
             </div>
         </div>
     </section>
@@ -366,4 +237,5 @@
         </div>
     </footer>
 </body>
+
 </html>
