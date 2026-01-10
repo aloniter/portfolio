@@ -297,3 +297,41 @@
         width: 100%;
     }
 }
+
+@media (max-width: 600px) {
+    .about-title {
+        font-size: clamp(2rem, 8vw, 2.8rem);
+        line-height: 1.1;
+    }
+
+    .about-subtitle {
+        font-size: 1.05rem;
+    }
+
+    .section-heading {
+        font-size: 1.6rem;
+    }
+
+    .about-text,
+    .about-list li {
+        font-size: 1rem;
+    }
+
+    .story-image img {
+        height: 240px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .about-subtitle {
+        font-size: 1rem;
+    }
+
+    .about-list li {
+        padding-left: var(--spacing-md);
+    }
+}

@@ -279,6 +279,43 @@
     }
 }
 
+@media (max-width: 600px) {
+    .project-hero-title {
+        font-size: clamp(2rem, 9vw, 2.8rem);
+    }
+
+    .project-hero-subtitle {
+        font-size: 1.05rem;
+    }
+
+    .project-meta {
+        padding: var(--spacing-md);
+        gap: var(--spacing-md);
+    }
+
+    .content-title {
+        font-size: 1.6rem;
+    }
+
+    .content-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-hero {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .content-section {
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .content-cta {
+        padding: var(--spacing-lg);
+    }
+}
+
 /* Gallery Styles */
 .screens-gallery {
     display: grid;
