@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspector Pro - Alon Iter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="project-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Alon Iter</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Projects</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Projects</a>
+            <h1 class="project-hero-title">Inspector Pro</h1>
+            <p class="project-hero-subtitle">iOS building inspection reporting app prototype: capture photos, mark findings, and export a clean Word report fast.</p>
+
+            <p class="content-text" style="max-width: 700px; margin: var(--spacing-md) auto var(--spacing-lg); font-size: 0.9rem; opacity: 0.85;">
+                Used in production by a family-run inspection company.
+            </p>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Product + Builder (solo)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Platform</span>
+                    <span class="meta-value">iPhone (iOS)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">Shipped (Production use)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Type</span>
+                    <span class="meta-value">Prototype / MVP</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <!-- The Problem -->
+            <div class="content-section">
+                <h2 class="content-title">The Problem</h2>
+                <p class="content-text">
+                    Building inspections generate lots of photos and notes, but turning them into a structured report is slow and messy.
+                    The goal was to reduce admin time and standardize reports so inspections can be delivered quickly and consistently.
+                </p>
+            </div>
+
+            <!-- What I Built -->
+            <div class="content-section">
+                <h2 class="content-title">What I Built (MVP Scope)</h2>
+                <ul class="content-list">
+                    <li><strong>Create a project per inspection</strong> (site / date / notes)</li>
+                    <li><strong>Capture or upload photos</strong> directly into the project</li>
+                    <li><strong>Annotate photos</strong> (draw, highlight, add notes)</li>
+                    <li><strong>Auto-generate a numbered findings list</strong> from marked items</li>
+                    <li><strong>Export a structured Word report</strong> (photos + numbered findings table)</li>
+                </ul>
+            </div>
+
+            <!-- Product Thinking -->
+            <div class="content-section">
+                <h2 class="content-title">Product Thinking (Why these choices)</h2>
+                <ul class="content-list">
+                    <li><strong>"Photos first" flow:</strong> inspectors already work visually, so the app matches real behavior</li>
+                    <li><strong>Findings table is generated automatically</strong> to prevent missed items and save time</li>
+                    <li><strong>Word export is the final deliverable format</strong> most clients/teams actually need</li>
+                </ul>
+            </div>
+
+            <!-- What I Learned -->
+            <div class="content-section">
+                <h2 class="content-title">What I Learned</h2>
+                <ul class="content-list">
+                    <li><strong>The real pain isn't taking photos</strong> — it's organizing them into a report</li>
+                    <li><strong>A fast annotation experience</strong> matters more than fancy UI</li>
+                    <li><strong>Report structure needs to be consistent</strong> (numbering + titles + location fields)</li>
+                </ul>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="content-section">
+                <h2 class="content-title">Next Steps</h2>
+                <ul class="content-list">
+                    <li><strong>Templates</strong> (different report formats per client/company)</li>
+                    <li><strong>User accounts</strong> so each inspector has their own projects</li>
+                    <li><strong>Sharing:</strong> allow a company workspace with shared projects</li>
+                    <li><strong>Faster batch actions</strong> (add location/tag to multiple photos)</li>
+                    <li><strong>Export improvements</strong> (cover page, signatures, branding)</li>
+                </ul>
+            </div>
+
+            <!-- Tech Notes -->
+            <div class="content-section">
+                <h2 class="content-title">Tech Notes (keep simple)</h2>
+                <ul class="content-list">
+                    <li><strong>iPhone app prototype</strong> focused on workflow + export output</li>
+                    <li><strong>Data model built around Projects → Photos → Findings</strong></li>
+                    <li><strong>Export pipeline</strong> to produce a clean, client-ready Word document</li>
+                </ul>
+            </div>
+
+            <!-- Closing Statement -->
+            <div class="content-section">
+                <p class="content-text">
+                    Inspector Pro is my attempt to turn a repetitive, manual inspection workflow into a fast, reliable "capture → mark → export" loop.
+                </p>
+            </div>
+
+            <!-- CTA -->
+            <div class="content-cta">
+                <h2 class="cta-title">Explore More Projects</h2>
+                <p class="cta-text">
+                    See how I approach product design, systems thinking, and user-focused experiences across different domains.
+                </p>
+                <a href="index.html" class="btn btn-primary">View More Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Alon Iter. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
