@@ -287,7 +287,8 @@
     margin: var(--spacing-xl) 0;
 }
 
-.screens-gallery img {
+.screens-gallery img,
+.screens-gallery video {
     width: 100%;
     border-radius: var(--radius-md);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -295,6 +296,13 @@
     cursor: pointer;
 }
 
-.screens-gallery img:hover {
+.screens-gallery .tall-media {
+    aspect-ratio: 4 / 3;
+    height: auto;
+    object-fit: cover;
+}
+
+.screens-gallery img:hover,
+.screens-gallery video:hover {
     transform: scale(1.02);
 }
