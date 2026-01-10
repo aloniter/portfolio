@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="nav">
@@ -56,14 +58,10 @@
         <div class="container">
             <!-- Overview -->
             <div class="content-section">
-                <h2 class="content-title">Overview</h2>
+                <h2 class="content-title">Goal</h2>
                 <p class="content-text">
-                    House Party is a mixed reality prototype where a DJ appears in your real room and helps you "host the vibe".
-                    Instead of mixing tracks, the player controls a few high-impact moments: lighting intensity, reactions, and
-                    simple interactions that make the space feel alive.
-                </p>
-                <p class="content-text">
-                    This project is focused on one thing: testing how far "presence" can go with lightweight mechanics and minimal UI.
+                    Create a feeling of social presence in Mixed Reality using lightweight interactions instead of
+                    complex UI.
                 </p>
             </div>
 
@@ -71,8 +69,10 @@
             <div class="content-section">
                 <h2 class="content-title">The problem</h2>
                 <p class="content-text">
-                    A lot of VR music experiences feel passive. You watch a performance, enjoy it for a few minutes, then leave.
-                    I wanted to explore a different angle: give the player ownership over the energy of the room, without turning
+                    A lot of VR music experiences feel passive. You watch a performance, enjoy it for a few minutes,
+                    then leave.
+                    I wanted to explore a different angle: give the player ownership over the energy of the room,
+                    without turning
                     it into a complicated DJ tool.
                 </p>
             </div>
@@ -81,11 +81,15 @@
             <div class="content-section">
                 <h2 class="content-title">What I built</h2>
                 <ul class="content-list">
-                    <li><strong>MR setup:</strong> Passthrough experience with the DJ anchored in the player's physical space</li>
+                    <li><strong>MR setup:</strong> Passthrough experience with the DJ anchored in the player's physical
+                        space</li>
                     <li><strong>DJ presence loop:</strong> simple "hosting" moments (start, build, drop, cooldown)</li>
-                    <li><strong>Gesture-first interactions:</strong> grab, throw, wave, clap (kept intentionally limited)</li>
-                    <li><strong>Audio-reactive visuals:</strong> lighting and effects respond to tempo and energy changes</li>
-                    <li><strong>Iteration workflow:</strong> rapid tweaks based on short play sessions and friction notes</li>
+                    <li><strong>Gesture-first interactions:</strong> grab, throw, wave, clap (kept intentionally
+                        limited)</li>
+                    <li><strong>Audio-reactive visuals:</strong> lighting and effects respond to tempo and energy
+                        changes</li>
+                    <li><strong>Iteration workflow:</strong> rapid tweaks based on short play sessions and friction
+                        notes</li>
                 </ul>
             </div>
 
@@ -96,20 +100,25 @@
                     Watch how players interact with the DJ character and control the party vibe through intuitive
                     gesture-based interactions.
                 </p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-xl);">
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-lg); margin-top: var(--spacing-xl);">
                     <div>
-                        <video width="100%" height="auto" autoplay muted loop playsinline style="border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+                        <video width="100%" height="auto" autoplay muted loop playsinline
+                            style="border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
                             <source src="images/house party vr/gif1.mp4" type="video/mp4">
                         </video>
-                        <p class="content-text" style="margin-top: var(--spacing-sm); font-size: 0.875rem; color: var(--color-text-secondary);">
+                        <p class="content-text"
+                            style="margin-top: var(--spacing-sm); font-size: 0.875rem; color: var(--color-text-secondary);">
                             Player controls DJ interactions and party energy through physical gestures
                         </p>
                     </div>
                     <div>
-                        <video width="100%" height="auto" autoplay muted loop playsinline style="border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+                        <video width="100%" height="auto" autoplay muted loop playsinline
+                            style="border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
                             <source src="images/house party vr/gif2.mp4" type="video/mp4">
                         </video>
-                        <p class="content-text" style="margin-top: var(--spacing-sm); font-size: 0.875rem; color: var(--color-text-secondary);">
+                        <p class="content-text"
+                            style="margin-top: var(--spacing-sm); font-size: 0.875rem; color: var(--color-text-secondary);">
                             Reactive lighting and visual effects synchronized to music BPM and drops
                         </p>
                     </div>
@@ -118,47 +127,30 @@
 
             <!-- Core Design Choices -->
             <div class="content-section">
-                <h2 class="content-title">Core design choices</h2>
+                <h2 class="content-title">Design Choices</h2>
 
                 <div class="design-decision">
-                    <h3 class="decision-title">Mixed reality first</h3>
+                    <h3 class="decision-title">MR First</h3>
                     <p class="content-text">
-                        Placing the DJ in the player's actual room creates instant context and reduces navigation and setup time.
+                        Anchors the DJ in the player's real room for instant context.
                     </p>
                 </div>
 
                 <div class="design-decision">
-                    <h3 class="decision-title">Player as host, not performer</h3>
+                    <h3 class="decision-title">Gesture Control</h3>
                     <p class="content-text">
-                        Early on, "player as DJ" felt like work. The host fantasy kept the experience playful and low-pressure.
-                    </p>
-                </div>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">Minimal UI</h3>
-                    <p class="content-text">
-                        Any menu or panel breaks the vibe fast. I tried to keep interactions physical and obvious, with as
-                        little interface as possible.
-                    </p>
-                </div>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">System-driven reactivity</h3>
-                    <p class="content-text">
-                        Instead of scripted sequences, I focused on reactive behavior so different songs can still feel fresh.
+                        Replaced menus with physical actions (wave, clap) to maintain immersion.
                     </p>
                 </div>
             </div>
 
             <!-- What I Learned -->
             <div class="content-section">
-                <h2 class="content-title">What I learned</h2>
-                <ul class="content-list">
-                    <li>Presence often beats feature count</li>
-                    <li>Fewer interactions, done well, feel better than many interactions done halfway</li>
-                    <li>In MR, friction shows up immediately (setup, UI, unclear affordances)</li>
-                    <li>Audio reactivity needs to feel tight or it reads as "random", not "alive"</li>
-                </ul>
+                <h2 class="content-title">Insight & Result</h2>
+                <p class="content-text">
+                    Audio reactivity felt random if not tight. I tuned lighting decay to snap strictly to beat
+                    transients, significantly improving the perception of the DJ "listening" to the music.
+                </p>
             </div>
 
             <!-- Next Steps -->
@@ -177,7 +169,8 @@
             <div class="content-section">
                 <h2 class="content-title">Tech notes</h2>
                 <p class="content-text">
-                    Unity + Meta XR SDK (Passthrough MR, hand tracking). Lightweight real-time audio analysis for reactive
+                    Unity + Meta XR SDK (Passthrough MR, hand tracking). Lightweight real-time audio analysis for
+                    reactive
                     lighting and effects.
                 </p>
             </div>
@@ -201,4 +194,5 @@
         </div>
     </footer>
 </body>
+
 </html>

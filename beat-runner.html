@@ -87,11 +87,9 @@
 
             <!-- The Challenge -->
             <div class="content-section">
-                <h2 class="content-title">The Challenge</h2>
+                <h2 class="content-title">Goal</h2>
                 <p class="content-text">
-                    Build a rhythm runner that feels responsive in a browser and supports both endless play and
-                    structured progression.
-                    The focus was a clean, repeatable loop that is easy to iterate on.
+                    Validate if a cosmetic-grind loop works in a skill-based rhythm game.
                 </p>
             </div>
 
@@ -112,74 +110,46 @@
 
             <!-- Game Systems -->
             <div class="content-section">
-                <h2 class="content-title">Game Systems</h2>
+                <h2 class="content-title">What I Built</h2>
 
                 <div class="design-decision">
                     <h3 class="decision-title">Stage Mode</h3>
                     <p class="content-text">
-                        15 levels designed to teach the mechanics and ramp difficulty. Stars encourage replays and
-                        unlock later stages.
+                        15 levels with increasing note density to teach mechanics.
                     </p>
-                </div>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">Free Run</h3>
-                    <p class="content-text">
-                        Endless mode designed for quick sessions. Boosters add variety without changing the core
-                        controls:
-                    </p>
-                    <ul class="content-list">
-                        <li>Magnet: pulls nearby Orbs</li>
-                        <li>Shield: protects from one hit</li>
-                        <li>Speed Boost: short burst for high intensity moments</li>
-                    </ul>
                 </div>
 
                 <div class="design-decision">
                     <h3 class="decision-title">Economy</h3>
                     <p class="content-text">
-                        Orbs are earned through play and spent on cosmetics. The shop is meant to create goals and
-                        variety without affecting balance.
+                        Soft currency (Orbs) earned via play, spent on cosmetic trails.
+                    </p>
+                </div>
+
+                <div class="design-decision">
+                    <h3 class="decision-title">Progression</h3>
+                    <p class="content-text">
+                        Star-gating system to enforce mastery before advancement.
                     </p>
                 </div>
             </div>
 
             <!-- Economy Modeling -->
             <div class="content-section">
-                <h2 class="content-title">Economy Modeling & Tuning</h2>
-                <ul class="content-list">
-                    <li><strong>Inflation Control:</strong> Modeled sink costs (upgrades/cosmetics) to match source
-                        rates (gameplay) over a 30-day curve.</li>
-                    <li><strong>Pacing:</strong> Tuned level difficulty and star-requirements to gate progress and
-                        extend content lifetime.</li>
-                    <li><strong>Reward Variance:</strong> Designed probabilistic reward drops (chests) vs deterministic
-                        framing to balance excitement with predictability.</li>
-                    <li><strong>Tech Stack:</strong> Three.js for rendering, but the core logic is pure JS economy
-                        simulation.</li>
-                </ul>
+                <h2 class="content-title">Iteration & Insight</h2>
+                <p class="content-text">
+                    Players churned early when difficulty spiked too fast. I smoothed the note density curve in levels
+                    3-5, increasing early retention.
+                </p>
             </div>
 
             <!-- Results -->
             <div class="content-section">
-                <h2 class="content-title">Results</h2>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-value">15</div>
-                        <div class="metric-label">Levels</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">2</div>
-                        <div class="metric-label">Modes</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">3</div>
-                        <div class="metric-label">Boosters</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">Orbs + Cosmetics</div>
-                        <div class="metric-label">Economy</div>
-                    </div>
-                </div>
+                <h2 class="content-title">Result</h2>
+                <p class="content-text">
+                    Delivered a performant 3D web prototype proving the core loop is fun and the economy supports
+                    long-term engagement.
+                </p>
             </div>
 
             <!-- What's Next -->
@@ -202,6 +172,17 @@
             </div>
         </div>
     </section>
+
+    <!-- Screens -->
+    <div class="content-section">
+        <h2 class="content-title">Screens</h2>
+        <div class="screens-gallery">
+            <img src="images/beats runner/main screen.png" alt="Beat Runner Main Screen">
+            <img src="images/beats runner/in game photo.png" alt="Gameplay Action">
+            <img src="images/beats runner/stage mode manu.png" alt="Stage Select Menu">
+            <img src="images/beats runner/store screen.png" alt="Store Screen">
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">

@@ -91,55 +91,30 @@
 
             <!-- Overview -->
             <div class="content-section">
-                <h2 class="content-title">Overview</h2>
+                <h2 class="content-title">Goal</h2>
                 <p class="content-text">
-                    Merge Lab is a mobile-first merge puzzle game built to test iteration loops based on player data.
-                    It features a custom-built Level Editor and an on-device Insights dashboard, allowing for rapid
-                    balance tuning without external tools.
+                    Practice data-driven balancing by building a game, an analytics backend, and a live tuning tool
+                    simultaneously.
                 </p>
             </div>
 
             <!-- Key Features -->
             <div class="content-section">
-                <h2 class="content-title">Key Features</h2>
+                <h2 class="content-title">What I Built</h2>
                 <ul class="content-list">
-                    <li><strong>Order-Based Objectives:</strong> Tiered goals per level with strict move limits.</li>
-                    <li><strong>Level Editor:</strong> In-app tool to adjust move limits and orders instantly.</li>
-                    <li><strong>Insights Dashboard:</strong> Tracks attempts, win rates, and level difficulty in
-                        real-time.</li>
-                    <li><strong>Analytics Export:</strong> CSV export for deeper analysis.</li>
-                    <li><strong>Configurable Settings:</strong> Dark mode, sound toggles, and data reset.</li>
+                    <li><strong>Mobile Puzzle Core:</strong> Standard merge mechanics with order-based goals.</li>
+                    <li><strong>Live Editor:</strong> In-app tool to tweak level parameters instantly.</li>
+                    <li><strong>Insights Dashboard:</strong> On-device tracking of win rates and drop-offs.</li>
                 </ul>
             </div>
 
             <!-- Data, Insights, Iteration -->
             <div class="content-section">
-                <h2 class="content-title">Data, Insights, Iteration</h2>
+                <h2 class="content-title">Data & Iteration</h2>
                 <p class="content-text">
-                    The core goal of this project was to practice data-driven balancing.
+                    Data showed Level 3 win-rates dropped to 84.9% (friction point). I used the Level Editor to adjust
+                    move limits in seconds, validating the fix immediately.
                 </p>
-
-                <h3 class="decision-title">Hard Facts & Metrics</h3>
-                <ul class="content-list">
-                    <li><strong>Total Attempts:</strong> 2,607</li>
-                    <li><strong>Overall Win Rate:</strong> 69.6%</li>
-                    <li><strong>Most Played Level:</strong> Level 3 (126 attempts)</li>
-                    <li><strong>Hardest Level:</strong> Level 30 (34.1% win rate)</li>
-                </ul>
-                <p class="content-text" style="font-size: 0.9em; opacity: 0.8; margin-top: 0.5rem;">
-                    <em>Per-level examples: L1 95.5%, L2 91.5%, L3 84.9%, L4 90.5%, L5 87.9%, L6 86.3%, L7 83.8%</em>
-                </p>
-
-                <br>
-                <h3 class="decision-title">Iteration Loop</h3>
-                <ul class="content-list">
-                    <li><strong>What the data showed:</strong> Early levels (L1-L2) had >90% win rates, validating the
-                        onboarding. L3 dropped to 84.9%, marking the first challenge point.</li>
-                    <li><strong>Decisions made:</strong> Used the win-rate drop at L30 (34.1%) to identify a difficulty
-                        spike, then used the Level Editor to adjust move limits.</li>
-                    <li><strong>Tooling impact:</strong> Building the Level Editor reduced the "tweak-to-test" cycle
-                        from minutes (code deploy) to seconds (in-app edit).</li>
-                </ul>
             </div>
 
             <!-- Screens -->
