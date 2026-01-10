@@ -247,6 +247,16 @@ a {
     flex-wrap: wrap;
 }
 
+.hero-proof {
+    margin-top: var(--spacing-md);
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* ===== BUTTONS ===== */
 .btn {
     display: inline-block;
