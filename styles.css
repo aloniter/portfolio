@@ -205,6 +205,31 @@ button:focus-visible {
     font-size: 1.05rem;
 }
 
+.hero-highlights {
+    width: min(440px, 100%);
+    margin: 1rem auto 2rem;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+    display: grid;
+    gap: 0.45rem;
+}
+
+.hero-highlights li {
+    position: relative;
+    padding-left: 1.15rem;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.hero-highlights li::before {
+    content: '\2022';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary-strong);
+}
+
 .chips {
     display: flex;
     justify-content: center;
