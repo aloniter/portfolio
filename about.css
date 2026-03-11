@@ -125,6 +125,13 @@
     color: var(--color-text);
 }
 
+.background-meta {
+    color: var(--color-text-secondary);
+    font-size: 0.94rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
     .story-section {
@@ -139,6 +146,11 @@
     .story-image img {
         max-width: 320px;
         margin: 0 auto;
+    }
+
+    .background-header {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 

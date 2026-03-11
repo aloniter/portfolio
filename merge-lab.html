@@ -10,38 +10,12 @@
     <link rel="stylesheet" href="project-page.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;family=Sora:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
-    <style>
-        /* Specific overrides for gallery */
-        .screens-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        @media (max-width: 768px) {
-            .screens-gallery {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .screens-gallery img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-            cursor: pointer;
-        }
-
-        .screens-gallery img:hover {
-            transform: scale(1.02);
-        }
-    </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;family=Sora:wght@500;600;700;800&amp;display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">Alon Iter</a>
@@ -53,19 +27,19 @@
         </div>
     </nav>
 
-    <!-- Project Hero -->
     <section class="project-hero">
         <div class="container">
             <a href="index.html" class="back-link">← Back to Projects</a>
             <h1 class="project-hero-title">Merge Lab</h1>
-            <p class="project-hero-subtitle">Data-Driven Puzzle Experiment</p>
+            <p class="project-hero-subtitle">
+                Merge prototype with built-in level editor and insights view for faster balancing decisions.
+            </p>
 
             <div class="project-meta">
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
-                    <span class="meta-value">Solo Developer & Designer</span>
+                    <span class="meta-value">Solo Designer &amp; Developer</span>
                 </div>
-                <!-- TODO: Confirm Timeline if needed -->
                 <div class="meta-item">
                     <span class="meta-label">Timeline</span>
                     <span class="meta-value">3 weeks</span>
@@ -75,103 +49,119 @@
                     <span class="meta-value">Mobile Web</span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">Type</span>
-                    <span class="meta-value">Puzzle / Analytics Tool</span>
+                    <span class="meta-label">Focus</span>
+                    <span class="meta-value">Balancing workflow and instrumentation</span>
                 </div>
             </div>
 
             <div class="project-cta">
-                <a href="https://merge-lab.vercel.app/" target="_blank" class="btn btn-primary">Play Demo</a>
+                <a href="https://merge-lab.vercel.app/" target="_blank" rel="noreferrer" class="btn btn-primary">Play
+                    Demo</a>
             </div>
         </div>
     </section>
 
-    <!-- Project Content -->
     <section class="project-content">
         <div class="container">
-
-            <!-- Overview -->
             <div class="content-section">
-                <h2 class="content-title">Goal</h2>
+                <h2 class="content-title">Product Goal</h2>
                 <p class="content-text">
-                    Practice data-driven balancing by building a game, an analytics backend, and a live tuning tool
-                    simultaneously.
+                    Practice data-driven balancing by building not just the puzzle loop, but also the tools needed to
+                    understand difficulty and adjust it quickly.
                 </p>
             </div>
 
-            <!-- Key Features -->
             <div class="content-section">
-                <h2 class="content-title">What I Built</h2>
+                <h2 class="content-title">My Role</h2>
                 <ul class="content-list">
-                    <li><strong>Mobile Puzzle Core:</strong> Standard merge mechanics with order-based goals.</li>
-                    <li><strong>Live Editor:</strong> In-app tool to tweak level parameters instantly.</li>
-                    <li><strong>Insights Dashboard:</strong> On-device tracking of win rates and drop-offs.</li>
+                    <li>Built the merge core, level structure, and mobile interface</li>
+                    <li>Created a live editor for tuning level parameters without rebuilding the game</li>
+                    <li>Added lightweight insights views to surface win rates and difficulty friction</li>
                 </ul>
             </div>
 
-            <!-- Data, Insights, Iteration -->
             <div class="content-section">
-                <h2 class="content-title">Data & Iteration</h2>
+                <h2 class="content-title">Problem / Opportunity</h2>
                 <p class="content-text">
-                    Data showed Level 3 win-rates dropped to 84.9% (friction point). I used the Level Editor to adjust
-                    move limits in seconds, validating the fix immediately.
+                    Balancing often slows down because each adjustment requires too much manual work and not enough
+                    visibility. The opportunity was to treat tuning as a product workflow problem, not only a gameplay
+                    problem.
                 </p>
             </div>
 
-            <!-- Screens -->
+            <div class="content-section">
+                <h2 class="content-title">What I Defined</h2>
+                <ul class="content-list">
+                    <li>A merge puzzle loop built around order-based level goals</li>
+                    <li>An in-app level editor for changing parameters instantly</li>
+                    <li>An insights layer that highlights hardest levels, win-rate drops, and friction signals</li>
+                    <li>A lightweight export mindset so balancing decisions can be sanity-checked outside the app</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">How I Worked with Engineering / QA</h2>
+                <p class="content-text">
+                    This was a solo build, so I treated the editor and insights view as internal tooling that normally
+                    helps design, engineering, and QA stay aligned. Every tuning change could be tested immediately,
+                    which reduced the gap between identifying a problem and verifying the fix.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Metrics or Success Criteria</h2>
+                <ul class="content-list">
+                    <li>Ability to identify friction quickly instead of tuning by guesswork</li>
+                    <li>Ability to change level parameters without slowing the iteration loop</li>
+                    <li>Level-specific win-rate visibility to support balancing decisions</li>
+                    <li>Level 3 surfaced at 84.9% win rate and became an immediate tuning case</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Iteration / What Changed</h2>
+                <p class="content-text">
+                    Once the data showed where friction lived, the editor became the key workflow win. I could adjust
+                    move limits and validate the change in seconds instead of treating each balancing pass like a full
+                    rebuild.
+                </p>
+            </div>
+
             <div class="content-section">
                 <h2 class="content-title">Screens</h2>
                 <div class="screens-gallery">
-                    <img src="assets/merge-lab/demo.gif" alt="Merge Lab Gameplay Demo">
-                    <img src="assets/merge-lab/main.png" alt="Merge Lab Home Screen">
-                    <img src="assets/merge-lab/settings.png" alt="Settings Screen">
-                    <img src="assets/merge-lab/level-editor.png" alt="Level Editor">
-                    <img src="assets/merge-lab/insights.png" alt="Insights Overview">
-                    <img src="assets/merge-lab/insights-dropdown.png" alt="Win Rates List">
+                    <img src="assets/merge-lab/demo.gif" alt="Merge Lab gameplay demo">
+                    <img src="assets/merge-lab/main.png" alt="Merge Lab main screen">
+                    <img src="assets/merge-lab/settings.png" alt="Merge Lab settings screen">
+                    <img src="assets/merge-lab/level-editor.png" alt="Merge Lab level editor">
+                    <img src="assets/merge-lab/insights.png" alt="Merge Lab insights overview">
+                    <img src="assets/merge-lab/insights-dropdown.png" alt="Merge Lab win rates list">
                 </div>
             </div>
 
-            <!-- Tech Stack -->
-            <div class="content-section">
-                <h2 class="content-title">Tech Stack</h2>
-                <p class="content-text">
-                    Vanilla Web (HTML/CSS/JS).
-                    <!-- TODO: Verify if using any libraries once source is available -->
-                </p>
-            </div>
-
-            <!-- What I Learned -->
-            <div class="content-section">
-                <h2 class="content-title">What I Learned</h2>
-                <ul class="content-list">
-                    <li><strong>Balancing via Metrics:</strong> Learned to look at the "Hardest Level" (34.1%) not just
-                        as a number, but as a friction point requiring action.</li>
-                    <li><strong>Instrumentation Mindset:</strong> Built lightweight analytics first, not last. Exporting
-                        to CSV allowed for sanity checks outside the app.</li>
-                    <li><strong>Tooling Speed:</strong> The Level Editor proved that investing time in internal tools
-                        pays off by drastically shortening iteration cycles.</li>
-                    <li><strong>Mobile UX:</strong> refined navigation consistency between Editor, Game, and Insights
-                        views to ensure smooth "developer experience" even on a phone.</li>
-                </ul>
-            </div>
-
-            <!-- Next Improvements -->
             <div class="content-section">
                 <h2 class="content-title">Next Improvements</h2>
                 <ul class="content-list">
-                    <li>Add A/B testing support to serve different move limits to different user segments.</li>
-                    <li>Visualize the "drop-off funnel" directly in the Insights dashboard.</li>
-                    <li>Cloud save support for cross-device testing.</li>
+                    <li>Add A/B testing support for different move limits and level settings</li>
+                    <li>Surface a clearer drop-off funnel directly inside the insights dashboard</li>
+                    <li>Add cloud save for cross-device testing and easier experiment sharing</li>
                 </ul>
             </div>
 
+            <div class="content-cta">
+                <h2 class="cta-title">Try the Balancing Workflow</h2>
+                <p class="cta-text">
+                    Play the prototype and inspect how the editor and insights views support faster iteration.
+                </p>
+                <a href="https://merge-lab.vercel.app/" target="_blank" rel="noreferrer" class="btn btn-primary">Play
+                    Merge Lab</a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Alon Iter. All rights reserved.</p>
+            <p>&copy; 2026 Alon Iter. All rights reserved.</p>
         </div>
     </footer>
 </body>
