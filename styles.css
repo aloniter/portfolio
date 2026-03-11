@@ -355,6 +355,10 @@ button:focus-visible {
 }
 
 .build-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    min-height: 100%;
     padding: 1rem 1.1rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
@@ -369,10 +373,24 @@ button:focus-visible {
     box-shadow: var(--shadow-md);
 }
 
+.build-step {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+}
+
 .build-title {
-    font-size: 0.93rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--color-primary-strong);
+}
+
+.build-text {
+    color: var(--color-text-secondary);
+    font-size: 0.94rem;
+    line-height: 1.55;
 }
 
 /* ===== ROLE FIT ===== */
