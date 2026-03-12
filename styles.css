@@ -159,69 +159,83 @@ button:focus-visible {
 
 /* ===== HERO ===== */
 .hero {
+    position: relative;
     padding: clamp(4.8rem, 11vh, 6.4rem) 0 clamp(3.1rem, 7vh, 4.2rem);
 }
 
 .hero-content {
-    max-width: 760px;
+    position: relative;
+    max-width: 820px;
     margin: 0 auto;
+    padding: clamp(2rem, 4vw, 3rem);
     text-align: center;
+    border: 1px solid rgba(211, 222, 234, 0.95);
+    border-radius: 2rem;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.72) 100%);
+    box-shadow: 0 26px 60px rgba(17, 36, 64, 0.08);
+    overflow: hidden;
+}
+
+.hero-content::before,
+.hero-content::after {
+    content: '';
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+}
+
+.hero-content::before {
+    top: -3.5rem;
+    right: -2rem;
+    width: 13rem;
+    height: 13rem;
+    background: radial-gradient(circle, rgba(35, 95, 164, 0.16) 0%, rgba(35, 95, 164, 0) 70%);
+}
+
+.hero-content::after {
+    left: -3rem;
+    bottom: -4.5rem;
+    width: 14rem;
+    height: 14rem;
+    background: radial-gradient(circle, rgba(13, 120, 106, 0.16) 0%, rgba(13, 120, 106, 0) 70%);
+}
+
+.hero-content > * {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-subtitle {
     display: inline-block;
-    margin-bottom: 1.05rem;
-    padding: 0.44rem 0.92rem;
+    margin-bottom: 1.1rem;
+    padding: 0.5rem 1rem;
     border-radius: 999px;
     border: 1px solid rgba(13, 120, 106, 0.22);
-    background: rgba(13, 120, 106, 0.07);
+    background: rgba(13, 120, 106, 0.08);
     font-size: 0.76rem;
     font-weight: 600;
     line-height: 1.2;
-    letter-spacing: 0.045em;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
     color: var(--color-primary-strong);
 }
 
 .hero-title {
-    margin: 0 auto 1.25rem;
-    max-width: 14ch;
-    font-size: clamp(2.8rem, 7vw, 4.4rem);
+    margin: 0 auto 1rem;
+    max-width: 11ch;
+    font-size: clamp(3.1rem, 7vw, 5rem);
     line-height: 1.02;
     letter-spacing: -0.035em;
     color: var(--color-text);
 }
 
 .hero-description {
-    max-width: 52ch;
-    margin: 0 auto 1.55rem;
+    max-width: 38ch;
+    margin: 0 auto 2rem;
     color: var(--color-text-secondary);
-    font-size: clamp(1rem, 1.6vw, 1.13rem);
-    line-height: 1.55;
-}
-
-.hero-highlights {
-    width: min(700px, 100%);
-    margin: 0 auto 2.2rem;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(220px, 1fr));
-    gap: 0.75rem;
-    justify-content: center;
-}
-
-.hero-highlights li {
-    padding: 0.82rem 1rem;
-    border: 1px solid rgba(35, 95, 164, 0.18);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.72);
-    box-shadow: var(--shadow-sm);
-    color: var(--color-text-secondary);
-    font-size: 0.95rem;
-    font-weight: 600;
-    line-height: 1.36;
-    text-align: center;
+    font-size: clamp(1.02rem, 1.7vw, 1.16rem);
+    line-height: 1.68;
 }
 
 .hero-cta {
@@ -232,9 +246,10 @@ button:focus-visible {
 }
 
 .hero-cta .btn {
-    min-width: 176px;
-    padding: 0.82rem 1.62rem;
-    border-radius: 0.85rem;
+    min-width: 210px;
+    min-height: 54px;
+    padding: 0.92rem 1.7rem;
+    border-radius: 1rem;
 }
 
 .hero-cta .btn-primary {
@@ -247,8 +262,9 @@ button:focus-visible {
 }
 
 .hero-cta .btn-secondary {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.92);
     border-color: rgba(79, 98, 128, 0.25);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
 .hero-cta .btn-secondary:hover {
@@ -258,7 +274,6 @@ button:focus-visible {
 .hero-subtitle,
 .hero-title,
 .hero-description,
-.hero-highlights,
 .hero-cta {
     animation: heroFadeUp 0.58s ease-out;
     animation-fill-mode: both;
@@ -272,12 +287,8 @@ button:focus-visible {
     animation-delay: 0.12s;
 }
 
-.hero-highlights {
-    animation-delay: 0.16s;
-}
-
 .hero-cta {
-    animation-delay: 0.22s;
+    animation-delay: 0.16s;
 }
 
 /* ===== BUTTONS ===== */
@@ -813,18 +824,13 @@ button:focus-visible {
     }
 
     .hero-content {
-        max-width: 640px;
+        max-width: 680px;
+        padding: 1.75rem 1.4rem;
     }
 
     .hero-description {
         max-width: 36ch;
-        margin-bottom: 1.35rem;
-    }
-
-    .hero-highlights {
-        width: min(560px, 100%);
-        margin-bottom: 1.75rem;
-        gap: 0.6rem;
+        margin-bottom: 1.6rem;
     }
 
     .hero-cta {
@@ -892,16 +898,9 @@ button:focus-visible {
         font-size: 0.98rem;
     }
 
-    .hero-highlights {
-        width: min(360px, 100%);
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-        margin-bottom: 1.55rem;
-    }
-
-    .hero-highlights li {
-        font-size: 0.9rem;
-        padding-inline: 0.9rem;
+    .hero-content {
+        padding: 1.5rem 1rem;
+        border-radius: 1.5rem;
     }
 
     .hero-cta .btn {
