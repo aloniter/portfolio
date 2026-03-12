@@ -796,6 +796,14 @@ button:focus-visible {
     animation-delay: 0.4s;
 }
 
+.project-card:nth-child(7) {
+    animation-delay: 0.48s;
+}
+
+.project-card:nth-child(8) {
+    animation-delay: 0.56s;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1080px) {
     .build-grid {

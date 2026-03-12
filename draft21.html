@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draft21 - Alon Iter</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="project-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;family=Sora:wght@500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Alon Iter</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Projects</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Projects</a>
+            <h1 class="project-hero-title">Draft21</h1>
+            <p class="project-hero-subtitle">
+                Snake draft system for 21-player football games that turns messy team creation into a fast, fair,
+                host-led flow.
+            </p>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Solo Product Builder &amp; Developer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Platform</span>
+                    <span class="meta-value">Flutter Web PWA</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Stack</span>
+                    <span class="meta-value">Flutter, Riverpod, GoRouter, Hive</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Focus</span>
+                    <span class="meta-value">Fair draft mechanics and local-first product flow</span>
+                </div>
+            </div>
+
+            <p class="sanitized-note">
+                The shipped app currently uses Hebrew UI copy because it was built for the football group that uses it.
+                The workflow shown here is the same product flow described in English.
+            </p>
+
+            <div class="project-cta">
+                <a href="https://draft21.vercel.app/" target="_blank" rel="noreferrer" class="btn btn-primary">Open
+                    Live App</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <div class="content-section">
+                <h2 class="content-title">Screens</h2>
+                <div class="screens-gallery-tight">
+                    <img src="assets/draft21-import.png" alt="Draft21 player import screen">
+                    <img src="assets/draft21-cover.png" alt="Draft21 captain assignment and team lobby screen">
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Product Goal</h2>
+                <p class="content-text">
+                    Reduce the friction of organizing 21-player football games by giving one host a clear way to import
+                    players, set captains, and produce three balanced teams without WhatsApp chaos or arguments over
+                    fairness.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">My Role</h2>
+                <ul class="content-list">
+                    <li>Defined the full host flow from raw player list to final team publish</li>
+                    <li>Built the snake draft logic for three teams of seven players each</li>
+                    <li>Designed captain setup, review states, and autosave so the draft survives refreshes</li>
+                    <li>Shipped the product as a mobile-friendly PWA for quick access before matches</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Problem / Opportunity</h2>
+                <p class="content-text">
+                    Casual football games often start with one long WhatsApp thread, a messy list of names, and a
+                    debate about how to split teams fairly. With 21 players, manual balancing becomes slow and visibly
+                    biased. The opportunity was to use a familiar sports mechanic, the snake draft, to make the setup
+                    phase feel both fair and fun.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Core Workflow</h2>
+                <div class="workflow-board">
+                    <article class="workflow-card">
+                        <h3 class="workflow-title">1. Import the roster</h3>
+                        <p class="workflow-text">
+                            Paste raw WhatsApp text and convert it into a clean player list with duplicate cleanup.
+                        </p>
+                    </article>
+                    <article class="workflow-card">
+                        <h3 class="workflow-title">2. Select captains</h3>
+                        <p class="workflow-text">
+                            Choose exactly three captains and map them to Red, White, and Black before drafting starts.
+                        </p>
+                    </article>
+                    <article class="workflow-card">
+                        <h3 class="workflow-title">3. Run the snake draft</h3>
+                        <p class="workflow-text">
+                            Reverse the pick order each round so no captain keeps the strongest positional advantage.
+                        </p>
+                    </article>
+                    <article class="workflow-card">
+                        <h3 class="workflow-title">4. Review and publish</h3>
+                        <p class="workflow-text">
+                            Let the host sanity-check the final team layout before the result is shared with players.
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Key Features</h2>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <h3 class="feature-title">WhatsApp Player Import</h3>
+                        <p class="feature-description">
+                            Removes prep work by extracting and formatting names directly from group chat text.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 class="feature-title">Captain Selection</h3>
+                        <p class="feature-description">
+                            Locks the draft to exactly three captains so the team structure is explicit from the start.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 class="feature-title">Snake Draft Engine</h3>
+                        <p class="feature-description">
+                            Alternates direction every round to balance pick power and keep the draft transparent.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 class="feature-title">Live Draft Board</h3>
+                        <p class="feature-description">
+                            Keeps available players, current turn, and team composition visible as the draft unfolds.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 class="feature-title">Host Review Step</h3>
+                        <p class="feature-description">
+                            Adds a final checkpoint before publish so mistakes are caught before teams are locked in.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 class="feature-title">Autosave</h3>
+                        <p class="feature-description">
+                            Stores draft progress locally so a refresh or disconnect does not force the group to start
+                            over.
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Why This System Works</h2>
+                <p class="content-text">
+                    The main design choice was to treat team creation as a rules problem, not just a UI problem. Snake
+                    drafting removes the unfairness of always picking first, while the visible turn order makes the
+                    process easier for everyone in the group to trust. That turns a usually frustrating setup step into
+                    part of the game-night experience.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Technical Direction</h2>
+                <ul class="content-list">
+                    <li><strong>Flutter Web:</strong> one responsive codebase that works quickly on mobile browsers</li>
+                    <li><strong>Riverpod:</strong> predictable state management for the draft flow and team state</li>
+                    <li><strong>GoRouter:</strong> clear navigation through setup, lobby, and draft states</li>
+                    <li><strong>Hive:</strong> local persistence for autosave and draft recovery</li>
+                </ul>
+                <p class="content-text">
+                    The app is intentionally local-first today, but the structure leaves room for future real-time
+                    drafting, player ranking, history, and league-style recurring use.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Why I Built It</h2>
+                <p class="content-text">
+                    I built Draft21 because organizing teams for real football matches was taking longer than it should.
+                    The project let me combine product thinking, game design principles, and lightweight mobile UX into
+                    a tool that solves a real social coordination problem.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Next Iterations</h2>
+                <ul class="content-list">
+                    <li>Add real-time multiplayer sync so captains can join from separate devices</li>
+                    <li>Introduce player ranking inputs and balancing suggestions before the draft starts</li>
+                    <li>Store match history, recurring groups, and league-style statistics across sessions</li>
+                </ul>
+            </div>
+
+            <div class="content-cta">
+                <h2 class="cta-title">Try the Draft Flow</h2>
+                <p class="cta-text">
+                    Open the live app to test the import, captain setup, and snake draft structure on mobile.
+                </p>
+                <a href="https://draft21.vercel.app/" target="_blank" rel="noreferrer" class="btn btn-primary">Open
+                    Draft21</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Alon Iter. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

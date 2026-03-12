@@ -163,7 +163,7 @@ def generate_pdf(output_path: Path):
     project_bullets = [
         "Lucky Tower - Designed a retention event concept with reward logic, KPI plan, and playable prototype.",
         "Merge Lab - Built a merge prototype with a live level editor and insights view for faster balancing.",
-        "Beat Runner - Built a gameplay prototype to explore progression, economy, and difficulty tuning.",
+        "Draft21 - Built a snake-draft PWA that turns 21-player football team creation into a fast, fair flow.",
         "Inspector Pro - Shipped a workflow app used by a real company to replace a manual reporting flow.",
     ]
     left_y = draw_bullets(c, project_bullets, left_x, left_y, left_width, font_size=9.25, leading=13)

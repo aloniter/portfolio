@@ -317,6 +317,10 @@
     .workflow-board {
         grid-template-columns: 1fr;
     }
+
+    .screens-gallery-tight {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 600px) {
