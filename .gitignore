@@ -7,3 +7,11 @@ node_modules/
 .idea/
 *.log
 .playwright-cli/
+output/
+# Playwright screenshots (root-level only)
+/homepage-full.png
+/homepage-mobile.png
+/about-full.png
+/lucky-tower-full.png
+/superplay-full.png
+/page-*.png
