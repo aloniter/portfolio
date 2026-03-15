@@ -392,7 +392,7 @@
 .screens-gallery video {
     width: 100%;
     border-radius: var(--radius-md);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-md);
     height: clamp(260px, 60vh, 520px);
     object-fit: contain;
     transition: transform 0.2s ease;
@@ -424,7 +424,7 @@
     height: 550px;
     object-fit: contain;
     border-radius: var(--radius-md);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-md);
     transition: transform 0.2s ease;
     cursor: pointer;
 }
