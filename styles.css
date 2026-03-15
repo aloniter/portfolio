@@ -520,6 +520,14 @@ button:focus-visible {
     transition: transform var(--transition-slow);
 }
 
+.project-image.project-image-contain {
+    background: linear-gradient(180deg, #101827 0%, #1a2233 100%);
+}
+
+.project-image.project-image-contain img {
+    object-fit: contain;
+}
+
 .project-card:hover .project-image img,
 .project-card:hover .project-image video {
     transform: scale(1.04);
