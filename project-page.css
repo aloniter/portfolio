@@ -434,6 +434,61 @@
     transform: scale(1.02);
 }
 
+/* Draft21 Gallery — app screenshot showcase */
+.screens-gallery-draft21 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.screens-gallery-draft21 img {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%);
+    border-radius: var(--radius-lg);
+    padding: 0.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.screens-gallery-draft21 img:nth-child(4),
+.screens-gallery-draft21 img:nth-child(5) {
+    grid-column: span 1;
+}
+
+/* Center last row if odd number of items */
+.screens-gallery-draft21 img:last-child:nth-child(3n + 2) {
+    grid-column: 2;
+}
+
+@media (max-width: 880px) {
+    .screens-gallery-draft21 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .screens-gallery-draft21 img:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        max-width: 60%;
+        justify-self: center;
+    }
+
+    .screens-gallery-draft21 img:last-child:nth-child(3n + 2) {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 520px) {
+    .screens-gallery-draft21 {
+        grid-template-columns: 1fr;
+    }
+
+    .screens-gallery-draft21 img:last-child:nth-child(odd) {
+        max-width: 100%;
+    }
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
     .screens-gallery-enhanced {
