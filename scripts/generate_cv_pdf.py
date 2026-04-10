@@ -111,16 +111,20 @@ def generate_pdf(output_path: Path):
 
     c.setFont("Helvetica-Bold", 10.2)
     c.setFillColor(ACCENT)
-    c.drawCentredString(text_center_x, header_y - 24, "Technical Operations Manager | Mobile Game Product & Delivery")
+    c.drawCentredString(
+        text_center_x,
+        header_y - 24,
+        "Technical Operations Manager | LiveOps Execution, Back-Office Operations, QA & KPI Review",
+    )
     draw_link_row(c, header_y - 42)
 
     y = header_y - 70
 
     y = section_heading(c, "Professional Summary", MARGIN_X, y, CONTENT_WIDTH)
     summary = (
-        "Technical Operations Manager in live mobile gaming, experienced in coordinating feature delivery across "
-        "Product, Monetization, QA, and R&D. Strong fit for Product Owner roles that require structured specs, "
-        "cross-functional execution, KPI follow-up, and fast product iteration."
+        "Technical Operations Manager in live mobile gaming with hands-on experience in LiveOps setup, back-office "
+        "execution, QA validation, automation, KPI analysis, and launch support across Product, Monetization, QA, "
+        "and R&D. I turn live plans into accurate configurations, stable releases, and clear follow-up."
     )
     y = draw_wrapped_text(c, summary, MARGIN_X, y, CONTENT_WIDTH, font_size=10.4, leading=14.4)
 
@@ -140,13 +144,15 @@ def generate_pdf(output_path: Path):
     y -= 16
 
     experience_bullets = [
-        "Coordinate live-game feature delivery across Product, Monetization, QA, and R&D teams.",
-        "Turn priorities into structured deliverables, validation steps, and release-ready handoff materials.",
-        "Support QA readiness through clearer checks, launch communication, and fast blocker handling.",
-        "Track post-release KPIs, flag anomalies early, and drive follow-up actions with stakeholders.",
-        "Improve recurring workflows to reduce friction and make execution more reliable.",
+        "Run live promotions, campaigns, and feature setups through back-office tools, ensuring accurate execution.",
+        "Handle weekly campaigns and A/B tests through setup, QA validation, rollout coordination, and follow-up.",
+        "Configure pricing and player segmentation with Product, Monetization, and Economy teams, including SQL targeting and exclusions.",
+        "Build 15+ internal scripts and tools for back-office workflows, QA checks, and operational efficiency.",
+        "Support launches with Product, Monetization, Economy, QA, and developers, and improve internal LiveOps workflows.",
+        "Review KPI and economy performance to flag issues, surface opportunities, and support optimization decisions.",
+        "Participate in on-call live issue handling and fast troubleshooting to keep game operations stable.",
     ]
-    y = draw_bullets(c, experience_bullets, MARGIN_X, y, CONTENT_WIDTH, font_size=9.7, leading=13.6)
+    y = draw_bullets(c, experience_bullets, MARGIN_X, y, CONTENT_WIDTH, font_size=9.15, leading=12.6)
 
     y -= 6
     column_top = y
@@ -194,7 +200,7 @@ def generate_pdf(output_path: Path):
 
     right_y = section_heading(c, "Skills", right_x, column_top, right_width)
     skill_sections = [
-        ("Product & Delivery", "Feature coordination, delivery planning, QA readiness, release notes, stakeholder alignment"),
+        ("Operations & Delivery", "LiveOps setup, back-office workflows, QA readiness, launch support, stakeholder alignment"),
         ("Game / Data Analysis", "KPI tracking, SQL, dashboards, spreadsheets, anomaly review"),
         ("Tools", "Jira, Confluence, Notion, Google Sheets, Slack, Monday"),
         ("Prototyping", "JavaScript, web app prototyping, Unity (basic), workflow automation"),
