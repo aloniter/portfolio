@@ -528,6 +528,10 @@ button:focus-visible {
     object-fit: contain;
 }
 
+.project-image--blockquest img {
+    object-position: center 42%;
+}
+
 .project-card:hover .project-image img,
 .project-card:hover .project-image video {
     transform: scale(1.04);

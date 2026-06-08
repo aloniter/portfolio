@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlockQuest - Alon Iter</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css?v=20260608-1">
+    <link rel="stylesheet" href="project-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;family=Sora:wght@500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Alon Iter</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Projects</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <a href="index.html" class="back-link">&larr; Back to Projects</a>
+            <h1 class="project-hero-title">BlockQuest</h1>
+            <p class="project-hero-subtitle">
+                Unity mobile puzzle battler prototype where block-placement strategy drives boss-fight progression.
+            </p>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Solo Game Designer &amp; Prototype Developer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Status</span>
+                    <span class="meta-value">Active prototype development</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Platform</span>
+                    <span class="meta-value">Unity / Portrait Mobile</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Focus</span>
+                    <span class="meta-value">Puzzle loop, boss pressure, and UX clarity</span>
+                </div>
+            </div>
+
+            <p class="sanitized-note">
+                BlockQuest is currently in active prototype development. There is no public demo link yet, so this case
+                study focuses on the current game loop, systems direction, and product thinking behind the prototype.
+            </p>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <div class="content-section">
+                <h2 class="content-title">Screens</h2>
+                <div class="screens-gallery">
+                    <img src="assets/blockquest/main-menu.jpg" alt="BlockQuest main menu with dungeon world selection">
+                    <img src="assets/blockquest/gameplay-board.jpg" alt="BlockQuest gameplay screen with boss HP, 8x8 board, and piece tray">
+                    <img src="assets/blockquest/relic-piece-found.jpg" alt="BlockQuest reward feedback showing a relic piece found">
+                    <img src="assets/blockquest/defeat-state.jpg" alt="BlockQuest defeat screen after a boss attack shatters the board">
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Product Goal</h2>
+                <p class="content-text">
+                    Create a compact portrait mobile game that combines the familiar satisfaction of block-placement
+                    puzzles with the tension of boss fights, enemy attacks, and escalating encounters.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">My Role</h2>
+                <ul class="content-list">
+                    <li>Designed the core loop from piece placement to line clears, boss damage, enemy attacks, and progression</li>
+                    <li>Built the Unity prototype direction around an 8x8 board, three-piece tray, HP states, and mobile-safe UI</li>
+                    <li>Defined feedback moments for combos, damage reactions, boss pressure, rewards, and failure states</li>
+                    <li>Scoped the prototype around retention, progression, replayability, and fast iteration</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Problem / Opportunity</h2>
+                <p class="content-text">
+                    Block puzzles are easy to understand, but they can become flat when every clear has the same weight.
+                    The opportunity in BlockQuest is to make each clear feel like part of a fight: every row or column
+                    pushes the boss closer to defeat, and every boss attack changes the board state in a way the player
+                    has to solve around.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Core Loop</h2>
+                <div class="workflow-board">
+                    <article class="workflow-card">
+                        <h3 class="workflow-title">1. Place pieces</h3>
+                        <p class="workflow-text">
+                            Choose from a three-piece tray and make board decisions that preserve future placement
+                            options.
+                        </p>
+                    </article>
+                    <article class="workflow-card">
+                        <h3 class="workflow-title">2. Clear lines</h3>
+                        <p class="workflow-text">
+                            Complete rows and columns to create readable damage moments and combo opportunities.
+                        </p>
+                    </article>
+                    <article class="workflow-card">
+                        <h3 class="workflow-title">3. Damage the boss</h3>
+                        <p class="workflow-text">
+                            Turn puzzle success into combat progress through boss HP, reactions, and encounter states.
+                        </p>
+                    </article>
+                    <article class="workflow-card">
+                        <h3 class="workflow-title">4. Survive attacks</h3>
+                        <p class="workflow-text">
+                            Boss attacks add pressure by disrupting the board and forcing the player to recover.
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Key Systems</h2>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <h3 class="feature-title">8x8 Puzzle Board</h3>
+                        <p class="feature-description">
+                            Keeps the rules readable while giving enough space for strategy, recovery, and combo setup.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 class="feature-title">Three-Piece Tray</h3>
+                        <p class="feature-description">
+                            Creates short-term planning pressure and makes every placement affect the next decision.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 class="feature-title">Boss HP Feedback</h3>
+                        <p class="feature-description">
+                            Converts line clears into visible combat progress so the board and boss fight feel connected.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 class="feature-title">Attack Pressure</h3>
+                        <p class="feature-description">
+                            Uses boss attacks and obstacles to create tension beyond pure high-score optimization.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 class="feature-title">Encounter Progression</h3>
+                        <p class="feature-description">
+                            Escalating bosses give the prototype a clear arcade progression path and replay goal.
+                        </p>
+                    </article>
+                    <article class="feature-card">
+                        <h3 class="feature-title">Mobile-First UI</h3>
+                        <p class="feature-description">
+                            Portrait layout, safe-area thinking, and readable hierarchy keep the game usable on phones.
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Design Direction</h2>
+                <p class="content-text">
+                    The product direction is not only to prove that the mechanics work, but to test whether the loop has
+                    the right motivational shape for a mobile game: fast understanding, repeated tension, satisfying
+                    feedback, and a reason to continue into the next encounter.
+                </p>
+                <ul class="content-list">
+                    <li>Use boss HP and attack timing to make puzzle clears feel consequential</li>
+                    <li>Keep the board readable so new pressure does not turn into visual noise</li>
+                    <li>Make combo clears feel stronger through feedback, pacing, and damage reactions</li>
+                    <li>Scope progression around replayability, difficulty pacing, and future live-ops hooks</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Success Criteria</h2>
+                <ul class="content-list">
+                    <li>Players understand the board, tray, and boss objective within the first few seconds</li>
+                    <li>Line clears immediately communicate damage, progress, and combat impact</li>
+                    <li>Boss attacks create pressure without making the board feel unfair or unreadable</li>
+                    <li>Early encounters teach the loop while later fights add meaningful difficulty</li>
+                    <li>The prototype supports quick tuning of HP, attack cadence, pieces, and encounter pacing</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Next Iterations</h2>
+                <ul class="content-list">
+                    <li>Tune boss HP curves, attack cadence, and early encounter difficulty</li>
+                    <li>Add more boss behaviors that change board pressure without adding rule confusion</li>
+                    <li>Expand reward and relic progression into a clearer long-term motivation layer</li>
+                    <li>Track clears, failed boards, boss defeats, and attack outcomes to guide balance decisions</li>
+                </ul>
+            </div>
+
+            <div class="content-cta">
+                <h2 class="cta-title">Active Prototype</h2>
+                <p class="cta-text">
+                    BlockQuest is being used to test mobile puzzle-battler mechanics, UI hierarchy, encounter pacing,
+                    and progression systems before a public build is shared.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Alon Iter. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+
+</html>
