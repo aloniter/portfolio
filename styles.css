@@ -528,7 +528,8 @@ button:focus-visible {
     object-fit: contain;
 }
 
-.project-image--blockquest img {
+.project-image--blockquest img,
+.project-image--blockquest video {
     object-position: center 42%;
 }
 

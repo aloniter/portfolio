@@ -33,4 +33,13 @@
         updateNav();
         window.addEventListener('scroll', updateNav, { passive: true });
     }
+
+    document.querySelectorAll('video[autoplay]').forEach(function (video) {
+        video.muted = true;
+        video.playsInline = true;
+        var playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(function () {});
+        }
+    });
 })();
