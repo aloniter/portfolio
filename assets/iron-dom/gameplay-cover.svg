@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="260" viewBox="0 0 160 260" role="img" aria-label="Iron Dom gameplay preview">
+    <defs>
+        <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#071523"/>
+            <stop offset=".55" stop-color="#102b3e"/>
+            <stop offset="1" stop-color="#17202f"/>
+        </linearGradient>
+        <linearGradient id="dome" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#47e6ff"/>
+            <stop offset="1" stop-color="#7cf6c7"/>
+        </linearGradient>
+        <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <rect width="160" height="260" rx="18" fill="url(#sky)"/>
+    <rect x="10" y="10" width="140" height="240" rx="14" fill="none" stroke="#375268" stroke-width="1"/>
+
+    <g font-family="Sora, Arial, sans-serif" fill="#eaf7ff">
+        <text x="16" y="28" font-size="9" font-weight="700">IRON DOM</text>
+        <text x="16" y="42" font-size="6" fill="#8fb7c7">WAVE 03</text>
+        <text x="106" y="28" font-size="7" text-anchor="middle" fill="#7cf6c7">CITY 86%</text>
+        <text x="124" y="42" font-size="6" text-anchor="middle" fill="#8fb7c7">1240</text>
+    </g>
+
+    <g opacity=".72">
+        <path d="M13 124C39 73 120 74 147 124" fill="none" stroke="url(#dome)" stroke-width="2" stroke-dasharray="4 5"/>
+        <path d="M25 137C47 94 113 94 135 137" fill="none" stroke="#2db8ff" stroke-width="1" stroke-dasharray="2 6"/>
+    </g>
+
+    <g filter="url(#glow)">
+        <path d="M124 68l-13 25" stroke="#ff5c6a" stroke-width="3" stroke-linecap="round"/>
+        <path d="M111 93l-5-7 8 1z" fill="#ff9f7c"/>
+        <path d="M48 176l35-48" stroke="#6df3ff" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="84" cy="127" r="6" fill="#f9fb8b"/>
+        <circle cx="84" cy="127" r="13" fill="none" stroke="#ffdf5d" stroke-width="2"/>
+    </g>
+
+    <g fill="#d8f1ff" opacity=".9">
+        <circle cx="34" cy="58" r="1"/>
+        <circle cx="64" cy="74" r="1"/>
+        <circle cx="109" cy="55" r="1"/>
+        <circle cx="136" cy="92" r="1"/>
+    </g>
+
+    <g transform="translate(0 190)">
+        <rect width="160" height="70" fill="#0b111d"/>
+        <rect x="0" y="38" width="160" height="32" fill="#101827"/>
+        <g fill="#223a4a">
+            <rect x="10" y="12" width="15" height="58"/>
+            <rect x="29" y="25" width="18" height="45"/>
+            <rect x="53" y="5" width="14" height="65"/>
+            <rect x="73" y="20" width="22" height="50"/>
+            <rect x="101" y="10" width="16" height="60"/>
+            <rect x="122" y="28" width="22" height="42"/>
+        </g>
+        <g fill="#7cb0c7" opacity=".9">
+            <rect x="14" y="20" width="3" height="5"/>
+            <rect x="20" y="28" width="3" height="5"/>
+            <rect x="35" y="33" width="4" height="5"/>
+            <rect x="58" y="14" width="3" height="5"/>
+            <rect x="82" y="29" width="4" height="5"/>
+            <rect x="107" y="18" width="3" height="5"/>
+            <rect x="130" y="36" width="4" height="5"/>
+        </g>
+    </g>
+
+    <g transform="translate(19 218)">
+        <rect x="0" y="0" width="122" height="22" rx="8" fill="#121e2e" stroke="#2c5064"/>
+        <rect x="9" y="8" width="52" height="6" rx="3" fill="#7cf6c7"/>
+        <rect x="68" y="8" width="43" height="6" rx="3" fill="#ff5c6a"/>
+    </g>
+</svg>
