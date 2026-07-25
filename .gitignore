@@ -22,7 +22,7 @@ output/
 /how-i-work-mobile-*.png
 /lucky-tower.png
 
-# Internal strategy docs — never public
+# Internal strategy docs - never public
 AI/
 .superpowers/
 tmp/

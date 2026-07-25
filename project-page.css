@@ -85,7 +85,7 @@
     line-height: 1.6;
 }
 
-/* Outcome banner — the one-line result, stated first */
+/* Outcome banner - the one-line result, stated first */
 .outcome-banner {
     display: flex;
     align-items: flex-start;
@@ -489,7 +489,7 @@
     transform: scale(1.02);
 }
 
-/* Draft21 Gallery — app screenshot showcase */
+/* Draft21 Gallery - app screenshot showcase */
 .screens-gallery-draft21 {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;

@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>document.documentElement.className += ' js';</script>
 
-    <title>BlockQuest — Alon Iter</title>
+    <title>BlockQuest - Alon Iter</title>
     <meta name="description"
-        content="BlockQuest — a Unity puzzle-battler I'm building solo, where clearing a line takes a chunk out of the boss standing over your board. The design calls, and what they cost.">
+        content="A Unity puzzle-battler I'm building solo, where clearing a line takes a chunk out of the boss standing over your board. The design calls, and what they cost.">
     <link rel="canonical" href="https://aloniter.github.io/portfolio/blockquest.html">
 
     <link rel="icon"
@@ -40,8 +40,8 @@
             <a href="index.html#work" class="back-link">&larr; Back to Selected Work</a>
             <h1 class="project-hero-title">BlockQuest</h1>
             <p class="project-hero-subtitle">
-                A Unity puzzle-battler I'm building on my own, where clearing a line doesn't just score points —
-                it takes a chunk out of the boss standing over your board.
+                A Unity puzzle-battler I'm building on my own, where clearing a line doesn't just score points.
+                It takes a chunk out of the boss standing over your board.
             </p>
 
             <div class="project-meta">
@@ -65,7 +65,7 @@
 
             <p class="sanitized-note">
                 Still in development, so there's no public build to try yet. What follows is where the game is right
-                now — how it plays, what's under it, and the calls I've made so far.
+                now: how it plays, what's under it, and the calls I've made so far.
             </p>
         </div>
     </section>
@@ -79,7 +79,7 @@
                     <div>
                         <span class="outcome-banner-label">Where It Stands</span>
                         <p class="outcome-banner-text">
-                            The full loop works end to end in Unity — place, clear, hit the boss, take the hit back.
+                            The full loop works end to end in Unity: place, clear, hit the boss, take the hit back.
                             I'm deep in balancing now: boss HP, how often it attacks, how fast encounters escalate.
                         </p>
                     </div>
@@ -104,7 +104,7 @@
                     Block puzzles are easy to pick up and easy to put down. Every clear feels the same as the last
                     one, so after ten minutes there's no reason to keep going. I kept coming back to one idea: what
                     if the thing you're clearing lines against could hit you back? Everyone already knows how block
-                    puzzles work, and everyone already knows how boss fights work — I wanted to see what happens when
+                    puzzles work, and everyone already knows how boss fights work. I wanted to see what happens when
                     you make one drive the other.
                 </p>
             </div>
@@ -116,7 +116,7 @@
                     Puzzle rules are fine on their own. Boss rules are fine on their own. Putting them on the same
                     board is where it gets ugly. If a boss attack doesn't really wreck your plan, the fight is just
                     decoration. If it wrecks it too hard, the board turns to mush and you stop being able to read it.
-                    So the whole job is building pressure that still feels fair while it's actively ruining your day —
+                    So the whole job is building pressure that still feels fair while it's actively ruining your day,
                     on a phone screen, with nowhere to put a tutorial.
                 </p>
             </div>
@@ -164,7 +164,7 @@
                     <p class="content-text">
                         A bigger grid would open up better combos. I stayed at 8&times;8 because the board and the
                         boss's health bar have to fit in one glance on a phone held upright. <strong>What it
-                        costs:</strong> no room for the really elaborate multi-line setups. Worth it — the boss layer
+                        costs:</strong> no room for the really elaborate multi-line setups. Worth it, because the boss layer
                         is already asking a lot of a new player, and the grid shouldn't add to that.
                     </p>
                 </div>
@@ -175,7 +175,7 @@
                         The easy version is a countdown: beat the boss before time runs out. I made attacks drop
                         obstacles onto the board instead, so the fight and the puzzle are the same problem rather than
                         two things happening near each other. <strong>What it costs:</strong> it's much harder to keep
-                        fair — one badly timed attack and it reads as bad luck, not difficulty. I fixed that by
+                        fair. One badly timed attack and it reads as bad luck, not difficulty. I fixed that by
                         telegraphing every attack a turn early, so you can see it coming and play around it.
                     </p>
                 </div>
@@ -186,7 +186,7 @@
                         One random piece per turn is far easier to balance. Three means you're planning several moves
                         ahead and choosing an order, which is where the good decisions live. <strong>What it
                         costs:</strong> more to think about every single turn, so what shows up in the tray and when
-                        it refreshes took real tuning — a mobile session should feel quick, not exhausting.
+                        it refreshes took real tuning, since a mobile session should feel quick, not exhausting.
                     </p>
                 </div>
             </div>
@@ -195,9 +195,9 @@
             <div class="content-section">
                 <h2 class="content-title">Every Part of It</h2>
                 <ul class="content-list">
-                    <li>Designed the loop end to end — placement, clears, boss damage, counter-attacks, progression</li>
+                    <li>Designed the loop end to end: placement, clears, boss damage, counter-attacks, progression</li>
                     <li>Built it in Unity: the 8x8 board, the three-piece tray, HP states, and a UI that survives a phone screen</li>
-                    <li>Worked out the feedback — what a combo feels like, what taking a hit feels like, what losing feels like</li>
+                    <li>Worked out the feedback: what a combo feels like, what taking a hit feels like, what losing feels like</li>
                     <li>Made every call on scope and priorities, with no design or engineering team to hand things off to</li>
                 </ul>
             </div>
@@ -208,7 +208,7 @@
                 <div class="metrics-grid">
                     <div class="metric-card">
                         <span class="metric-value">8&times;8</span>
-                        <span class="metric-label">Board — small enough to read in one glance on a phone</span>
+                        <span class="metric-label">Board, small enough to read in one glance on a phone</span>
                     </div>
                     <div class="metric-card">
                         <span class="metric-value">3</span>
@@ -221,7 +221,7 @@
                 </div>
                 <p class="content-text">
                     It isn't shipped, and I'm not going to pretend otherwise. What it does show is that I can take a
-                    genuinely awkward design problem — two mechanics fighting over one board — and get it running,
+                    genuinely awkward design problem (two mechanics fighting over one board) and get it running,
                     solo, from Unity architecture through UI to balance. Here's what I still have to earn:
                 </p>
                 <ul class="content-list">
