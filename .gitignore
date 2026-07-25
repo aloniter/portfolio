@@ -21,3 +21,8 @@ output/
 /about-desktop.png
 /how-i-work-mobile-*.png
 /lucky-tower.png
+
+# Internal strategy docs — never public
+AI/
+.superpowers/
+tmp/

@@ -85,6 +85,42 @@
     line-height: 1.6;
 }
 
+/* Outcome banner — the one-line result, stated first */
+.outcome-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    margin: 0 0 var(--spacing-xl);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(13, 120, 106, 0.28);
+    background: var(--gradient-accent);
+    box-shadow: var(--shadow-sm);
+}
+
+.outcome-banner-icon {
+    flex-shrink: 0;
+    font-size: 1.3rem;
+    line-height: 1.4;
+}
+
+.outcome-banner-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-primary-strong);
+}
+
+.outcome-banner-text {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--color-text);
+}
+
 /* Project Content */
 .project-content {
     padding: var(--spacing-2xl) 0;
@@ -227,7 +263,10 @@
 }
 
 .metric-value {
-    font-size: 3rem;
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    line-height: 1.1;
     font-weight: 700;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -237,7 +276,9 @@
 }
 
 .metric-label {
+    display: block;
     font-size: 0.875rem;
+    line-height: 1.5;
     color: var(--color-text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -292,6 +333,18 @@
     color: var(--color-text-secondary);
     margin-bottom: var(--spacing-lg);
     font-size: 1.0625rem;
+}
+
+/* Space out multiple buttons in a closing CTA */
+.content-cta .btn + .btn {
+    margin-left: var(--spacing-sm);
+}
+
+@media (max-width: 768px) {
+    .content-cta .btn + .btn {
+        margin-left: 0;
+        margin-top: var(--spacing-sm);
+    }
 }
 
 /* Responsive */
@@ -421,7 +474,9 @@
 .screens-gallery-enhanced img,
 .screens-gallery-enhanced video {
     width: 100%;
-    height: 550px;
+    /* same responsive clamp as .screens-gallery so screenshot sizing stays
+       consistent from page to page instead of jumping to a fixed height */
+    height: clamp(260px, 60vh, 520px);
     object-fit: contain;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
@@ -495,8 +550,4 @@
         grid-template-columns: 1fr;
     }
 
-    .screens-gallery-enhanced img,
-    .screens-gallery-enhanced video {
-        height: 400px;
-    }
 }

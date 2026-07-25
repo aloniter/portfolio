@@ -4,9 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House Party VR - Alon Iter</title>
-    <link rel="icon" href="data:,">
-    <link rel="stylesheet" href="styles.css?v=20260315-7">
+    <script>document.documentElement.className += ' js';</script>
+
+    <title>House Party VR — Alon Iter</title>
+    <meta name="description"
+        content="House Party VR — a Quest 3 build where a virtual DJ reacts to you in your actual living room. Four gestures, no menus, four weeks from idea to working build.">
+    <link rel="canonical" href="https://aloniter.github.io/portfolio/house-party-vr.html">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d786a'/%3E%3Ctext x='16' y='23' font-family='Sora,Arial,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css?v=20260724-1">
     <link rel="stylesheet" href="project-page.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +25,7 @@
         <div class="nav-container">
             <a href="index.html" class="nav-logo">Alon Iter</a>
             <div class="nav-links">
-                <a href="index.html" class="nav-link">Projects</a>
+                <a href="index.html" class="nav-link">Work</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="index.html#contact" class="nav-link">Contact</a>
             </div>
@@ -29,14 +35,17 @@
     <!-- Project Hero -->
     <section class="project-hero">
         <div class="container">
-            <a href="index.html" class="back-link">← Back to Projects</a>
+            <a href="index.html#work" class="back-link">← Back to Selected Work</a>
             <h1 class="project-hero-title">House Party VR</h1>
-            <p class="project-hero-subtitle">Mixed reality DJ presence prototype for Meta Quest 3</p>
+            <p class="project-hero-subtitle">
+                A virtual DJ set in your actual living room — wave, clap or throw something and the room answers.
+                Built on Quest 3 in four weeks.
+            </p>
 
             <div class="project-meta">
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
-                    <span class="meta-value">Solo designer + Unity prototyper</span>
+                    <span class="meta-value">Solo designer + Unity developer</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Platform</span>
@@ -44,11 +53,11 @@
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Timeline</span>
-                    <span class="meta-value">4 weeks (concept → prototype)</span>
+                    <span class="meta-value">4 weeks, concept to working build</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Type</span>
-                    <span class="meta-value">Social MR experience (prototype)</span>
+                    <span class="meta-value">Social mixed-reality build</span>
                 </div>
             </div>
         </div>
@@ -57,30 +66,43 @@
     <!-- Project Content -->
     <section class="project-content">
         <div class="container">
+
+            <div class="content-section">
+                <div class="outcome-banner">
+                    <span class="outcome-banner-icon">&#9679;</span>
+                    <div>
+                        <span class="outcome-banner-label">Outcome</span>
+                        <p class="outcome-banner-text">
+                            A working Quest 3 build in four weeks, with four gestures and lighting that tracks the
+                            beat. The thing I actually learned was smaller and more useful than the build: presence
+                            lives or dies on timing, not fidelity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Overview -->
             <div class="content-section">
-                <h2 class="content-title">Goal</h2>
+                <h2 class="content-title">What I Was Curious About</h2>
                 <p class="content-text">
-                    Create a feeling of social presence in Mixed Reality using lightweight interactions instead of
-                    complex UI.
+                    I wanted to know how little you need before a room starts to feel occupied. No menus, no controller
+                    tutorial — just your hands and whatever's already in your living room.
                 </p>
             </div>
 
             <!-- The Problem -->
             <div class="content-section">
-                <h2 class="content-title">The problem</h2>
+                <h2 class="content-title">Presence, With No Tutorial</h2>
                 <p class="content-text">
-                    A lot of VR music experiences feel passive. You watch a performance, enjoy it for a few minutes,
-                    then leave.
-                    I wanted to explore a different angle: give the player ownership over the energy of the room,
-                    without turning
-                    it into a complicated DJ tool.
+                    Most VR music apps are something you watch. It's impressive for three minutes and then you take the
+                    headset off. I wanted the energy in the room to be yours to push around — but the second you add
+                    faders and menus you've built a DJ tool, and nobody wants to learn a DJ tool at a party.
                 </p>
             </div>
 
             <!-- What I Built -->
             <div class="content-section">
-                <h2 class="content-title">What I built</h2>
+                <h2 class="content-title">What's Actually In There</h2>
                 <ul class="content-list">
                     <li><strong>MR setup:</strong> Passthrough experience with the DJ anchored in the player's physical
                         space</li>
@@ -89,14 +111,13 @@
                         limited)</li>
                     <li><strong>Audio-reactive visuals:</strong> lighting and effects respond to tempo and energy
                         changes</li>
-                    <li><strong>Iteration workflow:</strong> rapid tweaks based on short play sessions and friction
-                        notes</li>
+                    <li><strong>How I iterated:</strong> short play sessions, then notes on whatever felt off</li>
                 </ul>
             </div>
 
             <!-- Video Demonstration -->
             <div class="content-section">
-                <h2 class="content-title">Experience in Action</h2>
+                <h2 class="content-title">See It Running</h2>
                 <div class="screens-gallery-enhanced">
                     <video autoplay muted loop playsinline aria-label="House Party VR gesture interactions">
                         <source src="images/house party vr/gif1.mp4" type="video/mp4">
@@ -105,42 +126,87 @@
                         <source src="images/house party vr/gif2.mp4" type="video/mp4">
                     </video>
                 </div>
-                <p class="content-text" style="text-align: center; margin-top: var(--spacing-lg); font-size: 0.95rem; color: var(--color-text-secondary);">
+                <p class="content-text">
                     Player controls DJ interactions through gestures (left) and reactive lighting synchronized to music (right).
                 </p>
             </div>
 
             <!-- Core Design Choices -->
             <div class="content-section">
-                <h2 class="content-title">Design Choices</h2>
+                <h2 class="content-title">The Calls, and What They Cost</h2>
 
                 <div class="design-decision">
-                    <h3 class="decision-title">MR First</h3>
+                    <h3 class="decision-title">Passthrough, not a virtual room</h3>
                     <p class="content-text">
-                        Anchors the DJ in the player's real room for instant context.
+                        The DJ stands in your actual living room, so there's nothing to explain — you already know
+                        where you are. <strong>What it costs:</strong> I gave up all control of the set. Every room is
+                        a different size, colour and light level, and the thing has to hold up in all of them instead
+                        of one scene I could art-direct.
                     </p>
                 </div>
 
                 <div class="design-decision">
-                    <h3 class="decision-title">Gesture Control</h3>
+                    <h3 class="decision-title">Hands, not controllers</h3>
                     <p class="content-text">
-                        Replaced menus with physical actions (wave, clap) to maintain immersion.
+                        Wave and clap instead of pressing buttons. <strong>What it costs:</strong> a much smaller
+                        vocabulary — four gestures is nothing next to a menu, and hand tracking drops out when your
+                        hands leave the sensors. But a party experience that needs a tutorial isn't a party
+                        experience.
                     </p>
                 </div>
             </div>
 
+                <div class="design-decision">
+                    <h3 class="decision-title">Four weeks, then stop</h3>
+                    <p class="content-text">
+                        I boxed the whole thing to four weeks to answer one question — does gesture-driven presence
+                        work at all — rather than building toward something shippable.
+                        <strong>What it costs:</strong> it stayed a build, not a product. No onboarding, no session
+                        structure, nothing to come back for. That was the deal I made with myself, and I'd make it
+                        again: I got the answer, and the answer was worth more than a half-finished app.
+                    </p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">The Room It Runs In</h2>
+                <div class="screens-gallery screens-gallery-tight">
+                    <img src="assets/house-party-vr/room.jpg" loading="lazy"
+                        alt="The real living room the experience runs in, seen through Quest 3 passthrough with a mirror ball overhead">
+                </div>
+                <p class="content-text">
+                    This is the actual room, through passthrough. No set, no virtual environment — the reason it works
+                    is that it's somewhere you already recognise.
+                </p>
+            </div>
+
             <!-- What I Learned -->
             <div class="content-section">
-                <h2 class="content-title">Insight & Result</h2>
+                <h2 class="content-title">What I Got Wrong First</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-value">4</span>
+                        <span class="metric-label">Gestures — grab, throw, wave, clap</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">4 weeks</span>
+                        <span class="metric-label">Concept to a working Quest 3 build</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">0</span>
+                        <span class="metric-label">Menus, buttons or tutorial screens</span>
+                    </div>
+                </div>
                 <p class="content-text">
-                    Audio reactivity felt random if not tight. I tuned lighting decay to snap strictly to beat
-                    transients, significantly improving the perception of the DJ "listening" to the music.
+                    My first pass at audio reactivity felt random — lights moving near the music rather than with it,
+                    which reads as broken. Snapping the light decay hard onto beat transients fixed it completely.
+                    Same lights, same track; suddenly the DJ is listening. Timing was the whole thing.
                 </p>
             </div>
 
             <!-- Next Steps -->
             <div class="content-section">
-                <h2 class="content-title">Next steps</h2>
+                <h2 class="content-title">Where I'd Take It</h2>
                 <ul class="content-list">
                     <li>Tighten the MVP loop into a repeatable 5–10 minute experience</li>
                     <li>Improve beat/energy detection and reduce latency feel</li>
@@ -152,22 +218,21 @@
 
             <!-- Tech Notes -->
             <div class="content-section">
-                <h2 class="content-title">Tech notes</h2>
+                <h2 class="content-title">How It's Built</h2>
                 <p class="content-text">
-                    Unity + Meta XR SDK (Passthrough MR, hand tracking). Lightweight real-time audio analysis for
-                    reactive
-                    lighting and effects.
+                    Unity with the Meta XR SDK — passthrough and hand tracking — plus light real-time audio analysis
+                    driving the lighting.
                 </p>
             </div>
 
             <!-- CTA -->
             <div class="content-cta">
-                <h2 class="cta-title">Interested in VR/MR Design?</h2>
+                <h2 class="cta-title">See the rest</h2>
                 <p class="cta-text">
-                    This project showcases my approach to immersive experience design, player psychology, and
-                    systems thinking in VR environments.
+                    Same habit in other places — a Unity puzzle-battler, a level editor with win-rate data, and an iOS
+                    app that's live.
                 </p>
-                <a href="index.html" class="btn btn-primary">View More Projects</a>
+                <a href="index.html#work" class="btn btn-secondary">See More Work</a>
             </div>
         </div>
     </section>
@@ -179,7 +244,7 @@
         </div>
     </footer>
 
-    <script src="main.js" defer></script>
+    <script src="main.js?v=20260724-1" defer></script>
 </body>
 
 </html>

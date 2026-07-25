@@ -4,9 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beat Runner - Alon Iter</title>
-    <link rel="icon" href="data:,">
-    <link rel="stylesheet" href="styles.css?v=20260315-7">
+    <script>document.documentElement.className += ' js';</script>
+
+    <title>Beat Runner — Alon Iter</title>
+    <meta name="description"
+        content="Beat Runner — a rhythm runner with 15 levels, a star-gated progression and a shop, designed and built solo to find out whether a skill-based loop can hold someone past two minutes.">
+    <link rel="canonical" href="https://aloniter.github.io/portfolio/beat-runner.html">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d786a'/%3E%3Ctext x='16' y='23' font-family='Sora,Arial,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css?v=20260724-1">
     <link rel="stylesheet" href="project-page.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +26,7 @@
         <div class="nav-container">
             <a href="index.html" class="nav-logo">Alon Iter</a>
             <div class="nav-links">
-                <a href="index.html" class="nav-link">Projects</a>
+                <a href="index.html" class="nav-link">Work</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="index.html#contact" class="nav-link">Contact</a>
             </div>
@@ -29,10 +35,11 @@
 
     <section class="project-hero">
         <div class="container">
-            <a href="index.html" class="back-link">← Back to Projects</a>
+            <a href="games.html" class="back-link">← Back to Playable Builds</a>
             <h1 class="project-hero-title">Beat Runner</h1>
             <p class="project-hero-subtitle">
-                Gameplay prototype used to explore progression, difficulty tuning, and a lightweight economy loop.
+                A complete rhythm-runner game — 15 tuned levels, a progression system, and a cosmetic economy — designed
+                and built solo, live and playable now.
             </p>
 
             <div class="project-meta">
@@ -56,7 +63,7 @@
 
             <div class="project-cta">
                 <a href="https://aloniter.github.io/BeatsRunner/" target="_blank" rel="noreferrer"
-                    class="btn btn-primary">Play Live Demo</a>
+                    class="btn btn-primary">Play Beat Runner</a>
                 <a href="https://github.com/aloniter/BeatsRunner" target="_blank" rel="noreferrer"
                     class="btn btn-secondary">View Code</a>
             </div>
@@ -65,93 +72,162 @@
 
     <section class="project-content">
         <div class="container">
+
             <div class="content-section">
-                <h2 class="content-title">Screens</h2>
+                <div class="outcome-banner">
+                    <span class="outcome-banner-icon">&#9679;</span>
+                    <div>
+                        <span class="outcome-banner-label">Outcome</span>
+                        <p class="outcome-banner-text">
+                            A finished game with 15 levels, a star-gated progression, and a shop worth saving for —
+                            built solo in about four weeks. The bit I'm proudest of isn't a feature: it's that I found
+                            the difficulty wall at levels 3&ndash;5 and flattened it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">Levels, Menus and the Shop</h2>
                 <div class="screens-gallery-enhanced">
-                    <img src="images/beatrunner-hero.png" alt="Beat Runner gameplay hero">
-                    <img src="images/beats runner/main screen.png" alt="Beat Runner main menu">
-                    <img src="images/beats runner/store screen.png" alt="Beat Runner store and skins screen">
+                    <img src="images/beatrunner-hero.jpg" alt="Beat Runner gameplay hero">
+                    <img src="images/beats runner/main screen.jpg" alt="Beat Runner main menu">
+                    <img src="images/beats runner/store screen.jpg" alt="Beat Runner store and skins screen">
                     <img src="images/beats runner/stage mode manu.png" alt="Beat Runner stage mode map">
                 </div>
             </div>
 
             <div class="content-section">
-                <h2 class="content-title">Product Goal</h2>
+                <h2 class="content-title">The Question I Was Chasing</h2>
                 <p class="content-text">
-                    Test whether a skill-based rhythm runner could support a satisfying progression loop with stage
-                    mastery, replayable modes, and a cosmetic economy.
+                    I wanted to find out whether a skill-based runner could hold someone past the first two minutes.
+                    Plenty of rhythm games feel great for ninety seconds and then you're done — I wanted to see what
+                    it takes to earn a third and fourth run.
                 </p>
             </div>
 
             <div class="content-section">
-                <h2 class="content-title">My Role</h2>
+                <h2 class="content-title">My Part in It</h2>
                 <ul class="content-list">
-                    <li>Built the runner loop, stage structure, and progression rules</li>
-                    <li>Defined Stage Mode pacing, star gating, boosters, and earn-spend logic</li>
-                    <li>Implemented the prototype, UI flow, and persistence needed to validate the loop</li>
+                    <li>The runner loop, the stage structure, and the rules for unlocking things</li>
+                    <li>Stage Mode pacing, star gates, boosters, and working out what a coin is actually worth</li>
+                    <li>All the code — gameplay, UI flow, saving — so I could test the loop properly</li>
                 </ul>
             </div>
 
             <div class="content-section">
-                <h2 class="content-title">Problem / Opportunity</h2>
+                <h2 class="content-title">Getting Past the Two-Minute Mark</h2>
                 <p class="content-text">
-                    Rhythm runners can feel exciting in the first few minutes, but they need more than raw moment-to-
-                    moment feel to keep players engaged. The opportunity was to test whether structured progression and
-                    cosmetic goals could add longer-term motivation without hurting the core gameplay rhythm.
+                    Moment-to-moment feel is the easy part of a runner — you can get that right in a weekend. Keeping
+                    someone there is a different job. I had to add progression and things worth unlocking without
+                    cluttering up the one thing that made it fun in the first place: the rhythm.
                 </p>
             </div>
 
             <div class="content-section">
-                <h2 class="content-title">What I Defined</h2>
+                <h2 class="content-title">What Made the Cut</h2>
                 <ul class="content-list">
-                    <li>Stage Mode with 15 levels and star-based unlock progression</li>
-                    <li>Free Run mode with boosters like Magnet, Shield, and Speed Boost</li>
-                    <li>Soft-currency earn rate and cosmetic pricing for replay motivation</li>
-                    <li>Difficulty curve and note density tuning across early and mid-game stages</li>
+                    <li>Stage Mode — 15 levels, unlocked with stars</li>
+                    <li>Free Run, with boosters: Magnet, Shield, Speed Boost</li>
+                    <li>A coin earn rate and skin prices tuned to give you a reason to run again</li>
+                    <li>A difficulty curve I rebuilt more than once across the early and mid game</li>
                 </ul>
             </div>
 
             <div class="content-section">
-                <h2 class="content-title">How I Worked with Engineering / QA</h2>
+                <h2 class="content-title">Working Solo</h2>
                 <p class="content-text">
-                    This was a solo prototype, so I handled both implementation and validation. Design decisions were
-                    translated directly into gameplay rules, stage data, UI states, and quick regression checks after
-                    each tuning pass.
+                    No one to hand anything to, so every design decision went straight into gameplay rules, stage data
+                    and UI states — then I re-tested the levels around it to check I hadn't broken something two
+                    stages earlier.
                 </p>
             </div>
 
             <div class="content-section">
-                <h2 class="content-title">Metrics or Success Criteria</h2>
+                <h2 class="content-title">Decisions I Had to Defend</h2>
+
+                <div class="design-decision">
+                    <h3 class="decision-title">Stars gate progress, not a score threshold</h3>
+                    <p class="content-text">
+                        You unlock levels by earning stars rather than beating a points target. Stars are legible —
+                        you know exactly how well you did and what you're missing. <strong>What it costs:</strong> I
+                        had to hand-tune star thresholds per level instead of writing one formula, which is slow and
+                        unglamorous work. But a score target just tells you "not enough", and that's a worse thing to
+                        tell someone who's about to quit.
+                    </p>
+                </div>
+
+                <div class="design-decision">
+                    <h3 class="decision-title">Cosmetics only in the shop</h3>
+                    <p class="content-text">
+                        Coins buy skins. They don't buy easier levels or extra lives.
+                        <strong>What it costs:</strong> a weaker reason to grind — power would motivate harder than
+                        looks. I kept it cosmetic because the moment currency buys difficulty, every balance decision
+                        after that is really an economy decision, and a rhythm game should be about the rhythm.
+                    </p>
+                </div>
+
+                <div class="design-decision">
+                    <h3 class="decision-title">Two modes, not one</h3>
+                    <p class="content-text">
+                        Stage Mode carries the progression; Free Run is where the boosters live and you can just
+                        play. <strong>What it costs:</strong> two things to balance instead of one, and Free Run
+                        splits attention away from the levels. Worth it — people who bounced off a hard stage went to
+                        Free Run instead of closing the tab.
+                    </p>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">What I Was Aiming For</h2>
                 <ul class="content-list">
-                    <li>Early levels should teach the loop without a sharp frustration spike</li>
-                    <li>Stage progression should create a clear mastery path before unlocks</li>
-                    <li>Cosmetics and boosters should add replay value without overwhelming the core run</li>
-                    <li>Browser performance should stay stable enough to support repeated testing</li>
+                    <li>Early levels teach you the game without a wall</li>
+                    <li>Progression gives you something to get good at before it gives you rewards</li>
+                    <li>Skins and boosters add to a run without getting in the way of it</li>
+                    <li>It stays smooth in a browser, run after run</li>
                 </ul>
             </div>
 
             <div class="content-section">
-                <h2 class="content-title">Iteration / What Changed</h2>
+                <h2 class="content-title">How It Turned Out</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-value">15</span>
+                        <span class="metric-label">Levels, each with hand-set star thresholds</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">3&ndash;5</span>
+                        <span class="metric-label">The levels where everyone was quitting</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value">4 weeks</span>
+                        <span class="metric-label">Idea to a finished, playable build</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2 class="content-title">What Changed Along the Way</h2>
                 <p class="content-text">
-                    Early testing showed players dropped off when difficulty spiked too fast in the opening set of
-                    levels. I smoothed note density across levels 3 to 5 so the game teaches rhythm and lane-reading
-                    more gradually before the harder sections appear.
+                    People kept quitting in the same place — levels 3 to 5, where the note density jumped before anyone
+                    had really learned to read lanes. I flattened that stretch out so the game teaches you properly
+                    before it starts testing you. Obvious in hindsight; invisible until I watched someone play.
                 </p>
             </div>
 
             <div class="content-section">
-                <h2 class="content-title">Next Improvements</h2>
+                <h2 class="content-title">Still On the List</h2>
                 <ul class="content-list">
-                    <li>Improve mobile controls and performance profiling</li>
-                    <li>Add lightweight live challenges such as weekly goals</li>
-                    <li>Expand cosmetic rewards and test more expressive progression hooks</li>
+                    <li>Better mobile controls, and a proper look at performance</li>
+                    <li>Small weekly challenges to bring people back</li>
+                    <li>More skins worth chasing, and progression that shows off more</li>
                 </ul>
             </div>
 
             <div class="content-cta">
-                <h2 class="cta-title">Play the Prototype</h2>
+                <h2 class="cta-title">Go play it</h2>
                 <p class="cta-text">
-                    Try the live build to see the progression loop, rhythm gameplay, and economy decisions in context.
+                    It's up and playable. See how far you get before the difficulty starts biting.
                 </p>
                 <a href="https://aloniter.github.io/BeatsRunner/" target="_blank" rel="noreferrer"
                     class="btn btn-primary">Play Beat Runner</a>
@@ -165,7 +241,7 @@
         </div>
     </footer>
 
-    <script src="main.js" defer></script>
+    <script src="main.js?v=20260724-1" defer></script>
 </body>
 
 </html>

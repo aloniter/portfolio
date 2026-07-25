@@ -809,13 +809,21 @@ button:focus-visible {
 }
 
 /* ===== REVEAL ANIMATIONS ===== */
+/* Resilient by default: content is fully visible with NO JavaScript.
+   The hidden-then-revealed state only applies once JS confirms it can run
+   (the <html class="js"> flag), so the page can never render blank. */
 .reveal {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: none;
     transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.reveal.is-visible {
+.js .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.js .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -970,4 +978,216 @@ button:focus-visible {
         transition: none !important;
         scroll-behavior: auto !important;
     }
+}
+
+/* ===== PROOF BAR (credibility strip) ===== */
+.proof-bar {
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg-card);
+}
+
+.proof-bar .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) 0;
+}
+
+.proof-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 var(--spacing-sm);
+    text-align: center;
+    border-left: 1px solid var(--color-border);
+}
+
+.proof-item:first-child {
+    border-left: none;
+}
+
+.proof-value {
+    /* flex + min-height keeps every label on the same baseline when a value wraps */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.6em;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-primary-strong);
+}
+
+.proof-label {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+    .proof-bar .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .proof-item:nth-child(odd) {
+        border-left: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .proof-bar .container {
+        grid-template-columns: 1fr;
+    }
+
+    .proof-item {
+        border-left: none;
+    }
+}
+
+/* ===== HOW I WORK (build steps) ===== */
+.build {
+    padding: var(--spacing-2xl) 0;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-bg);
+}
+
+.build-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.build-card {
+    position: relative;
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-bg-card);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.build-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(13, 120, 106, 0.35);
+}
+
+.build-step {
+    display: block;
+    margin-bottom: 0.7rem;
+    font-family: var(--font-heading);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+.build-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.08rem;
+    color: var(--color-primary-strong);
+}
+
+.build-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 880px) {
+    .build-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .build-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== LIVE-GAME BACKBONE (SuperPlay) ===== */
+.backbone {
+    padding: var(--spacing-2xl) 0;
+    background: var(--gradient-accent);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.backbone-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.backbone-card {
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-bg-card);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast);
+}
+
+.backbone-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(13, 120, 106, 0.4);
+}
+
+.backbone-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+    color: var(--color-primary-strong);
+}
+
+.backbone-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+}
+
+.sanitized-note {
+    max-width: 72ch;
+    margin: var(--spacing-lg) auto 0;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid rgba(35, 95, 164, 0.25);
+    border-left: 3px solid var(--color-secondary);
+    border-radius: var(--radius-md);
+    background: rgba(35, 95, 164, 0.06);
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+@media (max-width: 880px) {
+    .backbone-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== ABOUT TEASER ===== */
+.about-teaser {
+    padding: var(--spacing-2xl) 0;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-bg);
+}
+
+.about-teaser .teaser-text {
+    max-width: 66ch;
+    margin: 0 auto var(--spacing-lg);
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+}
+
+/* ===== PLACEHOLDER VISUAL (interim project media) ===== */
+.project-placeholder {
+    background: linear-gradient(150deg, rgba(13, 120, 106, 0.10), rgba(35, 95, 164, 0.12));
 }
