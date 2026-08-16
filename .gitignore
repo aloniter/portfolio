@@ -26,3 +26,12 @@ output/
 AI/
 .superpowers/
 tmp/
+
+# Claude Code local tooling. The vendored Anthropic frontend-design skill is
+# proprietary ("All rights reserved", Anthropic Commercial Terms) and this repo
+# is public, so it stays local rather than being republished here.
+.claude/
+
+# Local design reference board (mockups + support.js, ~22MB). Scratch material,
+# not part of the site.
+protfolio claude design/

@@ -14,8 +14,8 @@
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d786a'/%3E%3Ctext x='16' y='23' font-family='Sora,Arial,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 
-    <link rel="stylesheet" href="styles.css?v=20260724-1">
-    <link rel="stylesheet" href="project-page.css">
+    <link rel="stylesheet" href="styles.css?v=20260816-1">
+    <link rel="stylesheet" href="project-page.css?v=20260816-1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -37,214 +37,202 @@
 
     <section class="project-hero">
         <div class="container">
-            <a href="index.html#work" class="back-link">&larr; Back to Selected Work</a>
+            <a href="index.html#work" class="back-link">&larr; Selected work</a>
+            <p class="eyebrow"><span class="dot dot--live"></span>Shipped &middot; Used every week</p>
             <h1 class="project-hero-title">Draft21</h1>
             <p class="project-hero-subtitle">
                 My football group spent twenty minutes a week arguing about fair teams. Now one person runs a snake
-                draft on their phone and nobody argues. Live, and used every week.
+                draft on their phone and nobody argues.
             </p>
 
-            <div class="project-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">Solo Product Builder &amp; Developer</span>
+            <dl class="project-facts">
+                <div>
+                    <dt>Role</dt>
+                    <dd>Solo &mdash; product and build</dd>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Platform</span>
-                    <span class="meta-value">Flutter Web PWA</span>
+                <div>
+                    <dt>Platform</dt>
+                    <dd>Flutter web PWA</dd>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Stack</span>
-                    <span class="meta-value">Flutter, Riverpod, GoRouter, Hive</span>
+                <div>
+                    <dt>Status</dt>
+                    <dd>Live, in weekly use</dd>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Status</span>
-                    <span class="meta-value">Shipped &middot; Live, weekly real usage</span>
+                <div>
+                    <dt>Scale</dt>
+                    <dd>21 players, 3 teams of 7</dd>
                 </div>
-            </div>
-
-            <p class="sanitized-note">
-                The app itself is in Hebrew, since it was built for my football group, not for a portfolio. Same flow,
-                just described in English here.
-            </p>
+            </dl>
 
             <div class="project-cta">
-                <a href="https://draft21.vercel.app/" target="_blank" rel="noreferrer" class="btn btn-primary">Open Draft21</a>
+                <a href="https://draft21.vercel.app/" target="_blank" rel="noreferrer" class="btn btn-primary">Open
+                    Draft21</a>
             </div>
+
+            <p class="sanitized-note" style="margin-top:1.5rem">
+                The app is in Hebrew &mdash; it was built for my football group, not for a portfolio. Same flow,
+                described in English here.
+            </p>
         </div>
     </section>
 
-    <section class="project-content">
+    <div class="container project-visual">
+        <div class="stage stage--draft21 reveal">
+            <div class="window">
+                <div class="window-bar">
+                    <span></span><span></span><span></span>
+                    <em>draft21 &mdash; live draft</em>
+                </div>
+                <img src="assets/draft21-screens/08-draft-active-my-turn.png"
+                    alt="Draft21 active draft board during a captain's turn, showing the remaining player pool and each team's picks">
+            </div>
+            <p class="stage-tag">Everyone watches the picks happen</p>
+        </div>
+    </div>
+
+    <section class="case-body">
         <div class="container">
 
-            <div class="content-section">
-                <div class="outcome-banner">
-                    <span class="outcome-banner-icon">&#9679;</span>
-                    <div>
-                        <span class="outcome-banner-label">Outcome</span>
-                        <p class="outcome-banner-text">
-                            Built it, shipped it, and my group has used it every week since. WhatsApp list in, three
-                            teams out, no debate about who got stacked.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SCREENS -->
-            <div class="content-section">
-                <h2 class="content-title">The Flow, Screen by Screen</h2>
-                <div class="screens-gallery screens-gallery-draft21">
-                    <img src="assets/draft21-screens/01-welcome-screen.png" alt="Draft21 welcome screen with player import">
-                    <img src="assets/draft21-screens/03-captain-selection.png" alt="Draft21 captain selection grid">
-                    <img src="assets/draft21-screens/04-team-color-assignment.png" alt="Draft21 team color assignment for captains">
-                    <img src="assets/draft21-screens/06-lobby-team-select.png" alt="Draft21 lobby with team selection">
-                    <img src="assets/draft21-screens/08-draft-active-my-turn.png" alt="Draft21 active draft board during player turn">
-                </div>
-            </div>
-
-            <!-- WHY I STARTED IT -->
-            <div class="content-section">
-                <h2 class="content-title">The Argument That Started It</h2>
-                <p class="content-text">
-                    Every week, same thing. A long WhatsApp thread, twenty-one names in no particular order, and then
-                    someone tries to split them into three teams while everyone else explains why that's unfair. It
-                    took twenty minutes and somebody always walked onto the pitch annoyed. The game hadn't even
-                    started.
+            <div class="case">
+                <h2 class="case-title" data-step="01">Problem</h2>
+                <p class="case-text">
+                    Every week, the same thing. A long WhatsApp thread, twenty-one names in no particular order, and
+                    then someone tries to split them into three teams while everyone else explains why that's unfair. It
+                    took twenty minutes and somebody always walked onto the pitch annoyed. The game hadn't even started.
+                </p>
+                <p class="case-text">
+                    <b>Fair isn't the same as balanced.</b> Balancing teams by algorithm is the easy version and it
+                    doesn't work &mdash; if a program hands you three teams, everyone just argues with the program
+                    instead. People had to watch it happen and agree it was fair while it was happening. It also had to
+                    survive a pitch-side group on bad signal, run by whoever's organising that week, who is not a
+                    developer and will not debug anything.
                 </p>
             </div>
 
-            <!-- THE HARD PART -->
-            <div class="content-section">
-                <h2 class="content-title">Fair Isn't the Same as Balanced</h2>
-                <p class="content-text">
-                    Balancing teams by algorithm is the easy version, and it doesn't work. If a program hands you
-                    three teams, everyone just argues with the program instead. People had to watch it happen and
-                    agree it was fair while it was happening. It also had to survive a pitch-side group on bad phone signal,
-                    run by whoever's organising that week, who is not a developer and will not debug anything.
-                </p>
-            </div>
-
-            <!-- HOW IT WORKS -->
-            <div class="content-section">
-                <h2 class="content-title">How a Draft Night Goes</h2>
-                <div class="workflow-board">
-                    <article class="workflow-card">
-                        <h3 class="workflow-title">1. Paste the thread</h3>
-                        <p class="workflow-text">
-                            Copy the WhatsApp messages straight in. It pulls out the names and drops the duplicates and
-                            the chat noise.
-                        </p>
-                    </article>
-                    <article class="workflow-card">
-                        <h3 class="workflow-title">2. Pick three captains</h3>
-                        <p class="workflow-text">
-                            Three captains, one each for Red, White and Black. Decided before anyone sees the player
-                            pool.
-                        </p>
-                    </article>
-                    <article class="workflow-card">
-                        <h3 class="workflow-title">3. Draft, snaking</h3>
-                        <p class="workflow-text">
-                            Pick order flips every round, so going last isn't a punishment. Everyone can see whose turn
-                            it is.
-                        </p>
-                    </article>
-                    <article class="workflow-card">
-                        <h3 class="workflow-title">4. Check, then send</h3>
-                        <p class="workflow-text">
-                            The host gets one look at the finished teams before they go out. Last chance to catch a
-                            mistake.
-                        </p>
-                    </article>
+            <div class="case case--wide">
+                <h2 class="case-title" data-step="02">The flow</h2>
+                <div class="gallery gallery--flat gallery--3">
+                    <figure>
+                        <img src="assets/draft21-screens/01-welcome-screen.png" loading="lazy"
+                            alt="Draft21 welcome screen with player import">
+                        <figcaption>Paste the WhatsApp thread. It pulls out the names.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/draft21-screens/03-captain-selection.png" loading="lazy"
+                            alt="Draft21 captain selection grid">
+                        <figcaption>Three captains, picked before anyone sees the pool.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/draft21-screens/04-team-color-assignment.png" loading="lazy"
+                            alt="Draft21 team colour assignment for captains">
+                        <figcaption>Red, white and black. One each.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/draft21-screens/06-lobby-team-select.png" loading="lazy"
+                            alt="Draft21 lobby with team selection">
+                        <figcaption>The lobby everyone joins from their own phone.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/draft21-screens/08-draft-active-my-turn.png" loading="lazy"
+                            alt="Draft21 active draft board during a captain's turn">
+                        <figcaption>Snake order, so going last isn't a punishment.</figcaption>
+                    </figure>
                 </div>
             </div>
 
-            <!-- DECISIONS AND WHAT THEY COST -->
-            <div class="content-section">
-                <h2 class="content-title">Where I Landed on the Awkward Bits</h2>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">A draft everyone watches, not a clever algorithm</h3>
-                    <p class="content-text">
-                        A snake draft is something everyone already understands from watching sport. An optimiser is
-                        something you have to trust. <strong>What it costs:</strong> the teams aren't mathematically
-                        perfect. Nobody has ever cared, because they watched it happen and picked their own players.
-                        That was always the actual problem.
-                    </p>
-                </div>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">Saving every pick as it happens</h3>
-                    <p class="content-text">
-                        Draft state is stored locally, so a dropped connection or an accidental refresh doesn't wipe
-                        the night. <strong>What it costs:</strong> a lot more state handling behind something that
-                        looks trivially simple, but losing fifteen minutes of picks right before kickoff would have killed
-                        the app immediately.
-                    </p>
-                </div>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">One last look before it goes out</h3>
-                    <p class="content-text">
-                        The host confirms the teams before anyone else sees them. <strong>What it costs:</strong> an
-                        extra tap in a flow I'd otherwise want to keep tight. Worth it, because once those teams hit
-                        the group chat they're real.
-                    </p>
+            <div class="case">
+                <h2 class="case-title" data-step="03">Decisions</h2>
+                <div class="decisions">
+                    <article class="decision">
+                        <h3 class="decision-title">A draft everyone watches, not a clever algorithm</h3>
+                        <p>
+                            A snake draft is something everyone already understands from watching sport. An optimiser is
+                            something you have to trust.
+                            <span class="cost"><b>What it costs</b> &mdash; the teams aren't mathematically perfect.
+                            Nobody has ever cared, because they watched it happen and picked their own players. That was
+                            always the actual problem.</span>
+                        </p>
+                    </article>
+                    <article class="decision">
+                        <h3 class="decision-title">Saving every pick as it happens</h3>
+                        <p>
+                            Draft state is stored locally, so a dropped connection or an accidental refresh doesn't wipe
+                            the night.
+                            <span class="cost"><b>What it costs</b> &mdash; a lot more state handling behind something
+                            that looks trivially simple. Losing fifteen minutes of picks right before kickoff would have
+                            killed the app immediately.</span>
+                        </p>
+                    </article>
+                    <article class="decision">
+                        <h3 class="decision-title">One last look before it goes out</h3>
+                        <p>
+                            The host confirms the teams before anyone else sees them.
+                            <span class="cost"><b>What it costs</b> &mdash; an extra tap in a flow I'd otherwise keep
+                            tight. Worth it: once those teams hit the group chat they're real.</span>
+                        </p>
+                    </article>
                 </div>
             </div>
 
-            <!-- WHAT I DID MYSELF -->
-            <div class="content-section">
-                <h2 class="content-title">All of It, Start to Finish</h2>
-                <ul class="content-list">
-                    <li>Worked out the whole host flow, from pasted names to teams in the group chat</li>
-                    <li>Wrote the snake draft logic: three teams, seven each, order flipping every round</li>
-                    <li>Built captain setup, the review step, and the autosave that keeps a bad connection from ruining the night</li>
-                    <li>Shipped it as a PWA so nobody has to install anything: Flutter, Riverpod, GoRouter, Hive</li>
+            <div class="case">
+                <h2 class="case-title" data-step="04">Build</h2>
+                <ul class="case-list">
+                    <li>The whole host flow, from pasted names to teams in the group chat</li>
+                    <li>Snake draft logic: three teams, seven each, order flipping every round</li>
+                    <li>Captain setup, the review step, and autosave that survives a bad connection</li>
+                    <li>Shipped as a PWA so nobody has to install anything</li>
                 </ul>
             </div>
 
-            <!-- WHERE IT ENDED UP -->
-            <div class="content-section">
-                <h2 class="content-title">Still In Use</h2>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <span class="metric-value">21</span>
-                        <span class="metric-label">Players sorted into three teams of seven</span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-value">Weekly</span>
-                        <span class="metric-label">Still in use, every game night</span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-value">~20 min</span>
-                        <span class="metric-label">Of arguing it replaced</span>
-                    </div>
-                </div>
-                <p class="content-text">
-                    It runs across everyone's phones and my group still uses it every week. The twenty-minute argument
-                    is gone. It's a small thing, but it's a complete one. I saw a problem in my own life, built the
-                    fix, and people kept using it without being asked to.
+            <div class="case">
+                <h2 class="case-title" data-step="05">Result</h2>
+                <ul class="metrics">
+                    <li>
+                        <b>Weekly</b>
+                        <span>Still in use, every game night</span>
+                    </li>
+                    <li>
+                        <b>~20 min</b>
+                        <span>Of arguing it replaced</span>
+                    </li>
+                    <li>
+                        <b>21</b>
+                        <span>Players sorted into three teams of seven</span>
+                    </li>
+                </ul>
+                <p class="case-text">
+                    It runs across everyone's phones and my group still uses it every week. It's a small thing, but it's
+                    a complete one: I saw a problem in my own life, built the fix, and people kept using it without
+                    being asked to. <b>It was a rules problem, not an interface problem</b> &mdash; once the rules felt
+                    fair, the screens were easy.
                 </p>
             </div>
 
-            <!-- WHAT I TOOK FROM IT -->
-            <div class="content-section">
-                <h2 class="content-title">What I'd Tell Myself</h2>
-                <ul class="content-list">
-                    <li><strong>It was a rules problem, not an interface problem:</strong> once the rules felt fair, the screens were easy</li>
-                    <li><strong>Next up:</strong> proper reconnect handling, and letting someone else take over as host mid-draft</li>
-                    <li><strong>Next up:</strong> optional player ratings that suggest balance without taking the picks away from people</li>
-                    <li><strong>Next up:</strong> match history and a league table, since it is the same group every week anyway</li>
+            <div class="case">
+                <h2 class="case-title" data-step="06">Stack</h2>
+                <ul class="stack">
+                    <li>Flutter</li>
+                    <li>Riverpod</li>
+                    <li>GoRouter</li>
+                    <li>Hive</li>
+                    <li>PWA</li>
                 </ul>
+                <p class="case-text" style="margin-top:1rem">
+                    Next: proper reconnect handling and letting someone else take over as host mid-draft, optional
+                    player ratings that suggest balance without taking the picks away from people, and match history.
+                </p>
             </div>
 
             <div class="content-cta">
-                <h2 class="cta-title">Try the Draft Flow</h2>
+                <h2 class="cta-title">Try the draft flow.</h2>
                 <p class="cta-text">
-                    Open the live app to test the import, captain setup, and snake draft structure on mobile.
+                    Open the live app and run the import, captain setup and snake draft on your phone.
                 </p>
-                <a href="https://draft21.vercel.app/" target="_blank" rel="noreferrer" class="btn btn-primary">Open Draft21</a>
+                <div class="project-cta">
+                    <a href="https://draft21.vercel.app/" target="_blank" rel="noreferrer" class="btn btn-primary">Open
+                        Draft21</a>
+                    <a href="index.html#work" class="btn btn-secondary">More work</a>
+                </div>
             </div>
 
         </div>
@@ -252,11 +240,12 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Alon Iter. All rights reserved.</p>
+            <span>&copy; 2026 Alon Iter</span>
+            <a href="index.html#contact" class="link-secondary">Get in touch &rarr;</a>
         </div>
     </footer>
 
-    <script src="main.js?v=20260724-1" defer></script>
+    <script src="main.js?v=20260816-1" defer></script>
 </body>
 
 </html>

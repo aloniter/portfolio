@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.className += ' js';</script>
+
+    <title>Tournament Automation - Alon Iter</title>
+    <meta name="description"
+        content="A repeated LiveOps setup job at SuperPlay, turned into a system that generates the configuration, validates it, and produces the recurring output. Sanitized case study.">
+    <link rel="canonical" href="https://aloniter.github.io/portfolio/tournament-automation.html">
+
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d786a'/%3E%3Ctext x='16' y='23' font-family='Sora,Arial,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="styles.css?v=20260816-1">
+    <link rel="stylesheet" href="project-page.css?v=20260816-1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;family=Sora:wght@500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Alon Iter</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Work</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <a href="index.html#work" class="back-link">&larr; Selected work</a>
+            <p class="eyebrow"><span class="dot"></span>Systems &middot; Internal tool at SuperPlay</p>
+            <h1 class="project-hero-title">Tournament Automation</h1>
+            <p class="project-hero-subtitle">
+                A repeated LiveOps setup job, turned into a system that runs it.
+            </p>
+
+            <dl class="project-facts">
+                <div>
+                    <dt>Role</dt>
+                    <dd>Identified it, built it</dd>
+                </div>
+                <div>
+                    <dt>Context</dt>
+                    <dd>Live mobile game, LiveOps</dd>
+                </div>
+                <div>
+                    <dt>Status</dt>
+                    <dd>In production</dd>
+                </div>
+                <div>
+                    <dt>Result</dt>
+                    <dd>~10 min removed per tournament</dd>
+                </div>
+            </dl>
+
+            <p class="sanitized-note">
+                This is internal work, so everything here is deliberately generic: no game data, no configuration
+                values, no internal names, no screenshots. The diagram uses placeholder labels. What's described is the
+                shape of the problem and what I built, not the contents.
+            </p>
+        </div>
+    </section>
+
+    <div class="container project-visual">
+        <div class="stage stage--systems reveal">
+            <div class="window">
+                <div class="window-bar">
+                    <span></span><span></span><span></span>
+                    <em>tournament setup &mdash; before / after</em>
+                </div>
+                <img src="assets/tournament-automation/flow.svg"
+                    alt="Flow diagram. Before: manual configuration, repeated setup, manual validation, recurring communication. After: inputs feed an automation engine, then validation rules, generated configuration and recurring output.">
+            </div>
+        </div>
+    </div>
+
+    <section class="case-body">
+        <div class="container">
+
+            <div class="case">
+                <h2 class="case-title" data-step="01">Problem</h2>
+                <p class="case-text">
+                    Getting a tournament live meant the same work every time: build the configuration, apply the
+                    segmentation, set the participation tiers, check it all by hand, then produce the recurring output
+                    that goes out alongside it. None of it was hard. All of it was repeated, and repeated
+                    configuration work is where mistakes come from &mdash; not from the difficult decisions, but from
+                    the twentieth time you type the same thing slightly differently.
+                </p>
+                <p class="case-text">
+                    Nobody assigned this. It was just the part of the week that kept costing time for no good reason.
+                </p>
+            </div>
+
+            <div class="case">
+                <h2 class="case-title" data-step="02">Decisions</h2>
+                <div class="decisions">
+                    <article class="decision">
+                        <h3 class="decision-title">Generate the configuration, don't document it</h3>
+                        <p>
+                            The cheap fix is a checklist or a template &mdash; but a checklist still leaves a person
+                            typing the same values in, which is the part that goes wrong. So the system produces the
+                            configuration itself from a small set of inputs.
+                            <span class="cost"><b>What it costs</b> &mdash; every variant has to be encoded up front.
+                            The segmentation options and participation tiers had to be pinned down as rules before
+                            anything could be generated, and that is slower than writing a document.</span>
+                        </p>
+                    </article>
+                    <article class="decision">
+                        <h3 class="decision-title">Validation inside the system, not after it</h3>
+                        <p>
+                            The checks run as part of generating the output rather than as a separate review pass, so a
+                            configuration can't quietly come out wrong and then get caught by whoever happens to be
+                            looking.
+                            <span class="cost"><b>What it costs</b> &mdash; you have to decide in advance what counts
+                            as wrong, which is a real design decision rather than a technical one. Get the rules too
+                            loose and the validation is decoration; too strict and it blocks legitimate setups.</span>
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="case">
+                <h2 class="case-title" data-step="03">Build</h2>
+                <ul class="case-list">
+                    <li><b>Configuration generation</b> from a small set of inputs, instead of manual setup</li>
+                    <li><b>Segmentation logic</b> covering multiple variants, so the common cases don't need hand-editing
+                    </li>
+                    <li><b>Participation tiers</b> handled as part of the configuration rather than bolted on afterwards
+                    </li>
+                    <li><b>Validation rules</b> that run on every generated configuration</li>
+                    <li><b>Automated recurring output</b>, produced on schedule rather than assembled each time</li>
+                </ul>
+            </div>
+
+            <div class="case">
+                <h2 class="case-title" data-step="04">Result</h2>
+                <ul class="metrics">
+                    <li>
+                        <b>~10 min</b>
+                        <span>Of manual setup removed from every tournament</span>
+                    </li>
+                    <li>
+                        <b>In production</b>
+                        <span>Running as part of the real LiveOps workflow</span>
+                    </li>
+                </ul>
+                <p class="case-text">
+                    The ten minutes is the easy number to quote and the least interesting part. What actually changed is
+                    that the repeated configuration work is gone, so the failure mode it created is gone with it. The
+                    same output comes out the same way every time, and the checks happen whether or not anyone remembers
+                    to do them.
+                </p>
+            </div>
+
+            <div class="case">
+                <h2 class="case-title" data-step="05">Stack</h2>
+                <ul class="stack">
+                    <li>Configuration generation</li>
+                    <li>Segmentation logic</li>
+                    <li>Validation rules</li>
+                    <li>Scheduled output</li>
+                    <li>AI-assisted build</li>
+                </ul>
+            </div>
+
+            <div class="content-cta">
+                <h2 class="cta-title">This is the part of the job I go looking for.</h2>
+                <p class="cta-text">
+                    Repeated work that nobody's been asked to fix. Happy to talk through how this one was built, within
+                    what I can share.
+                </p>
+                <div class="project-cta">
+                    <a href="index.html#contact" class="btn btn-primary">Get in touch</a>
+                    <a href="index.html#work" class="btn btn-secondary">More work</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <span>&copy; 2026 Alon Iter</span>
+            <a href="index.html#contact" class="link-secondary">Get in touch &rarr;</a>
+        </div>
+    </footer>
+
+    <script src="main.js?v=20260816-1" defer></script>
+</body>
+
+</html>

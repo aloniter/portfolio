@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500"
+    role="img" aria-labelledby="flowTitle flowDesc">
+    <title id="flowTitle">Tournament setup, before and after automation</title>
+    <desc id="flowDesc">The manual workflow ran as four repeated steps: manual configuration, repeated setup, manual
+        validation and recurring communication. The automated system runs as five steps: inputs, automation engine,
+        validation rules, generated configuration and recurring output. Generic labels only, no internal data.</desc>
+
+    <style>
+        .lbl { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; letter-spacing: 1.2px; }
+        .box { font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 600; }
+        .note { font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; }
+        .out { font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 600; }
+    </style>
+
+    <!-- ============ BEFORE ============ -->
+    <text class="lbl" x="48" y="34" fill="#8b94a3">BEFORE · MANUAL</text>
+
+    <g fill="#f2f4f7" stroke="#d5dae2">
+        <rect x="48" y="56" width="178" height="78" rx="12" />
+        <rect x="250" y="56" width="178" height="78" rx="12" />
+        <rect x="452" y="56" width="178" height="78" rx="12" />
+        <rect x="654" y="56" width="178" height="78" rx="12" />
+    </g>
+
+    <g class="box" fill="#596373" text-anchor="middle">
+        <text x="137" y="89">Manual</text>
+        <text x="137" y="109">configuration</text>
+        <text x="339" y="89">Repeated</text>
+        <text x="339" y="109">setup</text>
+        <text x="541" y="89">Manual</text>
+        <text x="541" y="109">validation</text>
+        <text x="743" y="89">Recurring</text>
+        <text x="743" y="109">communication</text>
+    </g>
+
+    <g stroke="#b9c0cb" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M227 95 h14 M236 90 l5 5 l-5 5" />
+        <path d="M429 95 h14 M438 90 l5 5 l-5 5" />
+        <path d="M631 95 h14 M640 90 l5 5 l-5 5" />
+    </g>
+
+    <text class="note" x="48" y="166" fill="#8b94a3">Every tournament. Same steps, retyped, with a human checking each one.</text>
+
+    <line x1="48" y1="196" x2="832" y2="196" stroke="#e7eaef" stroke-width="1" />
+
+    <!-- ============ AFTER ============ -->
+    <text class="lbl" x="48" y="232" fill="#0d7a6b">AFTER · AUTOMATED</text>
+
+    <g fill="#eef7f5" stroke="#a6cfc8">
+        <rect x="48" y="254" width="140" height="78" rx="12" />
+        <rect x="368" y="254" width="140" height="78" rx="12" />
+        <rect x="528" y="254" width="140" height="78" rx="12" />
+        <rect x="688" y="254" width="140" height="78" rx="12" />
+    </g>
+    <rect x="208" y="254" width="140" height="78" rx="12" fill="#0d7a6b" stroke="#0d7a6b" />
+
+    <g class="box" fill="#05564a" text-anchor="middle">
+        <text x="118" y="299">Inputs</text>
+        <text x="438" y="287">Validation</text>
+        <text x="438" y="307">rules</text>
+        <text x="598" y="287">Generated</text>
+        <text x="598" y="307">configuration</text>
+        <text x="758" y="287">Recurring</text>
+        <text x="758" y="307">output</text>
+    </g>
+
+    <g class="box" fill="#ffffff" text-anchor="middle">
+        <text x="278" y="287">Automation</text>
+        <text x="278" y="307">engine</text>
+    </g>
+
+    <g stroke="#0d7a6b" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M189 293 h14 M198 288 l5 5 l-5 5" />
+        <path d="M349 293 h14 M358 288 l5 5 l-5 5" />
+        <path d="M509 293 h14 M518 288 l5 5 l-5 5" />
+        <path d="M669 293 h14 M678 288 l5 5 l-5 5" />
+    </g>
+
+    <text class="note" x="48" y="364" fill="#596373">One set of inputs. The configuration, the checks and the recurring output come out of the system.</text>
+
+    <!-- ============ OUTCOME ============ -->
+    <rect x="48" y="392" width="784" height="72" rx="14" fill="#f7faf9" stroke="#d8e7e3" />
+    <g class="out" fill="#05564a">
+        <text x="72" y="425">~10 min of manual setup removed per tournament</text>
+    </g>
+    <g class="note" fill="#596373">
+        <text x="72" y="447">and the repeated configuration work, where the mistakes came from, is gone with it.</text>
+    </g>
+</svg>

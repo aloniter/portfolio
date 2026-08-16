@@ -8,12 +8,14 @@
 
     <title>Iron Dom - Alon Iter</title>
     <meta name="description"
-        content="An arcade defense game I built solo: three cities, twenty interceptors, five hits before the city falls. Live and playable right now.">
+        content="An arcade-defense game with one mechanic and three numbers: three cities, twenty interceptors, five hits. Built solo, still live and still hard.">
     <link rel="canonical" href="https://aloniter.github.io/portfolio/iron-dom.html">
+
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d786a'/%3E%3Ctext x='16' y='23' font-family='Sora,Arial,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="styles.css?v=20260724-1">
-    <link rel="stylesheet" href="project-page.css">
+
+    <link rel="stylesheet" href="styles.css?v=20260816-1">
+    <link rel="stylesheet" href="project-page.css?v=20260816-1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -35,214 +37,185 @@
 
     <section class="project-hero">
         <div class="container">
-            <a href="games.html" class="back-link">&larr; Back to Playable Builds</a>
+            <a href="index.html#work" class="back-link">&larr; Selected work</a>
+            <p class="eyebrow"><span class="dot dot--live"></span>Finished &middot; Playable now</p>
             <h1 class="project-hero-title">Iron Dom</h1>
             <p class="project-hero-subtitle">
-                A complete arcade-defense game with reaction-based interception and escalating wave pressure,
-                designed and built solo from concept to a fully playable build.
+                An arcade-defense game with one mechanic and three numbers. You understand it in two seconds and you're
+                still losing to it a minute later.
             </p>
 
-            <div class="project-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">Solo Designer &amp; Developer</span>
+            <dl class="project-facts">
+                <div>
+                    <dt>Role</dt>
+                    <dd>Solo &mdash; design and build</dd>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Timeline</span>
-                    <span class="meta-value">Personal project</span>
+                <div>
+                    <dt>Platform</dt>
+                    <dd>Mobile / browser</dd>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Platform</span>
-                    <span class="meta-value">Mobile / Browser</span>
+                <div>
+                    <dt>Status</dt>
+                    <dd>Finished and live</dd>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Focus</span>
-                    <span class="meta-value">Reaction controls and wave pressure</span>
+                <div>
+                    <dt>Focus</dt>
+                    <dd>Reaction controls and wave pressure</dd>
                 </div>
-            </div>
-
-            <p class="sanitized-note">
-                The game is in Hebrew, since it was built for friends here, and the cities you defend are real ones.
-                Everything below is described in English.
-            </p>
+            </dl>
 
             <div class="project-cta">
                 <a href="https://aloniter.github.io/Iron_Dom_mobile/" target="_blank" rel="noreferrer"
                     class="btn btn-primary">Play Iron Dom</a>
             </div>
+
+            <p class="sanitized-note" style="margin-top:1.5rem">
+                The game is in Hebrew, since it was built for friends here, and the cities you defend are real ones.
+                Everything below is described in English.
+            </p>
         </div>
     </section>
 
-    <section class="project-content">
+    <div class="container project-visual">
+        <div class="stage stage--irondom reveal">
+            <div class="phones">
+                <div class="phone phone--front">
+                    <img src="assets/iron-dom/gameplay-preview.gif"
+                        alt="Iron Dom gameplay: interceptors launching to defend a city skyline during an active wave">
+                </div>
+            </div>
+            <p class="stage-tag">Tap the sky, launch an interceptor</p>
+        </div>
+    </div>
+
+    <section class="case-body">
         <div class="container">
 
-            <div class="content-section">
-                <div class="outcome-banner">
-                    <span class="outcome-banner-icon">&#9679;</span>
-                    <div>
-                        <span class="outcome-banner-label">Outcome</span>
-                        <p class="outcome-banner-text">
-                            A finished, playable game: three cities, twenty interceptors, five hits before you lose
-                            it. Built solo and still live, and it's genuinely hard: I lost my first round in about
-                            fifteen seconds.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content-section">
-                <h2 class="content-title">It In Motion</h2>
-                <div class="screens-gallery screens-gallery-tight">
-                    <img src="assets/iron-dom/gameplay-preview.gif" alt="Iron Dom gameplay: interceptors rising over a city skyline during an active wave">
-                </div>
-            </div>
-
-            <div class="content-section">
-                <h2 class="content-title">How Few Rules Can You Get Away With?</h2>
-                <p class="content-text">
+            <div class="case">
+                <h2 class="case-title" data-step="01">Problem</h2>
+                <p class="case-text">
                     I wanted to see how much tension you could get out of almost no rules. One mechanic: intercept the
-                    thing before it lands. Everything else comes from pacing. No upgrade trees, no currencies,
+                    thing before it lands. Everything else comes from pacing &mdash; no upgrade trees, no currencies,
                     nothing to read before you start.
                 </p>
-            </div>
-
-            <div class="content-section">
-                <h2 class="content-title">The Whole Thing</h2>
-                <ul class="content-list">
-                    <li>Designed the whole defense loop, from idea to something you can actually play</li>
-                    <li>Built the game flow, input handling, collision logic, and scoring</li>
-                    <li>Tuned the waves so they get harder without the screen turning to noise</li>
-                    <li>Made sure every threat, action, and result reads instantly</li>
-                </ul>
-            </div>
-
-            <div class="content-section">
-                <h2 class="content-title">Tense Is Easy. Fair Is Not.</h2>
-                <p class="content-text">
-                    Making something tense is easy. Throw more at the player until they lose. Making it tense and fair
-                    is the actual work. Every second has to stay readable: you see the threat, you react, and you know
-                    straight away whether that worked. The moment the screen stops being readable, losing feels like
-                    the game cheated.
+                <p class="case-text">
+                    <b>Tense is easy. Tense and fair is the actual work.</b> Throw more at the player until they lose
+                    and you have tension. Every second also has to stay readable: you see the threat, you react, and you
+                    know straight away whether that worked. The moment the screen stops being readable, losing feels
+                    like the game cheated.
                 </p>
             </div>
 
-            <div class="content-section">
-                <h2 class="content-title">The Entire Game</h2>
-                <ul class="content-list">
-                    <li>Three cities to defend: Tel Aviv, Jerusalem, Haifa, each with its own skyline behind you</li>
-                    <li>Tap anywhere on the sky to launch an interceptor. That's the entire control scheme</li>
-                    <li>Twenty interceptors per round, so you can't just spam the screen and hope</li>
-                    <li>Five hits before the city falls and the round ends</li>
-                    <li>A permanent readout of score, hits taken, and interceptors spent, so you always know where you stand</li>
+            <div class="case">
+                <h2 class="case-title" data-step="02">Decisions</h2>
+                <div class="decisions">
+                    <article class="decision">
+                        <h3 class="decision-title">Tap anywhere, don't aim</h3>
+                        <p>
+                            I could have made you drag a crosshair and line up a shot. Instead you tap where you want
+                            the interceptor to go and it goes.
+                            <span class="cost"><b>What it costs</b> &mdash; a skill ceiling. There's no aiming technique
+                            to master, so expert play looks a lot like decent play. Worth it: the game had to work
+                            one-handed on a phone, and nobody's dragging a reticle while a wave is coming in.</span>
+                        </p>
+                    </article>
+                    <article class="decision">
+                        <h3 class="decision-title">Twenty interceptors, not unlimited</h3>
+                        <p>
+                            With infinite ammo the correct strategy is to tap constantly and the game stops being about
+                            judgement. Capping the round makes every launch a decision.
+                            <span class="cost"><b>What it costs</b> &mdash; you can lose by running dry, which feels
+                            harsh the first time. It's also the constraint that turns tapping into choosing.</span>
+                        </p>
+                    </article>
+                    <article class="decision">
+                        <h3 class="decision-title">Five hits, not one</h3>
+                        <p>
+                            One hit and out would be more dramatic and more honest to the theme. I gave the city five,
+                            because a new player needs to be allowed to misread the first wave and still be playing
+                            thirty seconds later.
+                            <span class="cost"><b>What it costs</b> &mdash; a little tension per hit, bought back by
+                            people actually getting far enough to learn the pacing.</span>
+                        </p>
+                    </article>
+                    <article class="decision">
+                        <h3 class="decision-title">Real cities, real skylines</h3>
+                        <p>
+                            The backgrounds are recognisable &mdash; you can pick out the towers in Tel Aviv. It makes
+                            the thing you're protecting feel specific instead of generic.
+                            <span class="cost"><b>What it costs</b> &mdash; it's very local, and it won't read the same
+                            way to someone who's never been here. I kept it anyway, because the specificity is the
+                            point.</span>
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="case">
+                <h2 class="case-title" data-step="03">Result</h2>
+                <ul class="metrics">
+                    <li>
+                        <b>20</b>
+                        <span>Interceptors a round &mdash; every launch is a choice</span>
+                    </li>
+                    <li>
+                        <b>5</b>
+                        <span>Hits before the city falls</span>
+                    </li>
+                    <li>
+                        <b>3</b>
+                        <span>Cities, each with its own skyline</span>
+                    </li>
                 </ul>
-            </div>
-
-            <div class="content-section">
-                <h2 class="content-title">Four Constraints I Picked on Purpose</h2>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">Tap anywhere, don't aim</h3>
-                    <p class="content-text">
-                        I could have made you drag a crosshair and line up a shot. Instead you tap where you want the
-                        interceptor to go and it goes. <strong>What it costs:</strong> a skill ceiling. There's no
-                        aiming technique to master, so expert play looks a lot like decent play. Worth it, because the
-                        game had to work one-handed on a phone, and nobody's dragging a reticle while a wave is coming
-                        in.
-                    </p>
-                </div>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">Twenty interceptors, not unlimited</h3>
-                    <p class="content-text">
-                        With infinite ammo the correct strategy is to tap constantly, and the game stops being about
-                        judgement. Capping the round at twenty makes every launch a decision.
-                        <strong>What it costs:</strong> you can lose by running dry, which feels harsh the first time
-                        it happens, but it's the constraint that turns tapping into choosing.
-                    </p>
-                </div>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">Five hits, not one</h3>
-                    <p class="content-text">
-                        One hit and out would be more dramatic and more honest to the theme. I gave the city five,
-                        because a new player needs to be allowed to misread the first wave and still be playing thirty
-                        seconds later. <strong>What it costs:</strong> a little tension per hit, bought back by people
-                        actually getting far enough to learn the pacing.
-                    </p>
-                </div>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">Real cities, real skylines</h3>
-                    <p class="content-text">
-                        The backgrounds are recognisable. You can pick out the towers in Tel Aviv. It makes the thing
-                        you're protecting feel specific instead of generic. <strong>What it costs:</strong> it's very
-                        local, and it won't read the same way to someone who's never been here. I kept it anyway,
-                        because the specificity is the point.
-                    </p>
-                </div>
-            </div>
-
-            <div class="content-section">
-                <h2 class="content-title">Three Numbers</h2>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <span class="metric-value">20</span>
-                        <span class="metric-label">Interceptors a round, every launch is a choice</span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-value">5</span>
-                        <span class="metric-label">Hits before the city falls</span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-value">3</span>
-                        <span class="metric-label">Cities, each with its own skyline</span>
-                    </div>
-                </div>
-                <p class="content-text">
-                    Those three numbers are the whole game. Everything else (the pacing, the readability, the way a
-                    wave builds) exists to make those constraints feel fair rather than mean. It's live, it's
-                    finished, and it does the one thing I wanted: you understand it in about two seconds and you're
-                    still losing to it a minute later.
+                <p class="case-text">
+                    Those three numbers are the whole game. Everything else &mdash; the pacing, the readability, the way
+                    a wave builds &mdash; exists to make those constraints feel fair rather than mean.
                 </p>
-            </div>
-
-            <div class="content-section">
-                <h2 class="content-title">What I Took Out</h2>
-                <p class="content-text">
-                    Every time I added a system it got worse. The version that actually worked came from taking things
+                <p class="case-text">
+                    <b>Every time I added a system it got worse.</b> The version that worked came from taking things
                     out: cleaner threats, faster feedback on a hit, and difficulty that climbs while the goal stays
                     completely obvious. Restraint did more for this one than any feature.
                 </p>
             </div>
 
-            <div class="content-section">
-                <h2 class="content-title">If I Picked It Back Up</h2>
-                <ul class="content-list">
-                    <li>A few threat types that change what you go for first, without adding rules</li>
-                    <li>Combo or accuracy bonuses, so a good streak actually pays off</li>
-                    <li>Track survival, hit rate, and misses so I can tune off numbers</li>
-                    <li>Better start, pause, and restart on mobile</li>
+            <div class="case">
+                <h2 class="case-title" data-step="04">Stack</h2>
+                <ul class="stack">
+                    <li>JavaScript</li>
+                    <li>Mobile + browser</li>
+                    <li>Wave pacing</li>
+                    <li>Solo build</li>
                 </ul>
+                <p class="case-text" style="margin-top:1rem">
+                    If I picked it back up: a few threat types that change what you go for first without adding rules,
+                    combo bonuses so a good streak pays off, and tracking survival and hit rate so I could tune off
+                    numbers instead of feel.
+                </p>
             </div>
 
             <div class="content-cta">
-                <h2 class="cta-title">Defend the City</h2>
+                <h2 class="cta-title">Go lose to it.</h2>
                 <p class="cta-text">
-                    It's up and playable. See how many waves you last.
+                    I lost my first round in about fifteen seconds, and I made it.
                 </p>
-                <a href="https://aloniter.github.io/Iron_Dom_mobile/" target="_blank" rel="noreferrer"
-                    class="btn btn-primary">Play Iron Dom</a>
+                <div class="project-cta">
+                    <a href="https://aloniter.github.io/Iron_Dom_mobile/" target="_blank" rel="noreferrer"
+                        class="btn btn-primary">Play Iron Dom</a>
+                    <a href="index.html#work" class="btn btn-secondary">More work</a>
+                </div>
             </div>
+
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Alon Iter. All rights reserved.</p>
+            <span>&copy; 2026 Alon Iter</span>
+            <a href="index.html#contact" class="link-secondary">Get in touch &rarr;</a>
         </div>
     </footer>
 
-    <script src="main.js?v=20260724-1" defer></script>
+    <script src="main.js?v=20260816-1" defer></script>
 </body>
 
 </html>

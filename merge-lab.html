@@ -14,8 +14,8 @@
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d786a'/%3E%3Ctext x='16' y='23' font-family='Sora,Arial,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 
-    <link rel="stylesheet" href="styles.css?v=20260724-1">
-    <link rel="stylesheet" href="project-page.css">
+    <link rel="stylesheet" href="styles.css?v=20260816-1">
+    <link rel="stylesheet" href="project-page.css?v=20260816-1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -37,175 +37,186 @@
 
     <section class="project-hero">
         <div class="container">
-            <a href="index.html#work" class="back-link">&larr; Back to Selected Work</a>
+            <a href="index.html#work" class="back-link">&larr; Selected work</a>
+            <p class="eyebrow"><span class="dot"></span>Product decisions &middot; Built the instrumentation</p>
             <h1 class="project-hero-title">Merge Lab</h1>
             <p class="project-hero-subtitle">
                 A merge puzzle where I built the tuning tools before I needed them: a level editor and a win-rate
                 dashboard sitting right next to the game.
             </p>
 
-            <div class="project-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">Solo Designer &amp; Developer</span>
+            <dl class="project-facts">
+                <div>
+                    <dt>Role</dt>
+                    <dd>Solo &mdash; design and build</dd>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Timeline</span>
-                    <span class="meta-value">3 weeks</span>
+                <div>
+                    <dt>Timeline</dt>
+                    <dd>3 weeks</dd>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Platform</span>
-                    <span class="meta-value">Mobile Web</span>
+                <div>
+                    <dt>Platform</dt>
+                    <dd>Mobile web</dd>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Focus</span>
-                    <span class="meta-value">Balancing workflow and instrumentation</span>
+                <div>
+                    <dt>Focus</dt>
+                    <dd>Balancing workflow and instrumentation</dd>
                 </div>
-            </div>
+            </dl>
 
             <div class="project-cta">
-                <a href="https://merge-lab.vercel.app/" target="_blank" rel="noreferrer" class="btn btn-primary">Play Merge Lab</a>
+                <a href="https://merge-lab.vercel.app/" target="_blank" rel="noreferrer" class="btn btn-primary">Play
+                    Merge Lab</a>
             </div>
         </div>
     </section>
 
-    <section class="project-content">
+    <div class="container project-visual">
+        <div class="stage stage--mergelab reveal">
+            <div class="phones">
+                <div class="phone phone--back">
+                    <img src="assets/merge-lab/level-editor.jpg"
+                        alt="Merge Lab level editor: move limits and goals editable per level, applied live">
+                </div>
+                <div class="phone phone--front">
+                    <img src="assets/merge-lab/insights.png"
+                        alt="Merge Lab insights dashboard showing win rates level by level">
+                </div>
+            </div>
+            <p class="stage-tag">Win rate, level by level</p>
+        </div>
+    </div>
+
+    <section class="case-body">
         <div class="container">
 
-            <div class="content-section">
-                <div class="outcome-banner">
-                    <span class="outcome-banner-icon">&#9679;</span>
-                    <div>
-                        <span class="outcome-banner-label">Outcome</span>
-                        <p class="outcome-banner-text">
-                            The dashboard caught a level sitting at an 84.9% win rate, far too easy, and I hadn't
-                            noticed. Changed it in the editor, watched the number move, done in under a minute.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SCREENS -->
-            <div class="content-section">
-                <h2 class="content-title">The Game and the Tools Beside It</h2>
-                <div class="screens-gallery">
-                    <img src="assets/merge-lab/demo.gif" alt="Merge Lab gameplay demo">
-                    <img src="assets/merge-lab/main.jpg" alt="Merge Lab main screen">
-                    <img src="assets/merge-lab/level-editor.jpg" alt="Merge Lab level editor">
-                    <img src="assets/merge-lab/insights.png" alt="Merge Lab insights overview">
-                    <img src="assets/merge-lab/insights-dropdown.jpg" alt="Merge Lab win rates list">
-                    <img src="assets/merge-lab/settings.png" alt="Merge Lab settings screen">
-                </div>
-            </div>
-
-            <!-- WHY I STARTED IT -->
-            <div class="content-section">
-                <h2 class="content-title">Tuning by Feel Wasn't Working</h2>
-                <p class="content-text">
-                    Tuning a puzzle game solo usually goes: change a number, rebuild, play it yourself, decide it
-                    feels about right, move on. That's not tuning, that's guessing with extra steps, and you only
-                    find out you were wrong when someone else plays it. I wanted to know whether building the tools
-                    first would change how the game turned out.
+            <div class="case">
+                <h2 class="case-title" data-step="01">Problem</h2>
+                <p class="case-text">
+                    Tuning a puzzle game solo usually goes: change a number, rebuild, play it yourself, decide it feels
+                    about right, move on. That's not tuning, that's <b>guessing with extra steps</b>, and you only find
+                    out you were wrong when someone else plays it. I wanted to know whether building the tools first
+                    would change how the game turned out.
                 </p>
-            </div>
-
-            <!-- THE HARD PART -->
-            <div class="content-section">
-                <h2 class="content-title">Three Things That Had to Agree</h2>
-                <p class="content-text">
+                <p class="case-text">
                     Writing a merge loop is straightforward. Writing it while also building an editor that changes the
-                    game live and a dashboard that tells you something useful. That's three things that all have to
-                    agree with each other. The editor had to apply changes without a rebuild, or I'd never use it. And
-                    the dashboard had to point at the actual problem level, not hand me a wall of numbers I'd ignore
-                    by the second session.
+                    game live and a dashboard that says something useful is three things that all have to agree with
+                    each other. The editor had to apply changes without a rebuild or I'd never use it, and the dashboard
+                    had to point at the problem level rather than hand me a wall of numbers I'd ignore by the second
+                    session.
                 </p>
             </div>
 
-            <!-- HOW IT WORKS -->
-            <div class="content-section">
-                <h2 class="content-title">What I Built</h2>
-                <ul class="content-list">
-                    <li>A merge puzzle built around filling orders, level by level</li>
-                    <li>An editor inside the game: change move limits or goals and they apply immediately, no rebuild</li>
-                    <li>A dashboard that calls out the hardest levels and where win rates fall off a cliff</li>
+            <div class="case case--wide">
+                <h2 class="case-title" data-step="02">The game and the tools beside it</h2>
+                <div class="gallery">
+                    <figure>
+                        <img src="assets/merge-lab/main.jpg" loading="lazy" alt="Merge Lab main game screen">
+                        <figcaption>The game: filling orders, level by level.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/merge-lab/level-editor.jpg" loading="lazy" alt="Merge Lab level editor">
+                        <figcaption>The editor. Change a move limit, it applies immediately.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/merge-lab/insights.png" loading="lazy" alt="Merge Lab insights overview">
+                        <figcaption>The dashboard. Points at the level, not at the log.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/merge-lab/insights-dropdown.jpg" loading="lazy"
+                            alt="Merge Lab win rates listed per level">
+                        <figcaption>Win rate per level. This is where 84.9% turned up.</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="case">
+                <h2 class="case-title" data-step="03">Decisions</h2>
+                <div class="decisions">
+                    <article class="decision">
+                        <h3 class="decision-title">Tools first, even though it felt backwards</h3>
+                        <p>
+                            I built the editor and the dashboard alongside the game instead of shipping the game and
+                            bolting tooling on later.
+                            <span class="cost"><b>What it costs</b> &mdash; it took noticeably longer before I had
+                            anything that looked like a finished game to show anyone. What I got back was that every
+                            balance change after that was based on a number instead of my own opinion.</span>
+                        </p>
+                    </article>
+                    <article class="decision">
+                        <h3 class="decision-title">A dashboard that points, not one that dumps</h3>
+                        <p>
+                            It tells me which level is the problem rather than handing me raw event logs to interpret.
+                            <span class="cost"><b>What it costs</b> &mdash; I had to decide up front what counts as a
+                            warning sign, which is a design decision in itself. That's the difference between a
+                            dashboard you open once and one you keep open while you work.</span>
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="case">
+                <h2 class="case-title" data-step="04">Build</h2>
+                <ul class="case-list">
+                    <li>The merge core, the level structure and the mobile UI</li>
+                    <li>A live editor that changes move limits and goals without a rebuild</li>
+                    <li>A dashboard surfacing win rates and the levels people get stuck on</li>
                     <li>Enough export to sanity-check a balancing decision outside the app when something looks odd</li>
                 </ul>
             </div>
 
-            <!-- DECISIONS AND WHAT THEY COST -->
-            <div class="content-section">
-                <h2 class="content-title">The Two Big Calls</h2>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">Tools first, even though it felt backwards</h3>
-                    <p class="content-text">
-                        I built the editor and the dashboard alongside the game instead of shipping the game and
-                        bolting tooling on later. <strong>What it costs:</strong> it took noticeably longer before I
-                        had anything that felt like a finished game to show anyone. What I got back was that every
-                        balance change after that was based on a number instead of my own opinion.
-                    </p>
-                </div>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">A dashboard that points, not one that dumps</h3>
-                    <p class="content-text">
-                        It tells me which level is the problem, rather than handing me raw event logs to interpret.
-                        <strong>What it costs:</strong> I had to decide up front what actually counts as a warning
-                        sign, which is a real design decision in itself. But that's the difference between a dashboard
-                        you open once and one you keep open while you work.
-                    </p>
-                </div>
-            </div>
-
-            <!-- WHAT I DID MYSELF -->
-            <div class="content-section">
-                <h2 class="content-title">Mine, All of It</h2>
-                <ul class="content-list">
-                    <li>Built the merge core, the level structure, and the mobile UI</li>
-                    <li>Built the live editor that changes tuning without a rebuild</li>
-                    <li>Built the dashboard that surfaces win rates and the levels people get stuck on</li>
-                    <li>Treated the tooling the way a studio would, the kind of thing design, engineering, and QA all end up leaning on</li>
+            <div class="case">
+                <h2 class="case-title" data-step="05">Result</h2>
+                <ul class="metrics">
+                    <li>
+                        <b>84.9%</b>
+                        <span>Win rate on level 3, flagged by the dashboard</span>
+                    </li>
+                    <li>
+                        <b>Seconds</b>
+                        <span>From changing a move limit to seeing the result</span>
+                    </li>
+                    <li>
+                        <b>3 weeks</b>
+                        <span>Game, editor and dashboard, built together</span>
+                    </li>
                 </ul>
-            </div>
-
-            <!-- WHERE IT ENDED UP -->
-            <div class="content-section">
-                <h2 class="content-title">What the Data Caught</h2>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <span class="metric-value">84.9%</span>
-                        <span class="metric-label">Win rate on level 3, flagged by the dashboard</span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-value">Seconds</span>
-                        <span class="metric-label">From changing a move limit to seeing the result</span>
-                    </div>
-                </div>
-                <p class="content-text">
-                    Once I could see where people were breezing through, the editor did the rest. Change the move
-                    limit, play it, check the number, move on. That's the whole thesis of the project, and it held up:
-                    I'd never have caught an 84.9% win rate by feel, because level 3 felt fine to me. I built it.
+                <p class="case-text">
+                    Once I could see where people were breezing through, the editor did the rest: change the move limit,
+                    play it, check the number, move on. That's the whole thesis of the project and it held up. <b>I'd
+                    never have caught an 84.9% win rate by feel, because level 3 felt fine to me. I built it.</b>
+                </p>
+                <p class="case-text">
+                    You can't playtest your own game honestly &mdash; you already know every trick in it, which is
+                    exactly why the numbers matter.
                 </p>
             </div>
 
-            <!-- WHAT I TOOK FROM IT -->
-            <div class="content-section">
-                <h2 class="content-title">The Lesson That Stuck</h2>
-                <ul class="content-list">
-                    <li><strong>You can't playtest your own game honestly:</strong> you already know every trick in it, which is exactly why the numbers matter</li>
-                    <li><strong>Next up:</strong> A/B testing two sets of move limits against each other</li>
-                    <li><strong>Next up:</strong> a proper drop-off funnel in the dashboard, not just win rates</li>
-                    <li><strong>Next up:</strong> cloud save, so I can test on one device and read the results on another</li>
+            <div class="case">
+                <h2 class="case-title" data-step="06">Stack</h2>
+                <ul class="stack">
+                    <li>Mobile web</li>
+                    <li>Live level editor</li>
+                    <li>Win-rate dashboard</li>
+                    <li>Data export</li>
                 </ul>
+                <p class="case-text" style="margin-top:1rem">
+                    Next: A/B testing two sets of move limits against each other, a proper drop-off funnel rather than
+                    win rates alone, and cloud save so I can test on one device and read the results on another.
+                </p>
             </div>
 
             <div class="content-cta">
-                <h2 class="cta-title">Have a go at it</h2>
+                <h2 class="cta-title">Have a go at it.</h2>
                 <p class="cta-text">
                     Play a few levels, then open the editor and the dashboard and see what tuning it actually feels
                     like.
                 </p>
-                <a href="https://merge-lab.vercel.app/" target="_blank" rel="noreferrer" class="btn btn-primary">Play Merge Lab</a>
+                <div class="project-cta">
+                    <a href="https://merge-lab.vercel.app/" target="_blank" rel="noreferrer" class="btn btn-primary">Play
+                        Merge Lab</a>
+                    <a href="index.html#work" class="btn btn-secondary">More work</a>
+                </div>
             </div>
 
         </div>
@@ -213,11 +224,12 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Alon Iter. All rights reserved.</p>
+            <span>&copy; 2026 Alon Iter</span>
+            <a href="index.html#contact" class="link-secondary">Get in touch &rarr;</a>
         </div>
     </footer>
 
-    <script src="main.js?v=20260724-1" defer></script>
+    <script src="main.js?v=20260816-1" defer></script>
 </body>
 
 </html>

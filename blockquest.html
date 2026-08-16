@@ -8,14 +8,14 @@
 
     <title>BlockQuest - Alon Iter</title>
     <meta name="description"
-        content="A Unity puzzle-battler I'm building solo, where clearing a line takes a chunk out of the boss standing over your board. The design calls, and what they cost.">
+        content="A Unity puzzle-battler built end to end and instrumented for launch: loop, FTUE, progression, Firebase Analytics and Remote Config. Built, pre-launch.">
     <link rel="canonical" href="https://aloniter.github.io/portfolio/blockquest.html">
 
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d786a'/%3E%3Ctext x='16' y='23' font-family='Sora,Arial,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 
-    <link rel="stylesheet" href="styles.css?v=20260724-1">
-    <link rel="stylesheet" href="project-page.css">
+    <link rel="stylesheet" href="styles.css?v=20260816-1">
+    <link rel="stylesheet" href="project-page.css?v=20260816-1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -37,219 +37,226 @@
 
     <section class="project-hero">
         <div class="container">
-            <a href="index.html#work" class="back-link">&larr; Back to Selected Work</a>
+            <a href="index.html#work" class="back-link">&larr; Selected work</a>
+            <p class="eyebrow"><span class="dot dot--soon"></span>Built &middot; Pre-launch</p>
             <h1 class="project-hero-title">BlockQuest</h1>
             <p class="project-hero-subtitle">
-                A Unity puzzle-battler I'm building on my own, where clearing a line doesn't just score points.
-                It takes a chunk out of the boss standing over your board.
+                A Unity puzzle-battler where clearing a line doesn't score points. It takes a chunk out of the boss
+                standing over your board.
             </p>
 
-            <div class="project-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Role</span>
-                    <span class="meta-value">Solo Game Designer &amp; Developer</span>
+            <dl class="project-facts">
+                <div>
+                    <dt>Role</dt>
+                    <dd>Solo &mdash; design and build</dd>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Status</span>
-                    <span class="meta-value">In Development</span>
+                <div>
+                    <dt>Platform</dt>
+                    <dd>Unity &middot; portrait mobile</dd>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Platform</span>
-                    <span class="meta-value">Unity / Portrait Mobile</span>
+                <div>
+                    <dt>Status</dt>
+                    <dd>Built, release readiness in progress</dd>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Focus</span>
-                    <span class="meta-value">Game loop, boss pressure, and mobile UX clarity</span>
+                <div>
+                    <dt>Instrumented</dt>
+                    <dd>Analytics, Remote Config, crash reporting</dd>
                 </div>
-            </div>
+            </dl>
 
             <p class="sanitized-note">
-                Still in development, so there's no public build to try yet. What follows is where the game is right
-                now: how it plays, what's under it, and the calls I've made so far.
+                The game is built and instrumented; getting it release-ready is what's left. It isn't on the App Store
+                yet, and I'm not going to write it up as though it is.
             </p>
         </div>
     </section>
 
-    <section class="project-content">
+    <div class="container project-visual">
+        <div class="stage stage--blockquest reveal">
+            <div class="phones">
+                <div class="phone phone--back">
+                    <img src="assets/blockquest/main-menu.jpg"
+                        alt="BlockQuest main menu with dungeon world selection">
+                </div>
+                <div class="phone phone--front">
+                    <video autoplay muted loop playsinline preload="metadata"
+                        poster="assets/blockquest/gameplay-board.jpg"
+                        aria-label="BlockQuest gameplay: an 8x8 board, the boss health bar above it, and a three-piece tray below">
+                        <source src="assets/blockquest/gameplay-preview.m4v" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <p class="stage-tag">Clear a line, the boss takes the hit</p>
+        </div>
+    </div>
+
+    <section class="case-body">
         <div class="container">
 
-            <div class="content-section">
-                <div class="outcome-banner">
-                    <span class="outcome-banner-icon">&#9679;</span>
-                    <div>
-                        <span class="outcome-banner-label">Where It Stands</span>
-                        <p class="outcome-banner-text">
-                            The full loop works end to end in Unity: place, clear, hit the boss, take the hit back.
-                            I'm deep in balancing now: boss HP, how often it attacks, how fast encounters escalate.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SCREENS -->
-            <div class="content-section">
-                <h2 class="content-title">The Game So Far</h2>
-                <div class="screens-gallery">
-                    <img src="assets/blockquest/main-menu.jpg" alt="BlockQuest main menu with dungeon world selection">
-                    <img src="assets/blockquest/gameplay-board.jpg" alt="BlockQuest gameplay screen with boss HP, 8x8 board, and piece tray">
-                    <img src="assets/blockquest/relic-piece-found.jpg" alt="BlockQuest reward feedback showing a relic piece found">
-                    <img src="assets/blockquest/defeat-state.jpg" alt="BlockQuest defeat screen after a boss attack shatters the board">
-                </div>
-            </div>
-
-            <!-- WHY I STARTED IT -->
-            <div class="content-section">
-                <h2 class="content-title">Why I Started It</h2>
-                <p class="content-text">
-                    Block puzzles are easy to pick up and easy to put down. Every clear feels the same as the last
-                    one, so after ten minutes there's no reason to keep going. I kept coming back to one idea: what
-                    if the thing you're clearing lines against could hit you back? Everyone already knows how block
-                    puzzles work, and everyone already knows how boss fights work. I wanted to see what happens when
-                    you make one drive the other.
+            <div class="case">
+                <h2 class="case-title" data-step="01">Problem</h2>
+                <p class="case-text">
+                    Block puzzles are easy to pick up and easy to put down. Every clear feels like the last one, so
+                    after ten minutes there's no reason to keep going. I kept coming back to one idea: what if the thing
+                    you're clearing lines against could hit you back? Everyone already knows how block puzzles work, and
+                    everyone already knows how boss fights work. I wanted to see what happens when one drives the other.
+                </p>
+                <p class="case-text">
+                    The hard part isn't either half. Puzzle rules are fine on their own and boss rules are fine on their
+                    own &mdash; putting them on the same board is where it gets ugly. If a boss attack doesn't really
+                    wreck your plan, the fight is decoration. If it wrecks it too hard, the board turns to mush and you
+                    can't read it. The whole job is <b>building pressure that still feels fair while it's actively
+                    ruining your day</b>, on a phone screen, with nowhere to put a tutorial.
                 </p>
             </div>
 
-            <!-- THE HARD PART -->
-            <div class="content-section">
-                <h2 class="content-title">Two Games Sharing One Board</h2>
-                <p class="content-text">
-                    Puzzle rules are fine on their own. Boss rules are fine on their own. Putting them on the same
-                    board is where it gets ugly. If a boss attack doesn't really wreck your plan, the fight is just
-                    decoration. If it wrecks it too hard, the board turns to mush and you stop being able to read it.
-                    So the whole job is building pressure that still feels fair while it's actively ruining your day,
-                    on a phone screen, with nowhere to put a tutorial.
+            <div class="case case--wide">
+                <h2 class="case-title" data-step="02">The game</h2>
+                <div class="gallery">
+                    <figure>
+                        <img src="assets/blockquest/main-menu.jpg" loading="lazy"
+                            alt="BlockQuest main menu with dungeon world selection">
+                        <figcaption>World select. The progression you're playing towards.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/blockquest/gameplay-board.jpg" loading="lazy"
+                            alt="BlockQuest gameplay screen with boss health, an 8x8 board and a three-piece tray">
+                        <figcaption>Boss health, board and tray, all readable in one glance.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/blockquest/relic-piece-found.jpg" loading="lazy"
+                            alt="BlockQuest reward feedback showing a relic piece found">
+                        <figcaption>Reward feedback. The reason to come back tomorrow.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="assets/blockquest/defeat-state.jpg" loading="lazy"
+                            alt="BlockQuest defeat screen after a boss attack shatters the board">
+                        <figcaption>Defeat. You should know exactly which turn lost it.</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="case">
+                <h2 class="case-title" data-step="03">Decisions</h2>
+                <div class="decisions">
+                    <article class="decision">
+                        <h3 class="decision-title">Boss attacks hit the board, not a timer</h3>
+                        <p>
+                            The easy version is a countdown: beat the boss before time runs out. I made attacks drop
+                            obstacles onto the board instead, so the fight and the puzzle are the same problem rather
+                            than two things happening near each other.
+                            <span class="cost"><b>What it costs</b> &mdash; much harder to keep fair. One badly timed
+                            attack reads as bad luck, not difficulty. Every attack is telegraphed a turn early so you
+                            can see it coming and play around it.</span>
+                        </p>
+                    </article>
+                    <article class="decision">
+                        <h3 class="decision-title">The board stays at 8&times;8</h3>
+                        <p>
+                            A bigger grid opens up better combos. I stayed at 8&times;8 because the board and the boss's
+                            health bar have to fit in one glance on a phone held upright.
+                            <span class="cost"><b>What it costs</b> &mdash; no room for elaborate multi-line setups. Worth
+                            it: the boss layer already asks a lot of a new player, and the grid shouldn't add to
+                            that.</span>
+                        </p>
+                    </article>
+                    <article class="decision">
+                        <h3 class="decision-title">Three pieces in the tray instead of one</h3>
+                        <p>
+                            One random piece per turn is far easier to balance. Three means planning several moves ahead
+                            and choosing an order, which is where the good decisions live.
+                            <span class="cost"><b>What it costs</b> &mdash; more to think about every turn, so what
+                            shows up in the tray and when it refreshes took real tuning. A mobile session should feel
+                            quick, not exhausting.</span>
+                        </p>
+                    </article>
+                    <article class="decision">
+                        <h3 class="decision-title">Instrument it before launch, not after</h3>
+                        <p>
+                            Analytics, crash reporting and Remote Config went in as part of building the game rather
+                            than as a pre-launch scramble, because a boss HP curve tuned on my own taste is worth very
+                            little once real players touch it.
+                            <span class="cost"><b>What it costs</b> &mdash; real time spent on plumbing that adds
+                            nothing to how the game feels today. It buys the ability to change the difficulty
+                            after launch without shipping a build.</span>
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="case">
+                <h2 class="case-title" data-step="04">Build</h2>
+                <ul class="case-list">
+                    <li><b>Game design:</b> the loop end to end &mdash; placement, clears, boss damage, counter-attacks,
+                        progression</li>
+                    <li><b>Unity implementation:</b> the 8&times;8 board, three-piece tray, HP states, and a UI that
+                        survives a phone screen</li>
+                    <li><b>FTUE:</b> teaching the board, the tray and the boss objective in the first few seconds,
+                        without a tutorial screen</li>
+                    <li><b>Instrumentation:</b> Firebase Analytics and GameAnalytics for the funnel, Crashlytics for
+                        stability, Remote Config so balance can move without a release</li>
+                    <li><b>Feel:</b> what a combo feels like, what taking a hit feels like, what losing feels like</li>
+                    <li><b>Scope:</b> every call on what made the cut, with no design or engineering team to hand
+                        anything to</li>
+                </ul>
+            </div>
+
+            <div class="case">
+                <h2 class="case-title" data-step="05">Where it stands</h2>
+                <ul class="metrics">
+                    <li>
+                        <b>Built</b>
+                        <span>Full loop, FTUE and progression working end to end</span>
+                    </li>
+                    <li>
+                        <b>Instrumented</b>
+                        <span>Analytics, crash reporting and Remote Config live and validated</span>
+                    </li>
+                    <li>
+                        <b>1 turn</b>
+                        <span>Warning before every boss attack lands</span>
+                    </li>
+                </ul>
+                <p class="case-text">
+                    It isn't public yet, and that's the honest limit of this one. What it does show is that I can take a
+                    genuinely awkward design problem &mdash; two mechanics fighting over one board &mdash; and carry it
+                    solo from Unity architecture through UI and FTUE to a build that's set up to be tuned on real
+                    numbers instead of my own opinion.
+                </p>
+                <p class="case-text">
+                    What's left: release readiness, and then the part I actually want, which is finding out where real
+                    players quit and moving the boss HP curve to meet them.
                 </p>
             </div>
 
-            <!-- HOW IT WORKS -->
-            <div class="content-section">
-                <h2 class="content-title">How a Turn Plays Out</h2>
-                <div class="workflow-board">
-                    <article class="workflow-card">
-                        <h3 class="workflow-title">1. Place your pieces</h3>
-                        <p class="workflow-text">
-                            Three pieces in the tray. Pick one, find a spot for it, and try not to strand yourself for
-                            the next turn.
-                        </p>
-                    </article>
-                    <article class="workflow-card">
-                        <h3 class="workflow-title">2. Clear a line</h3>
-                        <p class="workflow-text">
-                            Fill a row or column and it goes, with enough punch behind it that you feel like you did
-                            something.
-                        </p>
-                    </article>
-                    <article class="workflow-card">
-                        <h3 class="workflow-title">3. Hit the boss</h3>
-                        <p class="workflow-text">
-                            That clear comes off the boss's health. This is the bit that turns a puzzle into a fight.
-                        </p>
-                    </article>
-                    <article class="workflow-card">
-                        <h3 class="workflow-title">4. Take the hit back</h3>
-                        <p class="workflow-text">
-                            The boss drops junk on your board and you have to dig out of it. Telegraphed a turn early,
-                            so it's on you.
-                        </p>
-                    </article>
-                </div>
-            </div>
-
-            <!-- DECISIONS AND WHAT THEY COST -->
-            <div class="content-section">
-                <h2 class="content-title">Three Calls, and What Each One Cost</h2>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">Keeping the board at 8&times;8</h3>
-                    <p class="content-text">
-                        A bigger grid would open up better combos. I stayed at 8&times;8 because the board and the
-                        boss's health bar have to fit in one glance on a phone held upright. <strong>What it
-                        costs:</strong> no room for the really elaborate multi-line setups. Worth it, because the boss layer
-                        is already asking a lot of a new player, and the grid shouldn't add to that.
-                    </p>
-                </div>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">Boss attacks mess with the board, not a timer</h3>
-                    <p class="content-text">
-                        The easy version is a countdown: beat the boss before time runs out. I made attacks drop
-                        obstacles onto the board instead, so the fight and the puzzle are the same problem rather than
-                        two things happening near each other. <strong>What it costs:</strong> it's much harder to keep
-                        fair. One badly timed attack and it reads as bad luck, not difficulty. I fixed that by
-                        telegraphing every attack a turn early, so you can see it coming and play around it.
-                    </p>
-                </div>
-
-                <div class="design-decision">
-                    <h3 class="decision-title">Three pieces in the tray instead of one</h3>
-                    <p class="content-text">
-                        One random piece per turn is far easier to balance. Three means you're planning several moves
-                        ahead and choosing an order, which is where the good decisions live. <strong>What it
-                        costs:</strong> more to think about every single turn, so what shows up in the tray and when
-                        it refreshes took real tuning, since a mobile session should feel quick, not exhausting.
-                    </p>
-                </div>
-            </div>
-
-            <!-- WHAT I DID MYSELF -->
-            <div class="content-section">
-                <h2 class="content-title">Every Part of It</h2>
-                <ul class="content-list">
-                    <li>Designed the loop end to end: placement, clears, boss damage, counter-attacks, progression</li>
-                    <li>Built it in Unity: the 8x8 board, the three-piece tray, HP states, and a UI that survives a phone screen</li>
-                    <li>Worked out the feedback: what a combo feels like, what taking a hit feels like, what losing feels like</li>
-                    <li>Made every call on scope and priorities, with no design or engineering team to hand things off to</li>
+            <div class="case">
+                <h2 class="case-title" data-step="06">Stack</h2>
+                <ul class="stack">
+                    <li>Unity</li>
+                    <li>C#</li>
+                    <li>Firebase Analytics</li>
+                    <li>Firebase Remote Config</li>
+                    <li>GameAnalytics</li>
+                    <li>Crashlytics</li>
+                    <li>AI-assisted build</li>
                 </ul>
-            </div>
-
-            <!-- WHERE IT ENDED UP -->
-            <div class="content-section">
-                <h2 class="content-title">What It Shows, and What I Still Have to Prove</h2>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <span class="metric-value">8&times;8</span>
-                        <span class="metric-label">Board, small enough to read in one glance on a phone</span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-value">3</span>
-                        <span class="metric-label">Pieces in the tray, so you plan a few moves ahead</span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-value">1 turn</span>
-                        <span class="metric-label">Warning before every boss attack lands</span>
-                    </div>
-                </div>
-                <p class="content-text">
-                    It isn't shipped, and I'm not going to pretend otherwise. What it does show is that I can take a
-                    genuinely awkward design problem (two mechanics fighting over one board) and get it running,
-                    solo, from Unity architecture through UI to balance. Here's what I still have to earn:
+                <p class="case-text" style="margin-top:1rem">
+                    Claude Code ran alongside the whole build &mdash; planning changes across the project,
+                    implementing gameplay and UI, wiring the analytics and Remote Config integration, running tests,
+                    and working through the release-readiness list.
                 </p>
-                <ul class="content-list">
-                    <li>Players understand the board, tray, and boss objective within the first few seconds</li>
-                    <li>Line clears immediately communicate damage, progress, and combat impact</li>
-                    <li>Boss attacks create pressure without making the board feel unfair or unreadable</li>
-                    <li>Early encounters teach the loop while later fights add meaningful difficulty</li>
-                </ul>
-            </div>
-
-            <!-- WHAT I TOOK FROM IT -->
-            <div class="content-section">
-                <h2 class="content-title">What I'm Working On Next</h2>
-                <ul class="content-list">
-                    <li>Getting it in front of real playtesters and fixing the boss HP curve based on where they actually quit</li>
-                    <li>More boss behaviours that change how the board feels, without adding rules I'd have to explain</li>
-                    <li>Making the relic progression worth chasing over more than one session</li>
-                    <li>Logging clears, wipes, and boss kills, so I'm tuning off numbers instead of my own taste</li>
-                </ul>
             </div>
 
             <div class="content-cta">
-                <h2 class="cta-title">Want to see where it goes?</h2>
+                <h2 class="cta-title">Want to see the build?</h2>
                 <p class="cta-text">
-                    This is the project I spend my evenings on. Happy to talk through the design, or show you the
-                    current build.
+                    This is the project I spend my evenings on. Happy to walk through the design calls, or show you
+                    where it is right now.
                 </p>
-                <a href="index.html#contact" class="btn btn-primary">Get in Touch</a>
+                <div class="project-cta">
+                    <a href="index.html#contact" class="btn btn-primary">Get in touch</a>
+                    <a href="index.html#work" class="btn btn-secondary">More work</a>
+                </div>
             </div>
 
         </div>
@@ -257,11 +264,12 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Alon Iter. All rights reserved.</p>
+            <span>&copy; 2026 Alon Iter</span>
+            <a href="index.html#contact" class="link-secondary">Get in touch &rarr;</a>
         </div>
     </footer>
 
-    <script src="main.js?v=20260724-1" defer></script>
+    <script src="main.js?v=20260816-1" defer></script>
 </body>
 
 </html>
