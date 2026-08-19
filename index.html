@@ -26,213 +26,512 @@
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d786a'/%3E%3Ctext x='16' y='23' font-family='Sora,Arial,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 
-    <link rel="stylesheet" href="styles.css?v=20260816-1">
+    <link rel="stylesheet" href="styles.css?v=20260818-3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Manrope + JetBrains Mono carry the redesigned sections (hero, BlockQuest,
+         Inspectley); Public Sans + Sora are still used by everything below them. -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;family=Sora:wght@500;600;700;800&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Public+Sans:wght@300;400;500;600;700&amp;family=Sora:wght@500;600;700;800&amp;display=swap"
         rel="stylesheet">
 </head>
 
 <body>
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">Alon Iter</a>
-            <div class="nav-links">
-                <a href="index.html" class="nav-link active">Work</a>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
+    <!-- ===== GLASS TOOLBAR =====
+         Fixed, no background of its own: the two glass clusters are the only
+         visible parts, and content runs underneath them from y=0. Each cluster
+         is a single glass surface with transparent children, because two
+         adjacent backdrop-filters smear a duplicate of the filtered backdrop. -->
+    <div class="pg-bar" data-glassbar>
+        <a href="#hero" class="pg-bar__name">Alon Iter</a>
+        <nav class="pg-bar__nav" aria-label="Primary" data-specbar>
+            <span class="pg-bar__spec" aria-hidden="true" data-spec></span>
+            <a href="#hero" class="pg-tab pg-tab--active pg-tab--desk" aria-current="page">Overview</a>
+            <a href="#blockquest" class="pg-tab pg-tab--desk">BlockQuest</a>
+            <a href="#inspectley" class="pg-tab pg-tab--desk">Inspectley</a>
+            <a href="#blockquest" class="pg-tab pg-tab--strong pg-tab--mob">Work</a>
+            <!-- Goes to the contact section, not straight to mailto:. A mailto link
+                 is a silent no-op for anyone without a default mail client, which is
+                 the worst possible failure on the one button meant to convert. The
+                 Email tile in that section still opens mail, next to three other ways
+                 to make contact. -->
+            <a href="#contact" class="pg-tab pg-tab--cta">Get in touch</a>
+        </nav>
+    </div>
+
+    <!-- ===== HERO =====
+         Type plane on the left, two flagship products on the right as equal
+         pillars. Each pillar is an un-rotated wrapper holding a rotated inner
+         element, so the artwork tilts without dragging anything else with it.
+         The two glass status labels that used to sit on the devices are gone:
+         they covered the part of each screen worth looking at, and both facts
+         they carried are stated again in their own section further down. -->
+    <header class="pg-hero" id="hero">
+        <div class="pg-atmo pg-atmo--hero" aria-hidden="true"></div>
+
+        <div class="pg-hero__grid">
+            <div class="pg-hero__type">
+                <p class="pg-eyebrow pg-reveal-t">
+                    <span class="pg-dot"></span>
+                    <span class="pg-mono">Alon Iter &middot; Product Builder</span>
+                </p>
+                <!-- Three hard lines on desktop; the breaks collapse to spaces
+                     under 860px, where the headline wraps naturally. -->
+                <h1 class="pg-hero__title pg-reveal-t">I find the problem,<br> build the product,<br> and ship it.</h1>
+                <p class="pg-hero__lead pg-reveal-t">
+                    A Unity game built end to end, an iOS app live on the App Store, and internal tooling for a live
+                    game with millions of players.
+                </p>
+                <div class="pg-hero__actions">
+                    <a href="#blockquest" class="pg-btn">See the work</a>
+                    <a href="#contact" class="pg-link-underline">Get in touch</a>
+                    <a href="https://www.linkedin.com/in/aloniter/" target="_blank" rel="noreferrer"
+                        class="pg-link-mono pg-hero__linkedin">LinkedIn &#8599;</a>
+                </div>
+            </div>
+
+            <div class="pg-hero__plane">
+                <div class="pg-pillar pg-pillar--a">
+                    <div class="pg-pillar__tilt" data-pillar="a" data-parallax="-0.03" data-parallax-m="-0.025">
+                        <video class="pg-pillar__media" autoplay muted loop playsinline preload="metadata"
+                            poster="assets/blockquest/gameplay-board.jpg"
+                            aria-label="BlockQuest gameplay: an 8x8 puzzle board, the boss health bar above it, and a three-piece tray below">
+                            <source src="assets/blockquest/gameplay-preview.m4v" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="pg-pillar pg-pillar--b">
+                    <div class="pg-pillar__tilt" data-pillar="b" data-parallax="-0.055" data-parallax-m="-0.045">
+                        <img class="pg-pillar__media" src="assets/inspectley/03_annotate.jpg?v=20260816" width="720"
+                            height="1526"
+                            alt="Inspectley annotation screen: a real defect circled in red on a photo, with a written note beneath it">
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
 
-    <!-- ===== HERO ===== -->
-    <header class="hero">
-        <div class="container">
-            <p class="eyebrow hero-eyebrow"><span class="dot"></span>Alon Iter &middot; Product Builder</p>
-            <h1 class="hero-title">I find the problem, build the product, and ship it.</h1>
-            <p class="hero-lead">
-                Games, apps and internal systems &mdash; mostly solo, from the first product decision through to what
-                the numbers say afterwards.
-            </p>
-            <div class="hero-cta">
-                <a href="#work" class="btn btn-primary">See the work</a>
-                <a href="#contact" class="btn btn-secondary">Get in touch</a>
-                <a href="https://www.linkedin.com/in/aloniter/" target="_blank" rel="noreferrer"
-                    class="link-secondary">LinkedIn &#8599;</a>
-            </div>
-            <p class="hero-proof">
-                <span><b>Inspectley</b> &mdash; live on the App Store</span>
-                <span><b>BlockQuest</b> &mdash; built, pre-launch</span>
-                <span><b>SuperPlay &middot; Dice Dreams</b> &mdash; LiveOps at scale</span>
-            </p>
+        <!-- One fact, not a process diagram. The headline above already says how
+             I work; the rail is only here to carry the scale I work at. -->
+        <div class="pg-hero__rail">
+            <span class="pg-hero__rail-right"><b>SuperPlay &middot; Dice Dreams</b> &mdash; LiveOps at scale</span>
         </div>
     </header>
 
-    <!-- ===== SELECTED WORK ===== -->
-    <section id="work" class="section">
+    <!-- ===== SELECTED WORK =====
+         Not part of the Product Glass pass. It sits between two gradients that
+         are meant to meet, so the wrapper carries the hero's closing colour and
+         the BlockQuest gradient still reads as continuous from it. -->
+    <div class="work-bridge">
+        <div class="container work-open" id="work">
+            <p class="section-note">Selected work</p>
+            <h2 class="work-open-title">Seven products, plus the tooling behind a live game.</h2>
+        </div>
+    </div>
+
+    <!-- ===== 01 BLOCKQUEST =====
+         Presented the way a platform holder would: one large media stage, the
+         game's own violet supplying all the colour, and the page around it
+         staying light. The only glass here is the caption + CTA cluster, which
+         sits on the stage so it has something dark to refract. -->
+    <section class="pg-bq" id="blockquest">
+        <div class="pg-head">
+            <p class="pg-eyebrow pg-eyebrow--mint pg-reveal">
+                <span class="pg-dot pg-dot--ring"></span>
+                <span class="pg-mono">Built &middot; Pre-launch</span>
+            </p>
+            <h2 class="pg-h2 pg-reveal">BlockQuest</h2>
+            <p class="pg-lead pg-lead--bq pg-reveal">A Unity puzzle-battler where clearing a line doesn't score points.
+                It takes a chunk out of the boss standing over your board.</p>
+        </div>
+
+        <div class="pg-stage" data-darkstage>
+            <img class="pg-stage__ambient" src="assets/blockquest/main-menu.jpg" alt="" aria-hidden="true">
+            <div class="pg-stage__tint" aria-hidden="true"></div>
+
+            <div class="pg-stage__row">
+                <div class="pg-stage__side pg-stage__side--l" data-parallax="0.035" data-parallax-m="0">
+                    <img src="assets/blockquest/main-menu.jpg" width="900" height="1956" loading="lazy"
+                        alt="BlockQuest main menu with dungeon world selection">
+                </div>
+                <div class="pg-stage__lead" data-parallax="-0.05" data-parallax-m="-0.03">
+                    <video autoplay muted loop playsinline preload="metadata"
+                        poster="assets/blockquest/gameplay-board.jpg"
+                        aria-label="BlockQuest gameplay: clearing a line takes a chunk out of the boss standing over the board">
+                        <source src="assets/blockquest/gameplay-preview.m4v" type="video/mp4">
+                    </video>
+                </div>
+                <div class="pg-stage__side pg-stage__side--r" data-parallax="0.035" data-parallax-m="0">
+                    <img src="assets/blockquest/relic-piece-found.jpg" width="900" height="1956" loading="lazy"
+                        alt="BlockQuest relic piece found reward screen">
+                </div>
+            </div>
+
+            <div class="pg-stagectl-wrap">
+                <div class="pg-stagectl pg-on-dark">
+                    <span class="pg-stagectl__cap">Boss 1 of 3, mid-fight</span>
+                    <a href="blockquest.html" class="pg-stagectl__btn">Case study <span class="pg-arrow"
+                            aria-hidden="true">&rarr;</span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pg-bq__body">
+            <div class="pg-specs">
+                <!-- The fairness decision leads. A reader who only takes in one of
+                     these three should take in this one. -->
+                <div class="pg-spec pg-reveal--cell">
+                    <span class="pg-spec__n">01</span>
+                    <p>Boss attacks drop obstacles onto the board instead of running a countdown. Every attack is
+                        <b>telegraphed a turn early</b>, so losing reads as difficulty rather than bad luck</p>
+                </div>
+                <div class="pg-spec pg-reveal--cell">
+                    <span class="pg-spec__n">02</span>
+                    <p>Instrumented <b>before</b> launch &mdash; analytics, crash reporting and Remote Config, so
+                        difficulty moves without shipping a build</p>
+                </div>
+                <div class="pg-spec pg-reveal--cell">
+                    <span class="pg-spec__n">03</span>
+                    <p>Designed and built solo: the loop, the FTUE, the progression, the balance</p>
+                </div>
+            </div>
+            <!-- No "Solo build" chip here: spec 03 already says it, and the phrase
+                 was running eight times across the page. -->
+            <ul class="pg-chips">
+                <li>Unity</li>
+                <li>C#</li>
+                <li>Firebase Analytics + Remote Config</li>
+            </ul>
+            <!-- The eyebrow and the hero pillar label both already say pre-launch.
+                 This is the third mention, so it is now one plain clause. -->
+            <p class="pg-status">Not public yet</p>
+        </div>
+    </section>
+
+    <!-- ===== 02 INSPECTLEY =====
+         The brightest section: one device, three screens crossfading behind a
+         glass segmented control that deliberately overlaps the device's lower
+         edge, so the glass has product art to sample. -->
+    <section class="pg-insp" id="inspectley">
+        <div class="pg-atmo-clip" aria-hidden="true">
+            <div class="pg-atmo pg-atmo--insp"></div>
+        </div>
+
+        <div class="pg-head">
+            <p class="pg-eyebrow pg-eyebrow--mint pg-reveal">
+                <span class="pg-dot"></span>
+                <span class="pg-mono">Shipped &middot; Live on the App Store</span>
+            </p>
+            <h2 class="pg-h2 pg-reveal">Inspectley</h2>
+            <p class="pg-lead pg-lead--insp pg-reveal">An iPhone app that turns a site walkthrough into a finished
+                inspection report before you've left the building.</p>
+        </div>
+
+        <div class="pg-insp__stage">
+            <div class="pg-insp__halo" aria-hidden="true"></div>
+
+            <!-- Three screens stacked in one box. The annotate shot stays in flow
+                 so it defines the height; the other two are absolute and fade. -->
+            <div class="pg-shots">
+                <img class="pg-shot" data-shot="capture" src="assets/inspectley/02_capture.jpg?v=20260816" width="720"
+                    height="1526" loading="lazy"
+                    alt="Inspectley capture screen: photos taken during a site walkthrough, each attached to a finding">
+                <img class="pg-shot" data-shot="export" src="assets/inspectley/04_export.jpg?v=20260816" width="720"
+                    height="1526" loading="lazy"
+                    alt="Inspectley export screen showing the open findings count and PDF or Word output">
+                <img class="pg-shot pg-shot--base is-on" data-shot="annotate"
+                    src="assets/inspectley/03_annotate.jpg?v=20260816" width="720" height="1526" loading="lazy"
+                    alt="Inspectley annotation screen: a real defect circled in red on a photo, with a written note beneath it">
+            </div>
+
+            <div class="pg-seg-wrap">
+                <div class="pg-seg" role="group" aria-label="Inspectley screens">
+                    <button type="button" class="pg-seg__btn" data-seg="capture" aria-pressed="false">Capture</button>
+                    <button type="button" class="pg-seg__btn is-on" data-seg="annotate"
+                        aria-pressed="true">Annotate</button>
+                    <button type="button" class="pg-seg__btn" data-seg="export" aria-pressed="false">Export</button>
+                </div>
+            </div>
+
+            <span class="pg-shotcap" data-shotcaption>Real finding, circled on site</span>
+        </div>
+
+        <div class="pg-proof">
+            <div class="pg-proof__cell pg-proof__cell--stat pg-reveal--cell">
+                <span class="pg-stat">108</span>
+                <p>findings in one real report, exported in a single pass</p>
+            </div>
+            <!-- Was a paraphrase of the lead two lines above. Now carries the export
+                 decision instead, in the wording from the case study. -->
+            <div class="pg-proof__cell pg-reveal--cell">
+                <span class="pg-proof__n">The output</span>
+                <p>Nobody wanted a nicer report viewer in the app. They wanted the file they already send clients:
+                    Word to edit, PDF when it's final</p>
+            </div>
+            <div class="pg-proof__cell pg-reveal--cell">
+                <span class="pg-proof__n">In use</span>
+                <p>A family-run inspection company runs their jobs on it</p>
+            </div>
+        </div>
+
+        <div class="pg-out">
+            <!-- The "The output, not the interface" row used to live here as two
+                 460px frames waiting on assets that do not exist in this repo: a
+                 page of the exported report, and the App Store listing. Two empty
+                 bordered boxes under a header promising output read as a broken
+                 build, so the row is out until those two captures exist. The export
+                 decision itself now sits in the proof cell above, and Export is
+                 still reachable from the segmented control on the device. -->
+            <div class="pg-insp__foot">
+                <ul class="pg-chips">
+                    <li>Swift</li>
+                    <li>iOS</li>
+                    <li>PDF + Word export</li>
+                    <li>Solo build</li>
+                </ul>
+                <!-- The App Store link carries the real app icon rather than sitting
+                     as bare text: it is the shortest honest proof that this shipped,
+                     and it stays last so the product UI and the 108 findings are what
+                     the section leads with. -->
+                <div class="pg-insp__links">
+                    <a href="inspectley.html" class="pg-link-underline">Case study <span class="pg-arrow"
+                            aria-hidden="true">&rarr;</span></a>
+                    <a href="https://apps.apple.com/il/app/inspectley/id6762510021" target="_blank" rel="noreferrer"
+                        class="pg-storelink">
+                        <img class="pg-storelink__icon" src="assets/inspectley/app-icon.jpg" width="264" height="263"
+                            loading="lazy" alt="">
+                        <span class="pg-storelink__text">
+                            <b>Inspectley</b>
+                            <span>Free on the App Store &#8599;</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 03 LIVEOPS TOOLING =====
+         No internal screenshot exists and none should be invented, so the media
+         here is the shape of the pipeline itself: generic labels only. -->
+    <section class="flag" id="liveops">
+        <div class="container flag-head">
+            <div class="flag-name">
+                <p class="eyebrow"><span class="dot"></span>Internal tool &middot; SuperPlay</p>
+                <h2 class="flag-title">LiveOps Tooling</h2>
+            </div>
+            <p class="flag-lead">A manual live-content workflow, turned into one controlled pipeline. Automating it was
+                the easy part; most of what I built is the checking around it.</p>
+        </div>
+
         <div class="container">
-            <div class="section-head">
-                <h2>Built end to end, mostly on my own.</h2>
-                <p class="section-note">Problem &rarr; build &rarr; ship &rarr; measure</p>
+            <ol class="pipe">
+                <li class="pipe-node">
+                    <span class="pipe-n">01</span>
+                    <b>Planning input</b>
+                    <em>Source data resolved</em>
+                </li>
+                <li class="pipe-node pipe-node--gate">
+                    <span class="pipe-n">02</span>
+                    <b>Validate source</b>
+                    <em>Fails closed</em>
+                </li>
+                <li class="pipe-node pipe-node--on">
+                    <span class="pipe-n">03</span>
+                    <b>Generate</b>
+                    <em>Configuration + index</em>
+                </li>
+                <li class="pipe-node pipe-node--gate">
+                    <span class="pipe-n">04</span>
+                    <b>Validate output</b>
+                    <em>Read back, checked independently</em>
+                </li>
+                <li class="pipe-node pipe-node--stop">
+                    <span class="pipe-n">05</span>
+                    <b>Production import</b>
+                    <em>Manual, on purpose</em>
+                </li>
+            </ol>
+            <p class="pipe-cap">
+                <span class="pipe-key"><i class="pipe-dot pipe-dot--gate"></i>Validation gate</span>
+                <span class="pipe-key"><i class="pipe-dot pipe-dot--on"></i>Generated</span>
+                <span class="pipe-key"><i class="pipe-dot pipe-dot--stop"></i>Where automation stops</span>
+                <span class="pipe-note">Described generically on purpose. No internal names, values or schemas.</span>
+            </p>
+
+            <div class="ev ev--figure">
+                <!-- Time saved is folded into the figure cell so it stays on the page
+                     as secondary evidence. The headline slot goes to the failure the
+                     checking exists for, which is the argument the lead sets up. -->
+                <div class="ev-item ev-item--figure">
+                    <span class="ev-figure">15+</span>
+                    <p>automation tools on a game with millions of players, taking work that ran to hours of manual
+                        assembly down to minutes</p>
+                </div>
+                <div class="ev-item">
+                    <span class="ev-n">The one that mattered</span>
+                    <p>A build reported success and was still incomplete. <b>Nothing went red.</b> That's the failure
+                        the checking exists for</p>
+                </div>
+                <div class="ev-item">
+                    <span class="ev-n">The part I'd defend</span>
+                    <p>Not the time. That it now <b>fails in a defined place, stops in a defined place</b>, and leaves a
+                        record of both</p>
+                </div>
             </div>
 
-            <div class="work-list">
-
-                <!-- PRIMARY 1. BLOCKQUEST - a whole game, designed and instrumented -->
-                <article class="work-row work-row--primary reveal">
-                    <div class="stage stage--blockquest">
-                        <div class="phones">
-                            <div class="phone phone--back">
-                                <img src="assets/blockquest/main-menu.jpg" loading="lazy"
-                                    alt="BlockQuest main menu with dungeon world selection">
-                            </div>
-                            <div class="phone phone--front">
-                                <video autoplay muted loop playsinline preload="metadata"
-                                    poster="assets/blockquest/gameplay-board.jpg"
-                                    aria-label="BlockQuest gameplay: an 8x8 puzzle board, the boss health bar above it, and a three-piece tray below">
-                                    <source src="assets/blockquest/gameplay-preview.m4v" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                        <p class="stage-tag">Clear a line, the boss takes the hit</p>
-                    </div>
-                    <div class="work-body">
-                        <p class="eyebrow"><span class="dot dot--soon"></span>Built &middot; Pre-launch</p>
-                        <h3 class="work-title">BlockQuest</h3>
-                        <p class="work-lead">A Unity puzzle-battler where clearing a line doesn't score points. It takes
-                            a chunk out of the boss standing over your board.</p>
-                        <ul class="proof-points">
-                            <li>Designed and built solo: the loop, the FTUE, the progression, the balance</li>
-                            <li>Instrumented <b>before</b> launch &mdash; analytics, crash reporting and Remote Config,
-                                so difficulty moves without shipping a build</li>
-                            <li>Built and validated. Release readiness in progress; not public yet</li>
-                        </ul>
-                        <ul class="chips">
-                            <li>Unity</li>
-                            <li>C#</li>
-                            <li>Firebase Analytics + Remote Config</li>
-                            <li>Solo build</li>
-                        </ul>
-                        <div class="work-links">
-                            <a href="blockquest.html" class="link-primary">Case study &rarr;</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- PRIMARY 2. INSPECTLEY - shipped to real users -->
-                <article class="work-row work-row--primary reveal">
-                    <div class="stage stage--inspectley">
-                        <div class="phones">
-                            <div class="phone phone--back">
-                                <img src="assets/inspectley/02_capture.jpg?v=20260816" loading="lazy"
-                                    alt="Inspectley capture screen: photos taken during a site walkthrough, each attached to a finding">
-                            </div>
-                            <div class="phone phone--front">
-                                <img src="assets/inspectley/03_annotate.jpg?v=20260816" loading="lazy"
-                                    alt="Inspectley annotation screen: a real defect circled in red on a photo, with a written note beneath it">
-                            </div>
-                        </div>
-                        <p class="stage-tag">Real finding, circled on site</p>
-                    </div>
-                    <div class="work-body">
-                        <p class="eyebrow"><span class="dot dot--live"></span>Shipped &middot; Live on the App Store</p>
-                        <h3 class="work-title">Inspectley</h3>
-                        <p class="work-lead">An iPhone app that turns a site walkthrough into a finished inspection
-                            report before you've left the building.</p>
-                        <ul class="proof-points">
-                            <li>Shoot the defect, circle it on site, and the numbered report writes itself</li>
-                            <li><b>108 findings</b> in one real report, exported in a single pass</li>
-                            <li>A family-run inspection company runs their jobs on it</li>
-                        </ul>
-                        <ul class="chips">
-                            <li>Swift</li>
-                            <li>iOS</li>
-                            <li>PDF + Word export</li>
-                            <li>Solo build</li>
-                        </ul>
-                        <div class="work-links">
-                            <a href="inspectley.html" class="link-primary">Case study &rarr;</a>
-                            <a href="https://apps.apple.com/il/app/inspectley/id6762510021" target="_blank"
-                                rel="noreferrer" class="link-secondary">App Store &#8599;</a>
-                        </div>
-                    </div>
-                </article>
-
+            <div class="flag-foot">
+                <ul class="tech">
+                    <li>Validation</li>
+                    <li>Config generation</li>
+                    <li>Segmentation</li>
+                    <li>Measurement</li>
+                </ul>
+                <div class="flag-links">
+                    <a href="liveops-tooling.html" class="link-primary">Case study &rarr;</a>
+                </div>
             </div>
 
-            <!-- SECONDARY TIER -->
-            <div class="subhead">
-                <h3>Systems and instrumentation</h3>
-                <p class="section-note">Built so the product can be tuned, not guessed at</p>
+            <!-- One of the 15+, written up on its own -->
+            <div class="aside-row">
+                <p class="aside-meta">One of them, written up</p>
+                <p class="aside-body">
+                    <b>Tournament Automation</b> &mdash; a repeated LiveOps setup job, turned into a system that runs
+                    it. Nobody asked me to fix it. About <b>10 minutes of manual setup gone per tournament</b>, and the
+                    repeated configuration work the mistakes came from, gone with it.
+                </p>
+                <a href="tournament-automation.html" class="link-primary">Case study &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SUPPORTING WORK: progressively denser ===== -->
+    <section class="section--tight" id="also">
+        <div class="container">
+            <div class="tier-head">
+                <h2>Also built and still running.</h2>
+                <p class="section-note">Shorter builds, real users</p>
             </div>
 
-            <div class="work-pair reveal-stagger">
-
-                <article class="pair reveal">
-                    <div class="stage stage--systems">
-                        <div class="window">
-                            <div class="window-bar">
-                                <span></span><span></span><span></span>
-                                <em>tournament setup &mdash; before / after</em>
-                            </div>
-                            <img src="assets/tournament-automation/flow.svg" loading="lazy"
-                                alt="Flow diagram. Before: manual configuration, repeated setup, manual validation, recurring communication. After: inputs feed an automation engine, then validation rules, generated configuration and recurring output.">
-                        </div>
-                        <p class="stage-tag">Sanitized &mdash; no internal data</p>
+            <div class="duo reveal-stagger">
+                <article class="duo-item reveal">
+                    <div class="duo-media">
+                        <!-- Both are crops, not full screenshots. At ~200px tall a whole
+                             phone screen renders about 92px wide and nothing on it is
+                             legible, which defeated the point of the card. The right-hand
+                             crop is the level-statistics list, because it is the only
+                             asset that visibly contains the 84.9% the copy cites. -->
+                        <img src="assets/merge-lab/level-editor-crop.jpg" width="780" height="1191" loading="lazy"
+                            alt="Merge Lab level editor: move limit and per-level orders, editable and applied live">
+                        <img src="assets/merge-lab/insights-level3.jpg" width="760" height="883" loading="lazy"
+                            alt="Merge Lab level statistics: levels 1, 2 and 4 above 90%, level 3 sitting at an 84.9% win rate over 126 attempts">
                     </div>
-                    <p class="eyebrow"><span class="dot"></span>Internal tool &middot; SuperPlay</p>
-                    <h3 class="work-title">Tournament Automation</h3>
-                    <p class="work-lead">A repeated LiveOps setup job, turned into a system that runs it.</p>
-                    <p class="work-text">
-                        Nobody asked me to fix it. <b>About 10 minutes of manual setup gone per tournament</b> &mdash;
-                        and the repeated configuration work the mistakes came from, gone with it.
-                    </p>
-                    <ul class="chips">
-                        <li>Config generation</li>
-                        <li>Segmentation</li>
-                        <li>Validation rules</li>
-                    </ul>
-                    <div class="work-links">
-                        <a href="tournament-automation.html" class="link-primary">Case study &rarr;</a>
-                    </div>
-                </article>
-
-                <article class="pair reveal">
-                    <div class="stage stage--mergelab">
-                        <div class="phones">
-                            <div class="phone phone--back">
-                                <img src="assets/merge-lab/level-editor.jpg" loading="lazy"
-                                    alt="Merge Lab level editor: move limits and goals editable per level, applied live">
-                            </div>
-                            <div class="phone phone--front">
-                                <img src="assets/merge-lab/insights.png" loading="lazy"
-                                    alt="Merge Lab insights dashboard showing win rates level by level">
-                            </div>
-                        </div>
-                        <p class="stage-tag">Win rate, level by level</p>
-                    </div>
-                    <p class="eyebrow"><span class="dot"></span>Instrumentation &middot; Solo build</p>
-                    <h3 class="work-title">Merge Lab</h3>
-                    <p class="work-lead">A merge puzzle where I built the level editor and the win-rate dashboard
-                        before I needed them.</p>
-                    <p class="work-text">
-                        The dashboard flagged level 3 sitting at an <b>84.9% win rate</b> &mdash; a level that felt
-                        completely fine to me, because I built it.
-                    </p>
-                    <ul class="chips">
-                        <li>Mobile web</li>
-                        <li>Level editor</li>
-                        <li>Win-rate dashboard</li>
-                    </ul>
-                    <div class="work-links">
+                    <h3>Merge Lab</h3>
+                    <p class="duo-meta">Instrumentation &middot; Solo build</p>
+                    <p class="duo-lead">A merge puzzle where I built the level editor and the win-rate dashboard
+                        first, then the levels.</p>
+                    <p class="duo-ev">The dashboard flagged level 3 sitting at an <b>84.9% win rate</b> &mdash; a level
+                        that felt completely fine to me, because I built it.</p>
+                    <div class="flag-links">
                         <a href="merge-lab.html" class="link-primary">Case study &rarr;</a>
                         <a href="https://merge-lab.vercel.app/" target="_blank" rel="noreferrer"
                             class="link-secondary">Play it &#8599;</a>
                     </div>
                 </article>
 
+                <article class="duo-item reveal">
+                    <div class="duo-media">
+                        <!-- The phone screen, not the desktop draft board: it reads as a
+                             mobile product on sight, which is what the copy claims, and it
+                             carries the Draft21 mark, the three team shirts and the primary
+                             action in one frame. Cropped only at the bottom, just below the
+                             primary CTA. Full-resolution original kept alongside it. -->
+                        <img src="assets/draft21-screens/mobile-home-crop.jpg" width="900" height="1243"
+                            loading="lazy"
+                            alt="Draft21 running on a phone: the Draft21 mark, three team shirts numbered 21, the FC Yarkon game title and a new-game button">
+                    </div>
+                    <h3>Draft21</h3>
+                    <p class="duo-meta">Flutter PWA &middot; Live</p>
+                    <p class="duo-lead">Twenty minutes of weekly arguing about fair teams, replaced by a live snake
+                        draft the host runs on his phone.</p>
+                    <p class="duo-ev"><b>Used every week</b> by the group it was built for. Fair isn't the same as
+                        balanced &mdash; hand people three teams from an algorithm and they argue with the algorithm
+                        instead.</p>
+                    <div class="flag-links">
+                        <a href="draft21.html" class="link-primary">Case study &rarr;</a>
+                        <a href="https://draft21.vercel.app/" target="_blank" rel="noreferrer"
+                            class="link-secondary">Open &#8599;</a>
+                    </div>
+                </article>
             </div>
+
+            <ol class="mini">
+                <li class="mini-row reveal">
+                    <div class="mini-media">
+                        <img src="assets/iron-dom/gameplay-preview.gif" width="220" height="476" loading="lazy"
+                            alt="Iron Dom gameplay: interceptors defending a city during an active wave">
+                    </div>
+                    <div class="mini-body">
+                        <h3>Iron Dom</h3>
+                        <p class="mini-meta">Browser &middot; Playable</p>
+                        <p>Three cities, twenty interceptors, five hits. Every system I added made it worse; the
+                            version that worked came from taking things out.</p>
+                    </div>
+                    <div class="mini-links">
+                        <a href="iron-dom.html" class="link-primary">Case study &rarr;</a>
+                        <a href="https://aloniter.github.io/Iron_Dom_mobile/" target="_blank" rel="noreferrer"
+                            class="link-secondary">Play &#8599;</a>
+                    </div>
+                </li>
+
+                <li class="mini-row reveal">
+                    <div class="mini-media">
+                        <!-- A moving thumbnail: a rhythm runner is about motion, and a
+                             still of a lane says much less than the lane travelling. The
+                             clip is cropped to the slot's own aspect so nothing is cut,
+                             and the poster is its first frame, which is what a
+                             reduced-motion visitor gets. -->
+                        <video autoplay muted loop playsinline preload="metadata"
+                            poster="assets/beat-runner/gameplay-poster.jpg"
+                            aria-label="Beat Runner gameplay: the player orb running a neon lane, dodging obstacles and collecting orbs">
+                            <source src="assets/beat-runner/gameplay-loop.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="mini-body">
+                        <h3>Beat Runner</h3>
+                        <p class="mini-meta">Three.js &middot; Playable</p>
+                        <p>Levels 3&ndash;5 were where players quit &mdash; note density jumped before anyone had
+                            learned to read lanes. I flattened that stretch.</p>
+                    </div>
+                    <div class="mini-links">
+                        <a href="beat-runner.html" class="link-primary">Case study &rarr;</a>
+                        <a href="https://aloniter.github.io/BeatsRunner/" target="_blank" rel="noreferrer"
+                            class="link-secondary">Play &#8599;</a>
+                    </div>
+                </li>
+
+                <li class="mini-row reveal">
+                    <div class="mini-media">
+                        <!-- From the second capture, not the still: this one has a hand
+                             on the deck, which is the only footage in the repo that shows
+                             the gesture the copy claims, and the turntables are unobscured
+                             in it. Cropped above the recorder's watermark. -->
+                        <video autoplay muted loop playsinline preload="metadata"
+                            poster="assets/house-party-vr/room-poster.jpg"
+                            aria-label="House Party VR: a virtual DJ deck and avatar standing in a real living room on Quest 3 passthrough, with a hand reaching for the deck">
+                            <source src="assets/house-party-vr/room-loop.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="mini-body">
+                        <h3>House Party VR</h3>
+                        <p class="mini-meta">Unity &middot; Meta Quest 3</p>
+                        <p>A virtual DJ set in your actual living room. Four gestures, no menus, four weeks. It
+                            answered the question I built it for, so I stopped there.</p>
+                    </div>
+                    <div class="mini-links">
+                        <a href="house-party-vr.html" class="link-primary">Case study &rarr;</a>
+                    </div>
+                </li>
+            </ol>
 
             <p class="work-footnote">
                 Every case study ends the same way &mdash; the calls I made, and what each one cost.
@@ -240,95 +539,15 @@
         </div>
     </section>
 
-    <!-- ===== SUPPORTING WORK ===== -->
-    <section class="section section--alt">
-        <div class="container">
-            <div class="section-head">
-                <h2>Also built and still running.</h2>
-                <p class="section-note">Shorter builds, real users</p>
-            </div>
-
-            <div class="side-grid reveal-stagger">
-                <article class="side-card reveal">
-                    <div class="side-media">
-                        <img src="assets/draft21-screens/08-draft-active-my-turn.png" loading="lazy"
-                            alt="Draft21 active draft board during a captain's turn">
-                    </div>
-                    <div class="side-body">
-                        <p class="side-meta">Flutter PWA &middot; Live</p>
-                        <h3>Draft21</h3>
-                        <p>Twenty minutes of weekly arguing about fair teams, replaced by a live snake draft the host
-                            runs on his phone.</p>
-                        <div class="side-links">
-                            <a href="draft21.html" class="link-primary">Case study &rarr;</a>
-                            <a href="https://draft21.vercel.app/" target="_blank" rel="noreferrer"
-                                class="link-secondary">Open &#8599;</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="side-card reveal">
-                    <div class="side-media">
-                        <img src="assets/house-party-vr/room.jpg" loading="lazy"
-                            alt="House Party VR running in a real living room on Quest 3 passthrough">
-                    </div>
-                    <div class="side-body">
-                        <p class="side-meta">Unity &middot; Meta Quest 3</p>
-                        <h3>House Party VR</h3>
-                        <p>A virtual DJ set in your actual living room. Four gestures, no menus, four weeks to a
-                            working build.</p>
-                        <div class="side-links">
-                            <a href="house-party-vr.html" class="link-primary">Case study &rarr;</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="side-card reveal">
-                    <div class="side-media side-media--fill">
-                        <img src="images/beatrunner-hero.jpg" loading="lazy"
-                            alt="Beat Runner rhythm-runner gameplay">
-                    </div>
-                    <div class="side-body">
-                        <p class="side-meta">Three.js &middot; Playable</p>
-                        <h3>Beat Runner</h3>
-                        <p>Fifteen levels, star gating, a shop worth saving for. Levels 3&ndash;5 were where everyone
-                            quit, so I rebuilt that stretch.</p>
-                        <div class="side-links">
-                            <a href="beat-runner.html" class="link-primary">Case study &rarr;</a>
-                            <a href="https://aloniter.github.io/BeatsRunner/" target="_blank" rel="noreferrer"
-                                class="link-secondary">Play &#8599;</a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="side-card reveal">
-                    <div class="side-media">
-                        <img src="assets/iron-dom/gameplay-preview.gif" loading="lazy"
-                            alt="Iron Dom gameplay: interceptors defending a city during an active wave">
-                    </div>
-                    <div class="side-body">
-                        <p class="side-meta">Browser &middot; Playable</p>
-                        <h3>Iron Dom</h3>
-                        <p>Three cities, twenty interceptors, five hits. One mechanic, and all the work went into
-                            making losing feel fair.</p>
-                        <div class="side-links">
-                            <a href="iron-dom.html" class="link-primary">Case study &rarr;</a>
-                            <a href="https://aloniter.github.io/Iron_Dom_mobile/" target="_blank" rel="noreferrer"
-                                class="link-secondary">Play &#8599;</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== THE DAY JOB ===== -->
-    <section class="section">
+    <!-- ===== THE DAY JOB + ABOUT =====
+         One section, one background switch. Two stacked bands cost a full set
+         of section padding for no extra meaning. -->
+    <section class="section--tight section--alt">
         <div class="container">
             <div class="band-grid">
                 <div>
                     <p class="eyebrow"><span class="dot"></span>The day job</p>
-                    <h2 class="band-title" style="margin-top:0.9rem">LiveOps on a game with millions of players.</h2>
+                    <h2 class="band-title">LiveOps on a game with millions of players.</h2>
                     <p class="band-text">
                         I'm a Technical Operations Manager at SuperPlay, on Dice Dreams. Live events, campaigns and A/B
                         tests go out through me: configuration, validation, rollout, and the follow-up when a number
@@ -349,12 +568,7 @@
                             above.</span></li>
                 </ul>
             </div>
-        </div>
-    </section>
 
-    <!-- ===== ABOUT ===== -->
-    <section class="section section--alt">
-        <div class="container">
             <div class="about-strip">
                 <img src="images/Alon photo.JPG" alt="Alon Iter" loading="lazy">
                 <div>
@@ -375,13 +589,15 @@
     </section>
 
     <!-- ===== CONTACT ===== -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact contact--tight">
         <div class="container">
             <p class="eyebrow" style="margin-bottom:1.2rem"><span class="dot"></span>Get in touch</p>
             <h2 class="contact-title">Need someone who can make the product call and then go build it?</h2>
+            <!-- The summary of how I work that used to open this paragraph was the
+                 eighth restatement on the page. Seven sections of evidence make it
+                 unnecessary, so only the ask is left. -->
             <p class="contact-subtitle">
-                I do my best work owning a problem end to end &mdash; the product decision, the build, and what happens
-                after it ships. If that's the gap on your team, I'd like to hear about it.
+                If that's the gap on your team, I'd like to hear about it.
             </p>
             <div class="contact-links">
                 <a href="mailto:aloniter99@gmail.com" class="contact-link">
@@ -419,7 +635,7 @@
         </div>
     </footer>
 
-    <script src="main.js?v=20260816-1" defer></script>
+    <script src="main.js?v=20260818-3" defer></script>
 </body>
 
 </html>
