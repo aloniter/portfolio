@@ -1316,7 +1316,7 @@ button:focus-visible {
 }
 
 /* ============================================================================
-   PRODUCT GLASS - hero, BlockQuest, Inspectley (index.html)
+   PRODUCT GLASS - hero, Boss Blocks, Inspectley (index.html)
 
    A light Liquid Glass art direction for three sections only. Everything from
    the LiveOps Tooling section down still uses the styles above, so nothing here
@@ -1753,7 +1753,7 @@ button:focus-visible {
     display: none;
 }
 
-/* Tint response: while the BlockQuest stage is behind the bar, both clusters
+/* Tint response: while the Boss Blocks stage is behind the bar, both clusters
    switch to the dark variant. JS flips one class; the CSS does the rest. */
 .pg-bar.is-dark .pg-bar__name,
 .pg-bar.is-dark .pg-bar__nav {
@@ -1919,7 +1919,7 @@ button:focus-visible {
     background: #E8EDEF;
 }
 
-/* ===== 3. BLOCKQUEST =====
+/* ===== 3. BOSS BLOCKS =====
    Picks up exactly where the hero gradient ends. The page never becomes dark;
    the violet lives inside one media stage. */
 .pg-bq {
@@ -2404,7 +2404,7 @@ button:focus-visible {
    The surface is a neutral translucent tint rather than translucent *white*:
    every one of these sits on a white or near-white ground, where white at 55%
    is white and only the rim would have been visible. The blur is real and does
-   work over the BlockQuest gradient; over flat paper it costs nothing.
+   work over the Boss Blocks gradient; over flat paper it costs nothing.
 
    Never put a reveal class on one of these or on an ancestor. The reveal
    animations use transform, and a transformed ancestor mis-registers the
@@ -2437,7 +2437,7 @@ button:focus-visible {
 }
 
 /* ===== FLAGSHIP FOOTER =====
-   Metadata on a closing hairline. BlockQuest carries no link here because its
+   Metadata on a closing hairline. Boss Blocks carries no link here because its
    case-study action sits on the media stage, which is the better place for it;
    Inspectley keeps its own footer because it has an App Store link to place. */
 .pg-foot {
@@ -2801,7 +2801,7 @@ button:focus-visible {
         font-size: 0.66rem;
     }
 
-    /* BlockQuest */
+    /* Boss Blocks */
     .pg-bq {
         padding: 64px 0 0;
         background: linear-gradient(180deg, #E8EDEF 0%, #F6F8F9 34%, #FFFFFF 100%);

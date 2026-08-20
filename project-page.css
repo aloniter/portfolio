@@ -388,7 +388,7 @@
 }
 
 /* ============================================================================
-   CASE STUDY v2 - `cs-` namespace (blockquest.html)
+   CASE STUDY v2 - `cs-` namespace (boss-blocks.html)
 
    Built on the same tokens and primitives as the redesigned homepage: Manrope,
    hairlines, the mint accent, and the `.pg-meta` metadata material. Nothing
@@ -758,15 +758,15 @@
 /* ============================================================================
    CASE STUDY: INSPECTLEY - `ins-` namespace (inspectley.html)
 
-   Same tokens and primitives as the homepage and BlockQuest, deliberately not
-   the same editorial shape. BlockQuest is a game: dark full-bleed stages, a
+   Same tokens and primitives as the homepage and Boss Blocks, deliberately not
+   the same editorial shape. Boss Blocks is a game: dark full-bleed stages, a
    numbered rail, one argument per section. Inspectley is a utility, so this
    page is calmer and more linear - paper ground throughout, screenshots framed
    on hairlines rather than lit on gradients, and word steps (Capture, Report,
    In use) instead of numbers, because the reader is walking a workflow rather
    than reading a list of decisions.
 
-   Nothing here redefines a `pg-` or `cs-` class, so the homepage and BlockQuest
+   Nothing here redefines a `pg-` or `cs-` class, so the homepage and Boss Blocks
    are untouched; this block only adds.
    ========================================================================= */
 .ins {

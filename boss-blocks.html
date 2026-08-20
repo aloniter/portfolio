@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.className += ' js';</script>
+
+    <title>Boss Blocks - Alon Iter</title>
+    <meta name="description"
+        content="A puzzle battler where every line you clear hits the boss standing over your board. The product decisions behind making a familiar block-puzzle loop feel like a fight, and the instrumentation built to tune it.">
+    <link rel="canonical" href="https://aloniter.github.io/portfolio/boss-blocks.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Boss Blocks - Alon Iter">
+    <meta property="og:description"
+        content="Can a familiar block-puzzle loop feel like a fight? The decisions behind the boss layer, the telegraph, and the instrumentation built to tune it.">
+
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d786a'/%3E%3Ctext x='16' y='23' font-family='Sora,Arial,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="styles.css?v=20260819-8">
+    <link rel="stylesheet" href="project-page.css?v=20260819-13">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Public+Sans:wght@300;400;500;600;700&amp;family=Sora:wght@500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="cs">
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Alon Iter</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Work</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO =====
+         One status, one line about the game, then the game. The old hero put a
+         four-cell facts table and a paragraph of disclaimer above the first
+         piece of footage, so the first thing a reader met was an apology. -->
+    <header class="cs-hero">
+        <div class="cs-wrap">
+            <a href="index.html#work" class="cs-back">&larr; Selected work</a>
+            <p class="pg-eyebrow cs-eyebrow">
+                <span class="pg-dot pg-dot--ring"></span>
+                <span class="pg-mono">Pre-launch</span>
+            </p>
+            <h1 class="cs-title">Boss Blocks</h1>
+            <p class="cs-lede">A puzzle battler where every line you clear hits the boss standing over your board.</p>
+        </div>
+
+        <div class="cs-stage">
+            <figure class="cs-phone cs-phone--hero">
+                <video autoplay muted loop playsinline preload="metadata"
+                    poster="assets/blockquest/v2/fight-poster.jpg"
+                    aria-label="Boss Blocks gameplay: pieces placed on an 8x8 board, lines clearing, and each clear taking damage off the boss standing above the board">
+                    <source src="assets/blockquest/v2/fight-loop.m4v" type="video/mp4">
+                </video>
+            </figure>
+        </div>
+
+        <div class="cs-wrap cs-hero__foot">
+            <!-- Ownership, stated once. The page is the evidence. -->
+            <p class="cs-owner">Designed, built and instrumented end to end.</p>
+            <ul class="pg-meta">
+                <li>Unity</li>
+                <li>C#</li>
+                <li>Firebase</li>
+                <li>GameAnalytics</li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== 01 THE QUESTION ===== -->
+        <section class="cs-sec">
+            <div class="cs-wrap cs-grid">
+                <p class="cs-num">01</p>
+                <div class="cs-col">
+                    <h2 class="cs-h2">Can a familiar block-puzzle loop feel like a fight?</h2>
+                    <p class="cs-p">Block puzzles are easy to pick up and put down; every clear feels like the last
+                        one. Boss Blocks is one bet, that fighting a boss on the same board makes both halves
+                        better.</p>
+                    <p class="cs-p">The hard part is where the two overlap. An attack that doesn't wreck your plan
+                        is decoration; one that wrecks it too hard turns the board to mush. The job was pressure that
+                        still feels fair while it ruins your day.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 02 EVERY CLEAR IS A HIT ===== -->
+        <section class="cs-sec">
+            <div class="cs-wrap cs-grid">
+                <p class="cs-num">02</p>
+                <div class="cs-col">
+                    <h2 class="cs-h2">Clearing a line doesn't score points.</h2>
+                    <p class="cs-p">It takes a chunk out of the boss instead. Score is what a block puzzle gives you
+                        when it has nothing else to offer; here that same action decides whether you win.</p>
+                </div>
+            </div>
+            <div class="cs-stage cs-stage--tight">
+                <figure class="cs-phone">
+                    <img src="assets/blockquest/v2/double-strike.jpg" width="552" height="1200" loading="lazy"
+                        alt="Two lines clearing at once in Boss Blocks, with a Double Strike callout and 30 damage floating over the boss">
+                    <figcaption class="cs-cap cs-cap--on-dark">Two lines from one placement. The boss takes 30.
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ===== 03 THE BOSS CHANGES THE PUZZLE ===== -->
+        <section class="cs-sec">
+            <div class="cs-wrap cs-grid">
+                <p class="cs-num">03</p>
+                <div class="cs-col">
+                    <h2 class="cs-h2">The boss had to change the puzzle, not sit above it.</h2>
+                    <p class="cs-p">The easy version is a countdown: beat the boss before time runs out. Instead,
+                        attacks drop blocks onto the board &mdash; fight and puzzle become one problem. Board space
+                        is the real currency; spending it turns the boss from an opponent into a mechanic.</p>
+                    <p class="cs-cost"><b>What it costs</b> &mdash; harder to keep fair. A badly timed attack reads
+                        as bad luck, not difficulty, and a cheated player doesn't come back.</p>
+                </div>
+            </div>
+            <div class="cs-stage cs-stage--tight">
+                <figure class="cs-phone">
+                    <video autoplay muted loop playsinline preload="metadata"
+                        poster="assets/blockquest/v2/pressure-poster.jpg"
+                        aria-label="A Boss Blocks fight in progress: the player clears lines while the boss's red blocks accumulate across the board and fragment the space left to place pieces">
+                        <source src="assets/blockquest/v2/pressure-loop.m4v" type="video/mp4">
+                    </video>
+                    <figcaption class="cs-cap cs-cap--on-dark">The red blocks are the boss's, not mine. Every one of
+                        them is space I no longer get to plan with.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ===== 04 TELEGRAPH ===== -->
+        <section class="cs-sec">
+            <div class="cs-wrap cs-grid">
+                <p class="cs-num">04</p>
+                <div class="cs-col">
+                    <h2 class="cs-h2">You see the attack before you have to solve it.</h2>
+                    <p class="cs-p">Every attack is telegraphed: which ability is coming, how many turns until it
+                        lands. Difficulty becomes something you read and plan around, not something that happens to
+                        you.</p>
+                    <p class="cs-p">That gives a loss an address &mdash; you can point to the turn you spent the
+                        wrong space. That's the difference between a game that feels hard and one that feels
+                        rigged.</p>
+                </div>
+            </div>
+            <div class="cs-wrap">
+                <figure class="cs-detail">
+                    <img src="assets/blockquest/v2/telegraph-detail.jpg" width="1100" height="412" loading="lazy"
+                        alt="Detail of the Boss Blocks boss HUD: a health bar above four charge orbs, three of them lit, showing one turn remains before the boss attacks">
+                    <figcaption class="cs-cap">Three of four charged. The attack lands next turn.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ===== 05 FTUE =====
+             No updated onboarding capture exists, so this section is text only
+             rather than illustrated with something that misrepresents it. -->
+        <section class="cs-sec">
+            <div class="cs-wrap cs-grid">
+                <p class="cs-num">05</p>
+                <div class="cs-col">
+                    <h2 class="cs-h2">The first fight is the tutorial.</h2>
+                    <p class="cs-p">There's nowhere to put a tutorial screen on a phone someone opened to play a
+                        block puzzle. So the opening fight teaches by being one &mdash; a boss slow and soft enough
+                        to let the loop explain itself: place, clear, watch the bar move, before anything pushes
+                        back.</p>
+                    <p class="cs-cost"><b>What it costs</b> &mdash; the first fight can't be interesting on its own
+                        terms. It's a teaching instrument first, tuned as one.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 06 PROGRESSION ===== -->
+        <section class="cs-sec">
+            <div class="cs-wrap cs-grid">
+                <p class="cs-num">06</p>
+                <div class="cs-col">
+                    <h2 class="cs-h2">Three bosses a world, each asking the board for something different.</h2>
+                    <p class="cs-p">Variety isn't new art on the same fight &mdash; each boss spends board space
+                        differently, so what you plan around changes while the rules you learned stay true. Campaign
+                        is the taught path through them; <b>Last Stand sits behind it</b>, because the campaign ends
+                        and the reason to keep playing shouldn't.</p>
+                </div>
+            </div>
+            <div class="cs-stage cs-stage--tight">
+                <div class="cs-duo">
+                    <figure class="cs-phone">
+                        <img src="assets/blockquest/v2/boss-defeated.jpg" width="552" height="1200" loading="lazy"
+                            alt="Boss Blocks boss defeated: the boss greyed out with an empty health bar and a Boss Defeated callout over the board">
+                        <figcaption class="cs-cap cs-cap--on-dark">The bar empties, the fight ends, the board stays as
+                            you left it.</figcaption>
+                    </figure>
+                    <figure class="cs-phone cs-phone--wide">
+                        <img src="assets/blockquest/v2/campaign-modes.jpg" width="760" height="1285" loading="lazy"
+                            alt="Boss Blocks mode select: a Campaign panel above a Last Stand tile crossed with chains and a padlock">
+                        <figcaption class="cs-cap cs-cap--on-dark">Last Stand stays chained until the campaign is
+                            done.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 07 INSTRUMENTATION ===== -->
+        <section class="cs-sec">
+            <div class="cs-wrap cs-grid">
+                <p class="cs-num">07</p>
+                <div class="cs-col">
+                    <h2 class="cs-h2">A boss curve tuned on my own taste is worth very little.</h2>
+                    <p class="cs-p">I've played this game more than anyone alive, which makes me the worst judge of
+                        how hard the third fight is &mdash; so analytics, crash reporting and Remote Config went in
+                        while building, not as a pre-launch scramble.</p>
+                    <p class="cs-p">What matters: <b>boss balance can move without shipping a build</b> &mdash; if a
+                        fight is where people stop, the numbers change and the next encounter uses them
+                        immediately.</p>
+                    <p class="cs-cost"><b>What it costs</b> &mdash; real time on plumbing invisible to how the game
+                        feels today. It pays for every decision made after launch.</p>
+                    <ul class="pg-meta cs-meta">
+                        <li>Firebase Analytics</li>
+                        <li>GameAnalytics</li>
+                        <li>Crashlytics</li>
+                        <li>Remote Config</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 08 CLOSE ===== -->
+        <section class="cs-sec cs-sec--close">
+            <div class="cs-wrap cs-grid">
+                <p class="cs-num">08</p>
+                <div class="cs-col">
+                    <h2 class="cs-h2">The decision I'd defend</h2>
+                    <p class="cs-p">Building the whole thing changed how I think about difficulty. The boss HP curve
+                        was the easy part: a value in a config file, movable remotely on a Tuesday afternoon.</p>
+                    <p class="cs-p">Whether a loss feels earned isn't a number, and tuning can't fix it after the
+                        fact. That's what the telegraph is for: four small orbs under a health bar, the least visible
+                        thing in the game and the one decision the whole idea rests on. <b>Unfair is the one thing a
+                            puzzle player won't forgive.</b></p>
+                    <p class="cs-status">The loop, the FTUE, the progression and the instrumentation are done.
+                        What's left is release readiness &mdash; it isn't on the App Store yet.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="cs-wrap cs-end">
+            <h2 class="cs-end__title">Want to see the build?</h2>
+            <p class="cs-end__text">Happy to walk through the design calls, or show you where it is right now.</p>
+            <div class="cs-end__links">
+                <a href="index.html#contact" class="pg-btn">Get in touch</a>
+                <a href="index.html#work" class="pg-link-underline">More work <span class="pg-arrow"
+                        aria-hidden="true">&rarr;</span></a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <span>&copy; 2026 Alon Iter</span>
+        </div>
+    </footer>
+
+    <script src="main.js?v=20260819-8" defer></script>
+</body>
+
+</html>

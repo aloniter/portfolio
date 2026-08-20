@@ -159,7 +159,7 @@
        Four behaviours for the redesigned sections, all progressive enhancement:
        the page is complete and readable without any of them.
 
-         - scroll parallax on the hero pillars and the BlockQuest stage
+         - scroll parallax on the hero pillars and the Boss Blocks stage
          - toolbar tint while the dark stage passes behind the bar
          - hero pointer depth: two product planes answering the pointer
          - the Inspectley segmented control
@@ -182,7 +182,7 @@
         var wasDark = null;
 
         /* The mobile layout is art-directed with its own, gentler factors, and
-           the two BlockQuest flankers do not move there at all. */
+           the two Boss Blocks flankers do not move there at all. */
         function factorFor(el) {
             if (narrow.matches && el.hasAttribute('data-parallax-m')) {
                 return parseFloat(el.getAttribute('data-parallax-m')) || 0;
