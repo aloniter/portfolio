@@ -32,6 +32,21 @@ tmp/
 # is public, so it stays local rather than being republished here.
 .claude/
 
+# Lockfile for the skills CLI (npx skills). Only describes what to restore into
+# the local, gitignored .claude/skills/, so it stays local too.
+skills-lock.json
+.agents/
+
 # Local design reference board (mockups + support.js, ~22MB). Scratch material,
 # not part of the site.
 protfolio claude design/
+
+# Working design reference, not used by any page. Stays local.
+/Design2.pdf
+
+# Design handoff / mockup archives. Both carry an unredacted copy of the
+# Inspectley project-list screenshot (the live site only ships a version with
+# the real project name removed), so these stay local rather than risk being
+# published unredacted by a future `git add -A`.
+design_handoff_product_glass/
+Portfolio Glass designs 2A and 2B/

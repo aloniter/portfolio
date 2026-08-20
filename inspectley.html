@@ -8,22 +8,27 @@
 
     <title>Inspectley - Alon Iter</title>
     <meta name="description"
-        content="An iPhone app I built and shipped to the App Store. Photograph a defect, circle it on the spot, and the numbered inspection report writes itself. A real company runs on it.">
+        content="A defect list for building handovers, built around the report that has to leave it. Photo, annotation and finding stay attached from the moment the photo is taken. Live on the App Store and in real use.">
     <link rel="canonical" href="https://aloniter.github.io/portfolio/inspectley.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Inspectley - Alon Iter">
+    <meta property="og:description"
+        content="An inspection app built around the file that has to leave it. Word to edit, PDF when it's final - the artifact the workflow already ran on.">
 
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d786a'/%3E%3Ctext x='16' y='23' font-family='Sora,Arial,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 
-    <link rel="stylesheet" href="styles.css?v=20260816-1">
-    <link rel="stylesheet" href="project-page.css?v=20260816-1">
+    <link rel="stylesheet" href="styles.css?v=20260819-8">
+    <link rel="stylesheet" href="project-page.css?v=20260819-17">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;family=Sora:wght@500;600;700;800&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Public+Sans:wght@300;400;500;600;700&amp;family=Sora:wght@500;600;700;800&amp;display=swap"
         rel="stylesheet">
 </head>
 
-<body>
+<body class="ins">
     <nav class="nav">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">Alon Iter</a>
@@ -35,223 +40,182 @@
         </div>
     </nav>
 
-    <section class="project-hero">
-        <div class="container">
-            <a href="index.html#work" class="back-link">&larr; Selected work</a>
-            <p class="eyebrow"><span class="dot dot--live"></span>Shipped &middot; Live on the App Store</p>
-            <h1 class="project-hero-title">Inspectley</h1>
-            <p class="project-hero-subtitle">
-                An iPhone app that turns a morning of photos into a finished inspection report before you've left the
-                building.
+    <!-- ===== HERO =====
+         Utility product, so the presentation stays calm: paper ground, one
+         hairline-framed screenshot, no gradient stage. The only glass on the
+         page is the label over the screenshot, which is doing real work - it
+         translates the Hebrew note without altering the interface. -->
+    <header class="ins-hero">
+        <div class="ins-wrap">
+            <a href="index.html#work" class="ins-back">&larr; Selected work</a>
+            <p class="pg-eyebrow ins-eyebrow">
+                <span class="pg-dot"></span>
+                <span class="pg-mono">Live on the App Store</span>
             </p>
+            <h1 class="ins-title">Inspectley</h1>
+            <p class="ins-lede">A defect list for building handovers, built around the report that has to leave it.</p>
 
-            <dl class="project-facts">
-                <div>
-                    <dt>Role</dt>
-                    <dd>Solo &mdash; product and build</dd>
-                </div>
-                <div>
-                    <dt>Platform</dt>
-                    <dd>iPhone &middot; Swift</dd>
-                </div>
-                <div>
-                    <dt>Status</dt>
-                    <dd>Live on the App Store</dd>
-                </div>
-                <div>
-                    <dt>In use by</dt>
-                    <dd>A family-run inspection company</dd>
-                </div>
-            </dl>
+            <div class="ins-hero__grid">
+                <figure class="ins-shot ins-shot--hero">
+                    <img src="assets/inspectley/03_annotate.jpg" width="720" height="1526"
+                        alt="Inspectley: a site photo with a door frame circled in red, and a written finding beneath it">
+                    <figcaption class="ins-cap">The note reads <i>Kitchen: the door frame is not level</i>.</figcaption>
+                </figure>
 
-            <div class="project-cta">
-                <a href="https://apps.apple.com/il/app/inspectley/id6762510021" target="_blank" rel="noreferrer"
-                    class="btn btn-primary">Get it on the App Store</a>
-            </div>
-
-            <p class="sanitized-note" style="margin-top:1.5rem">
-                The app ships in Hebrew &mdash; it was built for an Israeli inspection company whose clients read
-                Hebrew reports. The screens below are the real app; the flow is described in English.
-            </p>
-        </div>
-    </section>
-
-    <div class="container project-visual">
-        <div class="stage stage--inspectley reveal">
-            <div class="phones">
-                <div class="phone phone--back">
-                    <img src="assets/inspectley/02_capture.jpg?v=20260816"
-                        alt="Inspectley capture screen: photos from a site walkthrough, each attached to a finding">
-                </div>
-                <div class="phone phone--front">
-                    <img src="assets/inspectley/03_annotate.jpg?v=20260816"
-                        alt="Inspectley annotation screen: a real defect circled in red on a photo, with a written note beneath it">
-                </div>
-            </div>
-            <p class="stage-tag">A real finding, circled on site</p>
-        </div>
-    </div>
-
-    <section class="case-body">
-        <div class="container">
-
-            <div class="case">
-                <h2 class="case-title" data-step="01">Problem</h2>
-                <p class="case-text">
-                    An inspector walks a building and comes back with a hundred photos and a page of notes. Then the
-                    real work starts: sitting down that evening, matching every photo to what was wrong with it, and
-                    typing it all into a document. Hours per job, every job &mdash; and the longer the gap between
-                    seeing the problem and writing it down, the easier it is to miss one.
-                </p>
-                <p class="case-text">
-                    This looks like an app-design job and isn't. <b>It's a data problem wearing a UI.</b> Photos,
-                    annotations and findings have to stay tied together while someone moves fast through a site with a
-                    phone in one hand, and the numbered list at the end has to come out right every time without anyone
-                    retyping it. Get the structure wrong and the export quietly produces a broken report &mdash; one
-                    that goes to a paying client.
-                </p>
-            </div>
-
-            <div class="case case--wide">
-                <h2 class="case-title" data-step="02">The app</h2>
-                <div class="gallery">
-                    <figure>
-                        <img src="assets/inspectley/01_projects.jpg?v=20260816" loading="lazy"
-                            alt="Inspectley project list showing inspection reports, each with a photo count and date">
-                        <figcaption>One job, one place. Not a camera roll.</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="assets/inspectley/02_capture.jpg?v=20260816" loading="lazy"
-                            alt="Inspectley capture screen with photos taken during a site walkthrough">
-                        <figcaption>Opens on the camera, not on a form.</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="assets/inspectley/03_annotate.jpg?v=20260816" loading="lazy"
-                            alt="Inspectley annotation screen: a defect circled in red with a written note">
-                        <figcaption>A real defect &mdash; a door frame off level &mdash; marked on site.</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="assets/inspectley/04_export.jpg?v=20260816" loading="lazy"
-                            alt="Inspectley export screen offering PDF or Word output with the finding count">
-                        <figcaption>PDF or Word. The file they already send clients.</figcaption>
-                    </figure>
-                </div>
-            </div>
-
-            <div class="case">
-                <h2 class="case-title" data-step="03">Decisions</h2>
-                <div class="decisions">
-                    <article class="decision">
-                        <h3 class="decision-title">Photos first, forms never</h3>
-                        <p>
-                            Inspectors work with a camera, not a keyboard. The app opens on the camera rather than on a
-                            form waiting to be filled in.
-                            <span class="cost"><b>What it costs</b> &mdash; all the complexity moves into annotating and
-                            organising afterwards, and that part has to be quick enough that nobody's standing in a
-                            stairwell waiting for it.</span>
-                        </p>
-                    </article>
-                    <article class="decision">
-                        <h3 class="decision-title">The findings list builds itself</h3>
-                        <p>
-                            Mark a photo and it becomes a numbered finding automatically. There is no separate step
-                            where you write the list again. That's the entire reason things stopped getting missed.
-                            <span class="cost"><b>What it costs</b> &mdash; the data model had to be right on day one,
-                            because the whole report is generated from it. Get it wrong later and you're rebuilding the
-                            foundation.</span>
-                        </p>
-                    </article>
-                    <article class="decision">
-                        <h3 class="decision-title">Export to Word and PDF, boring as that is</h3>
-                        <p>
-                            I could have built a much nicer report viewer inside the app. Nobody wanted one. They wanted
-                            the file they already send to clients: Word when someone needs to edit it, PDF when it's
-                            final.
-                            <span class="cost"><b>What it costs</b> &mdash; two real export pipelines to build and keep
-                            working, instead of one pretty screen. That's the line between something people demo and
-                            something people use.</span>
-                        </p>
-                    </article>
-                </div>
-            </div>
-
-            <div class="case">
-                <h2 class="case-title" data-step="04">Build</h2>
-                <ul class="case-list">
-                    <li><b>Scope:</b> decided what went in the first version and, harder, what didn't</li>
-                    <li><b>All of it:</b> camera, annotation, data layer, export pipeline &mdash; in Swift, solo</li>
-                    <li><b>Structure:</b> the Projects &rarr; Photos &rarr; Findings model the whole report is generated
-                        from</li>
-                    <li><b>Shipping:</b> through App Store review, and kept working once people depended on it</li>
-                </ul>
-            </div>
-
-            <div class="case">
-                <h2 class="case-title" data-step="05">Result</h2>
-                <ul class="metrics">
-                    <li>
-                        <b>108</b>
-                        <span>Open findings in one real report, exported in a single pass</span>
-                    </li>
-                    <li>
-                        <b>On the App Store</b>
-                        <span>Shipped, reviewed, and in daily use</span>
-                    </li>
-                    <li>
-                        <b>Evening gone</b>
-                        <span>The write-up that used to follow every job</span>
-                    </li>
-                </ul>
-                <p class="case-text">
-                    That 108 is from an actual job. At that volume the old way was an entire evening of typing, and
-                    every one of those lines was a chance to miss something. It's on the App Store, and a family-run
-                    inspection company uses it for real client work.
-                </p>
-                <p class="case-text">
-                    It's also the clearest proof I have that this isn't only a gaming habit. Same instinct, different
-                    industry, and it still ended in something people actually use.
-                </p>
-            </div>
-
-            <div class="case">
-                <h2 class="case-title" data-step="06">Stack</h2>
-                <ul class="stack">
-                    <li>Swift</li>
-                    <li>iOS</li>
-                    <li>Camera + annotation</li>
-                    <li>PDF export</li>
-                    <li>Word export</li>
-                    <li>AI-assisted build</li>
-                </ul>
-                <p class="case-text" style="margin-top:1rem">
-                    Next on the list: templates per client, accounts for individual inspectors, a shared company
-                    workspace, and better-looking exports &mdash; cover page, signature, logo.
-                </p>
-            </div>
-
-            <div class="content-cta">
-                <h2 class="cta-title">Go download it.</h2>
-                <p class="cta-text">
-                    It's free on the App Store. Have a look at what a finished report actually comes out like.
-                </p>
-                <div class="project-cta">
+                <div class="ins-hero__side">
+                    <p class="ins-owner">Product and build, end to end.</p>
+                    <ul class="pg-meta">
+                        <li>Swift</li>
+                        <li>iOS</li>
+                        <li>PDF + Word</li>
+                    </ul>
                     <a href="https://apps.apple.com/il/app/inspectley/id6762510021" target="_blank" rel="noreferrer"
-                        class="btn btn-primary">Get it on the App Store</a>
-                    <a href="index.html#work" class="btn btn-secondary">More work</a>
+                        class="ins-store">
+                        <img src="assets/inspectley/app-icon.jpg" width="264" height="263" alt="">
+                        <span>
+                            <b>Inspectley</b>
+                            <span>Free on the App Store &#8599;</span>
+                        </span>
+                    </a>
+                    <p class="ins-note">The app ships in Hebrew, for an Israeli inspection company whose clients read
+                        Hebrew reports. The screens here are the real thing.</p>
                 </div>
             </div>
-
         </div>
-    </section>
+    </header>
+
+    <main>
+        <!-- ===== THE JOB ===== -->
+        <section class="ins-sec">
+            <div class="ins-wrap ins-row">
+                <p class="ins-step">The job</p>
+                <div class="ins-col">
+                    <h2 class="ins-h2">The photos and the findings arrive separately, and get matched up later.</h2>
+                    <p class="ins-p">An inspector walks a handover with a phone. Photos land in the camera roll, notes
+                        land somewhere else, and the report gets assembled that evening out of both. Everything that
+                        goes wrong in this workflow goes wrong in that gap.</p>
+                    <p class="ins-p">So the app has one real job, and it is not photography. <b>Keep the photo and the
+                            finding attached from the moment the photo is taken</b>, so there is nothing left to
+                        reassemble afterwards.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CAPTURE ===== -->
+        <section class="ins-sec">
+            <div class="ins-wrap ins-row">
+                <p class="ins-step">Capture</p>
+                <div class="ins-col">
+                    <h2 class="ins-h2">Every photo is already a finding.</h2>
+                    <p class="ins-p">There is no separate pass where the list gets written. Photograph the defect, mark
+                        it, type the line: it is numbered, located and dated as one object, and the numbering is the
+                        app's job rather than the inspector's.</p>
+                    <p class="ins-p">Marking matters more than it looks. <b>A photo of a doorway is not evidence. A
+                            photo with the frame circled is.</b> The annotation is burned into the thumbnail, so the
+                        list stays readable without opening anything.</p>
+                </div>
+            </div>
+            <div class="ins-wrap">
+                <figure class="ins-shot ins-shot--wide">
+                    <img src="assets/inspectley/findings-rows.jpg" width="1200" height="1119" loading="lazy"
+                        alt="Three findings in an Inspectley list: each row has a numbered marked-up thumbnail, a location, the finding text and a date">
+                    <figcaption class="ins-cap">Three findings from one handover. Number, location, note, date &mdash;
+                        and the mark still on the photo. The dates are weeks apart, because a handover list is not
+                        written in one morning.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ===== REPORT ===== -->
+        <section class="ins-sec">
+            <div class="ins-wrap ins-row">
+                <p class="ins-step">Report</p>
+                <div class="ins-col">
+                    <h2 class="ins-h2">The report is the product leaving the app.</h2>
+                    <p class="ins-p">I could have built a better report viewer. Nobody wanted one. They wanted the file
+                        they already send clients: <b>Word while it still needs editing, PDF when it is final</b>.</p>
+                    <p class="ins-p">That is the whole reason the app fits the job. It produces the artifact the
+                        workflow already ran on, instead of asking the workflow to change shape around new software.</p>
+                    <p class="ins-cost"><b>What it costs</b> &mdash; two export pipelines to build and keep working
+                        instead of one screen. That is the line between something people demo and something people
+                        use.</p>
+                </div>
+            </div>
+            <div class="ins-wrap ins-pair">
+                <figure class="ins-shot">
+                    <img src="assets/inspectley/04_export.jpg" width="720" height="1526" loading="lazy"
+                        alt="Inspectley export sheet: a PDF or Word format toggle above a summary reading 108 open findings">
+                    <figcaption class="ins-cap">Format on top, summary underneath.</figcaption>
+                </figure>
+                <div class="ins-figure">
+                    <p class="ins-stat">500</p>
+                    <p class="ins-stat__label">open findings, one real handover</p>
+                    <p class="ins-p">The export does not count photos. It counts what is still <b>open</b>, because a
+                        handover list is not finished when the report goes out &mdash; it is finished when the items
+                        are closed.</p>
+                    <p class="ins-p">It also settles the question every small tool eventually faces: whether it still
+                        behaves once the job stops being small.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== IN USE ===== -->
+        <section class="ins-sec">
+            <div class="ins-wrap ins-row">
+                <p class="ins-step">In use</p>
+                <div class="ins-col">
+                    <h2 class="ins-h2">Still open, months later.</h2>
+                    <p class="ins-p">One project, four handover visits between April and June, each carrying its own
+                        photo count. A family-run inspection company runs their jobs on it.</p>
+                    <p class="ins-p">That is the part worth showing. Not that it shipped &mdash; that somebody kept
+                        using it after it did.</p>
+                </div>
+            </div>
+            <div class="ins-wrap">
+                <figure class="ins-shot ins-shot--flat">
+                    <img src="assets/inspectley/01_projects.jpg?v=20260819-2" width="720" height="1416" loading="lazy"
+                        alt="An Inspectley project containing four dated handover inspections, each showing how many photos it holds">
+                    <figcaption class="ins-cap">One project, four visits, April to June.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ===== CLOSE ===== -->
+        <section class="ins-sec ins-sec--close">
+            <div class="ins-wrap ins-row">
+                <p class="ins-step">What changed</p>
+                <div class="ins-col">
+                    <h2 class="ins-h2">Almost nothing about the job, on purpose.</h2>
+                    <p class="ins-p">Inspectley did not change how anyone inspects a building. The walk is the same,
+                        the judgement is the same, and the client receives the same kind of document they always
+                        received.</p>
+                    <p class="ins-p">What moved is where the report gets assembled: on site, by the person who saw the
+                        problem, while they are still standing in front of it.</p>
+                    <p class="ins-p"><b>The best thing I built for it was not a screen. It was the file at the end that
+                            nobody has to think about.</b></p>
+                </div>
+            </div>
+        </section>
+
+        <div class="ins-wrap ins-end">
+            <h2 class="ins-end__title">Have a look at what it produces.</h2>
+            <p class="ins-end__text">It is free on the App Store.</p>
+            <div class="ins-end__links">
+                <a href="https://apps.apple.com/il/app/inspectley/id6762510021" target="_blank" rel="noreferrer"
+                    class="pg-btn">Get it on the App Store</a>
+                <a href="index.html#work" class="pg-link-underline">More work <span class="pg-arrow"
+                        aria-hidden="true">&rarr;</span></a>
+            </div>
+        </div>
+    </main>
 
     <footer class="footer">
         <div class="container">
             <span>&copy; 2026 Alon Iter</span>
-            <a href="index.html#contact" class="link-secondary">Get in touch &rarr;</a>
         </div>
     </footer>
 
-    <script src="main.js?v=20260816-1" defer></script>
+    <script src="main.js?v=20260819-8" defer></script>
 </body>
 
 </html>

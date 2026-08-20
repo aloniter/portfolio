@@ -615,12 +615,10 @@ button:focus-visible {
     letter-spacing: var(--letter-spacing-tight);
 }
 
-.flag {
-    padding: clamp(1.4rem, 2vw, 1.65rem) 0 clamp(1.6rem, 2.3vw, 1.9rem);
-}
-
 /* Tier heading: one hairline row, the same shape as the work opener, instead of
    a section-head with its own generous margin */
+/* Carries a heading alone now: the note beside it ("Shorter builds, real
+   users") was the heading again in different words. */
 .tier-head {
     display: flex;
     flex-wrap: wrap;
@@ -633,40 +631,13 @@ button:focus-visible {
 }
 
 .tier-head h2 {
-    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-    line-height: 1.15;
+    font-size: clamp(1.2rem, 1.9vw, 1.45rem);
+    line-height: 1.2;
     letter-spacing: var(--letter-spacing-tight);
-}
-
-.flag--tint {
-    background: linear-gradient(180deg, #f5f9f8 0%, var(--color-bg) 70%);
 }
 
 /* Header on a single hairline row: number, name + status, lead. Three stacked
    centred blocks would cost ~200px of height for the same information. */
-.flag-head {
-    display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
-    gap: clamp(1.25rem, 3vw, 2.5rem);
-    align-items: end;
-    padding-bottom: clamp(1rem, 1.7vw, 1.25rem);
-    border-bottom: 1px solid var(--hair);
-}
-
-.flag-title {
-    margin-top: 0.5rem;
-    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: var(--letter-spacing-tighter);
-}
-
-.flag-lead {
-    font-size: clamp(1.02rem, 1.45vw, 1.14rem);
-    line-height: 1.5;
-    color: var(--color-text-secondary);
-    text-wrap: pretty;
-}
 /* --- Light strip: three screens in product order, the flow read left to right --- */
 .strip {
     --strip-h: clamp(200px, 19.5vw, 280px);
@@ -724,237 +695,12 @@ button:focus-visible {
 
 /* --- Pipeline: the LiveOps identity, drawn rather than screenshotted ---
    Generic labels only. No internal names, values or schemas. */
-.pipe {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 0;
-    margin-top: clamp(1.4rem, 2.6vw, 2.25rem);
-    list-style: none;
-}
-
-.pipe-node {
-    position: relative;
-    padding: 1rem clamp(0.85rem, 1.6vw, 1.25rem) 1.1rem;
-    border: 1px solid var(--hair);
-    border-right-width: 0;
-    background: var(--color-bg-card);
-}
-
-.pipe-node:first-child {
-    border-radius: var(--radius-md) 0 0 var(--radius-md);
-}
-
-.pipe-node:last-child {
-    border-right-width: 1px;
-    border-radius: 0 var(--radius-md) var(--radius-md) 0;
-}
-
 /* The connector: flow moves left to right through every gate */
-.pipe-node + .pipe-node::before {
-    content: '';
-    position: absolute;
-    left: -5px;
-    top: 50%;
-    z-index: 2;
-    width: 9px;
-    height: 9px;
-    margin-top: -4.5px;
-    border-top: 1.5px solid var(--color-border-strong);
-    border-right: 1.5px solid var(--color-border-strong);
-    transform: rotate(45deg);
-    background: var(--color-bg);
-}
-
-.pipe-n {
-    display: block;
-    margin-bottom: 0.55rem;
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    color: var(--color-text-tertiary);
-}
-
-.pipe-node b {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 0.97rem;
-    font-weight: 700;
-    letter-spacing: -0.015em;
-    line-height: 1.25;
-}
-
-.pipe-node em {
-    display: block;
-    margin-top: 0.3rem;
-    font-style: normal;
-    font-size: 0.83rem;
-    line-height: 1.4;
-    color: var(--color-text-secondary);
-}
-
 /* A gate can pass or fail, so it is marked as a check, not a step */
-.pipe-node--gate {
-    background: var(--color-primary-tint);
-    border-color: rgba(13, 122, 107, 0.22);
-}
-
-.pipe-node--gate .pipe-n,
-.pipe-node--on .pipe-n {
-    color: var(--color-primary-strong);
-}
-
-.pipe-node--on {
-    border-color: var(--color-primary);
-    background: var(--color-primary);
-}
-
-.pipe-node--on .pipe-n {
-    color: rgba(255, 255, 255, 0.72);
-}
-
-.pipe-node--on b {
-    color: #ffffff;
-}
-
-.pipe-node--on em {
-    color: rgba(255, 255, 255, 0.82);
-}
-
 /* Where the system deliberately hands back to a person */
-.pipe-node--stop {
-    background: var(--color-bg-secondary);
-    border-left: 1px dashed var(--hair-strong);
-}
-
-.pipe-node--stop b {
-    color: var(--color-text-secondary);
-}
-
-.pipe-cap {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.35rem 1.4rem;
-    margin-top: 1rem;
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--color-text-tertiary);
-}
-
-.pipe-key {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-}
-
-.pipe-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 2px;
-    border: 1px solid var(--color-border-strong);
-    background: var(--color-bg-card);
-}
-
-.pipe-dot--gate {
-    border-color: rgba(13, 122, 107, 0.35);
-    background: var(--color-primary-tint);
-}
-
-.pipe-dot--on {
-    border-color: var(--color-primary);
-    background: var(--color-primary);
-}
-
-.pipe-dot--stop {
-    border-style: dashed;
-    background: var(--color-bg-secondary);
-}
-
-.pipe-note {
-    margin-left: auto;
-    text-transform: none;
-    letter-spacing: 0.02em;
-    color: var(--color-text-tertiary);
-}
-
 /* --- Evidence: numbered columns on hairlines, one claim each --- */
-.ev {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(1.5rem, 3vw, 2.75rem);
-    margin-top: clamp(1.5rem, 2.6vw, 2.1rem);
-    list-style: none;
-}
-
-.ev--figure {
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 1fr);
-    align-items: start;
-}
-
-.ev-item {
-    padding-top: 1rem;
-    border-top: 1px solid var(--hair);
-}
-
-.ev-item p {
-    color: var(--color-text-secondary);
-    font-size: 0.97rem;
-    line-height: 1.5;
-    text-wrap: pretty;
-}
-
-.ev-item b {
-    color: var(--color-text);
-    font-weight: 700;
-}
-
-.ev-n {
-    display: block;
-    margin-bottom: 0.65rem;
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-text-tertiary);
-}
-
 /* The one number worth reading as a headline */
-.ev-figure {
-    display: block;
-    margin-bottom: 0.6rem;
-    font-family: var(--font-heading);
-    font-size: clamp(2.9rem, 5vw, 4.5rem);
-    font-weight: 800;
-    line-height: 0.86;
-    letter-spacing: -0.05em;
-}
-
 /* --- Flagship footer: stack, links and status on one hairline --- */
-.flag-foot {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem 2rem;
-    margin-top: clamp(1.25rem, 2.2vw, 1.75rem);
-    padding-top: 1rem;
-    border-top: 1px solid var(--hair);
-}
-
-.tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem 1.25rem;
-    list-style: none;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-text-tertiary);
-}
-
 .flag-links {
     display: flex;
     flex-wrap: wrap;
@@ -962,43 +708,7 @@ button:focus-visible {
     gap: 0.4rem 1.4rem;
 }
 
-.flag-status {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.02em;
-    color: var(--color-text-tertiary);
-}
-
 /* A related build that lives under a flagship rather than beside it */
-.aside-row {
-    display: grid;
-    grid-template-columns: minmax(0, 0.42fr) minmax(0, 1.6fr) auto;
-    gap: clamp(1rem, 2.5vw, 2rem);
-    align-items: baseline;
-    margin-top: 1.25rem;
-    padding-top: 1.1rem;
-    border-top: 1px solid var(--hair);
-}
-
-.aside-meta {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-text-tertiary);
-}
-
-.aside-body {
-    color: var(--color-text-secondary);
-    font-size: 0.94rem;
-    line-height: 1.5;
-}
-
-.aside-body b {
-    color: var(--color-text);
-    font-weight: 700;
-}
-
 /* ===== WORK: TIER 2, TWO-UP =====
    Media sized to a shared height and bottom-aligned, so a landscape capture and
    a pair of portrait screenshots sit on the same line with no framing box. */
@@ -1162,50 +872,8 @@ button:focus-visible {
 }
 
 /* ===== DAY JOB BAND ===== */
-.band-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(1.75rem, 4vw, 3.5rem);
-    align-items: start;
-}
-
-.band-title {
-    margin-top: 0.9rem;
-    font-size: clamp(1.6rem, 3.2vw, 2.15rem);
-    line-height: 1.15;
-    letter-spacing: var(--letter-spacing-tight);
-}
-
-.band-text {
-    margin-top: 1rem;
-    color: var(--color-text-secondary);
-    font-size: 1rem;
-    line-height: 1.65;
-}
-
-.band-list {
-    display: grid;
-    gap: 0.1rem;
-    list-style: none;
-}
-
-.band-list li {
-    display: grid;
-    grid-template-columns: 1.6rem 1fr;
-    gap: 0.5rem;
-    padding: 0.7rem 0;
-    border-bottom: 1px solid var(--color-border);
-    font-size: 0.96rem;
-    color: var(--color-text-secondary);
-}
-
 .band-list li:first-child {
     border-top: 1px solid var(--color-border);
-}
-
-.band-list b {
-    color: var(--color-text);
-    font-weight: 600;
 }
 
 .band-list li > span:first-child {
@@ -1405,49 +1073,20 @@ button:focus-visible {
 
 /* Five pipeline nodes stop fitting on one line well before the tablet break */
 @media (max-width: 1080px) {
-    .pipe {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .pipe-node {
-        border-right-width: 1px;
-    }
-
     /* Same specificity as the base first/last-child radius rules, so ordering
        is enough to flatten the corners once the row wraps */
     .pipe-node:first-child,
-    .pipe-node:last-child {
-        border-radius: 0;
-    }
-
     .pipe-node:nth-child(odd) {
         border-right-width: 0;
-    }
-
-    .pipe-node + .pipe-node::before {
-        display: none;
     }
 
     .pipe-node:nth-child(n + 3) {
         border-top-width: 0;
     }
 
-    .pipe-node:last-child {
-        grid-column: 1 / -1;
-    }
 }
 
 @media (max-width: 1000px) {
-    .flag-head {
-        grid-template-columns: minmax(0, 1fr);
-        align-items: start;
-        row-gap: 0.75rem;
-    }
-
-    .flag-lead {
-        grid-column: 1;
-    }
-
     .mini-row {
         grid-template-columns: 140px minmax(0, 1fr);
         row-gap: 0.6rem;
@@ -1503,10 +1142,6 @@ button:focus-visible {
         height: 96px;
     }
 
-    .aside-row {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 0.6rem;
-    }
 }
 
 @media (max-width: 768px) {
@@ -1530,16 +1165,6 @@ button:focus-visible {
     .hero-cta .btn {
         flex: 1 1 auto;
         min-width: 150px;
-    }
-
-    .ev,
-    .ev--figure {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 0.9rem;
-    }
-
-    .ev-item {
-        padding-top: 0.75rem;
     }
 
     /* Touch targets: every link is at least 44px tall on a phone */
@@ -1604,14 +1229,6 @@ button:focus-visible {
         border-radius: 1.1rem;
     }
 
-    .flag-title {
-        font-size: clamp(1.85rem, 9vw, 2.4rem);
-    }
-
-    .flag-lead {
-        font-size: 1rem;
-    }
-
     /* Both hero slabs have to clear 390px with room to rotate into */
     .hero-media {
         --slab-h: clamp(250px, 68vw, 310px);
@@ -1643,10 +1260,6 @@ button:focus-visible {
 
     /* Stacked as five full-width blocks the pipeline cost 500px. Number and
        step name share a line, the detail sits under it. */
-    .pipe {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
     .pipe-node,
     .pipe-node:nth-child(odd) {
         display: grid;
@@ -1656,50 +1269,7 @@ button:focus-visible {
         padding: 0.6rem 0.9rem 0.7rem;
     }
 
-    .pipe-node:first-child {
-        border-top-width: 1px;
-    }
-
-    .pipe-n {
-        grid-column: 1;
-        margin-bottom: 0;
-        padding-top: 0.2rem;
-    }
-
     .pipe-node b,
-    .pipe-node em {
-        grid-column: 2;
-    }
-
-    .pipe-node em {
-        margin-top: 0.1rem;
-    }
-
-    .pipe-node--stop {
-        border-left-style: solid;
-        border-top: 1px dashed var(--hair-strong);
-    }
-
-    .pipe-cap {
-        gap: 0.25rem 0.7rem;
-        margin-top: 0.8rem;
-        font-size: 0.58rem;
-    }
-
-    .pipe-note {
-        margin-left: 0;
-        flex-basis: 100%;
-    }
-
-    .ev-figure {
-        margin-bottom: 0.5rem;
-        font-size: clamp(2.75rem, 15vw, 4rem);
-    }
-
-    .flag-foot {
-        gap: 0.6rem;
-    }
-
     .contact-links {
         gap: 0.6rem;
     }
@@ -1771,8 +1341,12 @@ button:focus-visible {
     --muted: #616A6E;
     --body-text: #4A5155;
     --body-text-2: #3B4245;
-    --label: #99A0A3;
-    --label-strong: #7C8488;
+    /* Both of these carry 11-13px text on white or pearl. At #99A0A3 the label
+       colour measured 2.4:1, which is the lowest contrast on the page and sits
+       under every metadata row, spec number and caption. Darkened to clear
+       4.5:1; the type is still clearly secondary at this weight and size. */
+    --label: #6E767A;
+    --label-strong: #616A6E;
 
     /* Grounds */
     --pearl: #F4F7F8;
@@ -1891,20 +1465,6 @@ button:focus-visible {
     flex-direction: column;
     align-items: center;
     text-align: center;
-}
-
-.pg-chips {
-    margin: 34px 0 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    gap: 22px;
-    flex-wrap: wrap;
-    font-family: var(--pg-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--label);
 }
 
 /* ===== CONTROLS ===== */
@@ -2258,7 +1818,9 @@ button:focus-visible {
 
 .pg-hero__lead {
     margin: 28px 0 0;
-    max-width: 42ch;
+    /* 45ch, not 42: at 42 the shortened lead broke three-up and left "of
+       players." alone on the last line under the headline's hard edge. */
+    max-width: 45ch;
     font-size: 1.12rem;
     line-height: 1.55;
     color: var(--body-text);
@@ -2493,7 +2055,7 @@ button:focus-visible {
 .pg-bq__body {
     width: var(--pg-narrow);
     margin: 0 auto;
-    padding: 62px 0 96px;
+    padding: 62px 0 74px;
 }
 
 .pg-specs {
@@ -2528,19 +2090,10 @@ button:focus-visible {
     color: var(--ink);
 }
 
-.pg-status {
-    margin: 16px 0 0;
-    font-family: var(--pg-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--label);
-}
-
 /* ===== 4. INSPECTLEY ===== */
 .pg-insp {
     position: relative;
-    padding: 100px 0 90px;
+    padding: 80px 0 90px;
     background: var(--paper);
     font-family: var(--pg-font);
     color: var(--ink);
@@ -2654,7 +2207,7 @@ button:focus-visible {
     font-size: 0.7rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--label);
+    color: var(--muted);
 }
 
 .pg-proof {
@@ -2778,7 +2331,7 @@ button:focus-visible {
     flex-wrap: wrap;
 }
 
-.pg-insp__foot .pg-chips {
+.pg-insp__foot .pg-meta {
     margin: 0;
 }
 
@@ -2841,6 +2394,168 @@ button:focus-visible {
     font-size: 0.64rem;
     letter-spacing: 0.07em;
     color: #4C5457;
+}
+
+/* ===== METADATA =====
+   Replaces the four all-caps mono tag rows that used to close each section.
+   Those read as a developer stack list and were the lowest-contrast text on
+   the page; these are small interface elements instead.
+
+   The surface is a neutral translucent tint rather than translucent *white*:
+   every one of these sits on a white or near-white ground, where white at 55%
+   is white and only the rim would have been visible. The blur is real and does
+   work over the BlockQuest gradient; over flat paper it costs nothing.
+
+   Never put a reveal class on one of these or on an ancestor. The reveal
+   animations use transform, and a transformed ancestor mis-registers the
+   backdrop snapshot. */
+.pg-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pg-meta li {
+    padding: 5px 10px 6px;
+    border-radius: 9px;
+    font-family: var(--pg-font);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    color: var(--muted);
+    background: rgba(240, 244, 245, 0.72);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    backdrop-filter: blur(12px) saturate(160%);
+    border: 1px solid rgba(15, 20, 22, 0.055);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        0 1px 2px rgba(18, 30, 38, 0.04);
+}
+
+/* ===== FLAGSHIP FOOTER =====
+   Metadata on a closing hairline. BlockQuest carries no link here because its
+   case-study action sits on the media stage, which is the better place for it;
+   Inspectley keeps its own footer because it has an App Store link to place. */
+.pg-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px 30px;
+    margin-top: 44px;
+    padding-top: 24px;
+    border-top: 1px solid var(--pg-hair);
+}
+
+/* ===== AT WORK: SUPERPLAY =====
+   Not a third flagship. The two above are centred, full-bleed and led by a
+   product name; this one is left-aligned, has no media at all, and is led by a
+   statement about how the person works. The asymmetry is the hierarchy: a
+   recruiter should read it as professional credibility sitting between the
+   products and the supporting builds, not as a third product with a missing
+   screenshot.
+
+   Nothing here fills the space a screenshot would have taken. There is no
+   diagram, no mock dashboard and no generic pipeline drawing - the evidence
+   column carries the section, and the confidentiality is stated once in the
+   metadata rather than apologised for. */
+.pg-work {
+    position: relative;
+    padding: 92px 0;
+    background: var(--pearl);
+    border-top: 1px solid var(--pg-hair);
+    border-bottom: 1px solid var(--pg-hair);
+    font-family: var(--pg-font);
+    color: var(--ink);
+}
+
+.pg-work__grid {
+    width: var(--pg-narrow);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 30px 96px;
+    align-items: start;
+}
+
+/* Deliberately well below the flagship 3.8rem. Still a statement, clearly not
+   a product hero. */
+.pg-work__title {
+    margin: 22px 0 0;
+    font-size: clamp(1.85rem, 2.9vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.042em;
+    max-width: 20ch;
+}
+
+.pg-work__lead {
+    margin: 22px 0 0;
+    max-width: 52ch;
+    font-size: 1.02rem;
+    line-height: 1.55;
+    color: var(--body-text);
+    text-wrap: pretty;
+}
+
+.pg-work__meta {
+    margin-top: 30px;
+}
+
+/* Evidence as a read-down column, not a three-across row: three across would
+   have matched the flagship proof grids exactly, which is the resemblance this
+   section is trying not to have. */
+.pg-work__proof {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    /* Drops the first hairline to the title's first line rather than landing a
+       few pixels off the eyebrow, which read as a miss rather than a decision. */
+    padding-top: 42px;
+}
+
+.pg-workpt {
+    padding-top: 18px;
+    border-top: 1px solid var(--pg-hair);
+}
+
+.pg-workpt__n {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+}
+
+/* The one number gets to behave like a number */
+.pg-workpt:first-child .pg-workpt__n {
+    font-size: clamp(2.9rem, 4.4vw, 3.7rem);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    margin-bottom: 12px;
+}
+
+.pg-workpt p {
+    margin: 0;
+    font-size: 0.97rem;
+    line-height: 1.5;
+    color: var(--body-text-2);
+    max-width: 34ch;
+}
+
+.pg-workpt p b {
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.pg-work a:focus-visible {
+    outline: 2px solid var(--mint);
+    outline-offset: 3px;
 }
 
 /* ===== MOBILE =====
@@ -2942,9 +2657,47 @@ button:focus-visible {
         padding: 0 22px;
     }
 
-    .pg-chips {
-        gap: 14px;
-        font-size: 0.66rem;
+    .pg-meta li {
+        padding: 6px 11px 7px;
+        font-size: 0.8125rem;
+    }
+
+    .pg-foot {
+        margin-top: 32px;
+        padding-top: 18px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .pg-foot__links {
+        margin-left: 0;
+    }
+
+    /* SuperPlay: one column, statement then evidence, metadata last. */
+    .pg-work {
+        padding: 64px 0;
+    }
+
+    .pg-work__grid {
+        width: auto;
+        padding: 0 22px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px;
+    }
+
+    .pg-work__title,
+    .pg-work__lead {
+        max-width: none;
+    }
+
+    .pg-work__proof {
+        padding-top: 0;
+        gap: 22px;
+    }
+
+    .pg-workpt p {
+        max-width: none;
     }
 
     /* Hero */
@@ -3164,11 +2917,6 @@ button:focus-visible {
         font-size: 0.98rem;
     }
 
-    .pg-status {
-        margin-top: 14px;
-        font-size: 0.64rem;
-    }
-
     /* Inspectley */
     .pg-insp {
         padding: 64px 0 70px;
@@ -3382,8 +3130,14 @@ button:focus-visible {
 
     .pg-bar__name,
     .pg-bar__nav,
-    .pg-seg {
+    .pg-seg,
+    .pg-meta li {
         -webkit-backdrop-filter: none;
         backdrop-filter: none;
+    }
+
+    .pg-meta li {
+        background: #EEF2F3;
+        border-color: rgba(15, 20, 22, 0.14);
     }
 }

@@ -386,3 +386,782 @@
         flex: 1 1 100%;
     }
 }
+
+/* ============================================================================
+   CASE STUDY v2 - `cs-` namespace (blockquest.html)
+
+   Built on the same tokens and primitives as the redesigned homepage: Manrope,
+   hairlines, the mint accent, and the `.pg-meta` metadata material. Nothing
+   here redefines a `pg-` class, so the homepage is untouched; this file only
+   adds. The older `.case` / `.decision` / `.gallery` components above are still
+   used by the other case-study pages and are left alone.
+
+   The difference from the homepage is editorial room: a number rail on the
+   left, one idea per section, and full-bleed dark stages where the game's own
+   art supplies all the colour.
+   ========================================================================= */
+.cs {
+    font-family: var(--pg-font);
+    color: var(--ink);
+    background: var(--paper);
+}
+
+.cs-wrap {
+    width: min(1080px, 100% - 48px);
+    margin: 0 auto;
+}
+
+/* ===== HERO ===== */
+.cs-hero {
+    padding: 40px 0 0;
+}
+
+.cs-back {
+    display: inline-block;
+    margin-bottom: 34px;
+    font-family: var(--pg-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.2s ease;
+}
+
+.cs-back:hover {
+    color: var(--mint);
+}
+
+.cs-eyebrow {
+    margin-bottom: 18px;
+}
+
+.cs-title {
+    margin: 0;
+    font-size: clamp(3rem, 7vw, 5.4rem);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+}
+
+.cs-lede {
+    margin: 22px 0 0;
+    max-width: 30ch;
+    font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+    font-weight: 500;
+    line-height: 1.32;
+    letter-spacing: -0.02em;
+    color: var(--body-text);
+    text-wrap: pretty;
+}
+
+.cs-hero__foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px 30px;
+    padding-top: 22px;
+    border-top: 1px solid var(--pg-hair);
+}
+
+.cs-owner {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+/* ===== DARK STAGE =====
+   The game art is fire-lit and near-black at the edges, so it is given a dark
+   ground to sit on rather than being punched out on white. Full-bleed, and the
+   only place on the page with any colour intensity. */
+.cs-stage {
+    margin: 46px 0;
+    padding: 54px 24px;
+    background:
+        radial-gradient(120% 90% at 50% 0%, #241016 0%, transparent 60%),
+        linear-gradient(180deg, #14101A 0%, #0B0710 100%);
+    /* After the shorthand, not before: the shorthand resets background-color to
+       transparent, which would leave the on-dark captions white on white. */
+    background-color: #0B0710;
+}
+
+.cs-stage--tight {
+    margin: 38px 0 0;
+}
+
+.cs-phone {
+    margin: 0 auto;
+    width: min(300px, 76vw);
+}
+
+.cs-phone--hero {
+    width: min(340px, 80vw);
+}
+
+/* Aspect ratio is declared so the box holds its height before the poster or
+   the clip has decoded. Nothing on this page reflows on load. */
+.cs-phone img,
+.cs-phone video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 552 / 1200;
+    object-fit: cover;
+    border-radius: 18px;
+    background: #0B0710;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+}
+
+.cs-duo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: clamp(20px, 4vw, 54px);
+    flex-wrap: wrap;
+}
+
+/* A cropped region of a screen rather than a whole one, so it carries its own
+   ratio instead of being letterboxed into the phone proportion. */
+.cs-phone--wide img {
+    aspect-ratio: 760 / 1285;
+}
+
+.cs-duo .cs-phone {
+    width: min(260px, 70vw);
+    margin: 0;
+}
+
+/* ===== CAPTIONS ===== */
+.cs-cap {
+    display: block;
+    margin-top: 16px;
+    font-family: var(--pg-mono);
+    font-size: 0.7rem;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    text-align: center;
+}
+
+.cs-cap--on-dark {
+    color: rgba(255, 255, 255, 0.62);
+}
+
+/* A cropped UI detail, shown on paper rather than on a stage: it is a piece of
+   interface being read closely, not footage being watched. */
+.cs-detail {
+    margin: 38px 0 0;
+}
+
+.cs-detail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1100 / 412;
+    border-radius: 14px;
+    border: 1px solid var(--pg-hair);
+    background: #0B0710;
+}
+
+.cs-detail .cs-cap {
+    text-align: left;
+}
+
+/* ===== SECTIONS ===== */
+.cs-sec {
+    padding: clamp(58px, 8vw, 96px) 0 0;
+}
+
+.cs-sec--close {
+    padding-bottom: clamp(58px, 8vw, 96px);
+}
+
+/* Number rail left, one idea right. The rail is the only ornament and it is
+   what makes the page scannable at speed. */
+.cs-grid {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 0 24px;
+    align-items: start;
+}
+
+.cs-num {
+    margin: 0;
+    padding-top: 8px;
+    font-family: var(--pg-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: var(--label);
+}
+
+.cs-col {
+    max-width: 62ch;
+}
+
+.cs-h2 {
+    margin: 0;
+    font-size: clamp(1.6rem, 3vw, 2.35rem);
+    font-weight: 800;
+    line-height: 1.14;
+    letter-spacing: -0.04em;
+    text-wrap: pretty;
+}
+
+.cs-p {
+    margin: 20px 0 0;
+    font-size: 1.05rem;
+    line-height: 1.62;
+    color: var(--body-text);
+    text-wrap: pretty;
+}
+
+.cs-p b {
+    font-weight: 700;
+    color: var(--ink);
+}
+
+/* The tradeoff note. Every decision on this page states what it cost, and the
+   rule marks it as a different kind of sentence without boxing it. */
+.cs-cost {
+    margin: 24px 0 0;
+    padding-left: 18px;
+    border-left: 2px solid rgba(13, 120, 106, 0.3);
+    font-size: 0.97rem;
+    line-height: 1.55;
+    color: var(--muted);
+}
+
+.cs-cost b {
+    font-family: var(--pg-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mint);
+}
+
+.cs-meta {
+    margin-top: 28px;
+}
+
+.cs-status b {
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.cs-status {
+    margin: 28px 0 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--pg-hair);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--muted);
+}
+
+/* ===== CLOSE ===== */
+.cs-end {
+    padding: clamp(44px, 6vw, 68px) 0 clamp(58px, 8vw, 88px);
+    border-top: 1px solid var(--pg-hair);
+}
+
+.cs-end__title {
+    margin: 0;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+}
+
+.cs-end__text {
+    margin: 14px 0 0;
+    max-width: 46ch;
+    font-size: 1.02rem;
+    line-height: 1.55;
+    color: var(--body-text);
+}
+
+.cs-end__links {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.cs a:focus-visible,
+.cs button:focus-visible {
+    outline: 2px solid var(--mint);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 720px) {
+    .cs-wrap {
+        width: min(1080px, 100% - 36px);
+    }
+
+    /* 44px minimum on every link this page actually uses. */
+    .cs-back,
+    .cs-end__links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+
+    .cs-back {
+        margin-bottom: 18px;
+    }
+
+    .cs-hero {
+        padding-top: 26px;
+    }
+
+    .cs-back {
+        margin-bottom: 26px;
+    }
+
+    /* The number rail collapses to an inline label above the heading rather
+       than eating a third of a 390px screen. */
+    .cs-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .cs-num {
+        padding-top: 0;
+    }
+
+    .cs-stage {
+        margin: 34px 0;
+        padding: 36px 18px;
+    }
+
+    .cs-stage--tight {
+        margin: 28px 0 0;
+    }
+
+    .cs-duo {
+        gap: 34px;
+    }
+
+    .cs-duo .cs-phone {
+        width: min(300px, 78vw);
+    }
+
+    .cs-hero__foot {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}
+
+/* ============================================================================
+   CASE STUDY: INSPECTLEY - `ins-` namespace (inspectley.html)
+
+   Same tokens and primitives as the homepage and BlockQuest, deliberately not
+   the same editorial shape. BlockQuest is a game: dark full-bleed stages, a
+   numbered rail, one argument per section. Inspectley is a utility, so this
+   page is calmer and more linear - paper ground throughout, screenshots framed
+   on hairlines rather than lit on gradients, and word steps (Capture, Report,
+   In use) instead of numbers, because the reader is walking a workflow rather
+   than reading a list of decisions.
+
+   Nothing here redefines a `pg-` or `cs-` class, so the homepage and BlockQuest
+   are untouched; this block only adds.
+   ========================================================================= */
+.ins {
+    font-family: var(--pg-font);
+    color: var(--ink);
+    background: var(--paper);
+}
+
+.ins-wrap {
+    width: min(1080px, 100% - 48px);
+    margin: 0 auto;
+}
+
+/* ===== HERO ===== */
+.ins-hero {
+    padding: 40px 0 0;
+}
+
+.ins-back {
+    display: inline-block;
+    margin-bottom: 34px;
+    font-family: var(--pg-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.2s ease;
+}
+
+.ins-back:hover {
+    color: var(--mint);
+}
+
+.ins-eyebrow {
+    margin-bottom: 18px;
+}
+
+.ins-title {
+    margin: 0;
+    font-size: clamp(3rem, 7vw, 5.4rem);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+}
+
+.ins-lede {
+    margin: 22px 0 0;
+    max-width: 34ch;
+    font-size: clamp(1.2rem, 2.1vw, 1.6rem);
+    font-weight: 500;
+    line-height: 1.34;
+    letter-spacing: -0.02em;
+    color: var(--body-text);
+    text-wrap: pretty;
+}
+
+/* Screenshot left, the facts that qualify it right. */
+.ins-hero__grid {
+    margin-top: 46px;
+    padding-bottom: 8px;
+    display: grid;
+    grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+    gap: 46px;
+    /* Top-aligned: bottom-aligning the facts against a 640px phone left a hole
+       across the top right of the page. */
+    align-items: start;
+}
+
+.ins-hero__side {
+    padding-top: 6px;
+}
+
+.ins-owner {
+    margin: 0 0 18px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.ins-note {
+    margin: 22px 0 0;
+    max-width: 44ch;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--muted);
+}
+
+/* App Store proof at link scale, not banner scale. */
+.ins-store {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 22px;
+    padding: 7px 14px 7px 7px;
+    border: 1px solid var(--pg-hair);
+    border-radius: 14px;
+    color: inherit;
+    transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.ins-store:hover {
+    border-color: rgba(13, 120, 106, 0.4);
+    background: rgba(13, 120, 106, 0.04);
+}
+
+.ins-store img {
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    display: block;
+}
+
+.ins-store > span {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    line-height: 1.25;
+}
+
+.ins-store b {
+    font-size: 0.83rem;
+    font-weight: 600;
+}
+
+.ins-store span span {
+    font-family: var(--pg-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.07em;
+    color: #4C5457;
+}
+
+/* ===== SCREENSHOTS =====
+   Framed, not staged. A construction utility should look like software that
+   exists, so the surface under it is paper with a hairline rather than a lit
+   gradient. */
+.ins-shot {
+    position: relative;
+    margin: 0;
+}
+
+.ins-shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    border: 1px solid var(--pg-hair);
+    background: var(--pearl);
+    box-shadow: 0 18px 44px rgba(18, 30, 38, 0.09);
+}
+
+.ins-shot--hero img {
+    aspect-ratio: 720 / 1526;
+    object-fit: cover;
+}
+
+.ins-shot--wide {
+    max-width: 720px;
+    margin: 38px auto 0;
+}
+
+.ins-shot--wide img {
+    aspect-ratio: 1200 / 1119;
+    border-radius: 14px;
+}
+
+.ins-shot--flat {
+    max-width: 300px;
+    margin: 38px auto 0;
+}
+
+.ins-shot--flat img {
+    aspect-ratio: 720 / 1416;
+}
+
+/* No glass on this page. A label floated over the hero screenshot covered the
+   app's own toolbar, and on a near-white utility screen the material had
+   nothing to refract - it was decoration pretending to be a surface. The
+   translation sits in the caption instead, and the interface stays intact. */
+.ins-cap i {
+    font-style: normal;
+    color: var(--ink);
+}
+
+.ins-cap {
+    display: block;
+    margin-top: 16px;
+    font-family: var(--pg-mono);
+    font-size: 0.7rem;
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+    color: var(--muted);
+}
+
+.ins-shot--wide .ins-cap,
+.ins-shot--flat .ins-cap {
+    text-align: center;
+    max-width: 62ch;
+    margin-inline: auto;
+}
+
+/* ===== SECTIONS ===== */
+.ins-sec {
+    padding: clamp(56px, 7.5vw, 92px) 0 0;
+}
+
+.ins-sec--close {
+    padding-bottom: clamp(56px, 7.5vw, 92px);
+}
+
+/* Word steps, not numbers: the reader is following a workflow. */
+.ins-row {
+    display: grid;
+    grid-template-columns: 108px minmax(0, 1fr);
+    gap: 0 28px;
+    align-items: start;
+}
+
+.ins-step {
+    margin: 0;
+    padding-top: 9px;
+    font-family: var(--pg-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--label);
+}
+
+.ins-col {
+    max-width: 60ch;
+}
+
+.ins-h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 2.7vw, 2.15rem);
+    font-weight: 800;
+    line-height: 1.16;
+    letter-spacing: -0.038em;
+    text-wrap: pretty;
+}
+
+.ins-p {
+    margin: 20px 0 0;
+    font-size: 1.05rem;
+    line-height: 1.62;
+    color: var(--body-text);
+    text-wrap: pretty;
+}
+
+.ins-p b {
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.ins-cost {
+    margin: 24px 0 0;
+    padding-left: 18px;
+    border-left: 2px solid rgba(13, 120, 106, 0.3);
+    font-size: 0.97rem;
+    line-height: 1.55;
+    color: var(--muted);
+}
+
+.ins-cost b {
+    font-family: var(--pg-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mint);
+}
+
+/* ===== EXPORT + THE NUMBER ===== */
+.ins-pair {
+    margin-top: 38px;
+    display: grid;
+    grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+    gap: 46px;
+    align-items: center;
+}
+
+.ins-stat {
+    margin: 0;
+    font-size: clamp(3.4rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 0.86;
+    letter-spacing: -0.055em;
+}
+
+.ins-stat__label {
+    margin: 14px 0 0;
+    font-family: var(--pg-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+}
+
+.ins-figure .ins-p {
+    max-width: 46ch;
+}
+
+/* ===== CLOSE ===== */
+.ins-end {
+    padding: clamp(44px, 6vw, 68px) 0 clamp(58px, 8vw, 88px);
+    border-top: 1px solid var(--pg-hair);
+}
+
+.ins-end__title {
+    margin: 0;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+}
+
+.ins-end__text {
+    margin: 14px 0 0;
+    font-size: 1.02rem;
+    color: var(--body-text);
+}
+
+.ins-end__links {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.ins a:focus-visible {
+    outline: 2px solid var(--mint);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 860px) {
+    .ins-hero__grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+        align-items: start;
+    }
+
+    .ins-shot--hero {
+        max-width: 300px;
+    }
+
+    .ins-hero__side {
+        padding-bottom: 0;
+    }
+
+    .ins-pair {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+    }
+
+    .ins-pair .ins-shot {
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 720px) {
+    .ins-wrap {
+        width: min(1080px, 100% - 36px);
+    }
+
+    .ins-hero {
+        padding-top: 26px;
+    }
+
+    /* 44px minimum on every link this page uses. */
+    .ins-back,
+    .ins-end__links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+
+    .ins-back {
+        margin-bottom: 18px;
+    }
+
+    .ins-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .ins-step {
+        padding-top: 0;
+    }
+
+    .ins-shot--hero,
+    .ins-pair .ins-shot {
+        max-width: none;
+        margin-inline: auto;
+    }
+
+    .ins-shot--wide,
+    .ins-shot--flat {
+        margin-top: 28px;
+    }
+}
