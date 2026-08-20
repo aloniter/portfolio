@@ -1537,8 +1537,7 @@ button:focus-visible {
 .pg-bar__name:focus-visible,
 .pg-tab:focus-visible,
 .pg-btn:focus-visible,
-.pg-stagectl__btn:focus-visible,
-.pg-seg__btn:focus-visible {
+.pg-stagectl__btn:focus-visible {
     border-radius: 999px;
 }
 
@@ -2103,7 +2102,8 @@ button:focus-visible {
     position: relative;
     width: var(--pg-narrow);
     margin: 40px auto 0;
-    height: 838px;
+    display: flex;
+    justify-content: center;
 }
 
 .pg-insp__halo {
@@ -2118,96 +2118,15 @@ button:focus-visible {
     background: radial-gradient(50% 50% at 50% 50%, rgba(66, 196, 170, 0.16), transparent 72%);
 }
 
-.pg-shots {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    width: 352px;
-    margin-left: -176px;
-}
-
-.pg-shot {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    pointer-events: none;
-    border-radius: 42px;
-    box-shadow: 0 3px 8px rgba(15, 20, 22, 0.12), 0 44px 96px rgba(18, 30, 38, 0.22);
-    transition: opacity 0.5s ease;
-}
-
-/* Stays in flow so it defines the height of the stack */
-.pg-shot--base {
+/* The asset is a self-contained key visual (transparent background, its own
+   shadow/lighting baked in), so it sits directly on the halo with no card,
+   frame or device chrome around it. */
+.pg-insp__hero {
     position: relative;
-}
-
-.pg-shot.is-on {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* Overlaps the device's lower edge on purpose: that overlap is what gives the
-   glass something to sample. */
-.pg-seg-wrap {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 104px;
-    display: flex;
-    justify-content: center;
-}
-
-.pg-seg {
-    display: flex;
-    align-items: center;
-    gap: 3px;
-    padding: 6px;
-    border-radius: 999px;
-    background: var(--glass-fill);
-    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
-    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
-    border: 1px solid var(--glass-edge);
-    box-shadow: inset 0 1px 0 var(--glass-rim), 0 14px 40px var(--glass-shadow);
-}
-
-.pg-seg__btn {
-    margin: 0;
-    padding: 10px 18px;
-    border: none;
-    border-radius: 999px;
-    background: none;
-    cursor: pointer;
-    font-family: var(--pg-font);
-    font-size: 0.84rem;
-    font-weight: 600;
-    color: var(--muted);
-    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pg-seg__btn:hover {
-    color: var(--ink);
-}
-
-.pg-seg__btn.is-on {
-    color: var(--ink);
-    font-weight: 700;
-    background: rgba(255, 255, 255, 0.72);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 8px rgba(18, 30, 38, 0.1);
-}
-
-.pg-shotcap {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 40px;
-    text-align: center;
-    font-family: var(--pg-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    display: block;
 }
 
 .pg-proof {
@@ -2934,46 +2853,15 @@ button:focus-visible {
     .pg-insp__stage {
         width: auto;
         margin: 24px 0 0;
-        height: 620px;
+        padding: 0 22px;
     }
 
     .pg-insp__halo {
         display: none;
     }
 
-    .pg-shots {
-        width: 242px;
-        margin-left: -121px;
-    }
-
-    .pg-shot {
-        border-radius: 30px;
-        box-shadow: 0 2px 6px rgba(15, 20, 22, 0.12), 0 30px 70px rgba(18, 30, 38, 0.22);
-    }
-
-    .pg-seg-wrap {
-        bottom: 46px;
-    }
-
-    .pg-seg {
-        gap: 2px;
-        padding: 5px;
-        box-shadow: inset 0 1px 0 var(--glass-rim), 0 10px 30px var(--glass-shadow);
-    }
-
-    .pg-seg__btn {
-        min-height: 44px;
-        padding: 0 15px;
-        font-size: 0.8rem;
-    }
-
-    .pg-seg__btn.is-on {
-        background: rgba(255, 255, 255, 0.74);
-    }
-
-    .pg-shotcap {
-        bottom: 16px;
-        font-size: 0.64rem;
+    .pg-insp__hero {
+        max-width: 360px;
     }
 
     .pg-proof {
@@ -3130,7 +3018,6 @@ button:focus-visible {
 
     .pg-bar__name,
     .pg-bar__nav,
-    .pg-seg,
     .pg-meta li {
         -webkit-backdrop-filter: none;
         backdrop-filter: none;

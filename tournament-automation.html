@@ -76,7 +76,7 @@
             <div class="window">
                 <div class="window-bar">
                     <span></span><span></span><span></span>
-                    <em>tournament setup &mdash; before / after</em>
+                    <em>tournament setup - before / after</em>
                 </div>
                 <img src="assets/tournament-automation/flow.svg"
                     alt="Flow diagram. Before: manual configuration, repeated setup, manual validation, recurring communication. After: inputs feed an automation engine, then validation rules, generated configuration and recurring output.">
@@ -93,7 +93,7 @@
                     Getting a tournament live meant the same work every time: build the configuration, apply the
                     segmentation, set the participation tiers, check it all by hand, then produce the recurring output
                     that goes out alongside it. None of it was hard. All of it was repeated, and repeated
-                    configuration work is where mistakes come from &mdash; not from the difficult decisions, but from
+                    configuration work is where mistakes come from, not from the difficult decisions, but from
                     the twentieth time you type the same thing slightly differently.
                 </p>
                 <p class="case-text">
@@ -107,10 +107,10 @@
                     <article class="decision">
                         <h3 class="decision-title">Generate the configuration, don't document it</h3>
                         <p>
-                            The cheap fix is a checklist or a template &mdash; but a checklist still leaves a person
+                            The cheap fix is a checklist or a template, but a checklist still leaves a person
                             typing the same values in, which is the part that goes wrong. So the system produces the
                             configuration itself from a small set of inputs.
-                            <span class="cost"><b>What it costs</b> &mdash; every variant has to be encoded up front.
+                            <span class="cost"><b>What it costs</b>: every variant has to be encoded up front.
                             The segmentation options and participation tiers had to be pinned down as rules before
                             anything could be generated, and that is slower than writing a document.</span>
                         </p>
@@ -121,7 +121,7 @@
                             The checks run as part of generating the output rather than as a separate review pass, so a
                             configuration can't quietly come out wrong and then get caught by whoever happens to be
                             looking.
-                            <span class="cost"><b>What it costs</b> &mdash; you have to decide in advance what counts
+                            <span class="cost"><b>What it costs</b>: you have to decide in advance what counts
                             as wrong, which is a real design decision rather than a technical one. Get the rules too
                             loose and the validation is decoration; too strict and it blocks legitimate setups.</span>
                         </p>
