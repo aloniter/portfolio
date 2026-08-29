@@ -1492,6 +1492,106 @@ button:focus-visible {
     transform: scale(0.97);
 }
 
+/* ===== BREAK MODE ENTRY =====
+   The playful secondary next to "See the work". Deliberately a ghost: a
+   hairline outline and mono type, so it reads as a side door rather than a
+   second call to action. It should look like an invitation someone left in the
+   room, not like marketing.
+
+   Hidden until JS is confirmed, and break-mode.js removes it outright on a
+   browser that cannot run the mode - a button that does nothing is worse than
+   no button. */
+.pg-break-cta {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 18px;
+    /* Stronger than --pg-hair, which at 0.09 reads as a divider rather than as
+       something you can press. Still well below the primary's visual weight. */
+    border: 1px solid rgba(15, 20, 22, 0.18);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--pg-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 0.25s ease, border-color 0.25s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.js .pg-break-cta {
+    display: inline-flex;
+}
+
+/* Beats the rule above, which would otherwise override the UA's [hidden].
+   Break Mode hides the button for the duration it is running. */
+.pg-break-cta[hidden] {
+    display: none;
+}
+
+.pg-break-cta__icon {
+    width: 14px;
+    height: 14px;
+    flex: none;
+    /* The tool cocks back on hover and swings through on press. The whole
+       affordance of the button is that it behaves like the thing it hands you. */
+    transform-origin: 22% 78%;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pg-break-cta:hover {
+    color: var(--ink);
+    border-color: rgba(15, 20, 22, 0.34);
+    transform: translateY(-1px);
+}
+
+.pg-break-cta:hover .pg-break-cta__icon {
+    transform: rotate(-24deg);
+}
+
+.pg-break-cta:active {
+    transform: scale(0.97);
+}
+
+.pg-break-cta:active .pg-break-cta__icon {
+    transform: rotate(14deg);
+}
+
+/* One label, two lengths: the short one only appears where the full phrase
+   would push the row onto another line. */
+.pg-break-cta__short {
+    display: none;
+}
+
+@media (max-width: 420px) {
+    .pg-break-cta {
+        /* The shorter label would otherwise bring the control to 42px, under
+           the 44px touch target the rest of the site holds to. */
+        min-height: 44px;
+        padding: 12px 15px;
+        letter-spacing: 0.05em;
+    }
+
+    .pg-break-cta__full {
+        display: none;
+    }
+
+    .pg-break-cta__short {
+        display: inline;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pg-break-cta,
+    .pg-break-cta__icon {
+        transition: color 0.2s ease, border-color 0.2s ease;
+        transform: none !important;
+    }
+}
+
 .pg-link-underline {
     font-size: 0.95rem;
     font-weight: 600;

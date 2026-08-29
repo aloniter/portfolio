@@ -293,20 +293,13 @@ function offsetParentFor(el) {
     return host;
 }
 
-/* A clipping ancestor would slice the debris off mid-fall. Open it for the
-   duration and restore it on exit. */
-function unclip(el) {
-    var p = el.parentElement;
-    while (p && p !== document.body) {
-        var cs = getComputedStyle(p);
-        if (cs.overflow !== 'visible' && p.dataset.bmUnclipped !== '1') {
-            p.dataset.bmUnclipped = '1';
-            patched.push({ el: p, overflow: p.style.overflow });
-            p.style.overflow = 'visible';
-        }
-        p = p.parentElement;
-    }
-}
+/* Debris used to need its clipping ancestors opened so it was not sliced off
+   mid-fall. It no longer does - the fragment host clips it instead, and the
+   walls keep it inside - and opening them was actively harmful: this page hangs
+   decorative atmosphere blobs (`.pg-atmo`, `.pg-stage__ambient`) outside their
+   sections and relies on those ancestors to clip them. Setting `overflow:
+   visible` released them and widened the document by ~114px. Nothing here
+   touches ancestor overflow any more. */
 
 /* `pad` grows the box beyond the element it mirrors. The fragment host uses it
    to give debris room to travel and then clips at its own edge, so flying
@@ -333,8 +326,15 @@ function place(node, el, pad) {
     var left = er.left - pr.left - bl;
     var top = er.top - pr.top - bt;
 
-    var room = Math.max(0, Math.min(left, pr.width - parseFloat(cs.borderRightWidth) - (left + er.width)));
-    var px = Math.max(0, Math.min(pad.x || 0, room));
+    /* Room is measured to the viewport edges, not to the offset parent's. What
+       must not happen is the host widening the document; staying inside its
+       parent is irrelevant, since parents do not clip by default and a parent
+       that does clip only trims the host harmlessly. Measuring against the
+       parent was far too conservative: the hero devices sit at the left edge of
+       their own column with most of the page free beside them, and it collapsed
+       their debris into a 12px-wide column. */
+    var vw = document.documentElement.clientWidth;
+    var px = Math.max(0, Math.min(pad.x || 0, er.left, vw - er.right));
     var pt = Math.min(pad.top || 0, Math.max(0, top));
     var pb = pad.bottom || 0;
 
@@ -350,7 +350,6 @@ function place(node, el, pad) {
 function unpatchAll() {
     patched.forEach(function (p) {
         if ('position' in p) { p.el.style.position = p.position; delete p.el.dataset.bmPatched; }
-        if ('overflow' in p) { p.el.style.overflow = p.overflow; delete p.el.dataset.bmUnclipped; }
         tidyStyle(p.el);
     });
     patched = [];
@@ -430,8 +429,6 @@ function shatter(t, cx, cy, power) {
     var hx = Math.max(0, Math.min(rect.width, cx - rect.left));
     var hy = Math.max(0, Math.min(rect.height, cy - rect.top));
     if (!t.fracture) t.fracture = buildFracture(rect.width, rect.height, hx, hy);
-
-    unclip(t.el);
 
     /* Reduced motion: no flying debris. The surface takes its cracks, drops
        its colour and settles. Still clearly "broken", nothing thrown. */
@@ -1106,7 +1103,10 @@ export function enter(opts) {
     on(window, 'resize', onResize, { passive: true });
 
     emit('break_mode_entered', { reduced: reduced, coarse: coarse });
-    toast('Break mode enabled.');
+    /* The visitor arrives here from a button in the hero, so the cue has to say
+       what to do next, not just that something happened. One line, no modal,
+       gone in under three seconds. */
+    toast(coarse ? 'Break mode enabled \u2014 tap something.' : 'Break mode enabled \u2014 hit something.');
     announce(reduced
         ? 'Break mode enabled with reduced motion: surfaces crack in place, nothing is thrown. Press Escape to exit.'
         : 'Break mode enabled. Click a card to strike it. Press R to repair, Escape to exit.');

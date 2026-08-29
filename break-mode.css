@@ -171,6 +171,18 @@
     transition: opacity 400ms ease;
 }
 
+/* A clone is a fresh element, so any CSS animation on the original restarts
+   inside it - the hero pillars carry a rise-in animation, and without this
+   every fragment would replay it while falling. Killing transitions too stops
+   a clone from easing between states it never had. Both leave the element at
+   the resting appearance it was cloned in. */
+.bm-frag *,
+.bm-frag *::before,
+.bm-frag *::after {
+    animation: none !important;
+    transition: none !important;
+}
+
 /* ===== DUST ===== */
 .bm-dust {
     position: fixed;

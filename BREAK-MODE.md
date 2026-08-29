@@ -4,8 +4,9 @@ An opt-in destruction layer over the homepage. The portfolio is unchanged by
 default; a visitor who wants to can pick up a hammer and take the site apart,
 then put it back.
 
-- Entry: one button, bottom-left, revealed after the hero scrolls past.
-- Tools: Hammer, Bomb, Repair, Exit.
+- Entry: a ghost button in the hero, next to "See the work" — `⚒ Break this
+  portfolio` (`⚒ Break it` under 420px).
+- Tools: Hammer, Bomb, Repair, Exit. Hammer is selected on activation.
 - Nothing persists. A reload is always the normal portfolio.
 
 ---
@@ -79,8 +80,20 @@ The host is inflated past the element and clips at its own edge (`overflow:
 clip`), and the integrator holds fragments inside it with side walls. The root
 cannot be relied on to clip instead: `overflow-x: clip` with a visible y-axis
 computes back to `auto` and simply grows the document. The horizontal pad is
-clamped to the room the element actually has, which is what keeps a full-width
-card on a phone from producing a horizontal scrollbar.
+clamped to the room between the element and the **viewport** edges, which keeps
+a full-width card on a phone from producing a horizontal scrollbar.
+
+Two things this deliberately does *not* do, both found by testing:
+
+- It never opens a clipping ancestor. An earlier version did, so debris would
+  not be sliced mid-fall. But this page hangs decorative atmosphere blobs
+  (`.pg-atmo`, `.pg-stage__ambient`) outside their sections and relies on those
+  ancestors to clip them — releasing them widened the document by 114px. The
+  host clips debris itself, so nothing upstream needs touching.
+- It does not clamp the pad to the *offset parent*. That was far too tight: the
+  hero devices sit at the left edge of their own column with most of the page
+  free beside them, and parent-relative clamping collapsed their debris into a
+  12px-wide column.
 
 Measured before / during / after a full shatter at 390, 834 and 1440px wide:
 **document width and height are identical in all three states.**
@@ -140,12 +153,15 @@ back is the markup that was given.
 
 | | raw | gzip |
 |---|---|---|
-| `break-mode.js` (loader — the only initial cost) | 6.2 KB | **2.5 KB** |
-| `break-mode-engine.js` (lazy) | 44.7 KB | 14.5 KB |
-| `break-mode.css` (lazy) | 15.1 KB | 4.5 KB |
-| **Lazy payload on activation** | | **19.0 KB** |
+| `break-mode.js` (loader — the only initial cost) | 3.6 KB | **1.5 KB** |
+| `break-mode-engine.js` (lazy) | 45.6 KB | 15.0 KB |
+| `break-mode.css` (lazy) | 15.6 KB | 4.7 KB |
+| **Lazy payload on activation** | | **19.7 KB** |
 
-A visitor who never presses the button pays **2.5 KB gzipped and zero requests**
+Plus ~0.4 KB gzipped of `.pg-break-cta` rules inside the existing `styles.css`,
+since the entry button is part of the hero rather than injected.
+
+A visitor who never presses the button pays **~1.9 KB gzipped and zero requests**
 beyond it. The engine and its stylesheet are fetched in parallel on first
 activation only, and cached for re-entry.
 
@@ -171,6 +187,7 @@ Not a shrunken desktop build:
 
 | | Desktop | Touch |
 |---|---|---|
+| Entry label | "Break this portfolio" | "Break it" under 420px |
 | Fragments per surface | 32 | 15 |
 | Simultaneous shattered | 4 | 3 |
 | Particles | 260 | 90 |
@@ -230,7 +247,8 @@ document.addEventListener('breakmode', e => e.detail.event);
 | `break-mode.js` | Entry button + lazy loader. The only file the page loads. |
 | `break-mode-engine.js` | ES module: fracture, fragments, physics, tools, UI. |
 | `break-mode.css` | All Break Mode styling. Scoped under `.bm-on` or to its own elements. |
-| `index.html` | `data-break` on 11 surfaces, one `<script>` tag. |
+| `index.html` | The hero entry button, `data-break` on 13 surfaces, one `<script>` tag. |
+| `styles.css` | `.pg-break-cta` — the hero entry button only. |
 
 ## Preview
 
@@ -238,5 +256,10 @@ document.addEventListener('breakmode', e => e.detail.event);
 python3 -m http.server 4173
 ```
 
-Then open <http://localhost:4173/index.html>, scroll past the hero, and press
-**Break mode** at the bottom-left.
+Run it from **this worktree**
+(`.claude/worktrees/break-mode`) — served from the main checkout you get the
+ThreeUI branch, which has none of these files.
+
+Then open <http://localhost:4173/index.html> and press **⚒ Break this
+portfolio** in the hero. Hammer is already active; hit one of the two product
+devices on the right.
