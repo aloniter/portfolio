@@ -50,3 +50,6 @@ protfolio claude design/
 # published unredacted by a future `git add -A`.
 design_handoff_product_glass/
 Portfolio Glass designs 2A and 2B/
+
+# Playwright MCP scratch output (screenshots, snapshots, eval results)
+.playwright-mcp/

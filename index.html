@@ -179,17 +179,17 @@
             <div class="pg-specs">
                 <!-- The fairness decision leads. A reader who only takes in one of
                      these three should take in this one. -->
-                <div class="pg-spec pg-reveal--cell">
+                <div class="pg-spec pg-reveal--cell" data-break>
                     <span class="pg-spec__n">01</span>
                     <p>Every boss attack is <b>telegraphed a turn early</b>, so losing reads as difficulty rather than
                         bad luck</p>
                 </div>
-                <div class="pg-spec pg-reveal--cell">
+                <div class="pg-spec pg-reveal--cell" data-break>
                     <span class="pg-spec__n">02</span>
                     <p>Analytics, crash reporting and Remote Config went in <b>before</b> launch, so difficulty moves
                         without shipping a build</p>
                 </div>
-                <div class="pg-spec pg-reveal--cell">
+                <div class="pg-spec pg-reveal--cell" data-break>
                     <span class="pg-spec__n">03</span>
                     <p>Designed and built solo: the loop, the FTUE, the progression, the balance</p>
                 </div>
@@ -237,18 +237,18 @@
         </div>
 
         <div class="pg-proof">
-            <div class="pg-proof__cell pg-proof__cell--stat pg-reveal--cell">
+            <div class="pg-proof__cell pg-proof__cell--stat pg-reveal--cell" data-break>
                 <span class="pg-stat">500</span>
                 <p>findings in one real report, exported in a single pass</p>
             </div>
             <!-- Was a paraphrase of the lead two lines above. Now carries the export
                  decision instead, in the wording from the case study. -->
-            <div class="pg-proof__cell pg-reveal--cell">
+            <div class="pg-proof__cell pg-reveal--cell" data-break>
                 <span class="pg-proof__n">The output</span>
                 <p>Not a report viewer: the file they already send clients. <b>Word to edit, PDF when it's
                         final</b></p>
             </div>
-            <div class="pg-proof__cell pg-reveal--cell">
+            <div class="pg-proof__cell pg-reveal--cell" data-break>
                 <span class="pg-proof__n">In use</span>
                 <p>A construction inspection company runs real jobs on it</p>
             </div>
@@ -352,7 +352,7 @@
             </div>
 
             <div class="duo reveal-stagger">
-                <article class="duo-item reveal">
+                <article class="duo-item reveal" data-break>
                     <div class="duo-media">
                         <!-- Both are crops, not full screenshots. At ~200px tall a whole
                              phone screen renders about 92px wide and nothing on it is
@@ -376,7 +376,7 @@
                     </div>
                 </article>
 
-                <article class="duo-item reveal">
+                <article class="duo-item reveal" data-break>
                     <div class="duo-media">
                         <!-- The phone screen, not the desktop draft board: it reads as a
                              mobile product on sight, which is what the copy claims, and it
@@ -402,7 +402,7 @@
             </div>
 
             <ol class="mini">
-                <li class="mini-row reveal">
+                <li class="mini-row reveal" data-break>
                     <div class="mini-media">
                         <img src="assets/iron-dom/gameplay-preview.gif" width="220" height="476" loading="lazy"
                             alt="Iron Dom gameplay: interceptors defending a city during an active wave">
@@ -420,7 +420,7 @@
                     </div>
                 </li>
 
-                <li class="mini-row reveal">
+                <li class="mini-row reveal" data-break>
                     <div class="mini-media">
                         <!-- A moving thumbnail: a rhythm runner is about motion, and a
                              still of a lane says much less than the lane travelling. The
@@ -446,7 +446,7 @@
                     </div>
                 </li>
 
-                <li class="mini-row reveal">
+                <li class="mini-row reveal" data-break>
                     <div class="mini-media">
                         <!-- From the second capture, not the still: this one has a hand
                              on the deck, which is the only footage in the repo that shows
@@ -550,6 +550,10 @@
     </footer>
 
     <script src="main.js?v=20260819-1" defer></script>
+    <!-- Break Mode: an opt-in destruction layer over the surfaces marked
+         `data-break`. This file is a button and a loader; the simulation and
+         its stylesheet are fetched only if someone presses it. -->
+    <script src="break-mode.js?v=20260829-1" defer></script>
 </body>
 
 </html>
