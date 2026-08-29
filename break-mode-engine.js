@@ -897,27 +897,59 @@ function buildUI() {
     bar.setAttribute('role', 'toolbar');
     bar.setAttribute('aria-label', 'Break mode tools');
 
+    /* The bomb went through two stroked versions that both read as the Mars
+       glyph: a ring plus a diagonal spur is that symbol, whatever the spur is
+       meant to be. What fixes it is weight and silhouette rather than detail -
+       a solid sphere, a cap on top, and a fuse that leaves the cap vertically
+       before curving off to a lit tip. The hammer head is filled to match, and
+       a solid head reads better at 17px than an outlined one anyway. */
     var ICONS = {
-        hammer: '<path d="M2.4 13.6 8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 5.2 10.8 1.4a1 1 0 0 1 1.4 0l2.4 2.4a1 1 0 0 1 0 1.4L10.8 9 7 5.2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>',
-        bomb: '<circle cx="7" cy="10" r="4.6" stroke="currentColor" stroke-width="1.5"/><path d="M10.4 6.6 12 5m0 0V2.6M12 5h2.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>',
+        hammer: '<path d="M2.4 13.6 8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>' +
+            '<path d="M7 5.2 10.8 1.4a1 1 0 0 1 1.4 0l2.4 2.4a1 1 0 0 1 0 1.4L10.8 9 7 5.2Z" fill="currentColor"/>',
+        bomb: '<circle cx="7" cy="10.2" r="4.7" fill="currentColor"/>' +
+            '<rect x="5.9" y="4.4" width="2.4" height="1.9" rx="0.6" fill="currentColor"/>' +
+            '<path d="M8.4 4.8c1.7-1.3 3.1-1.2 3.9-.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>' +
+            '<circle cx="13.3" cy="3.4" r="1.35" fill="currentColor"/>',
         repair: '<path d="M8 1.6 9.5 6l4.5 1.4L9.5 8.8 8 13.2 6.5 8.8 2 7.4 6.5 6 8 1.6Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>',
-        exit: '<path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>'
+        exit: '<path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>'
     };
 
-    function mkButton(name, label, kind) {
+    function mkButton(parent, name, label, kind) {
         var b = document.createElement('button');
         b.type = 'button';
         b.className = 'bm-btn' + (kind ? ' bm-btn--' + kind : '');
         b.dataset.bm = name;
         b.innerHTML = '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true">' + ICONS[name] + '</svg><span>' + label + '</span>';
-        bar.appendChild(b);
+        parent.appendChild(b);
         return b;
     }
 
-    var hammerBtn = mkButton('hammer', 'Hammer', 'tool');
-    var bombBtn = mkButton('bomb', 'Bomb', 'tool');
-    mkButton('repair', 'Repair');
-    var exitBtn = mkButton('exit', 'Exit');
+    /* The two weapons sit together in a recessed track, the way a segmented
+       control does, so it reads at a glance as "pick one of these" - and the
+       selected one is a solid pill lifted out of that track. Repair and Exit
+       are one-shot actions, not modes, so they sit outside it past a divider
+       and never take the selected treatment. Grouping is doing the work here:
+       previously all four looked like the same kind of control, and the teal
+       Repair read as though it were the active one. */
+    var group = document.createElement('div');
+    group.className = 'bm-tools';
+    /* `group`, not `radiogroup`: these stay toggle buttons carrying
+       `aria-pressed`, which a radiogroup would expect to be `aria-checked`
+       radios instead. */
+    group.setAttribute('role', 'group');
+    group.setAttribute('aria-label', 'Tool');
+    bar.appendChild(group);
+
+    var hammerBtn = mkButton(group, 'hammer', 'Hammer', 'tool');
+    var bombBtn = mkButton(group, 'bomb', 'Bomb', 'tool');
+
+    var sep = document.createElement('span');
+    sep.className = 'bm-sep';
+    sep.setAttribute('aria-hidden', 'true');
+    bar.appendChild(sep);
+
+    mkButton(bar, 'repair', 'Repair');
+    var exitBtn = mkButton(bar, 'exit', 'Exit');
     exitBtn.setAttribute('aria-label', 'Exit break mode');
 
     uiRoot.appendChild(bar);
@@ -986,8 +1018,10 @@ function buildCursor() {
         '<svg viewBox="0 0 34 34" fill="none">' +
         '<path class="bm-cursor__hammer" d="M6 29 16.5 18.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>' +
         '<path class="bm-cursor__head" d="M14.5 12.5 22.5 4.5a2 2 0 0 1 2.8 0l4.2 4.2a2 2 0 0 1 0 2.8l-8 8-7-7Z" fill="currentColor"/>' +
-        '<circle class="bm-cursor__bomb" cx="17" cy="19" r="8" stroke="currentColor" stroke-width="2.4"/>' +
-        '<path class="bm-cursor__bomb" d="M22.6 13.4 25 11m0 0V7.6M25 11h3.4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>' +
+        '<circle class="bm-cursor__bomb" cx="15.5" cy="21" r="8.4" fill="currentColor"/>' +
+        '<rect class="bm-cursor__bomb" x="13.4" y="10.6" width="4.3" height="3.4" rx="1.1" fill="currentColor"/>' +
+        '<path class="bm-cursor__bomb" d="M17.9 11.4c3-2.3 5.5-2.1 6.9-.9" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/>' +
+        '<circle class="bm-cursor__bomb" cx="26.6" cy="8.6" r="2.4" fill="currentColor"/>' +
         '</svg>';
     document.body.appendChild(cursorEl);
 
