@@ -230,65 +230,101 @@
     to   { transform: scale(1.5);  opacity: 0; }
 }
 
-/* ===== BOMB ===== */
+/* ===== BOMB =====
+   Bigger than it needs to be to exist, because a visitor who has just switched
+   tools is looking for confirmation that something happened. The countdown
+   ring closes in over exactly the fuse duration, so the wait reads as a
+   deliberate beat rather than a pause where nothing appears to work. */
 .bm-bomb {
     position: absolute;
-    width: 46px;
-    height: 46px;
-    margin: -30px 0 0 -23px;
+    width: 64px;
+    height: 64px;
+    margin: -46px 0 0 -32px;
     pointer-events: none;
     animation: bm-drop 260ms cubic-bezier(.3, 1.4, .5, 1);
 }
 
 @keyframes bm-drop {
-    from { transform: translateY(-26px) scale(0.6); opacity: 0; }
+    from { transform: translateY(-30px) scale(0.55); opacity: 0; }
     to   { transform: none; opacity: 1; }
+}
+
+/* Closes from well outside the bomb onto it. Timed from JS to match the fuse. */
+.bm-bomb__ring {
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    width: 78px;
+    height: 78px;
+    margin: -39px 0 0 -39px;
+    border: 2px solid rgba(255, 138, 31, 0.85);
+    border-radius: 50%;
+    animation: bm-countdown 900ms linear forwards;
+}
+
+@keyframes bm-countdown {
+    from { transform: scale(1.9); opacity: 0; }
+    25%  { opacity: 0.9; }
+    to   { transform: scale(0.62); opacity: 0.15; }
 }
 
 .bm-bomb__body {
     position: absolute;
-    left: 5px;
+    left: 9px;
     bottom: 0;
-    width: 36px;
-    height: 36px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
-    background: radial-gradient(circle at 34% 30%, #4a5262 0%, #171c26 58%, #0a0d14 100%);
-    box-shadow: 0 6px 18px rgba(10, 13, 20, 0.4);
+    background: radial-gradient(circle at 34% 30%, #59617340 0%, #1b2029 42%, #05070b 100%), #12161d;
+    box-shadow: 0 8px 22px rgba(10, 13, 20, 0.45), inset -3px -4px 10px rgba(0, 0, 0, 0.55), inset 3px 4px 9px rgba(255, 255, 255, 0.13);
     animation: bm-tick 300ms ease-in-out infinite alternate;
 }
 
 @keyframes bm-tick {
     from { transform: scale(1); }
-    to   { transform: scale(1.07); }
+    to   { transform: scale(1.06); }
+}
+
+/* The cap bridges body and fuse. Without it the fuse floated unattached. */
+.bm-bomb__cap {
+    position: absolute;
+    left: 26px;
+    top: 12px;
+    width: 12px;
+    height: 8px;
+    border-radius: 3px;
+    background: #2b323d;
 }
 
 .bm-bomb__fuse {
     position: absolute;
-    left: 28px;
-    top: 2px;
-    width: 10px;
+    left: 33px;
+    top: 3px;
+    width: 13px;
     height: 12px;
-    border-top: 2px solid #7c8598;
-    border-right: 2px solid #7c8598;
-    border-top-right-radius: 8px;
+    border-top: 2.5px solid #8b95a8;
+    border-left: 2.5px solid #8b95a8;
+    border-top-left-radius: 10px;
+    transform: rotate(18deg);
 }
 
 .bm-bomb__spark {
     position: absolute;
-    left: 35px;
-    top: 0;
-    width: 8px;
-    height: 8px;
-    margin: -4px 0 0 -4px;
+    left: 46px;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
     border-radius: 50%;
-    background: radial-gradient(circle, #fff 0%, #ffd27a 40%, #ff8a1f 70%, rgba(255, 138, 31, 0) 100%);
-    animation: bm-spark 160ms ease-in-out infinite alternate;
+    background: radial-gradient(circle, #fff 0%, #ffe08a 32%, #ff8a1f 62%, rgba(255, 138, 31, 0) 100%);
+    animation: bm-spark 150ms ease-in-out infinite alternate;
 }
 
 @keyframes bm-spark {
-    from { transform: scale(0.7); opacity: 0.85; }
-    to   { transform: scale(1.5); opacity: 1; }
+    from { transform: scale(0.65); opacity: 0.85; }
+    to   { transform: scale(1.45); opacity: 1; }
 }
+
 
 /* ===== SHOCKWAVE ===== */
 .bm-wave {
@@ -598,6 +634,14 @@
     opacity: 1;
 }
 
+/* While a bomb is ticking the tool cursor is hidden: it is itself a bomb
+   glyph, and leaving it over the one just placed reads as two bombs and
+   covers the fuse. Placed after `.is-on` deliberately - both selectors carry
+   the same specificity, so source order is what decides this. */
+.bm-armed .bm-cursor.is-on {
+    opacity: 0;
+}
+
 .bm-cursor svg {
     width: 100%;
     height: 100%;
@@ -653,6 +697,13 @@
     .bm-bomb__body,
     .bm-bomb__spark {
         transform: none !important;
+    }
+
+    /* The countdown ring is kept even here: it is the only thing that says a
+       fuse is running, and it is one shape shrinking in place, not motion
+       thrown across the screen. */
+    .bm-bomb__ring {
+        animation-timing-function: linear;
     }
 
     .bm-hurt {
