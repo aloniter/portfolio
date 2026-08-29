@@ -1,0 +1,594 @@
+/* ===== BREAK MODE =====
+   Loaded only when a visitor activates Break Mode. Nothing in this file
+   applies to the portfolio at rest: every rule is scoped under `.bm-on` on
+   the root element, or to an element this mode created itself.
+
+   Layering, from the page upward:
+     1000  the site's own toolbar
+     1200  the Break Mode entry button (styled in break-mode.js)
+     1300  cracks and fragments
+     1400  dust canvas
+     1500  toolbar, toasts, bomb, impact flashes
+     1600  the tool cursor */
+
+:root {
+    --bm-ink: #0a0d14;
+    --bm-line: rgba(10, 13, 20, 0.55);
+    --bm-lift: rgba(255, 255, 255, 0.85);
+    --bm-accent: #0d7a6b;
+    --bm-glass: rgba(255, 255, 255, 0.76);
+    --bm-hair: rgba(10, 13, 20, 0.12);
+}
+
+/* ===== ROOT STATE ===== */
+.bm-on {
+    /* Debris settles below the surface it came from; without this a fragment
+       near the page edge could widen the document. `clip` rather than `hidden`
+       because `hidden` would make the root a scroll container and break the
+       site's own sticky positioning. */
+    overflow-x: clip;
+}
+
+/* Fragments and crack sheets appear and vanish next to real content. Scroll
+   anchoring reacting to that would move the page under the visitor mid-swing. */
+.bm-on body {
+    overflow-anchor: none;
+}
+
+/* The tool replaces the pointer, but never over the controls: a toolbar you
+   cannot see yourself aiming at is a toolbar people misclick. */
+.bm-on:not(.bm-coarse) body {
+    cursor: none;
+}
+
+.bm-on:not(.bm-coarse) .bm-ui,
+.bm-on:not(.bm-coarse) .bm-ui * {
+    cursor: pointer;
+}
+
+/* Strikes must not select text or fire the iOS callout. */
+.bm-on [data-break] {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* ===== DAMAGED SURFACE ===== */
+.bm-hurt {
+    will-change: translate, rotate, scale;
+}
+
+/* Shattered: the box keeps its space in the layout so nothing reflows, but
+   its pixels are now carried by the fragments. */
+.bm-void {
+    visibility: hidden;
+}
+
+/* Reduced-motion equivalent of a shatter: it reads as wrecked without a
+   single thing being thrown across the screen. */
+.bm-dead {
+    filter: grayscale(0.85) contrast(0.86) brightness(1.04);
+    opacity: 0.5;
+    transition: filter 240ms ease, opacity 240ms ease;
+}
+
+/* ===== CRACKS ===== */
+.bm-crackhost {
+    position: absolute;
+    z-index: 1300;
+    pointer-events: none;
+    overflow: hidden;
+    transition: opacity 420ms ease;
+}
+
+.bm-crackhost--heal {
+    opacity: 0;
+}
+
+.bm-cracks {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* Three passes per crack, painted in document order: a soft dark spread for
+   depth, a light stroke offset a hair down-right for the lit edge of the
+   split, then the dark hairline itself. One stroke reads as a drawn line;
+   these three read as a surface that has parted. */
+.bm-crack {
+    fill: none;
+    stroke: rgba(10, 13, 20, 0.72);
+    stroke-width: 1.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.bm-crack--deep {
+    stroke: rgba(10, 13, 20, 0.13);
+    stroke-width: 5;
+}
+
+.bm-crack--lift {
+    stroke: var(--bm-lift);
+    stroke-width: 2.6;
+    transform: translate(0.9px, 1px);
+}
+
+/* Offshoots taper away rather than ending as hard as the seam they left. */
+.bm-crack--hair.bm-crack {
+    stroke-width: 0.85;
+    stroke-opacity: 0.62;
+}
+
+.bm-crack--hair.bm-crack--deep {
+    stroke-width: 3;
+}
+
+.bm-crack--hair.bm-crack--lift {
+    stroke-width: 1.6;
+}
+
+/* ===== FRAGMENTS ===== */
+/* `clip` rather than `hidden`: it clips without turning the host into a scroll
+   container, so flying debris can never add scrollable overflow to the page.
+   Sized in JS to clear the furthest a fragment can travel. */
+.bm-frags {
+    position: absolute;
+    z-index: 1300;
+    pointer-events: none;
+    overflow: clip;
+}
+
+.bm-frag {
+    position: absolute;
+    pointer-events: none;
+    /* Each fragment is its own compositing layer: the loop only ever writes
+       `transform`, so no fragment causes layout or paint after creation. */
+    will-change: transform;
+    contain: layout paint style;
+    backface-visibility: hidden;
+    /* Set per fragment at creation: a flat surface catches light differently
+       once its pieces are no longer coplanar. */
+    filter: brightness(var(--bm-face, 1));
+}
+
+/* A shadow cast along the fragment's own cut silhouette - clip-path shapes the
+   drop-shadow too - is what separates a piece of debris from the page behind
+   it. The filter is rasterised once at creation; only `transform` changes per
+   frame, so this costs nothing in the loop.
+
+   Phones skip it: at three or four shattered cards the extra filtered layers
+   are the first thing to cost frames, and the shading alone carries enough. */
+@media (pointer: fine) {
+    .bm-frag {
+        filter: brightness(var(--bm-face, 1)) drop-shadow(0 3px 5px rgba(10, 13, 20, 0.26));
+    }
+}
+
+.bm-frag--fade {
+    opacity: 0;
+    transition: opacity 400ms ease;
+}
+
+/* ===== DUST ===== */
+.bm-dust {
+    position: fixed;
+    inset: 0;
+    z-index: 1400;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* ===== OVERLAY ROOT ===== */
+.bm-ui {
+    position: fixed;
+    inset: 0;
+    z-index: 1500;
+    pointer-events: none;
+}
+
+.bm-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* ===== IMPACT FLASH ===== */
+.bm-impact {
+    position: absolute;
+    width: var(--bm-impact-size, 90px);
+    height: var(--bm-impact-size, 90px);
+    margin-left: calc(var(--bm-impact-size, 90px) / -2);
+    margin-top: calc(var(--bm-impact-size, 90px) / -2);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.5) 38%, rgba(255, 255, 255, 0) 70%);
+    pointer-events: none;
+    animation: bm-impact 380ms cubic-bezier(.2, .8, .3, 1) forwards;
+}
+
+@keyframes bm-impact {
+    from { transform: scale(0.24); opacity: 1; }
+    to   { transform: scale(1.5);  opacity: 0; }
+}
+
+/* ===== BOMB ===== */
+.bm-bomb {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    margin: -30px 0 0 -23px;
+    pointer-events: none;
+    animation: bm-drop 260ms cubic-bezier(.3, 1.4, .5, 1);
+}
+
+@keyframes bm-drop {
+    from { transform: translateY(-26px) scale(0.6); opacity: 0; }
+    to   { transform: none; opacity: 1; }
+}
+
+.bm-bomb__body {
+    position: absolute;
+    left: 5px;
+    bottom: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 34% 30%, #4a5262 0%, #171c26 58%, #0a0d14 100%);
+    box-shadow: 0 6px 18px rgba(10, 13, 20, 0.4);
+    animation: bm-tick 300ms ease-in-out infinite alternate;
+}
+
+@keyframes bm-tick {
+    from { transform: scale(1); }
+    to   { transform: scale(1.07); }
+}
+
+.bm-bomb__fuse {
+    position: absolute;
+    left: 28px;
+    top: 2px;
+    width: 10px;
+    height: 12px;
+    border-top: 2px solid #7c8598;
+    border-right: 2px solid #7c8598;
+    border-top-right-radius: 8px;
+}
+
+.bm-bomb__spark {
+    position: absolute;
+    left: 35px;
+    top: 0;
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 0%, #ffd27a 40%, #ff8a1f 70%, rgba(255, 138, 31, 0) 100%);
+    animation: bm-spark 160ms ease-in-out infinite alternate;
+}
+
+@keyframes bm-spark {
+    from { transform: scale(0.7); opacity: 0.85; }
+    to   { transform: scale(1.5); opacity: 1; }
+}
+
+/* ===== SHOCKWAVE ===== */
+.bm-wave {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 220, 170, 0.55) 30%, rgba(255, 255, 255, 0) 62%);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.75);
+    animation: bm-wave 560ms cubic-bezier(.15, .85, .25, 1) forwards;
+}
+
+@keyframes bm-wave {
+    from { transform: scale(0.4); opacity: 1; }
+    to   { transform: scale(26);  opacity: 0; }
+}
+
+/* ===== TOOLBAR ===== */
+.bm-bar {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(0.75rem, 2.4vw, 1.5rem);
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.3rem;
+    border: 1px solid var(--bm-hair);
+    border-radius: 999px;
+    background: var(--bm-glass);
+    -webkit-backdrop-filter: blur(18px) saturate(1.7);
+    backdrop-filter: blur(18px) saturate(1.7);
+    box-shadow: 0 1px 2px rgba(10, 13, 20, 0.06), 0 14px 40px rgba(10, 13, 20, 0.14);
+    pointer-events: auto;
+    animation: bm-bar-in 340ms cubic-bezier(.16, 1, .3, 1);
+}
+
+@keyframes bm-bar-in {
+    from { transform: translate(-50%, 14px); opacity: 0; }
+    to   { transform: translateX(-50%); opacity: 1; }
+}
+
+.bm-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 40px;
+    padding: 0 0.8rem;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--color-text-secondary, #596373);
+    font-family: var(--font-mono, ui-monospace, Menlo, monospace);
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 160ms ease, color 160ms ease;
+}
+
+.bm-btn svg {
+    width: 15px;
+    height: 15px;
+    flex: none;
+}
+
+.bm-btn:hover {
+    color: var(--bm-ink);
+    background: rgba(10, 13, 20, 0.05);
+}
+
+.bm-btn:focus-visible {
+    outline: 2px solid var(--bm-accent);
+    outline-offset: -2px;
+}
+
+.bm-btn[aria-pressed="true"] {
+    color: #fff;
+    background: var(--bm-ink);
+}
+
+.bm-btn--tool[aria-pressed="true"]:hover {
+    background: var(--bm-ink);
+}
+
+/* Exit is the recovery control, so it stays legible without being loud. */
+.bm-bar .bm-btn[data-bm="exit"] {
+    padding: 0 0.7rem;
+    color: var(--color-text-tertiary, #8b94a3);
+}
+
+.bm-bar .bm-btn[data-bm="exit"] span {
+    display: none;
+}
+
+.bm-bar .bm-btn[data-bm="repair"] {
+    color: var(--bm-accent);
+}
+
+/* Phones: icons plus the two words that matter, and never wider than the screen. */
+@media (max-width: 560px) {
+    .bm-bar {
+        gap: 0.1rem;
+        padding: 0.25rem;
+    }
+
+    .bm-btn {
+        padding: 0 0.6rem;
+        font-size: 0.6rem;
+        letter-spacing: 0.05em;
+    }
+
+    .bm-btn--tool span {
+        display: none;
+    }
+}
+
+/* ===== TOAST ===== */
+.bm-toast {
+    position: absolute;
+    left: 50%;
+    bottom: calc(clamp(0.75rem, 2.4vw, 1.5rem) + 60px);
+    max-width: min(24rem, calc(100vw - 2rem));
+    margin: 0;
+    padding: 0.5rem 0.9rem;
+    transform: translate(-50%, 8px);
+    border-radius: 999px;
+    background: rgba(10, 13, 20, 0.88);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-family: var(--font-mono, ui-monospace, Menlo, monospace);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 280ms ease, transform 280ms cubic-bezier(.16, 1, .3, 1);
+}
+
+.bm-toast.is-on {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* ===== ACHIEVEMENT =====
+   A card in the corner, not a modal. Nothing is blocked, nothing must be
+   dismissed, and the largest thing on it is the way back. */
+.bm-ach {
+    position: absolute;
+    right: clamp(0.75rem, 2vw, 1.5rem);
+    bottom: calc(clamp(0.75rem, 2.4vw, 1.5rem) + 60px);
+    width: min(20rem, calc(100vw - 2rem));
+    padding: 1.05rem 1.15rem 1.15rem;
+    border: 1px solid var(--bm-hair);
+    border-radius: var(--radius-lg, 1rem);
+    background: var(--bm-glass);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    backdrop-filter: blur(20px) saturate(1.8);
+    box-shadow: 0 1px 2px rgba(10, 13, 20, 0.06), 0 22px 60px rgba(10, 13, 20, 0.18);
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+    pointer-events: auto;
+    transition: opacity 380ms ease, transform 380ms cubic-bezier(.16, 1, .3, 1);
+}
+
+.bm-ach.is-on {
+    opacity: 1;
+    transform: none;
+}
+
+.bm-ach p {
+    margin: 0;
+}
+
+.bm-ach__eyebrow {
+    font-family: var(--font-mono, ui-monospace, Menlo, monospace);
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--bm-accent);
+}
+
+.bm-ach__title {
+    margin-top: 0.3rem !important;
+    font-family: var(--font-heading, 'Sora', sans-serif);
+    font-size: 1.18rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--bm-ink);
+}
+
+.bm-ach__note {
+    margin-top: 0.3rem !important;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary, #596373);
+}
+
+.bm-ach__cta {
+    margin-top: 0.85rem;
+    width: 100%;
+    min-height: 44px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--bm-ink);
+    color: #fff;
+    font-family: var(--font-mono, ui-monospace, Menlo, monospace);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 160ms ease;
+}
+
+.bm-ach__cta:hover {
+    background: var(--bm-accent);
+}
+
+.bm-ach__cta:focus-visible {
+    outline: 2px solid var(--bm-accent);
+    outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+    .bm-ach {
+        left: clamp(0.75rem, 2vw, 1.5rem);
+        right: clamp(0.75rem, 2vw, 1.5rem);
+        width: auto;
+    }
+}
+
+/* ===== TOOL CURSOR ===== */
+.bm-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1600;
+    width: 34px;
+    height: 34px;
+    margin: -6px 0 0 -6px;
+    color: var(--bm-ink);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 160ms ease;
+    will-change: transform;
+}
+
+.bm-cursor.is-on {
+    opacity: 1;
+}
+
+.bm-cursor svg {
+    width: 100%;
+    height: 100%;
+    /* The tool sits above whatever it is about to hit, so it needs its own
+       separation from the surface underneath. */
+    filter: drop-shadow(0 2px 4px rgba(10, 13, 20, 0.35));
+    transform-origin: 22% 82%;
+    transition: transform 220ms cubic-bezier(.16, 1, .3, 1);
+}
+
+.bm-cursor.is-swing svg {
+    animation: bm-swing 260ms cubic-bezier(.3, 1.5, .5, 1);
+}
+
+@keyframes bm-swing {
+    0%   { transform: rotate(-42deg); }
+    38%  { transform: rotate(16deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* One SVG carries both tools; the toolbar decides which half is drawn. */
+.bm-cursor__bomb { display: none; }
+
+[data-bm-tool="bomb"] .bm-cursor__hammer,
+[data-bm-tool="bomb"] .bm-cursor__head { display: none; }
+
+[data-bm-tool="bomb"] .bm-cursor__bomb { display: block; }
+
+[data-bm-tool="bomb"] .bm-cursor svg { animation: none; }
+
+/* ===== REDUCED MOTION =====
+   Break Mode stays available - it is offered without anything being thrown,
+   shaken or flung. Surfaces crack, grey out, and snap back on Repair. */
+@media (prefers-reduced-motion: reduce) {
+
+    .bm-toast,
+    .bm-bar,
+    .bm-ach,
+    .bm-cursor,
+    .bm-cursor svg {
+        animation: none !important;
+        transition-duration: 120ms !important;
+    }
+
+    .bm-impact,
+    .bm-wave,
+    .bm-bomb,
+    .bm-bomb__body,
+    .bm-bomb__spark {
+        animation: none !important;
+    }
+
+    .bm-bomb__body,
+    .bm-bomb__spark {
+        transform: none !important;
+    }
+
+    .bm-hurt {
+        will-change: auto;
+    }
+}
