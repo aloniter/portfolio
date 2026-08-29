@@ -6,7 +6,8 @@ then put it back.
 
 - Entry: a ghost button in the hero, next to "See the work" — `⚒ Break this
   portfolio` (`⚒ Break it` under 420px).
-- Tools: Hammer, Bomb, Repair, Exit. Hammer is selected on activation.
+- Tools: Hammer, Bomb, Repair, Exit, on a labelled bar docked under the site
+  nav. Hammer is selected on activation.
 - Nothing persists. A reload is always the normal portfolio.
 
 ---
@@ -146,6 +147,34 @@ outward from the impact so a card knits itself together from the inside out.
 Cracks fade, elements are restored, inline styles are removed. Verified: after
 repair the element's `style` attribute is `null`, not `""` — the markup handed
 back is the markup that was given.
+
+---
+
+## The toolbar
+
+Docked top-centre, under the site's own nav, and it belongs there rather than
+at the bottom of the screen. Bottom-centre was the original home and it was
+wrong: it is the first thing lost to a dock, a window whose bottom runs
+off-screen, or a short viewport — and a visitor who cannot find the toolbar has
+no working mode at all. The top strip is always in view.
+
+Three things carry the meaning:
+
+- **A `BREAK MODE` chip** names the mode, so the strip is not just floating
+  controls with no stated context. Ink-filled, so it reads as a status chip
+  rather than a fifth button.
+- **Hammer and Bomb share a recessed track**, the way a segmented control does,
+  and the armed one is a solid pill lifted out of it. Which tool is armed is the
+  one thing a visitor must never be unsure about, so it carries the strongest
+  contrast in the bar.
+- **Repair and Exit sit outside the track past a divider**, because they are
+  one-shot actions, not modes, and never take the selected treatment.
+
+The toast and the achievement card sit directly under the bar, so the cue and
+the controls it describes are one cluster.
+
+On phones the mode chip and the Exit label drop; the weapon labels stay,
+because they are the control and the chip is only context.
 
 ---
 
