@@ -12,7 +12,7 @@
 (function () {
     'use strict';
 
-    var VERSION = '20260829-4';
+    var VERSION = '20260829-5';
 
     var button = document.querySelector('[data-break-entry]');
     if (!button) return;

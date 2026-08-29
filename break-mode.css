@@ -348,23 +348,23 @@
 /* The bar has to stay legible over a white section and over the near-black
    Boss Blocks stage, so it is close to opaque rather than lightly frosted, and
    carries a defined edge plus a real drop shadow to lift it off both. */
+/* A vertical palette down the left edge, vertically centred. Two earlier homes
+   were both wrong: bottom-centre gets lost to a dock or an off-screen window
+   bottom, and a top strip crowds the site's own nav. A side palette is always
+   in view, stays clear of both, and is the shape people already read as "these
+   are the tools". Phones keep a horizontal strip - see the media query. */
 .bm-bar {
     position: absolute;
-    left: 50%;
-    /* Docked under the site's own nav, which ends at 100px on desktop and 84px
-       on phones. Bottom-centre was the original home and it is the wrong place
-       for the primary control of a mode: it is the first thing lost to a dock,
-       a window whose bottom runs off-screen, or a short viewport - and if a
-       visitor cannot find the toolbar, the mode is simply broken for them.
-       The top strip is always in view and is where an active-mode bar belongs. */
-    top: 112px;
-    transform: translateX(-50%);
+    left: 0.45rem;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    padding: 0.35rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.22rem;
+    padding: 0.3rem;
     border: 1px solid rgba(10, 13, 20, 0.14);
-    border-radius: 999px;
+    border-radius: 1.1rem;
     background: rgba(255, 255, 255, 0.94);
     -webkit-backdrop-filter: blur(20px) saturate(1.7);
     backdrop-filter: blur(20px) saturate(1.7);
@@ -378,68 +378,84 @@
 .bm-badge {
     display: inline-flex;
     align-items: center;
-    padding: 0 0.7rem;
-    height: 30px;
-    margin-left: 0.2rem;
-    border-radius: 999px;
+    justify-content: center;
+    padding: 0.3rem 0.35rem;
+    margin: 0.05rem 0.05rem 0.15rem;
+    border-radius: 0.7rem;
     background: var(--bm-ink);
     color: #fff;
     font-family: var(--font-mono, ui-monospace, Menlo, monospace);
-    font-size: 0.64rem;
+    font-size: 0.5rem;
     font-weight: 500;
-    letter-spacing: 0.13em;
+    line-height: 1.25;
+    letter-spacing: 0.1em;
+    text-align: center;
     text-transform: uppercase;
-    white-space: nowrap;
+    /* Wraps to two lines inside the narrow palette rather than setting its width. */
+    white-space: normal;
 }
 
 /* The recessed track that makes the two weapons read as one either/or choice.
    The selected tool is a solid pill sitting proud of it. */
 .bm-tools {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
     gap: 0.2rem;
     padding: 0.2rem;
-    border-radius: 999px;
+    border-radius: 1rem;
     background: rgba(10, 13, 20, 0.06);
     box-shadow: inset 0 1px 2px rgba(10, 13, 20, 0.07);
 }
 
 .bm-sep {
-    width: 1px;
-    height: 22px;
-    margin: 0 0.15rem;
+    width: auto;
+    height: 1px;
+    margin: 0.15rem 0.5rem;
     background: rgba(10, 13, 20, 0.14);
 }
 
 @keyframes bm-bar-in {
-    from { transform: translate(-50%, -16px); opacity: 0; }
+    from { transform: translate(-14px, -50%); opacity: 0; }
+    to   { transform: translateY(-50%); opacity: 1; }
+}
+
+@keyframes bm-bar-in-h {
+    from { transform: translate(-50%, -14px); opacity: 0; }
     to   { transform: translateX(-50%); opacity: 1; }
 }
 
+/* Icon over label, not beside it. Side-by-side made the palette 125px wide,
+   which put it straight over the hero headline; stacked it fits the gutter the
+   page already leaves on the left and covers nothing. The labels stay - they
+   are what made the toolbar understandable in the first place. */
 .bm-btn {
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.45rem;
-    min-height: 42px;
-    padding: 0 0.95rem;
+    justify-content: center;
+    gap: 0.18rem;
+    min-height: 46px;
+    padding: 0.35rem 0.15rem;
     border: 0;
-    border-radius: 999px;
+    border-radius: 0.6rem;
     background: transparent;
     /* Was #596373 on translucent white, which left the unselected tool looking
        disabled rather than available. */
     color: #39414d;
     font-family: var(--font-mono, ui-monospace, Menlo, monospace);
-    font-size: 0.78rem;
+    font-size: 0.5rem;
     font-weight: 500;
-    letter-spacing: 0.07em;
+    letter-spacing: 0.02em;
+    line-height: 1;
     text-transform: uppercase;
     cursor: pointer;
     transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
 
 .bm-btn svg {
-    width: 17px;
-    height: 17px;
+    width: 16px;
+    height: 16px;
     flex: none;
 }
 
@@ -479,7 +495,6 @@
 }
 
 .bm-bar .bm-btn[data-bm="exit"] {
-    padding: 0 0.75rem;
     color: #5a636f;
 }
 
@@ -494,10 +509,34 @@
    and Repair drops to its icon instead, since its meaning is carried by the
    toast that follows it. */
 @media (max-width: 560px) {
+    /* A vertical palette on a 390px screen would sit on top of the content it
+       is meant to let you hit. Phones keep the horizontal strip under the nav. */
     .bm-bar {
+        left: 50%;
         top: 92px;
+        flex-direction: row;
+        align-items: center;
+        transform: translateX(-50%);
+        border-radius: 999px;
         gap: 0.2rem;
         padding: 0.28rem;
+        animation: bm-bar-in-h 340ms cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .bm-tools {
+        flex-direction: row;
+        align-items: center;
+        border-radius: 999px;
+    }
+
+    .bm-sep {
+        width: 1px;
+        height: 22px;
+        margin: 0 0.15rem;
+    }
+
+    .bm-btn {
+        border-radius: 999px;
     }
 
     /* No room for the mode name next to two labelled weapons on a phone. The
@@ -510,7 +549,11 @@
         display: none;
     }
 
+    /* Phone strip: back to icon beside label on one row. */
     .bm-btn {
+        flex-direction: row;
+        gap: 0.4rem;
+        min-height: 42px;
         padding: 0 0.7rem;
         font-size: 0.7rem;
         letter-spacing: 0.04em;
@@ -528,9 +571,9 @@
 
 @media (max-width: 400px) {
     .bm-btn {
-        gap: 0.35rem;
-        padding: 0 0.55rem;
-        font-size: 0.65rem;
+        gap: 0.3rem;
+        padding: 0 0.5rem;
+        font-size: 0.62rem;
     }
 }
 
@@ -538,9 +581,10 @@
 .bm-toast {
     position: absolute;
     left: 50%;
-    /* Directly under the bar it belongs to, so the cue and the controls it
-       describes are one cluster instead of being at opposite ends of the page. */
-    top: 186px;
+    /* Top-centre, under the site nav. The palette is down the left edge now, so
+       centring keeps the cue clear of it without burying it at the bottom of
+       the window, which is where it went missing before. */
+    top: 116px;
     max-width: min(24rem, calc(100vw - 2rem));
     margin: 0;
     padding: 0.5rem 0.9rem;
@@ -570,7 +614,7 @@
 .bm-ach {
     position: absolute;
     right: clamp(0.75rem, 2vw, 1.5rem);
-    top: 186px;
+    top: 116px;
     width: min(20rem, calc(100vw - 2rem));
     padding: 1.05rem 1.15rem 1.15rem;
     border: 1px solid var(--bm-hair);
@@ -709,7 +753,6 @@
 /* One SVG carries both tools; the toolbar decides which half is drawn. */
 .bm-cursor__bomb { display: none; }
 
-[data-bm-tool="bomb"] .bm-cursor__hammer,
 [data-bm-tool="bomb"] .bm-cursor__head { display: none; }
 
 [data-bm-tool="bomb"] .bm-cursor__bomb { display: block; }

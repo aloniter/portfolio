@@ -343,7 +343,15 @@ function place(node, el, pad) {
     node.style.width = (er.width + px * 2) + 'px';
     node.style.height = (er.height + pt + pb) + 'px';
 
-    parent.insertBefore(node, el.nextSibling);
+    /* Insert as a real sibling of the element, always. The coordinates above are
+       measured against the nearest *positioned* ancestor, which is often further
+       up the tree - inserting there threw `insertBefore: node is not a child`
+       for every surface whose parent happened to be static, which was most of
+       the page once whole sections became breakable. Absolute positioning still
+       resolves against that ancestor from here, because the sibling is inside
+       it, and staying a sibling is what keeps descendant selectors matching the
+       clones. */
+    el.parentNode.insertBefore(node, el.nextSibling);
     return { x: px, top: pt };
 }
 
@@ -930,8 +938,10 @@ function buildUI() {
        before curving off to a lit tip. The hammer head is filled to match, and
        a solid head reads better at 17px than an outlined one anyway. */
     var ICONS = {
-        hammer: '<path d="M2.4 13.6 8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>' +
-            '<path d="M7 5.2 10.8 1.4a1 1 0 0 1 1.4 0l2.4 2.4a1 1 0 0 1 0 1.4L10.8 9 7 5.2Z" fill="currentColor"/>',
+        hammer: '<g transform="rotate(-32 8 8)">' +
+            '<rect x="1.6" y="2" width="12.8" height="4.6" rx="1.5" fill="currentColor"/>' +
+            '<rect x="6.6" y="6.2" width="2.8" height="8.4" rx="1.4" fill="currentColor"/>' +
+            '</g>',
         bomb: '<circle cx="7" cy="10.2" r="4.7" fill="currentColor"/>' +
             '<rect x="5.9" y="4.4" width="2.4" height="1.9" rx="0.6" fill="currentColor"/>' +
             '<path d="M8.4 4.8c1.7-1.3 3.1-1.2 3.9-.5" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round"/>' +
@@ -1042,8 +1052,10 @@ function buildCursor() {
     cursorEl.setAttribute('aria-hidden', 'true');
     cursorEl.innerHTML =
         '<svg viewBox="0 0 34 34" fill="none">' +
-        '<path class="bm-cursor__hammer" d="M6 29 16.5 18.5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>' +
-        '<path class="bm-cursor__head" d="M14.5 12.5 22.5 4.5a2 2 0 0 1 2.8 0l4.2 4.2a2 2 0 0 1 0 2.8l-8 8-7-7Z" fill="currentColor"/>' +
+        '<g class="bm-cursor__head" transform="rotate(-34 17 17)">' +
+        '<rect x="3.2" y="3.6" width="27.6" height="9.4" rx="3" fill="currentColor"/>' +
+        '<rect x="13.8" y="13" width="6.4" height="17.6" rx="3" fill="currentColor"/>' +
+        '</g>' +
         '<circle class="bm-cursor__bomb" cx="15.5" cy="21" r="8.4" fill="currentColor"/>' +
         '<rect class="bm-cursor__bomb" x="13.4" y="10.6" width="4.3" height="3.4" rx="1.1" fill="currentColor"/>' +
         '<path class="bm-cursor__bomb" d="M17.9 11.4c3-2.3 5.5-2.1 6.9-.9" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/>' +
@@ -1086,6 +1098,15 @@ function onPointerDown(e) {
     e.preventDefault();
     swingCursor();
     hit(t, e.clientX, e.clientY, 1);
+}
+
+function swallowClick(e) {
+    if (!active) return;
+    if (e.target.closest && e.target.closest('.bm-ui, [data-break-entry]')) return;
+    if (e.target.closest && e.target.closest('a[href], button, [role="button"]')) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
 }
 
 /* Hit test by geometry rather than event target: the crack overlay and the
@@ -1159,6 +1180,13 @@ export function enter(opts) {
     buildCursor();
 
     on(document, 'pointerdown', onPointerDown);
+    /* `preventDefault` on pointerdown does not stop the click that follows, so
+       striking a card that contains a link used to smash it and then navigate
+       away from the page. Swallowing the click in the capture phase is the only
+       reliable stop, and it matters far more now that whole sections are
+       breakable: almost every surface has a link somewhere inside it. Links
+       work again the moment Break Mode exits, and the toolbar is exempt. */
+    on(document, 'click', swallowClick, true);
     on(document, 'keydown', onKey);
     on(window, 'resize', onResize, { passive: true });
 
