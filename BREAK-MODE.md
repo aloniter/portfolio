@@ -15,7 +15,12 @@ then put it back.
 ## Architecture
 
 **The real DOM is never destroyed.** Every breakable surface is opted in
-explicitly in the markup with `data-break`. All Break Mode ever does to one is:
+explicitly in the markup with `data-break` — 32 of them, covering essentially
+every content surface on the homepage: the hero eyebrow, headline, lead, rail
+and both product devices; every section heading; the Boss Blocks screens and
+control; the Inspectley hero and proof cells; the SuperPlay copy and stat
+cells; both project cards, all three list rows; the About strip; and the
+contact heading and subtitle. The site nav is deliberately not among them. All Break Mode ever does to one is:
 
 1. overlay an SVG crack sheet on top of it,
 2. nudge it with `translate` / `rotate` (composable properties, never
@@ -135,6 +140,13 @@ short impact flash, and a screen shake scaled to the hit. Three hits shatter.
 Hit-testing is by geometry, not `event.target` — the crack sheet sits above the
 surface and a link inside a card would otherwise swallow the strike.
 
+Clicks on links and buttons are swallowed in the capture phase for as long as
+the mode runs. `preventDefault` on `pointerdown` does not stop the click that
+follows, so striking a card that contained a link used to smash it *and*
+navigate away from the page. That matters far more now that whole sections are
+breakable, since almost every surface has a link somewhere inside it. Links
+work again the moment Break Mode exits.
+
 ### Bomb
 Placed rather than thrown. 900ms fuse with a lit spark, then a flash, an
 expanding shockwave and one impulse pass over every on-screen surface within
@@ -152,11 +164,19 @@ back is the markup that was given.
 
 ## The toolbar
 
-Docked top-centre, under the site's own nav, and it belongs there rather than
-at the bottom of the screen. Bottom-centre was the original home and it was
-wrong: it is the first thing lost to a dock, a window whose bottom runs
-off-screen, or a short viewport — and a visitor who cannot find the toolbar has
-no working mode at all. The top strip is always in view.
+A vertical palette down the left edge, vertically centred. Two earlier homes
+were both wrong: bottom-centre gets lost to a dock or a window whose bottom
+runs off-screen — a visitor who cannot find the toolbar has no working mode at
+all — and a top strip crowds the site's own nav. A side palette is always in
+view, clear of both, and is the shape people already read as "these are the
+tools". Icons sit over their labels rather than beside them, which is what
+keeps it 81px wide instead of 125px.
+
+**Known trade-off:** the page leaves a 53px left gutter and a labelled palette
+needs 81px, so at desktop widths it clips roughly 35px off the left edge of the
+hero headline while the mode is running. Going icon-only would fit the gutter
+exactly, at the cost of the labels that made the toolbar legible in the first
+place. Labels won.
 
 Three things carry the meaning:
 
