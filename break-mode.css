@@ -309,6 +309,9 @@
 }
 
 /* ===== TOOLBAR ===== */
+/* The bar has to stay legible over a white section and over the near-black
+   Boss Blocks stage, so it is close to opaque rather than lightly frosted, and
+   carries a defined edge plus a real drop shadow to lift it off both. */
 .bm-bar {
     position: absolute;
     left: 50%;
@@ -316,16 +319,35 @@
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 0.25rem;
-    padding: 0.3rem;
-    border: 1px solid var(--bm-hair);
+    gap: 0.3rem;
+    padding: 0.35rem;
+    border: 1px solid rgba(10, 13, 20, 0.14);
     border-radius: 999px;
-    background: var(--bm-glass);
-    -webkit-backdrop-filter: blur(18px) saturate(1.7);
-    backdrop-filter: blur(18px) saturate(1.7);
-    box-shadow: 0 1px 2px rgba(10, 13, 20, 0.06), 0 14px 40px rgba(10, 13, 20, 0.14);
+    background: rgba(255, 255, 255, 0.94);
+    -webkit-backdrop-filter: blur(20px) saturate(1.7);
+    backdrop-filter: blur(20px) saturate(1.7);
+    box-shadow: 0 1px 2px rgba(10, 13, 20, 0.08), 0 10px 24px rgba(10, 13, 20, 0.12), 0 26px 60px rgba(10, 13, 20, 0.16);
     pointer-events: auto;
     animation: bm-bar-in 340ms cubic-bezier(.16, 1, .3, 1);
+}
+
+/* The recessed track that makes the two weapons read as one either/or choice.
+   The selected tool is a solid pill sitting proud of it. */
+.bm-tools {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.2rem;
+    border-radius: 999px;
+    background: rgba(10, 13, 20, 0.06);
+    box-shadow: inset 0 1px 2px rgba(10, 13, 20, 0.07);
+}
+
+.bm-sep {
+    width: 1px;
+    height: 22px;
+    margin: 0 0.15rem;
+    background: rgba(10, 13, 20, 0.14);
 }
 
 @keyframes bm-bar-in {
@@ -336,30 +358,33 @@
 .bm-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    min-height: 40px;
-    padding: 0 0.8rem;
+    gap: 0.45rem;
+    min-height: 42px;
+    padding: 0 0.95rem;
     border: 0;
     border-radius: 999px;
     background: transparent;
-    color: var(--color-text-secondary, #596373);
+    /* Was #596373 on translucent white, which left the unselected tool looking
+       disabled rather than available. */
+    color: #39414d;
     font-family: var(--font-mono, ui-monospace, Menlo, monospace);
-    font-size: 0.68rem;
+    font-size: 0.78rem;
+    font-weight: 500;
     letter-spacing: 0.07em;
     text-transform: uppercase;
     cursor: pointer;
-    transition: background 160ms ease, color 160ms ease;
+    transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
 
 .bm-btn svg {
-    width: 15px;
-    height: 15px;
+    width: 17px;
+    height: 17px;
     flex: none;
 }
 
 .bm-btn:hover {
     color: var(--bm-ink);
-    background: rgba(10, 13, 20, 0.05);
+    background: rgba(10, 13, 20, 0.07);
 }
 
 .bm-btn:focus-visible {
@@ -367,44 +392,74 @@
     outline-offset: -2px;
 }
 
-.bm-btn[aria-pressed="true"] {
+/* The selected weapon: solid ink pill lifted out of the recessed track. This is
+   the single strongest contrast in the toolbar, because which tool is armed is
+   the one thing a visitor must never be unsure about. */
+.bm-tools .bm-btn[aria-pressed="true"] {
+    color: #fff;
+    background: var(--bm-ink);
+    box-shadow: 0 1px 2px rgba(10, 13, 20, 0.2), 0 3px 8px rgba(10, 13, 20, 0.18);
+}
+
+.bm-tools .bm-btn[aria-pressed="true"]:hover {
     color: #fff;
     background: var(--bm-ink);
 }
 
-.bm-btn--tool[aria-pressed="true"]:hover {
-    background: var(--bm-ink);
+/* Repair is an action, not a mode, so it is tinted rather than filled - a
+   filled Repair competed with the armed tool for "this is selected". */
+.bm-bar .bm-btn[data-bm="repair"] {
+    color: var(--bm-accent);
 }
 
-/* Exit is the recovery control, so it stays legible without being loud. */
+.bm-bar .bm-btn[data-bm="repair"]:hover {
+    color: #fff;
+    background: var(--bm-accent);
+}
+
 .bm-bar .bm-btn[data-bm="exit"] {
-    padding: 0 0.7rem;
-    color: var(--color-text-tertiary, #8b94a3);
+    padding: 0 0.75rem;
+    color: #5a636f;
 }
 
 .bm-bar .bm-btn[data-bm="exit"] span {
     display: none;
 }
 
-.bm-bar .bm-btn[data-bm="repair"] {
-    color: var(--bm-accent);
+.bm-bar .bm-btn[data-bm="exit"]:hover {
+    color: var(--bm-ink);
 }
 
-/* Phones: icons plus the two words that matter, and never wider than the screen. */
+/* Phones: the weapon labels stay - they are the whole point of the control -
+   and Repair drops to its icon instead, since its meaning is carried by the
+   toast that follows it. */
 @media (max-width: 560px) {
     .bm-bar {
-        gap: 0.1rem;
-        padding: 0.25rem;
+        gap: 0.2rem;
+        padding: 0.28rem;
     }
 
     .bm-btn {
-        padding: 0 0.6rem;
-        font-size: 0.6rem;
-        letter-spacing: 0.05em;
+        padding: 0 0.7rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.04em;
     }
 
-    .bm-btn--tool span {
+    .bm-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .bm-bar > .bm-btn[data-bm="repair"] span {
         display: none;
+    }
+}
+
+@media (max-width: 400px) {
+    .bm-btn {
+        gap: 0.35rem;
+        padding: 0 0.55rem;
+        font-size: 0.65rem;
     }
 }
 
@@ -412,7 +467,7 @@
 .bm-toast {
     position: absolute;
     left: 50%;
-    bottom: calc(clamp(0.75rem, 2.4vw, 1.5rem) + 60px);
+    bottom: calc(clamp(0.75rem, 2.4vw, 1.5rem) + 76px);
     max-width: min(24rem, calc(100vw - 2rem));
     margin: 0;
     padding: 0.5rem 0.9rem;
@@ -442,7 +497,7 @@
 .bm-ach {
     position: absolute;
     right: clamp(0.75rem, 2vw, 1.5rem);
-    bottom: calc(clamp(0.75rem, 2.4vw, 1.5rem) + 60px);
+    bottom: calc(clamp(0.75rem, 2.4vw, 1.5rem) + 76px);
     width: min(20rem, calc(100vw - 2rem));
     padding: 1.05rem 1.15rem 1.15rem;
     border: 1px solid var(--bm-hair);
