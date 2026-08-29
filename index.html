@@ -84,13 +84,27 @@
                 </p>
                 <div class="pg-hero__actions">
                     <a href="#boss-blocks" class="pg-btn">See the work</a>
+                    <!-- Break Mode's entry point. In the markup rather than injected by
+                         JS so it is part of the hero's composition and never pops in
+                         after paint; hidden until the `js` class is set, and removed
+                         outright by break-mode.js if the browser cannot run the mode,
+                         so it is never a button that does nothing. -->
+                    <button type="button" class="pg-break-cta" data-break-entry>
+                        <svg class="pg-break-cta__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M2.4 13.6 8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                            <path d="M7 5.2 10.8 1.4a1 1 0 0 1 1.4 0l2.4 2.4a1 1 0 0 1 0 1.4L10.8 9 7 5.2Z"
+                                stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                        </svg>
+                        <span class="pg-break-cta__full">Break this portfolio</span>
+                        <span class="pg-break-cta__short">Break it</span>
+                    </button>
                     <a href="https://www.linkedin.com/in/aloniter/" target="_blank" rel="noreferrer"
                         class="pg-link-mono pg-hero__linkedin">LinkedIn &#8599;</a>
                 </div>
             </div>
 
             <div class="pg-hero__plane">
-                <div class="pg-pillar pg-pillar--a">
+                <div class="pg-pillar pg-pillar--a" data-break>
                     <div class="pg-pillar__tilt" data-pillar="a" data-parallax="-0.03" data-parallax-m="-0.025">
                         <video class="pg-pillar__media" autoplay muted loop playsinline preload="metadata"
                             poster="assets/blockquest/v2/fight-poster.jpg"
@@ -100,7 +114,7 @@
                     </div>
                 </div>
 
-                <div class="pg-pillar pg-pillar--b">
+                <div class="pg-pillar pg-pillar--b" data-break>
                     <div class="pg-pillar__tilt" data-pillar="b" data-parallax="-0.055" data-parallax-m="-0.045">
                         <img class="pg-pillar__media" src="assets/inspectley/03_annotate.jpg?v=20260816" width="720"
                             height="1526"
