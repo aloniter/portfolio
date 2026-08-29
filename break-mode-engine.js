@@ -595,16 +595,33 @@ function placeBomb(cx, cy) {
     bombEl.setAttribute('aria-hidden', 'true');
     bombEl.style.left = cx + 'px';
     bombEl.style.top = cy + 'px';
-    bombEl.innerHTML = '<span class="bm-bomb__body"></span><span class="bm-bomb__fuse"></span><span class="bm-bomb__spark"></span>';
+    bombEl.innerHTML =
+        '<span class="bm-bomb__ring"></span>' +
+        '<span class="bm-bomb__body"></span>' +
+        '<span class="bm-bomb__cap"></span>' +
+        '<span class="bm-bomb__fuse"></span>' +
+        '<span class="bm-bomb__spark"></span>';
     uiRoot.appendChild(bombEl);
     announce('Bomb armed.');
 
     var fuse = reduced ? 420 : 900;
+
+    /* The ring closes in over exactly the fuse duration, so the countdown is
+       readable rather than something you have to already know about. */
+    var ring = bombEl.querySelector('.bm-bomb__ring');
+    if (ring) ring.style.animationDuration = fuse + 'ms';
+
+    /* Hide the tool cursor while one is live. The cursor is itself a bomb
+       glyph, so leaving it on top of the bomb it just placed reads as two
+       bombs and hides the fuse. */
+    document.documentElement.classList.add('bm-armed');
+
     bombTimer = setTimeout(function () { detonate(cx, cy); }, fuse);
 }
 
 function detonate(cx, cy) {
     bombTimer = null;
+    document.documentElement.classList.remove('bm-armed');
     if (bombEl && bombEl.parentNode) bombEl.parentNode.removeChild(bombEl);
     bombEl = null;
     if (!active) return;
@@ -662,6 +679,7 @@ function detonate(cx, cy) {
 function repair() {
     if (bombTimer) { clearTimeout(bombTimer); bombTimer = null; }
     if (bombEl && bombEl.parentNode) { bombEl.parentNode.removeChild(bombEl); bombEl = null; }
+    document.documentElement.classList.remove('bm-armed');
 
     emit('break_mode_repaired', { hits: stats.hits, shattered: stats.shattered });
 
@@ -1181,7 +1199,7 @@ export function exit() {
 
     document.documentElement.style.translate = '';
     tidyStyle(document.documentElement);
-    document.documentElement.classList.remove('bm-on', 'bm-coarse', 'bm-reduced');
+    document.documentElement.classList.remove('bm-on', 'bm-coarse', 'bm-reduced', 'bm-armed');
     delete document.documentElement.dataset.bmTool;
 
     shake = { t: 0, mag: 0 };
