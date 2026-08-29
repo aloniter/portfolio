@@ -351,7 +351,13 @@
 .bm-bar {
     position: absolute;
     left: 50%;
-    bottom: clamp(0.75rem, 2.4vw, 1.5rem);
+    /* Docked under the site's own nav, which ends at 100px on desktop and 84px
+       on phones. Bottom-centre was the original home and it is the wrong place
+       for the primary control of a mode: it is the first thing lost to a dock,
+       a window whose bottom runs off-screen, or a short viewport - and if a
+       visitor cannot find the toolbar, the mode is simply broken for them.
+       The top strip is always in view and is where an active-mode bar belongs. */
+    top: 112px;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
@@ -365,6 +371,25 @@
     box-shadow: 0 1px 2px rgba(10, 13, 20, 0.08), 0 10px 24px rgba(10, 13, 20, 0.12), 0 26px 60px rgba(10, 13, 20, 0.16);
     pointer-events: auto;
     animation: bm-bar-in 340ms cubic-bezier(.16, 1, .3, 1);
+}
+
+/* Names the mode. Ink-filled so it reads as a status chip rather than another
+   button someone might try to press. */
+.bm-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 0.7rem;
+    height: 30px;
+    margin-left: 0.2rem;
+    border-radius: 999px;
+    background: var(--bm-ink);
+    color: #fff;
+    font-family: var(--font-mono, ui-monospace, Menlo, monospace);
+    font-size: 0.64rem;
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
 /* The recessed track that makes the two weapons read as one either/or choice.
@@ -387,7 +412,7 @@
 }
 
 @keyframes bm-bar-in {
-    from { transform: translate(-50%, 14px); opacity: 0; }
+    from { transform: translate(-50%, -16px); opacity: 0; }
     to   { transform: translateX(-50%); opacity: 1; }
 }
 
@@ -458,9 +483,8 @@
     color: #5a636f;
 }
 
-.bm-bar .bm-btn[data-bm="exit"] span {
-    display: none;
-}
+/* Exit keeps its word on desktop. A bare glyph is the one control a visitor
+   most needs to be certain about before they click it. */
 
 .bm-bar .bm-btn[data-bm="exit"]:hover {
     color: var(--bm-ink);
@@ -471,8 +495,19 @@
    toast that follows it. */
 @media (max-width: 560px) {
     .bm-bar {
+        top: 92px;
         gap: 0.2rem;
         padding: 0.28rem;
+    }
+
+    /* No room for the mode name next to two labelled weapons on a phone. The
+       weapons win: they are the control, the badge is only context. */
+    .bm-badge {
+        display: none;
+    }
+
+    .bm-bar .bm-btn[data-bm="exit"] span {
+        display: none;
     }
 
     .bm-btn {
@@ -503,11 +538,13 @@
 .bm-toast {
     position: absolute;
     left: 50%;
-    bottom: calc(clamp(0.75rem, 2.4vw, 1.5rem) + 76px);
+    /* Directly under the bar it belongs to, so the cue and the controls it
+       describes are one cluster instead of being at opposite ends of the page. */
+    top: 186px;
     max-width: min(24rem, calc(100vw - 2rem));
     margin: 0;
     padding: 0.5rem 0.9rem;
-    transform: translate(-50%, 8px);
+    transform: translate(-50%, -8px);
     border-radius: 999px;
     background: rgba(10, 13, 20, 0.88);
     -webkit-backdrop-filter: blur(10px);
@@ -533,7 +570,7 @@
 .bm-ach {
     position: absolute;
     right: clamp(0.75rem, 2vw, 1.5rem);
-    bottom: calc(clamp(0.75rem, 2.4vw, 1.5rem) + 76px);
+    top: 186px;
     width: min(20rem, calc(100vw - 2rem));
     padding: 1.05rem 1.15rem 1.15rem;
     border: 1px solid var(--bm-hair);
@@ -543,7 +580,7 @@
     backdrop-filter: blur(20px) saturate(1.8);
     box-shadow: 0 1px 2px rgba(10, 13, 20, 0.06), 0 22px 60px rgba(10, 13, 20, 0.18);
     opacity: 0;
-    transform: translateY(14px) scale(0.97);
+    transform: translateY(-14px) scale(0.97);
     pointer-events: auto;
     transition: opacity 380ms ease, transform 380ms cubic-bezier(.16, 1, .3, 1);
 }
@@ -610,7 +647,14 @@
     .bm-ach {
         left: clamp(0.75rem, 2vw, 1.5rem);
         right: clamp(0.75rem, 2vw, 1.5rem);
+        top: 164px;
         width: auto;
+    }
+
+    /* The bar ends at 151px on a phone; this keeps the same 12px gap the
+       desktop layout uses rather than letting the two touch. */
+    .bm-toast {
+        top: 163px;
     }
 }
 

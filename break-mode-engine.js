@@ -915,6 +915,14 @@ function buildUI() {
     bar.setAttribute('role', 'toolbar');
     bar.setAttribute('aria-label', 'Break mode tools');
 
+    /* Naming the mode on the bar itself. Without it the controls float with no
+       stated context, and a visitor who clicked once in the hero has to infer
+       both that a mode is running and that this strip is how to drive it. */
+    var badge = document.createElement('span');
+    badge.className = 'bm-badge';
+    badge.textContent = 'Break mode';
+    bar.appendChild(badge);
+
     /* The bomb went through two stroked versions that both read as the Mars
        glyph: a ring plus a diagonal spur is that symbol, whatever the spur is
        meant to be. What fixes it is weight and silhouette rather than detail -
