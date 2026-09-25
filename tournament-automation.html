@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>document.documentElement.className += ' js';</script>
 
-    <title>Tournament Automation - Alon Iter</title>
+    <title>Turning Repeated Work into a System - Alon Iter</title>
     <meta name="description"
-        content="A repeated LiveOps setup job at SuperPlay, turned into a system that generates the configuration, validates it, and produces the recurring output. Sanitized case study.">
+        content="A recurring manual task on a live product, turned into a system with the checks built in. Internal work at SuperPlay, shown without implementation details.">
     <link rel="canonical" href="https://aloniter.github.io/portfolio/tournament-automation.html">
 
     <link rel="icon"
@@ -38,10 +38,14 @@
     <section class="project-hero">
         <div class="container">
             <a href="index.html#work" class="back-link">&larr; Selected work</a>
-            <p class="eyebrow"><span class="dot"></span>Systems &middot; Internal tool at SuperPlay</p>
-            <h1 class="project-hero-title">Tournament Automation</h1>
+            <p class="eyebrow"><span class="dot"></span>Systems &middot; LiveOps at SuperPlay</p>
+            <h1 class="project-hero-title">I kept seeing the same work. So I turned it into a system.</h1>
             <p class="project-hero-subtitle">
-                A repeated LiveOps setup job, turned into a system that runs it.
+                A recurring operational task was being done manually, again and again. It worked, but it was
+                repetitive, easy to get wrong, and nobody had really questioned why it still needed to be manual.
+            </p>
+            <p class="case-text" style="margin:-0.75rem 0 2rem">
+                <strong>Nobody assigned me to fix it.</strong> I just kept running into the same friction.
             </p>
 
             <dl class="project-facts">
@@ -57,127 +61,70 @@
                     <dt>Status</dt>
                     <dd>In production</dd>
                 </div>
-                <div>
-                    <dt>Result</dt>
-                    <dd>~10 min removed per tournament</dd>
-                </div>
             </dl>
 
             <p class="sanitized-note">
-                This is internal work, so everything here is deliberately generic: no game data, no configuration
-                values, no internal names, no screenshots. The diagram uses placeholder labels. What's described is the
-                shape of the problem and what I built, not the contents.
+                This was internal work, so the implementation details, data and systems are intentionally not shown.
             </p>
         </div>
     </section>
-
-    <div class="container project-visual">
-        <div class="stage stage--systems reveal">
-            <div class="window">
-                <div class="window-bar">
-                    <span></span><span></span><span></span>
-                    <em>tournament setup - before / after</em>
-                </div>
-                <img src="assets/tournament-automation/flow.svg"
-                    alt="Flow diagram. Before: manual configuration, repeated setup, manual validation, recurring communication. After: inputs feed an automation engine, then validation rules, generated configuration and recurring output.">
-            </div>
-        </div>
-    </div>
 
     <section class="case-body">
         <div class="container">
 
             <div class="case">
-                <h2 class="case-title" data-step="01">Problem</h2>
+                <h2 class="case-title" data-step="01">The call</h2>
                 <p class="case-text">
-                    Getting a tournament live meant the same work every time: build the configuration, apply the
-                    segmentation, set the participation tiers, check it all by hand, then produce the recurring output
-                    that goes out alongside it. None of it was hard. All of it was repeated, and repeated
-                    configuration work is where mistakes come from, not from the difficult decisions, but from
-                    the twentieth time you type the same thing slightly differently.
+                    The obvious solution was better documentation or a checklist. I didn't think that solved the real
+                    problem.
                 </p>
                 <p class="case-text">
-                    Nobody assigned this. It was just the part of the week that kept costing time for no good reason.
+                    If people still have to repeat the same steps every time, the opportunity for mistakes is still
+                    there. So instead of documenting the process, <b>I built a system that handled the repetitive part
+                    itself.</b>
                 </p>
             </div>
 
             <div class="case">
-                <h2 class="case-title" data-step="02">Decisions</h2>
+                <h2 class="case-title" data-step="02">Building for the failure case</h2>
+                <p class="case-text">
+                    Automation alone wasn't enough. The more important part was deciding what should never be allowed
+                    to quietly go wrong, and building those checks directly into the workflow.
+                </p>
+                <p class="case-text">That meant making product decisions, not just technical ones:</p>
+                <ul class="case-list">
+                    <li>What counts as an error?</li>
+                    <li>What should stop the process?</li>
+                    <li>What should still be allowed?</li>
+                </ul>
                 <div class="decisions">
                     <article class="decision">
-                        <h3 class="decision-title">Generate the configuration, don't document it</h3>
                         <p>
-                            The cheap fix is a checklist or a template, but a checklist still leaves a person
-                            typing the same values in, which is the part that goes wrong. So the system produces the
-                            configuration itself from a small set of inputs.
-                            <span class="cost"><b>What it costs</b>: every variant has to be encoded up front.
-                            The segmentation options and participation tiers had to be pinned down as rules before
-                            anything could be generated, and that is slower than writing a document.</span>
-                        </p>
-                    </article>
-                    <article class="decision">
-                        <h3 class="decision-title">Validation inside the system, not after it</h3>
-                        <p>
-                            The checks run as part of generating the output rather than as a separate review pass, so a
-                            configuration can't quietly come out wrong and then get caught by whoever happens to be
-                            looking.
-                            <span class="cost"><b>What it costs</b>: you have to decide in advance what counts
-                            as wrong, which is a real design decision rather than a technical one. Get the rules too
-                            loose and the validation is decoration; too strict and it blocks legitimate setups.</span>
+                            Too little validation and it doesn't protect anyone. Too much and the tool becomes harder
+                            to use than the problem it replaced.
                         </p>
                     </article>
                 </div>
             </div>
 
             <div class="case">
-                <h2 class="case-title" data-step="03">Build</h2>
-                <ul class="case-list">
-                    <li><b>Configuration generation</b> from a small set of inputs, instead of manual setup</li>
-                    <li><b>Segmentation logic</b> covering multiple variants, so the common cases don't need hand-editing
-                    </li>
-                    <li><b>Participation tiers</b> handled as part of the configuration rather than bolted on afterwards
-                    </li>
-                    <li><b>Validation rules</b> that run on every generated configuration</li>
-                    <li><b>Automated recurring output</b>, produced on schedule rather than assembled each time</li>
-                </ul>
-            </div>
-
-            <div class="case">
-                <h2 class="case-title" data-step="04">Result</h2>
-                <ul class="metrics">
-                    <li>
-                        <b>~10 min</b>
-                        <span>Of manual setup removed from every tournament</span>
-                    </li>
-                    <li>
-                        <b>In production</b>
-                        <span>Running as part of the real LiveOps workflow</span>
-                    </li>
-                </ul>
+                <h2 class="case-title" data-step="03">Outcome</h2>
                 <p class="case-text">
-                    The ten minutes is the easy number to quote and the least interesting part. What actually changed is
-                    that the repeated configuration work is gone, so the failure mode it created is gone with it. The
-                    same output comes out the same way every time, and the checks happen whether or not anyone remembers
-                    to do them.
+                    The repetitive work became part of a reliable internal workflow, with checks happening
+                    automatically instead of depending on someone remembering them.
+                </p>
+                <p class="case-text">
+                    The biggest win wasn't a few minutes saved. <b>It was removing an entire class of avoidable
+                    mistakes.</b>
                 </p>
             </div>
 
-            <div class="case">
-                <h2 class="case-title" data-step="05">Stack</h2>
-                <ul class="stack">
-                    <li>Configuration generation</li>
-                    <li>Segmentation logic</li>
-                    <li>Validation rules</li>
-                    <li>Scheduled output</li>
-                    <li>AI-assisted build</li>
-                </ul>
-            </div>
-
             <div class="content-cta">
-                <h2 class="cta-title">This is the part of the job I go looking for.</h2>
+                <h2 class="cta-title">What this says about how I work</h2>
                 <p class="cta-text">
-                    Repeated work that nobody's been asked to fix. Happy to talk through how this one was built, within
-                    what I can share.
+                    I like finding the parts of a product or operation that everyone has learned to tolerate (repeated
+                    work, fragile workflows, manual checks) and asking whether they should exist at all. Then, when it
+                    makes sense, I build the thing that removes them.
                 </p>
                 <div class="project-cta">
                     <a href="index.html#contact" class="btn btn-primary">Get in touch</a>
