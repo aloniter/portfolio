@@ -33,7 +33,7 @@
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d786a'/%3E%3Ctext x='16' y='23' font-family='Sora,Arial,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 
-    <link rel="stylesheet" href="styles.css?v=20260829-1">
+    <link rel="stylesheet" href="styles.css?v=20260925-1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Manrope + JetBrains Mono carry the redesigned sections (hero, Boss Blocks,
@@ -113,6 +113,10 @@
             <div class="pg-hero__plane">
                 <div class="pg-pillar pg-pillar--a" data-break>
                     <div class="pg-pillar__tilt" data-pillar="a" data-parallax="-0.03" data-parallax-m="-0.025">
+                        <!-- The only video with native `autoplay`: it is the first screen.
+                             Every video below the fold uses `data-autoplay` + preload="none",
+                             so main.js starts it on approach instead of the browser fetching
+                             it on page load (native autoplay overrides preload). -->
                         <video class="pg-pillar__media" autoplay muted loop playsinline preload="metadata"
                             poster="assets/blockquest/v2/fight-poster.jpg"
                             aria-label="Boss Blocks gameplay: an 8x8 puzzle board, the boss health bar above it, and a three-piece tray below">
@@ -175,7 +179,7 @@
                         alt="Boss Blocks: an earlier boss of the same world, its blocks scattered across the player's board">
                 </div>
                 <div class="pg-stage__lead" data-break data-parallax="-0.05" data-parallax-m="-0.03">
-                    <video autoplay muted loop playsinline preload="metadata"
+                    <video data-autoplay muted loop playsinline preload="none"
                         poster="assets/blockquest/v2/fight-poster.jpg"
                         aria-label="Boss Blocks gameplay: clearing a line takes a chunk out of the boss standing over the board">
                         <source src="assets/blockquest/v2/fight-loop.m4v" type="video/mp4">
@@ -320,7 +324,7 @@
 
          So the shape is different on purpose: left-aligned instead of centred,
          a statement instead of a product name, evidence instead of media, and
-         no case-study link. Asymmetry is the point - it reads as the hinge
+         one quiet text link instead of a case-study button. Asymmetry is the point - it reads as the hinge
          between "products I built" and "other things I built".
 
          This also absorbs the old "The day job" band further down the page,
@@ -345,6 +349,12 @@
                     <li>Internal systems</li>
                     <li>Live game at scale</li>
                 </ul>
+                <!-- One written-up example, told as how I work rather than what the
+                     tool does, so it adds no internal detail to this section. -->
+                <p style="margin-top:26px">
+                    <a href="tournament-automation.html" class="pg-link-underline">See one example <span
+                            class="pg-arrow" aria-hidden="true">&rarr;</span></a>
+                </p>
             </div>
 
             <div class="pg-work__proof">
@@ -448,7 +458,7 @@
                              clip is cropped to the slot's own aspect so nothing is cut,
                              and the poster is its first frame, which is what a
                              reduced-motion visitor gets. -->
-                        <video autoplay muted loop playsinline preload="metadata"
+                        <video data-autoplay muted loop playsinline preload="none"
                             poster="assets/beat-runner/gameplay-poster.jpg"
                             aria-label="Beat Runner gameplay: the player orb running a neon lane, dodging obstacles and collecting orbs">
                             <source src="assets/beat-runner/gameplay-loop.mp4" type="video/mp4">
@@ -473,7 +483,7 @@
                              on the deck, which is the only footage in the repo that shows
                              the gesture the copy claims, and the turntables are unobscured
                              in it. Cropped above the recorder's watermark. -->
-                        <video autoplay muted loop playsinline preload="metadata"
+                        <video data-autoplay muted loop playsinline preload="none"
                             poster="assets/house-party-vr/room-poster.jpg"
                             aria-label="House Party VR: a virtual DJ deck and avatar standing in a real living room on Quest 3 passthrough, with a hand reaching for the deck">
                             <source src="assets/house-party-vr/room-loop.mp4" type="video/mp4">

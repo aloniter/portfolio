@@ -1962,12 +1962,12 @@ button:focus-visible {
 
 .pg-pillar--a .pg-pillar__tilt {
     transform: rotate(-3deg);
-    animation: pgRiseA 1.1s var(--pg-ease) 0.26s both;
+    animation: pgRiseA 0.65s var(--pg-ease) 0.12s both;
 }
 
 .pg-pillar--b .pg-pillar__tilt {
     transform: rotate(2.5deg);
-    animation: pgRiseB 1.15s var(--pg-ease) 0.2s both;
+    animation: pgRiseB 0.7s var(--pg-ease) 0.08s both;
 }
 
 .pg-pillar__media {
