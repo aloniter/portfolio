@@ -51,9 +51,11 @@
 
     <!-- ===== HERO =====
          Same shape as Boss Blocks: status, name, one line, then the game. The
-         difference is a Play button, because this one is live. The screen is
-         the title card: it names the game and its inspiration in one frame,
-         and the loop gets its own screens further down. -->
+         difference is a Play button, because this one is live. The clip is a
+         31 s trailer cut from real screens of the live build (a level solved
+         move by move, the map, the Forest Home, the family). It ends on the
+         title card, which is also the poster: no JS, reduced motion or blocked
+         autoplay all show the same still the loop comes to rest on. -->
     <header class="cs-hero">
         <div class="cs-wrap">
             <a href="index.html#gorilla-bloom" class="cs-back">&larr; Selected work</a>
@@ -72,8 +74,11 @@
 
         <div class="cs-stage cs-stage--forest">
             <figure class="cs-phone cs-phone--hero">
-                <img src="assets/gorilla-bloom/title.webp" width="600" height="1298"
-                    alt="Gorilla Bloom title screen: the game's logo over Rwanda's volcanic mountains, a silverback and a baby gorilla, a Play button and the line Inspired by Rwanda's mountain gorillas">
+                <video autoplay muted loop playsinline preload="metadata"
+                    poster="assets/gorilla-bloom/title.webp"
+                    aria-label="Gorilla Bloom trailer: a fading forest blooms again, a level of fruit baskets is sorted move by move, the valley map comes back to life, the Forest Home grows through all five improvements, the gorilla family appears, and it ends on the title screen">
+                    <source src="assets/gorilla-bloom/trailer.mp4" type="video/mp4">
+                </video>
             </figure>
         </div>
 
