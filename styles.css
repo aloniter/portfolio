@@ -779,6 +779,49 @@ button:focus-visible {
     font-weight: 700;
 }
 
+/* --- Tier lead: one supporting build shown at more than thumbnail size ---
+   Gorilla Bloom, above the two-up. Same type as a duo item (it is one), with
+   the screens beside the text instead of above it, so it reads as the first
+   entry of this tier rather than a third flagship. The screens use the strip:
+   three in product order, the middle one taller. The ground is the game's own
+   leaf green at a whisper, there only to hold three screens together as one
+   picture on the light page. */
+.feat {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: clamp(2rem, 4.2vw, 3.75rem);
+    align-items: center;
+    margin-bottom: clamp(2.5rem, 4.4vw, 3.5rem);
+}
+
+.feat-media {
+    padding: clamp(1.6rem, 2.8vw, 2.4rem) clamp(1rem, 2.2vw, 1.8rem) clamp(1.1rem, 2vw, 1.6rem);
+    border-radius: var(--radius-xl);
+    background:
+        radial-gradient(80% 60% at 50% 0%, rgba(255, 255, 255, 0.75), transparent 72%),
+        linear-gradient(170deg, #eef4ec 0%, #e1ecde 100%);
+}
+
+.feat-media .strip {
+    --strip-h: clamp(220px, 23vw, 320px);
+    margin-top: 0;
+}
+
+.feat-body {
+    max-width: 46ch;
+}
+
+/* Beside the screens, a rule above the name would hang in open space. It comes
+   back when the screens stack above the text, as in the two-up. */
+.feat .feat-body h3 {
+    padding-top: 0;
+    border-top: 0;
+}
+
+.feat .duo-lead {
+    font-size: 1.1rem;
+}
+
 /* ===== WORK: TIER 3, COMPACT ROWS =====
    The densest tier: a thumbnail, one payoff line, the links. Still a real
    entry with real evidence, just not a viewport each. */
@@ -1132,6 +1175,25 @@ button:focus-visible {
         gap: 2.25rem;
     }
 
+    /* Screens above the text, like the two-up below it */
+    .feat {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.4rem;
+    }
+
+    .feat-body {
+        max-width: none;
+    }
+
+    .feat .feat-body h3 {
+        padding-top: 0.9rem;
+        border-top: 1px solid var(--hair);
+    }
+
+    .feat-media .strip {
+        --strip-h: clamp(220px, 40vw, 300px);
+    }
+
     .band-grid,
     .about-strip {
         grid-template-columns: minmax(0, 1fr);
@@ -1248,6 +1310,33 @@ button:focus-visible {
         margin-top: 0.6rem;
         font-size: 0.6rem;
         letter-spacing: 0.05em;
+    }
+
+    /* Three phone screens side by side come out ~80px wide on a phone. The
+       outer two tuck 12px behind the lead instead, and the height is solved
+       from the viewport so the cluster fills the panel's width exactly:
+       3.16 screen widths (0.462 x height each) less the two overlaps. */
+    .feat-media {
+        padding: 22px 12px 14px;
+        border-radius: var(--radius-lg);
+    }
+
+    .feat-media .strip {
+        --strip-h: min(calc(68vw - 24px), 280px);
+        gap: 0;
+    }
+
+    .feat .strip-shot:first-child {
+        margin-right: -12px;
+    }
+
+    .feat .strip-shot:last-child {
+        margin-left: -12px;
+    }
+
+    .feat .strip-shot--lead {
+        position: relative;
+        z-index: 1;
     }
 
     /* Every image in this row is a purpose-built crop now, so mobile shows each

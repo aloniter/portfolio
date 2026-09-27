@@ -15,12 +15,12 @@ then put it back.
 ## Architecture
 
 **The real DOM is never destroyed.** Every breakable surface is opted in
-explicitly in the markup with `data-break` — 32 of them, covering essentially
+explicitly in the markup with `data-break` — 33 of them, covering essentially
 every content surface on the homepage: the hero eyebrow, headline, lead, rail
 and both product devices; every section heading; the Boss Blocks screens and
 control; the Inspectley hero and proof cells; the SuperPlay copy and stat
-cells; both project cards, all three list rows; the About strip; and the
-contact heading and subtitle. The site nav is deliberately not among them. All Break Mode ever does to one is:
+cells; the Gorilla Bloom entry, both project cards, all three list rows; the
+About strip; and the contact heading and subtitle. The site nav is deliberately not among them. All Break Mode ever does to one is:
 
 1. overlay an SVG crack sheet on top of it,
 2. nudge it with `translate` / `rotate` (composable properties, never

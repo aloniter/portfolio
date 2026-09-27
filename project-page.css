@@ -454,6 +454,11 @@
     text-wrap: pretty;
 }
 
+/* A live product gets its Play button before the screen, not only at the end */
+.cs-hero__cta {
+    margin: 30px 0 0;
+}
+
 .cs-hero__foot {
     display: flex;
     align-items: center;
@@ -488,6 +493,21 @@
 
 .cs-stage--tight {
     margin: 38px 0 0;
+}
+
+/* Gorilla Bloom: the same stage in the game's own rainforest green (its
+   theme colour is #16290f), so a fire-lit ground never sits behind a glade. */
+.cs-stage--forest {
+    background:
+        radial-gradient(120% 90% at 50% 0%, #22401d 0%, transparent 60%),
+        linear-gradient(180deg, #13220f 0%, #0a1409 100%);
+    background-color: #0a1409;
+    /* The screens' long shadows otherwise spill past the stage onto paper */
+    overflow: hidden;
+}
+
+.cs-stage--forest .cs-phone img {
+    background: #0a1409;
 }
 
 .cs-phone {
@@ -746,6 +766,29 @@
 
     .cs-duo .cs-phone {
         width: min(300px, 78vw);
+    }
+
+    /* Gorilla Bloom has four pairs, and each is a comparison (a lost board and
+       its card, a first visit and a finished glade). Stacked, that is eight
+       full-height phones on a phone; side by side, each pair reads as one. */
+    .cs-stage--forest .cs-duo {
+        flex-wrap: nowrap;
+        gap: 12px;
+    }
+
+    .cs-stage--forest .cs-duo .cs-phone {
+        width: calc(50% - 6px);
+        max-width: 240px;
+    }
+
+    .cs-stage--forest .cs-duo .cs-phone img {
+        border-radius: 12px;
+    }
+
+    .cs-stage--forest .cs-duo .cs-cap {
+        margin-top: 12px;
+        font-size: 0.62rem;
+        letter-spacing: 0.02em;
     }
 
     .cs-hero__foot {
