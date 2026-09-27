@@ -33,7 +33,7 @@
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d786a'/%3E%3Ctext x='16' y='23' font-family='Sora,Arial,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 
-    <link rel="stylesheet" href="styles.css?v=20260925-1">
+    <link rel="stylesheet" href="styles.css?v=20260927-1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Manrope + JetBrains Mono carry the redesigned sections (hero, Boss Blocks,
@@ -381,6 +381,53 @@
             <div class="tier-head" data-break>
                 <h2>Also built, still running.</h2>
             </div>
+
+            <!-- Gorilla Bloom leads this tier rather than joining the two-up or
+                 becoming flagship 03. It is the one supporting build that shows
+                 the whole arc (an idea from a trip, a shipped loop, a playtest
+                 that changed the rules, a live build), and it is visual enough
+                 to need its screens at more than thumbnail size. It is still a
+                 supporting build: no users beyond a family playtest, no store
+                 release, and a second puzzle game next to Boss Blocks, so it
+                 keeps this tier's type scale and sits inside its section.
+
+                 The three screens are the loop in product order: sort, spend the
+                 Leaves on the family's home, meet the family. -->
+            <article class="duo-item feat reveal" id="gorilla-bloom" data-break>
+                <div class="feat-media">
+                    <div class="strip">
+                        <figure class="strip-shot">
+                            <img src="assets/gorilla-bloom/puzzle-sm.webp" width="400" height="866" loading="lazy"
+                                alt="Gorilla Bloom puzzle, level 12: eight woven baskets of berries, bananas, oranges, plums and bamboo, one of them selected">
+                            <figcaption><span>01</span> Puzzle</figcaption>
+                        </figure>
+                        <figure class="strip-shot strip-shot--lead">
+                            <img src="assets/gorilla-bloom/forest-home-sm.webp" width="400" height="866" loading="lazy"
+                                alt="Gorilla Bloom Forest Home: the gorilla family in a glade of ferns and bamboo, the baby on a vine, and a Build button for the next improvement">
+                            <figcaption><span>02</span> Forest Home</figcaption>
+                        </figure>
+                        <figure class="strip-shot">
+                            <img src="assets/gorilla-bloom/family-sm.webp" width="400" height="866" loading="lazy"
+                                alt="Gorilla Bloom family screen: the silverback, the mother and the named baby above a Did you know? card with a mountain-gorilla fact">
+                            <figcaption><span>03</span> Family</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="feat-body">
+                    <h3>Gorilla Bloom</h3>
+                    <p class="duo-meta">Mobile web &middot; Playable</p>
+                    <p class="duo-lead">Started on a trip to Rwanda: a cozy sorting puzzle where every level you clear
+                        restores the forest around a mountain-gorilla family.</p>
+                    <p class="duo-ev">A family playtest found levels that one early move could quietly lose. The fix
+                        became a rule every level is checked against: <b>no first move can lose a level</b>.</p>
+                    <p class="duo-ev"><b>Two days</b> from first commit to a live, playtested build.</p>
+                    <div class="flag-links">
+                        <a href="gorilla-bloom.html" class="link-primary">Case study &rarr;</a>
+                        <a href="https://gorilla-guardian.vercel.app/" target="_blank" rel="noreferrer"
+                            class="link-secondary">Play the game &#8599;</a>
+                    </div>
+                </div>
+            </article>
 
             <div class="duo reveal-stagger">
                 <article class="duo-item reveal" data-break>

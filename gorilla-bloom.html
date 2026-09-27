@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.className += ' js';</script>
+
+    <title>Gorilla Bloom - Alon Iter</title>
+    <meta name="description"
+        content="A cozy mobile puzzle game that started on a trip to Rwanda. The loop behind it, the family playtest that rewrote its level rules, and a Hint that never guesses.">
+    <link rel="canonical" href="https://aloniter.github.io/portfolio/gorilla-bloom.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Gorilla Bloom - Alon Iter">
+    <meta property="og:description"
+        content="From a trip to Rwanda to a live mobile game: the restoration loop, the playtest that made fairness a rule, and a Hint that never guesses.">
+    <meta property="og:url" content="https://aloniter.github.io/portfolio/gorilla-bloom.html">
+    <meta property="og:site_name" content="Alon Iter">
+    <meta property="og:image" content="https://aloniter.github.io/portfolio/assets/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Alon Iter, Product Builder: games, apps, internal tools">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://aloniter.github.io/portfolio/assets/og-image.png">
+
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d786a'/%3E%3Ctext x='16' y='23' font-family='Sora,Arial,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="styles.css?v=20260927-1">
+    <link rel="stylesheet" href="project-page.css?v=20260927-1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Public+Sans:wght@300;400;500;600;700&amp;family=Sora:wght@500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="cs">
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Alon Iter</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Work</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO =====
+         Same shape as Boss Blocks: status, name, one line, then the game. The
+         difference is a Play button, because this one is live. The screen is
+         the title card: it names the game and its inspiration in one frame,
+         and the loop gets its own screens further down. -->
+    <header class="cs-hero">
+        <div class="cs-wrap">
+            <a href="index.html#gorilla-bloom" class="cs-back">&larr; Selected work</a>
+            <p class="pg-eyebrow pg-eyebrow--mint cs-eyebrow">
+                <span class="pg-dot"></span>
+                <span class="pg-mono">Live &middot; Mobile web</span>
+            </p>
+            <h1 class="cs-title">Gorilla Bloom</h1>
+            <p class="cs-lede">A cozy sorting puzzle that started on a trip to Rwanda. Every level you clear restores
+                the forest around a mountain-gorilla family.</p>
+            <p class="cs-hero__cta">
+                <a href="https://gorilla-guardian.vercel.app/" target="_blank" rel="noreferrer" class="pg-btn">Play
+                    Gorilla Bloom <span class="pg-arrow" aria-hidden="true">&#8599;</span></a>
+            </p>
+        </div>
+
+        <div class="cs-stage cs-stage--forest">
+            <figure class="cs-phone cs-phone--hero">
+                <img src="assets/gorilla-bloom/title.webp" width="600" height="1298"
+                    alt="Gorilla Bloom title screen: the game's logo over Rwanda's volcanic mountains, a silverback and a baby gorilla, a Play button and the line Inspired by Rwanda's mountain gorillas">
+            </figure>
+        </div>
+
+        <div class="cs-wrap cs-hero__foot">
+            <!-- Ownership and pace, stated once. The page is the evidence. -->
+            <p class="cs-owner">Designed and built solo. First commit to live build: two days.</p>
+            <ul class="pg-meta">
+                <li>Phaser</li>
+                <li>TypeScript</li>
+                <li>Installable, works offline</li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== 01 ORIGIN ===== -->
+        <section class="cs-sec">
+            <div class="cs-wrap cs-grid">
+                <p class="cs-num">01</p>
+                <div class="cs-col">
+                    <h2 class="cs-h2">The idea came from a trip to Rwanda.</h2>
+                    <p class="cs-p">I was traveling in Rwanda when it started: the mountain gorillas, and the
+                        conservation work built around them. The question I came home with was a product one. Could
+                        that interest live in something people open for five minutes, rather than something they
+                        read once?</p>
+                    <p class="cs-p">So the game is a cozy sorting puzzle, the thing you actually do, and a forest and
+                        a gorilla family are the reason to keep doing it.</p>
+                    <p class="cs-cost"><b>What it costs</b>: no borrowed credibility. The game says it is inspired by
+                        Rwanda's mountain gorillas and stops there: no partnership or donation claims, and nothing
+                        suggesting that playing restores real habitat.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 02 THE LOOP ===== -->
+        <section class="cs-sec">
+            <div class="cs-wrap cs-grid">
+                <p class="cs-num">02</p>
+                <div class="cs-col">
+                    <h2 class="cs-h2">Sort fruit. Restore the valley. Grow the family's home.</h2>
+                    <p class="cs-p">Each level is a sort: fruit, leaves and bamboo into woven baskets, one group at a
+                        time. Clearing it restores more of the Volcanoes National Park map and earns Leaves. At level
+                        3 the first stretch of forest heals, a baby gorilla joins the family, and you name her.</p>
+                    <p class="cs-p">Leaves have exactly one use: five fixed improvements to the family's Forest Home,
+                        each a visible change to the same glade. <b>Restoration counts levels completed, never the
+                        Leaf balance</b>, so spending can never make Rwanda look less restored.</p>
+                    <p class="cs-cost"><b>What it costs</b>: no shop, no boosters, no energy, no daily rewards. Fewer
+                        retention levers, on purpose, for one loop a player can read at a glance.</p>
+                </div>
+            </div>
+            <div class="cs-stage cs-stage--forest cs-stage--tight">
+                <div class="cs-duo">
+                    <figure class="cs-phone">
+                        <img src="assets/gorilla-bloom/puzzle.webp" width="600" height="1298" loading="lazy"
+                            alt="Gorilla Bloom level 12 in play: eight woven baskets of berries, bananas, oranges, plums and bamboo, one selected, with Undo, Restart and Hint below">
+                        <figcaption class="cs-cap cs-cap--on-dark">Tap a basket to lift its top group, tap another to
+                            drop it.</figcaption>
+                    </figure>
+                    <figure class="cs-phone">
+                        <img src="assets/gorilla-bloom/map.webp" width="600" height="1298" loading="lazy"
+                            alt="Gorilla Bloom map: a winding path of level nodes through Volcanoes National Park, a Forest Home entrance reading Vine Play, ready to build, and a Rwanda card showing forest restored 55%">
+                        <figcaption class="cs-cap cs-cap--on-dark">Restoration counts levels. Leaves go to the Forest
+                            Home.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 03 THE PLAYTEST ===== -->
+        <section class="cs-sec">
+            <div class="cs-wrap cs-grid">
+                <p class="cs-num">03</p>
+                <div class="cs-col">
+                    <h2 class="cs-h2">A family playtest showed me the levels weren't fair.</h2>
+                    <p class="cs-p">Some levels hinged on one exact sequence. A single early move could make them
+                        unwinnable, and nothing told you. It felt like bad luck, which is the one thing a puzzle can't
+                        afford to feel like.</p>
+                    <p class="cs-p">Every level is small enough to solve completely, so I checked every reachable
+                        position of all 20. It wasn't a couple of bad levels: on the hardest "Plan ahead!" boards,
+                        random play lost within three moves 60-72% of the time.</p>
+                    <p class="cs-p">So fairness became three rules the level generator and the test suite enforce:
+                        <b>no first move, and no two-move opening, can lose a level</b>; every level after the
+                        tutorial has at least two real ways to start; and there is always a shortest route that never
+                        forces your hand twice in a row. Broken levels were repaired with the smallest item swaps that
+                        passed, so they stayed recognisable.</p>
+                    <p class="cs-cost"><b>What it costs</b>: difficulty has to come from planning later in a level,
+                        which is much harder to design than a trap in the opening.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 04 RECOVERY ===== -->
+        <section class="cs-sec">
+            <div class="cs-wrap cs-grid">
+                <p class="cs-num">04</p>
+                <div class="cs-col">
+                    <h2 class="cs-h2">Stuck is never silent, and Hint never guesses.</h2>
+                    <p class="cs-p">Hint shows the first move of a shortest winning line, not a plausible one, so
+                        following it always finishes the level. If the board can no longer be won, it says so and
+                        points at Undo, counting down to the last position that could be.</p>
+                    <p class="cs-p">Solving every position also turned up 351 where you could still move, but only
+                        back and forth, and the game said nothing. Those now raise a <b>No moves left</b> card, and
+                        its Undo goes straight back to the last winnable board. Recovery is Undo or Restart: no lives,
+                        no ads, no reshuffles.</p>
+                    <p class="cs-cost"><b>What it costs</b>: honest help means the game has to know the answer. Hint
+                        is audited on all 22,815 reachable positions across the 20 levels.</p>
+                </div>
+            </div>
+            <div class="cs-stage cs-stage--forest cs-stage--tight">
+                <div class="cs-duo">
+                    <figure class="cs-phone">
+                        <img src="assets/gorilla-bloom/hint-undo.webp" width="600" height="1298" loading="lazy"
+                            alt="Gorilla Bloom level 16 after a losing move: a banner reads Can't win from here. Undo 1 move! and the tutorial arrow points at the Undo button">
+                        <figcaption class="cs-cap cs-cap--on-dark">A lost board: Hint points at Undo instead of
+                            guessing.</figcaption>
+                    </figure>
+                    <figure class="cs-phone">
+                        <img src="assets/gorilla-bloom/no-moves.webp" width="600" height="1298" loading="lazy"
+                            alt="Gorilla Bloom No moves left card over a dimmed board: You've run out of possible moves, with an Undo 2 moves button and a Restart level button">
+                        <figcaption class="cs-cap cs-cap--on-dark">Nothing can move. Undo 2 lands on the last winnable
+                            board.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 05 FTUE + PROGRESSION ===== -->
+        <section class="cs-sec">
+            <div class="cs-wrap cs-grid">
+                <p class="cs-num">05</p>
+                <div class="cs-col">
+                    <h2 class="cs-h2">The Forest Home teaches itself, once.</h2>
+                    <p class="cs-p">The first time you arrive with enough Leaves, the counter lights up, one line says
+                        what Leaves are for, and the tutorial arrow points at Build. Nothing is dimmed or blocked, and
+                        your first purchase ends it for good.</p>
+                    <p class="cs-p">It only appears when the first build is affordable. <b>A tutorial never asks for
+                        something the player can't do yet.</b> Five improvements later, the same glade is full:
+                        ferns, bamboo, a vine for the baby, the understory, the canopy.</p>
+                </div>
+            </div>
+            <div class="cs-stage cs-stage--forest cs-stage--tight">
+                <div class="cs-duo">
+                    <figure class="cs-phone">
+                        <img src="assets/gorilla-bloom/forest-home-first-visit.webp" width="600" height="1298"
+                            loading="lazy"
+                            alt="Gorilla Bloom Forest Home on a first visit: the family in a bare glade, a banner reading Use your Leaves to grow the family's home! and an arrow on the Build button for Fern Clearing">
+                        <figcaption class="cs-cap cs-cap--on-dark">First visit: one line, one arrow, nothing
+                            blocked.</figcaption>
+                    </figure>
+                    <figure class="cs-phone">
+                        <img src="assets/gorilla-bloom/forest-home-complete.webp" width="600" height="1298"
+                            loading="lazy"
+                            alt="Gorilla Bloom Forest Home complete: the same glade framed by ferns, bamboo, understory and canopy, the baby on a vine, and a card reading Forest Home complete!">
+                        <figcaption class="cs-cap cs-cap--on-dark">All five improvements, on the same glade.
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 06 WHAT IT TEACHES ===== -->
+        <section class="cs-sec">
+            <div class="cs-wrap cs-grid">
+                <p class="cs-num">06</p>
+                <div class="cs-col">
+                    <h2 class="cs-h2">What it teaches, it gets right.</h2>
+                    <p class="cs-p">Tap a gorilla on the family screen and it reacts, with a short fact about it from
+                        a carousel of fifteen: family groups, the silverback's role, nose prints as fingerprints.
+                        Naming the baby carries one line about Kwita Izina, Rwanda's yearly naming ceremony for baby
+                        gorillas.</p>
+                    <p class="cs-p">Only well-established facts, short enough to read between levels, and no
+                        statistics I can't stand behind.</p>
+                </div>
+            </div>
+            <div class="cs-stage cs-stage--forest cs-stage--tight">
+                <div class="cs-duo">
+                    <figure class="cs-phone">
+                        <img src="assets/gorilla-bloom/naming.webp" width="600" height="1298" loading="lazy"
+                            alt="Gorilla Bloom naming screen: A new gorilla has joined the family! above a Give her a name panel, with a line about Kwita Izina, Rwanda's naming ceremony for baby gorillas">
+                        <figcaption class="cs-cap cs-cap--on-dark">Naming the baby, with one line about Kwita Izina.
+                        </figcaption>
+                    </figure>
+                    <figure class="cs-phone">
+                        <img src="assets/gorilla-bloom/family.webp" width="600" height="1298" loading="lazy"
+                            alt="Gorilla Bloom family screen: the silverback Avishai, the mother Daphna and the baby Imena, above a Did you know? card about how mothers carry newborns">
+                        <figcaption class="cs-cap cs-cap--on-dark">Tap a gorilla for a fact about it.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 07 CLOSE ===== -->
+        <section class="cs-sec cs-sec--close">
+            <div class="cs-wrap cs-grid">
+                <p class="cs-num">07</p>
+                <div class="cs-col">
+                    <h2 class="cs-h2">The decision I'd defend</h2>
+                    <p class="cs-p">Making fairness a rule the build enforces, not a feeling I tune toward. A puzzle
+                        can be hard. It can't be a trap you only discover three moves later.</p>
+                    <p class="cs-p">Writing that down as three testable rules is what let the late levels get harder
+                        without getting cheaper. <b>The generator now refuses to ship a level that breaks
+                            them.</b></p>
+                    <p class="cs-status">Live in the browser, installable to a home screen, and playable offline once
+                        it has loaded. Twenty levels and one region: a complete vertical slice, not an app-store
+                        release.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="cs-wrap cs-end">
+            <h2 class="cs-end__title">Play it on your phone.</h2>
+            <p class="cs-end__text">It runs in the browser. Add it to your home screen and it keeps working
+                offline.</p>
+            <div class="cs-end__links">
+                <a href="https://gorilla-guardian.vercel.app/" target="_blank" rel="noreferrer" class="pg-btn">Play
+                    Gorilla Bloom <span class="pg-arrow" aria-hidden="true">&#8599;</span></a>
+                <a href="index.html#work" class="pg-link-underline">More work <span class="pg-arrow"
+                        aria-hidden="true">&rarr;</span></a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <span>&copy; 2026 Alon Iter</span>
+        </div>
+    </footer>
+
+    <script src="main.js?v=20260819-8" defer></script>
+</body>
+
+</html>
