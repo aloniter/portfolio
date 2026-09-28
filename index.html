@@ -33,7 +33,7 @@
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d786a'/%3E%3Ctext x='16' y='23' font-family='Sora,Arial,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 
-    <link rel="stylesheet" href="styles.css?v=20260927-1">
+    <link rel="stylesheet" href="styles.css?v=20260928-1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Manrope + JetBrains Mono carry the redesigned sections (hero, Boss Blocks,
@@ -67,9 +67,11 @@
     </div>
 
     <!-- ===== HERO =====
-         Type plane on the left, two flagship products on the right as equal
-         pillars. Each pillar is an un-rotated wrapper holding a rotated inner
-         element, so the artwork tilts without dragging anything else with it.
+         Type plane on the left, two products on the right as equal pillars:
+         Boss Blocks, and Gorilla Bloom as a living preview (its trailer).
+         Inspectley keeps its own section below and its case study. Each pillar
+         is an un-rotated wrapper holding a rotated inner element, so the
+         artwork tilts without dragging anything else with it.
          The two glass status labels that used to sit on the devices are gone:
          they covered the part of each screen worth looking at, and both facts
          they carried are stated again in their own section further down. -->
@@ -114,9 +116,10 @@
                 <div class="pg-pillar pg-pillar--a" data-break>
                     <div class="pg-pillar__tilt" data-pillar="a" data-parallax="-0.03" data-parallax-m="-0.025">
                         <!-- The only video with native `autoplay`: it is the first screen.
-                             Every video below the fold uses `data-autoplay` + preload="none",
-                             so main.js starts it on approach instead of the browser fetching
-                             it on page load (native autoplay overrides preload). -->
+                             Every other video uses `data-autoplay` + preload="none", so
+                             main.js starts it after load and on approach instead of the
+                             browser fetching it on page load (native autoplay overrides
+                             preload). -->
                         <video class="pg-pillar__media" autoplay muted loop playsinline preload="metadata"
                             poster="assets/blockquest/v2/fight-poster.jpg"
                             aria-label="Boss Blocks gameplay: an 8x8 puzzle board, the boss health bar above it, and a three-piece tray below">
@@ -127,9 +130,20 @@
 
                 <div class="pg-pillar pg-pillar--b" data-break>
                     <div class="pg-pillar__tilt" data-pillar="b" data-parallax="-0.055" data-parallax-m="-0.045">
-                        <img class="pg-pillar__media" src="assets/inspectley/03_annotate.jpg?v=20260816" width="720"
-                            height="1526"
-                            alt="Inspectley annotation screen: a real defect circled in red on a photo, with a written note beneath it">
+                        <!-- Gorilla Bloom's trailer, the same file as its case-study hero, so
+                             a click through plays from cache. No native autoplay and no
+                             preload: main.js starts it once the page has loaded, so none of
+                             its 3 MB competes with the first screen. The poster is its first
+                             frame, so playback starts without a jump; `data-still` is its
+                             closing title card, shown instead when it will not play (reduced
+                             motion, blocked autoplay, a failed decode), because a still of
+                             the fading forest would not say which game this is. -->
+                        <video class="pg-pillar__media" data-autoplay muted loop playsinline preload="none"
+                            poster="assets/gorilla-bloom/trailer-poster.webp"
+                            data-still="assets/gorilla-bloom/trailer-still.webp"
+                            aria-label="Gorilla Bloom trailer: a fading forest blooms again, a level of fruit baskets is sorted, the valley map comes back to life, the Forest Home grows, the gorilla family appears, and it ends on the title screen">
+                            <source src="assets/gorilla-bloom/trailer.mp4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
             </div>
@@ -482,8 +496,13 @@
             <ol class="mini">
                 <li class="mini-row reveal" data-break>
                     <div class="mini-media">
-                        <img src="assets/iron-dom/gameplay-preview.gif" width="220" height="476" loading="lazy"
-                            alt="Iron Dom gameplay: interceptors defending a city during an active wave">
+                        <!-- The same 18 frames as the case study's GIF, as a 144 KB clip
+                             instead of a 937 KB GIF; the poster is its first frame. -->
+                        <video data-autoplay muted loop playsinline preload="none"
+                            poster="assets/iron-dom/gameplay-poster.jpg"
+                            aria-label="Iron Dom gameplay: interceptors defending a city during an active wave">
+                            <source src="assets/iron-dom/gameplay-preview.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="mini-body">
                         <h3>Iron Dom</h3>
@@ -627,7 +646,7 @@
         </div>
     </footer>
 
-    <script src="main.js?v=20260819-1" defer></script>
+    <script src="main.js?v=20260928-1" defer></script>
     <!-- Break Mode: an opt-in destruction layer over the surfaces marked
          `data-break`. This file is a button and a loader; the simulation and
          its stylesheet are fetched only if someone presses it. -->

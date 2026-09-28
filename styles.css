@@ -850,8 +850,8 @@ button:focus-visible {
     background: #0d121b;
 }
 
-/* Beat Runner and House Party VR are looping clips here, Iron Dom is still a
-   GIF, so both element types get the same box. */
+/* All three are looping clips; images keep the same box because a clip that
+   cannot play is swapped for its poster (main.js). */
 .mini-media img,
 .mini-media video {
     width: 100%;
@@ -863,9 +863,11 @@ button:focus-visible {
 /* Iron Dom is the only one still needing a focal point: it sat at 76%, which
    framed the office windows and cut the interception out, while 45% catches the
    interceptor trail against the skyline (higher again puts the score popups in
-   charge and loses the city). The other two are clips cropped to this slot's own
-   aspect, so they sit centred and nothing is trimmed. */
-.mini-row:nth-child(1) .mini-media img { object-position: 50% 45%; }
+   charge and loses the city). Its clip keeps the GIF's full portrait frame; the
+   other two are cropped to this slot's own aspect, so they sit centred and
+   nothing is trimmed. */
+.mini-row:nth-child(1) .mini-media img,
+.mini-row:nth-child(1) .mini-media video { object-position: 50% 45%; }
 
 .mini-body h3 {
     font-size: 1.18rem;
@@ -2071,6 +2073,16 @@ button:focus-visible {
 .pg-pillar--b .pg-pillar__media {
     border-radius: 38px;
     box-shadow: 0 3px 8px rgba(15, 20, 22, 0.12), 0 46px 100px rgba(18, 30, 38, 0.26);
+    /* Gorilla Bloom's trailer is 9:16, wider than the phone screen this slot
+       was drawn for. A fixed 1:2 box keeps the pillar level with Boss Blocks
+       and trims ~5.5% off each side, which is only the trailer's blurred
+       backdrop (its captions and framed screens sit well inside). The box
+       holds before the poster or the video has a size, so nothing moves when
+       either arrives, and the fill is the poster's own tone, not an empty
+       card, until it paints. */
+    aspect-ratio: 1 / 2;
+    object-fit: cover;
+    background: #413729;
 }
 
 /* The two devices deliberately cross this rule */
