@@ -60,11 +60,13 @@
         });
 
         /* Replace a video that cannot play with its own poster, so a broken or
-           unsupported source never leaves a black rectangle in the layout. */
+           unsupported source never leaves a black rectangle in the layout. A
+           clip whose first frame is not the one that stands for it names a
+           better still in `data-still`. */
         function fallback(video) {
             if (video.dataset.failed === '1') return;
             video.dataset.failed = '1';
-            var poster = video.getAttribute('poster');
+            var poster = video.getAttribute('data-still') || video.getAttribute('poster');
             if (!poster || !video.parentNode) return;
             var img = document.createElement('img');
             img.src = poster;
@@ -84,7 +86,15 @@
                 return; /* poster stays visible */
             }
             if (promise && typeof promise.catch === 'function') {
-                promise.catch(function () { /* autoplay blocked: poster stays visible */ });
+                promise.catch(function (err) {
+                    /* Autoplay blocked (iOS Low Power Mode, for one): the poster
+                       stays up, as the clip's own still if it names one. An
+                       AbortError is only a pause racing the start, so it leaves
+                       the poster alone. */
+                    if (err && err.name === 'NotAllowedError' && video.dataset.still) {
+                        video.poster = video.dataset.still;
+                    }
+                });
             }
         }
 
@@ -97,12 +107,25 @@
             videos.forEach(function (video) {
                 video.removeAttribute('autoplay');
                 safePause(video);
+                if (video.dataset.still) video.poster = video.dataset.still;
             });
             return;
         }
 
+        /* Nothing started here competes with the page's own first load: clips
+           wait for `load` behind their posters. The hero's native-autoplay clip
+           is unaffected; this is what keeps the 3 MB Gorilla Bloom trailer next
+           to it off the first screen's bandwidth. */
+        function afterLoad(fn) {
+            if (document.readyState === 'complete') {
+                fn();
+            } else {
+                window.addEventListener('load', fn);
+            }
+        }
+
         if (!hasIO) {
-            videos.forEach(safePlay);
+            afterLoad(function () { videos.forEach(safePlay); });
             return;
         }
 
@@ -137,7 +160,9 @@
             });
         }, { threshold: thresholds });
 
-        videos.forEach(function (video) { observer.observe(video); });
+        afterLoad(function () {
+            videos.forEach(function (video) { observer.observe(video); });
+        });
 
         /* Background tabs and bfcache restores: never leave a clip running out
            of sight, and pick the visible one back up on return. */
